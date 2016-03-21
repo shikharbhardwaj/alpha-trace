@@ -102,42 +102,42 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/demo.dir/rule:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/demo.dir/rule
-.PHONY : src/CMakeFiles/demo.dir/rule
+src/CMakeFiles/alpha.dir/rule:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/alpha.dir/rule
+.PHONY : src/CMakeFiles/alpha.dir/rule
 
 # Convenience name for target.
-demo: src/CMakeFiles/demo.dir/rule
-.PHONY : demo
+alpha: src/CMakeFiles/alpha.dir/rule
+.PHONY : alpha
 
 # fast build rule for target.
-demo/fast:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/build
-.PHONY : demo/fast
+alpha/fast:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/build
+.PHONY : alpha/fast
 
-demo.o: demo.cpp.o
-.PHONY : demo.o
+alpha.o: alpha.cpp.o
+.PHONY : alpha.o
 
 # target to build an object file
-demo.cpp.o:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.o
-.PHONY : demo.cpp.o
+alpha.cpp.o:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/alpha.cpp.o
+.PHONY : alpha.cpp.o
 
-demo.i: demo.cpp.i
-.PHONY : demo.i
+alpha.i: alpha.cpp.i
+.PHONY : alpha.i
 
 # target to preprocess a source file
-demo.cpp.i:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.i
-.PHONY : demo.cpp.i
+alpha.cpp.i:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/alpha.cpp.i
+.PHONY : alpha.cpp.i
 
-demo.s: demo.cpp.s
-.PHONY : demo.s
+alpha.s: alpha.cpp.s
+.PHONY : alpha.s
 
 # target to generate assembly for a file
-demo.cpp.s:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.s
-.PHONY : demo.cpp.s
+alpha.cpp.s:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/alpha.cpp.s
+.PHONY : alpha.cpp.s
 
 # Help Target
 help:
@@ -145,12 +145,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... demo"
+	@echo "... alpha"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... demo.o"
-	@echo "... demo.i"
-	@echo "... demo.s"
+	@echo "... alpha.o"
+	@echo "... alpha.i"
+	@echo "... alpha.s"
 .PHONY : help
 
 

@@ -102,17 +102,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named demo
+# Target rules for targets named alpha
 
 # Build rule for target.
-demo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 demo
-.PHONY : demo
+alpha: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 alpha
+.PHONY : alpha
 
 # fast build rule for target.
-demo/fast:
-	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/build
-.PHONY : demo/fast
+alpha/fast:
+	$(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/build
+.PHONY : alpha/fast
 
 # Help Target
 help:
@@ -122,7 +122,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... demo"
+	@echo "... alpha"
 .PHONY : help
 
 

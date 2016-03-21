@@ -7,14 +7,12 @@
 #IncludeRegexTransform: 
 
 ../src/include/math_alpha.hpp
-array
+stdexcept
 -
 algorithm
 -
-stdexcept
--
 
-/home/bluefog/Documents/dev/alpha/src/demo.cpp
+/home/bluefog/Documents/dev/alpha/src/alpha.cpp
 iostream
 -
 math_alpha.hpp

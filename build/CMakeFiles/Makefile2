@@ -59,11 +59,11 @@ CMAKE_BINARY_DIR = /home/bluefog/Documents/dev/alpha/build
 # Directory level rules for directory src
 
 # Convenience name for "all" pass in the directory.
-src/all: src/CMakeFiles/demo.dir/all
+src/all: src/CMakeFiles/alpha.dir/all
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
-src/clean: src/CMakeFiles/demo.dir/clean
+src/clean: src/CMakeFiles/alpha.dir/clean
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
@@ -71,38 +71,38 @@ src/preinstall:
 .PHONY : src/preinstall
 
 #=============================================================================
-# Target rules for target src/CMakeFiles/demo.dir
+# Target rules for target src/CMakeFiles/alpha.dir
 
 # All Build rule for target.
-src/CMakeFiles/demo.dir/all:
-	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/depend
-	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/build
+src/CMakeFiles/alpha.dir/all:
+	$(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/depend
+	$(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  1
-	@echo "Built target demo"
-.PHONY : src/CMakeFiles/demo.dir/all
+	@echo "Built target alpha"
+.PHONY : src/CMakeFiles/alpha.dir/all
 
 # Include target in all.
-all: src/CMakeFiles/demo.dir/all
+all: src/CMakeFiles/alpha.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-src/CMakeFiles/demo.dir/rule: cmake_check_build_system
+src/CMakeFiles/alpha.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/demo.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/alpha.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 0
-.PHONY : src/CMakeFiles/demo.dir/rule
+.PHONY : src/CMakeFiles/alpha.dir/rule
 
 # Convenience name for target.
-demo: src/CMakeFiles/demo.dir/rule
-.PHONY : demo
+alpha: src/CMakeFiles/alpha.dir/rule
+.PHONY : alpha
 
 # clean rule for target.
-src/CMakeFiles/demo.dir/clean:
-	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/clean
-.PHONY : src/CMakeFiles/demo.dir/clean
+src/CMakeFiles/alpha.dir/clean:
+	$(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/clean
+.PHONY : src/CMakeFiles/alpha.dir/clean
 
 # clean rule for target.
-clean: src/CMakeFiles/demo.dir/clean
+clean: src/CMakeFiles/alpha.dir/clean
 .PHONY : clean
 
 #=============================================================================

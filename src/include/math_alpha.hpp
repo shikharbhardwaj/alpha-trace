@@ -12,28 +12,40 @@
 //===----------------------------------------------------------------------===//
 #ifndef math_alpha_hpp
 #define math_alpha_hpp
-#include <array>
-#include <algorithm>
 #include <stdexcept>
+#include <algorithm>
 namespace alpha {
-
-template <unsigned int size, typename T> class vec {
-    std::array<T, size> values;
-
+template <typename T> class vec3 {
   public:
-    vec() { std::fill(values.begin(), values.end(), 0); }
-    vec(const T &xx) { std::fill(values.begin(), values.end(), xx); }
-    vec(std::initializer_list<T> xs) {
-        int id = 0;
-        if (size < xs.size()) {
+    T x, y, z;
+    vec3() = default;
+    vec3(const T &xx) : x(xx), y(xx), z(xx) {}
+    vec3(const T &xx, const T &yy, const T &zz) : x(xx), y(yy), z(zz) {}
+    vec3(std::initializer_list<T> xs) {
+        if (xs.size() > 3) {
             throw std::length_error(
-                "Number of the initializers exceeds the length of the vector");
-        }
-        for (auto elem : xs) {
-            values[id++] = elem;
+                "Number of elements in initializer greater than 3");
         }
     }
+    T mod() { return sqrt(x * x, y * y, z * z); }
+    T dot(const vec3<T> &v) { return v.x * x + v.y * y + v.z * z; }
+    void norm() {
+        T mag = mod();
+        if (mag != 0) {
+            T inv_mag = 1.0 / mag;
+            x *= inv_mag, y *= inv_mag, z *= inv_mag;
+        }
+    }
+    vec3<T> cross(const vec3<T> &v) {
+        return vec3<T>(y * v.z - z * v.y, x * v.z - z * v.x, x * v.y - y * v.x);
+    }
+    vec3<T> operator+(const vec3<T> &v) const {
+        return vec3<T>(x + v.x, y + v.y, z + v.z);
+    }
+    vec3<T> operator-(const vec3<T> &v) const {
+        return vec3<T>(x - v.x, y - v.y, z - v.z);
+    }
+    vec3<T> operator*(const T &v) const { return vec3<T>(x * v, y * v, z * v); }
 };
-using vec3f = vec<3, float>;
 }
 #endif

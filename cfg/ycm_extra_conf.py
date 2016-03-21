@@ -39,19 +39,19 @@ flags = [
 '-Wextra',
 '-Werror',
 '-std=c++14',
+'-x',
+'c++',
+'-isystem',
+'../BoostParts',
+'-isystem',
+'../llvm/tools/clang/include',
 '-I',
 '../src/include',
-'../include',
 './include',
-'.',
-'/usr/include',
+'./',
 '/usr/include/c++/4.8.4',
-'/usr/local/include',
 '-isystem',
-# '-isystem',
-# './tests/gmock',
-#'-isystem',
-#'./tests/gmock/include',
+'/home/shikhar/Documents/dev/breakout/src/include',
 ]
 
 
@@ -72,7 +72,7 @@ if os.path.exists( compilation_database_folder ):
 else:
   database = None
 
-SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm', '.hpp', '.h' ]
+SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 
 def DirectoryOfThisScript():
   return os.path.dirname( os.path.abspath( __file__ ) )
