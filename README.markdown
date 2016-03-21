@@ -1,23 +1,42 @@
-##Project Name
+##Alpha trace
 
-A dummy project directory for C++ projects.
+A raytracer written in C++
 
 ##Directory structure
 
- - *bin*: The output executables go here, both for the app and for any tests and spikes.
- - *build*: This folder contains all object files, and is removed on a clean.
- - *doc*: Any notes, like my assembly notes and configuration files, are here.
- - *include*: All project header files. All necessary third-party header files that do not exist under /usr/local/include are also placed here.
- - *lib*: Any libs that get compiled by the project, third party or any needed in development. Prior to deployment, third party libraries get moved to /usr/local/lib where they belong, leaving the project clean enough to compile on our Linux deployment servers. I really use this to test different library versions than the standard.
- - *spike*: I often write smaller classes or files to test technologies or ideas, and keep them around for future reference. They go here, where they do not dilute the real application’s files, but can still be found later.
- - *src*: The application and only the application’s source files.
- - *test*: All test code files. You do write tests, no?
+ - *build*: This folder contains all build files, and is removed on a clean.
+            Executables live in build/bin, compiled libs in build/lib.
+ - *doc*: Any notes, like my assembly notes, are here.
+ - *src*: This includes all the source files which belong to the project,
+   headers live in the inlcude subdir.
+ - *spike*: Any small testcases, ideas or implementations live here
+ - *thirdparty*: All thirdparty headers, libs etc live here.
+ - *cfg*: Custom config for the project.
+ - *test*: All test code files.
 
-##Contributing
+##Building
 
+####Requirements
+ * CMake (version 2.6 or greater)
+ * make
+ * C++11 compliant compiler(tested with g++ & clang)
 
-##Inspiration
+####Steps
+1. `cd build`
+2. `cmake ..`
+3. `make`
 
+The executables are placed in `build/bin`, the libraries are placed in
+`build/lib`.
 
 ##Dev environment
+
+The ycm_extra_conf.py is placed in the cfg folder. To automatically source this
+file when in the project directory, add the following to your `vimrc`
+
+    if filereadable("../cfg/ycm_extra_conf.py")
+        let g:ycm_global_ycm_extra_conf = '../cfg/ycm_extra_conf.py'
+    else
+        let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+    endif
 
