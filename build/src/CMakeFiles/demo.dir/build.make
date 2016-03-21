@@ -52,37 +52,37 @@ include src/CMakeFiles/demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/demo.dir/flags.make
 
-src/CMakeFiles/demo.dir/demo.cxx.o: src/CMakeFiles/demo.dir/flags.make
-src/CMakeFiles/demo.dir/demo.cxx.o: ../src/demo.cxx
+src/CMakeFiles/demo.dir/demo.cpp.o: src/CMakeFiles/demo.dir/flags.make
+src/CMakeFiles/demo.dir/demo.cpp.o: ../src/demo.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/CMakeFiles/demo.dir/demo.cxx.o"
-	cd /home/bluefog/Documents/dev/alpha/build/src && /usr/lib/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/demo.cxx.o -c /home/bluefog/Documents/dev/alpha/src/demo.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object src/CMakeFiles/demo.dir/demo.cpp.o"
+	cd /home/bluefog/Documents/dev/alpha/build/src && /usr/lib/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/demo.cpp.o -c /home/bluefog/Documents/dev/alpha/src/demo.cpp
 
-src/CMakeFiles/demo.dir/demo.cxx.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/demo.cxx.i"
-	cd /home/bluefog/Documents/dev/alpha/build/src && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/bluefog/Documents/dev/alpha/src/demo.cxx > CMakeFiles/demo.dir/demo.cxx.i
+src/CMakeFiles/demo.dir/demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/demo.cpp.i"
+	cd /home/bluefog/Documents/dev/alpha/build/src && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/bluefog/Documents/dev/alpha/src/demo.cpp > CMakeFiles/demo.dir/demo.cpp.i
 
-src/CMakeFiles/demo.dir/demo.cxx.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/demo.cxx.s"
-	cd /home/bluefog/Documents/dev/alpha/build/src && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/bluefog/Documents/dev/alpha/src/demo.cxx -o CMakeFiles/demo.dir/demo.cxx.s
+src/CMakeFiles/demo.dir/demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/demo.cpp.s"
+	cd /home/bluefog/Documents/dev/alpha/build/src && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/bluefog/Documents/dev/alpha/src/demo.cpp -o CMakeFiles/demo.dir/demo.cpp.s
 
-src/CMakeFiles/demo.dir/demo.cxx.o.requires:
-.PHONY : src/CMakeFiles/demo.dir/demo.cxx.o.requires
+src/CMakeFiles/demo.dir/demo.cpp.o.requires:
+.PHONY : src/CMakeFiles/demo.dir/demo.cpp.o.requires
 
-src/CMakeFiles/demo.dir/demo.cxx.o.provides: src/CMakeFiles/demo.dir/demo.cxx.o.requires
-	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.o.provides.build
-.PHONY : src/CMakeFiles/demo.dir/demo.cxx.o.provides
+src/CMakeFiles/demo.dir/demo.cpp.o.provides: src/CMakeFiles/demo.dir/demo.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.o.provides.build
+.PHONY : src/CMakeFiles/demo.dir/demo.cpp.o.provides
 
-src/CMakeFiles/demo.dir/demo.cxx.o.provides.build: src/CMakeFiles/demo.dir/demo.cxx.o
+src/CMakeFiles/demo.dir/demo.cpp.o.provides.build: src/CMakeFiles/demo.dir/demo.cpp.o
 
 # Object files for target demo
 demo_OBJECTS = \
-"CMakeFiles/demo.dir/demo.cxx.o"
+"CMakeFiles/demo.dir/demo.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
-bin/demo: src/CMakeFiles/demo.dir/demo.cxx.o
+bin/demo: src/CMakeFiles/demo.dir/demo.cpp.o
 bin/demo: src/CMakeFiles/demo.dir/build.make
 bin/demo: src/CMakeFiles/demo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../bin/demo"
@@ -92,7 +92,7 @@ bin/demo: src/CMakeFiles/demo.dir/link.txt
 src/CMakeFiles/demo.dir/build: bin/demo
 .PHONY : src/CMakeFiles/demo.dir/build
 
-src/CMakeFiles/demo.dir/requires: src/CMakeFiles/demo.dir/demo.cxx.o.requires
+src/CMakeFiles/demo.dir/requires: src/CMakeFiles/demo.dir/demo.cpp.o.requires
 .PHONY : src/CMakeFiles/demo.dir/requires
 
 src/CMakeFiles/demo.dir/clean:

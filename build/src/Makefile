@@ -115,29 +115,29 @@ demo/fast:
 	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/build
 .PHONY : demo/fast
 
-demo.o: demo.cxx.o
+demo.o: demo.cpp.o
 .PHONY : demo.o
 
 # target to build an object file
-demo.cxx.o:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.o
-.PHONY : demo.cxx.o
+demo.cpp.o:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.o
+.PHONY : demo.cpp.o
 
-demo.i: demo.cxx.i
+demo.i: demo.cpp.i
 .PHONY : demo.i
 
 # target to preprocess a source file
-demo.cxx.i:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.i
-.PHONY : demo.cxx.i
+demo.cpp.i:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.i
+.PHONY : demo.cpp.i
 
-demo.s: demo.cxx.s
+demo.s: demo.cpp.s
 .PHONY : demo.s
 
 # target to generate assembly for a file
-demo.cxx.s:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.s
-.PHONY : demo.cxx.s
+demo.cpp.s:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cpp.s
+.PHONY : demo.cpp.s
 
 # Help Target
 help:

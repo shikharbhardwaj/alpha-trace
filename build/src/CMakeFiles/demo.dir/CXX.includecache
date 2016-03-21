@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/bluefog/Documents/dev/alpha/src/demo.cxx
+../src/include/math_alpha.hpp
+array
+-
+algorithm
+-
+stdexcept
+-
+
+/home/bluefog/Documents/dev/alpha/src/demo.cpp
+math_alpha.hpp
+/home/bluefog/Documents/dev/alpha/src/math_alpha.hpp
 iostream
 -
 
