@@ -45,7 +45,7 @@ CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 CMAKE_SOURCE_DIR = /home/bluefog/Documents/dev/alpha
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bluefog/Documents/dev/alpha
+CMAKE_BINARY_DIR = /home/bluefog/Documents/dev/alpha/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,14 +72,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/CMakeFiles /home/bluefog/Documents/dev/alpha/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/CMakeFiles 0
+	cd /home/bluefog/Documents/dev/alpha/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles /home/bluefog/Documents/dev/alpha/build/src/CMakeFiles/progress.marks
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -88,31 +88,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/bluefog/Documents/dev/alpha/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named demo
+# Convenience name for target.
+src/CMakeFiles/demo.dir/rule:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/demo.dir/rule
+.PHONY : src/CMakeFiles/demo.dir/rule
 
-# Build rule for target.
-demo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 demo
+# Convenience name for target.
+demo: src/CMakeFiles/demo.dir/rule
 .PHONY : demo
 
 # fast build rule for target.
 demo/fast:
-	$(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/build
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/build
 .PHONY : demo/fast
+
+demo.o: demo.cxx.o
+.PHONY : demo.o
+
+# target to build an object file
+demo.cxx.o:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.o
+.PHONY : demo.cxx.o
+
+demo.i: demo.cxx.i
+.PHONY : demo.i
+
+# target to preprocess a source file
+demo.cxx.i:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.i
+.PHONY : demo.cxx.i
+
+demo.s: demo.cxx.s
+.PHONY : demo.s
+
+# target to generate assembly for a file
+demo.cxx.s:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f src/CMakeFiles/demo.dir/build.make src/CMakeFiles/demo.dir/demo.cxx.s
+.PHONY : demo.cxx.s
 
 # Help Target
 help:
@@ -120,9 +145,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... demo"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... demo"
+	@echo "... demo.o"
+	@echo "... demo.i"
+	@echo "... demo.s"
 .PHONY : help
 
 
@@ -134,6 +162,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/bluefog/Documents/dev/alpha/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
