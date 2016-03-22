@@ -7,8 +7,6 @@
 #IncludeRegexTransform: 
 
 ../src/include/math_alpha.hpp
-array
--
 iostream
 -
 
