@@ -14,6 +14,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
 # Configure sources, includes and libs
 # Add the include directory
 include_directories(${PROJECT_SOURCE_DIR}/src/include)
+include_directories(${PROJECT_SOURCE_DIR}/thirdparty)
 # Add the link directory
 link_directories(${PROJECT_SOURCE_DIR}/src/lib)
 

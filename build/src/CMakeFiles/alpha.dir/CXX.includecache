@@ -7,9 +7,9 @@
 #IncludeRegexTransform: 
 
 ../src/include/math_alpha.hpp
-stdexcept
+array
 -
-algorithm
+iostream
 -
 
 /home/bluefog/Documents/dev/alpha/src/alpha.cpp

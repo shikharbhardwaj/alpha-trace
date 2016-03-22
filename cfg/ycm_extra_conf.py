@@ -48,6 +48,7 @@ flags = [
 '-I',
 '../src/include',
 './include',
+'../thirdparty',
 './',
 '/usr/include/c++/4.8.4',
 '-isystem',
