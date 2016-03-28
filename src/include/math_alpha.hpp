@@ -22,7 +22,7 @@ template <typename T> class vec3 {
     vec3() : x(0), y(0), z(0) {}
     vec3(const T &xx) : x(xx), y(xx), z(xx) {}
     vec3(const T &xx, const T &yy, const T &zz) : x(xx), y(yy), z(zz) {}
-    T mod() { return sqrt(x * x, y * y, z * z); }
+    T mod() { return sqrt(x * x + y * y + z * z); }
     T dot(const vec3<T> &v) { return v.x * x + v.y * y + v.z * z; }
     void normalize() {
         T mag = mod();
@@ -40,7 +40,21 @@ template <typename T> class vec3 {
     vec3<T> operator-(const vec3<T> &v) const {
         return vec3<T>(x - v.x, y - v.y, z - v.z);
     }
-    vec3<T> operator*(const T &v) const { return vec3<T>(x * v, y * v, z * v); }
+    vec3<T> operator*(T v) const { return vec3<T>(x * v, y * v, z * v); }
+    T operator[](const size_t id) const {
+        switch (id) {
+        case 0:
+            return x;
+            break;
+        case 1:
+            return y;
+            break;
+        case 2:
+            return z;
+            break;
+        }
+        return int();
+    }
 };
 template <typename T> class mat44 {
     // Represents a 4x4 matrix
@@ -123,5 +137,6 @@ template <typename T>
 void spherical_to_cartesian(const float &theta, const float &phi) {
     return vec3<T>(sin(theta) * cos(phi), sin(theta) * sin(phi), cos(theta));
 }
+// End namespace alpha
 }
 #endif
