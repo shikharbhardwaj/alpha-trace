@@ -79,5 +79,28 @@ int main() {
     expected(test_vec[0], xx);
     expected(test_vec[1], yy);
     expected(test_vec[2], zz);
+    std::cout << "\n\t\tTesting " << colours::cyan << "alpha::mat44"
+              << colours::reset;
+    alpha::mat44<float> test_mat{{dist(gen), dist(gen), dist(gen), dist(gen)},
+                                 {dist(gen), dist(gen), dist(gen), dist(gen)},
+                                 {dist(gen), dist(gen), dist(gen), dist(gen)},
+                                 {dist(gen), dist(gen), dist(gen), dist(gen)}};
+    alpha::mat44<float> test_mat2 = test_mat;
+    test_mat = test_mat.transpose();
+    bool found = true;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (test_mat2[j][i] != test_mat[i][j]) {
+                found = false;
+                break;
+            }
+        }
+    }
+    std::cout << "\nalpha::mat44::transpose\t:\t";
+    if (!found) {
+        expected(1, 0);
+    } else {
+        expected(0, 0);
+    }
     std::cout << std::endl;
 }

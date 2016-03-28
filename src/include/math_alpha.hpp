@@ -116,7 +116,7 @@ template <typename T> class mat44 {
         dst.y = src.x * M[0][1] + src.y * M[1][1] + src.z * M[2][1];
         dst.z = src.x * M[0][2] + src.y * M[1][2] + src.z * M[2][2];
     }
-    void transpose() const {
+    mat44<T> transpose() const {
         // Return the transpose of this matrix
         return mat44{{M[0][0], M[1][0], M[2][0], M[3][0]},
                      {M[0][1], M[1][1], M[2][1], M[3][1]},
@@ -128,9 +128,13 @@ template <typename T> class mat44 {
         // cofactor matrix and compute the determinant of the matrix
         // The inverse is the adjoint divided by the determinant of the matrix
     }
-    void determinant() const {
+    T determinant() const {
         // Expand along any row/column, find the sum of all the cofactors of the
         // elements in those rows multiplies the elements of the rows
+        mat44 operation = *(this);
+        T multiplier = 1.0 / operation[0][0];
+        operation[0][0] *= multiplier;
+        return T();
     }
 };
 template <typename T>
