@@ -4,16 +4,19 @@
 #include <random>
 #include <limits>
 // Tests for the math library
+bool fail = false;
 std::random_device rd;
 std::mt19937 gen(rd());
 void ok() { std::cout << colours::green << "OK ✓ " << colours::reset; }
 void nok() { std::cout << colours::red << "ERROR ❌ " << colours::reset; }
 template <typename T> void expected(T a, T b) {
-    if (fabs(fabs(a) - fabs(b)) <= std::numeric_limits<T>::epsilon()) {
+    if (alpha::is_equal(a, b)) {
         ok();
     } else {
         nok();
-        std::cout << " Expected : " << a << ", got : " << b << " ";
+        fail = true;
+        std::cout << "\n\tExpected : " << a << ", got : " << b << " ";
+        std::cout << "Δ = " << a - b;
     }
 }
 int main() {
@@ -22,14 +25,14 @@ int main() {
     alpha::vec3<float> test_vec(dist(gen), dist(gen), dist(gen));
     std::cout << "\n\t\tTesting " << colours::cyan << "alpha::vec3"
               << colours::reset;
-    std::cout << "\nalpha::vec3::mod \t:\t";
+    std::cout << "\nalpha::vec3::mod \t\t:\t";
     float x, y, z;
     x = test_vec[0];
     y = test_vec[1];
     z = test_vec[2];
     expected(test_vec.mod(), float(sqrt(x * x + y * y + z * z)));
     float multiplier = dist(gen);
-    std::cout << "\nalpha::vec3::operator* \t:\t";
+    std::cout << "\nalpha::vec3::operator* \t\t:\t";
     test_vec = test_vec * multiplier;
     x *= multiplier;
     y *= multiplier;
@@ -37,7 +40,7 @@ int main() {
     expected(test_vec[0], x);
     expected(test_vec[1], y);
     expected(test_vec[2], z);
-    std::cout << "\nalpha::vec3::normalize \t:\t";
+    std::cout << "\nalpha::vec3::normalize \t\t:\t";
     float inv_mag = 1.0 / test_vec.mod();
     test_vec.normalize();
     x *= inv_mag;
@@ -46,14 +49,14 @@ int main() {
     expected(test_vec[0], x);
     expected(test_vec[1], y);
     expected(test_vec[2], z);
-    std::cout << "\nalpha::vec3::dot \t:\t";
+    std::cout << "\nalpha::vec3::dot \t\t:\t";
     alpha::vec3<float> ultimate(dist(gen), dist(gen), dist(gen));
     x *= ultimate[0];
     y *= ultimate[1];
     z *= ultimate[2];
     expected(test_vec.dot(ultimate), x + y + z);
     test_vec = alpha::vec3<float>(x, y, z);
-    std::cout << "\nalpha::vec3::operator+ \t:\t";
+    std::cout << "\nalpha::vec3::operator+ \t\t:\t";
     test_vec = test_vec + ultimate;
     x += ultimate[0];
     y += ultimate[1];
@@ -61,7 +64,7 @@ int main() {
     expected(test_vec[0], x);
     expected(test_vec[1], y);
     expected(test_vec[2], z);
-    std::cout << "\nalpha::vec3::operator- \t:\t";
+    std::cout << "\nalpha::vec3::operator- \t\t:\t";
     ultimate = alpha::vec3<float>(dist(gen), dist(gen), dist(gen));
     test_vec = test_vec - ultimate;
     x -= ultimate[0];
@@ -70,7 +73,7 @@ int main() {
     expected(test_vec[0], x);
     expected(test_vec[1], y);
     expected(test_vec[2], z);
-    std::cout << "\nalpha::vec3::cross \t:\t";
+    std::cout << "\nalpha::vec3::cross \t\t:\t";
     float xx, yy, zz;
     xx = y * ultimate[2] - z * ultimate[1];
     yy = x * ultimate[2] - z * ultimate[0];
@@ -96,11 +99,22 @@ int main() {
             }
         }
     }
-    std::cout << "\nalpha::mat44::transpose\t:\t";
+    std::cout << "\nalpha::mat44::transpose\t\t:\t";
     if (!found) {
         expected(1, 0);
     } else {
         expected(0, 0);
+    }
+    std::cout << "\nalpha::mat44::determinant\t:\t";
+    alpha::mat44<float> sample{
+        {3, -2, 1, 2}, {2, 3, -2, 4}, {3, 2, 3, 4}, {-2, 4, 0, 5}};
+    expected(sample.determinant(), float(286));
+    if (!fail) {
+        std::cout << "\n\n" << colours::green << "[OK] " << colours::reset
+                  << "All tests successful";
+    } else {
+        std::cout << "\n\n" << colours::red << "[ERROR] " << colours::reset
+                  << "Some tests failed";
     }
     std::cout << std::endl;
 }

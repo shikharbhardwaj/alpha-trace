@@ -13,8 +13,19 @@
 #ifndef math_alpha_hpp
 #define math_alpha_hpp
 #include <iostream>
+#include <array>
 #include <cmath>
+#include <limits>
 namespace alpha {
+template <typename T> bool is_equal(T a, T b) {
+    // Return true if the relative error is less than the system epsilon
+    if (fabs(fabs(a) - fabs(b)) / fabs(a) <=
+            std::numeric_limits<T>::epsilon() ||
+        a == b) {
+        return true;
+    }
+    return false;
+}
 template <typename T> class vec3 {
     // A 3 tuple
   public:
@@ -60,6 +71,7 @@ template <typename T> class mat44 {
     // Represents a 4x4 matrix
     // Default initialize the matrix to a unit matrix
     T M[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
+    static const size_t rows = 4, cols = 4;
 
   public:
     mat44() = default;
@@ -124,17 +136,44 @@ template <typename T> class mat44 {
                      {M[0][3], M[1][3], M[2][3], M[3][3]}};
     }
     void inverse() const {
+        // TODO: make this work
         // Basic algorithm is to find the adjoint ie. the transpose of the
         // cofactor matrix and compute the determinant of the matrix
-        // The inverse is the adjoint divided by the determinant of the matrix
+        // The inverse is the adjoint divided by the determinant of the
+        // matrix
     }
     T determinant() const {
-        // Expand along any row/column, find the sum of all the cofactors of the
-        // elements in those rows multiplies the elements of the rows
+        // Use the row echelon form of the matrix and expand along the first
+        // column
+        std::array<T, 4> multipliers;
+        T ans = 1.0;
         mat44 operation = *(this);
-        T multiplier = 1.0 / operation[0][0];
-        operation[0][0] *= multiplier;
-        return T();
+        for (size_t i = 0; i < cols; i++) {
+            // For each column, multiply the row containing the diagonal
+            // element
+            // with the value of the diagonal element
+            // Now use row transforms to convert the matrix to a row echelon
+            // format
+            if (is_equal(operation[i][i], T(0.0))) {
+                // Houston, we have a problem
+                break;
+            } else {
+                ans *= operation[i][i];
+            }
+            multipliers[i] = 1.0 / operation[i][i];
+            for (size_t j = i; j < cols; j++) {
+                operation[i][j] *= multipliers[i];
+            }
+            operation[i][i] = 1.0; // We dont want to lose precision
+            for (size_t row_i = i + 1; row_i < rows; row_i++) {
+                T value = operation[row_i][i];
+                for (size_t col_i = 0; col_i < cols; col_i++) {
+                    T sub = -1.0 * operation[i][col_i] * value;
+                    operation[row_i][col_i] += sub;
+                }
+            }
+        }
+        return ans;
     }
 };
 template <typename T>
