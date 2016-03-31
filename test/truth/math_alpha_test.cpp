@@ -2,6 +2,7 @@
 #include <colours.hpp>
 #include <iostream>
 #include <random>
+#include <chrono>
 #include <limits>
 // Tests for the math library
 bool fail = false;
@@ -105,10 +106,22 @@ int main() {
     } else {
         expected(0, 0);
     }
-    std::cout << "\nalpha::mat44::determinant\t:\t";
+    std::cout << "\nalpha::mat44_det\t\t:\t";
     alpha::mat44<float> sample{
         {3, -2, 1, 2}, {2, 3, -2, 4}, {3, 2, 3, 4}, {-2, 4, 0, 5}};
-    expected(sample.determinant(), float(286));
+    expected(alpha::mat44_det(sample), float(286));
+    std::cout << "\nalpha::gauss_elimination\t:\t";
+    alpha::mat44<float> sample2{
+        {1, 1, 1, 6}, {1, -1, 2, 5}, {3, 1, 1, 8}, {2, -2, 3, 7}};
+    if (alpha::gauss_elimination(sample2) ==
+        alpha::mat44<float>{{3, 1, 1, 8},
+                            {0, -8.f / 3.f, 7.f / 3.f, 5.f / 3.f},
+                            {0, 0, 1.25f, 3.75f},
+                            {0, 0, 0, 0}}) {
+        expected(0, 0);
+    } else {
+        expected(1, 0);
+    }
     if (!fail) {
         std::cout << "\n\n" << colours::green << "[OK] " << colours::reset
                   << "All tests successful";
