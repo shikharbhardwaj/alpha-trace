@@ -1,43 +1,54 @@
-//===----- math.hpp ----- Math abstraction definitions ----------*- C++ -*-===//
+//[header]
+// This program illustrates how the concept of vector and matrix can be
+// implemented
+// in C++. This is a light version of the implementation. It contains the most
+// essential methods to manipulate vectors and matrices. It should be enough
+// for most projects. Vectors and matrices are really the alphabet as we said
+// in the lesson of any graphics application. It's really important you feel
+// confortable with these techniques especially with the concepts of
+// normalizing vectors, computing their length, computing the dot and cross
+// products
+// of two vectors, and the point- and vector-matrix multiplication (and knowing
+// the difference between the two).
+//[/header]
+//[compile]
+// c++ geometry.cpp  -o geometry -std=c++11
+//[/compile]
+//[ignore]
+// Copyright (C) 2012  www.scratchapixel.com
 //
-// Alpha-trace -> Minimal C++ raytracer
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
 //
-// Written by: Shikhar Bhardwaj | shikhar@bluefog.me
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
 //
-//===----------------------------------------------------------------------===//
-///
-/// \file
-///  Consists of definitions for vectors, matrices & related operations
-///
-///
-//===----------------------------------------------------------------------===//
-#ifndef math_alpha_hpp
-#define math_alpha_hpp
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//[/ignore]
 #include <cstdlib>
 #include <cstdio>
 #include <iostream>
 #include <iomanip>
-#include <limits>
-#include <cmath>
 
-namespace alpha {
-template <typename T> bool is_equal(T a, T b) {
-    if (a > 1.0 && b > 1.0) {
-        // Return true if the relative error is less than the system epsilon
-        if (fabs(fabs(a) - fabs(b)) / fabs(a) <=
-                std::numeric_limits<T>::epsilon() ||
-            a == b) {
-            return true;
-        }
-    } else {
-        if (fabs(fabs(a) - fabs(b)) <= std::numeric_limits<T>::epsilon() ||
-            a == b) {
-            return true;
-        }
-    }
-    return false;
-}
-
+//[comment]
+// Implementation of a generic vector class - it will be used to deal with 3D
+// points, vectors and normals.
+// The class is implemented as a template. While it may complicate the code a
+// bit, it gives us
+// the flexibility later, to specialize the type of the coordinates into
+// anything we want.
+// For example: Vec3f if we want the coordinates to be floats or Vec3i if we
+// want the coordinates to be integers.
+//
+// Vec3 is a standard/common way of naming vectors, points, etc. The OpenEXR and
+// Autodesk libraries
+// use this convention for instance.
+//[/comment]
 template <typename T> class Vec3 {
   public:
     Vec3() : x(0), y(0), z(0) {}
@@ -50,15 +61,19 @@ template <typename T> class Vec3 {
         return Vec3(x - v.x, y - v.y, z - v.z);
     }
     Vec3 operator*(const T &r) const { return Vec3(x * r, y * r, z * r); }
-    T dot_product(const Vec3<T> &v) const {
-        return x * v.x + y * v.y + z * v.z;
-    }
-    Vec3 cross_product(const Vec3<T> &v) const {
+    T dotProduct(const Vec3<T> &v) const { return x * v.x + y * v.y + z * v.z; }
+    T crossProduct(const Vec3<T> &v) const {
         return Vec3<T>(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
     }
     T norm() const { return x * x + y * y + z * z; }
     T length() const { return sqrt(norm()); }
-
+    //[comment]
+    // The next two operators are sometimes called access operators or
+    // accessors. The Vec coordinates can be accessed that way v[0], v[1], v[2],
+    // rather than using the more traditional form v.x, v.y, v.z. This useful
+    // when vectors are used in loops: the coordinates can be accessed with the
+    // loop index (e.g. v[i]).
+    //[/comment]
     const T &operator[](uint8_t i) const { return (&x)[i]; }
     T &operator[](uint8_t i) { return (&x)[i]; }
     Vec3 &normalize() {
@@ -78,25 +93,48 @@ template <typename T> class Vec3 {
     T x, y, z;
 };
 
+//[comment]
+// Now you can specialize the class. We are just showing two examples here. In
+// your code
+// you can declare a vector either that way: Vec3<float> a, or that way: Vec3f a
+//[/comment]
 typedef Vec3<float> Vec3f;
 typedef Vec3<int> Vec3i;
 
+//[comment]
+// Implementation of a generic 4x4 Matrix class - Same thing here than with the
+// Vec3 class. It uses
+// a template which is maybe less useful than with vectors but it can be used to
+// define the coefficients of the matrix to be either floats (the most case) or
+// doubles depending
+// on our needs.
+//
+// To use you can either write: Matrix44<float> m; or: Matrix44f m;
+//[/comment]
 template <typename T> class Matrix44 {
   public:
     T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
 
     Matrix44() {}
-    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {
-        // Initialize with braces
-        //
-        // Caution : Overflow
-        size_t r = 0, c = 0;
-        for (auto row : xs) {
-            for (auto elem : row) {
-                x[r][c++] = elem;
-            }
-            r++, c = 0;
-        }
+
+    Matrix44(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j, T k, T l, T m,
+             T n, T o, T p) {
+        x[0][0] = a;
+        x[0][1] = b;
+        x[0][2] = c;
+        x[0][3] = d;
+        x[1][0] = e;
+        x[1][1] = f;
+        x[1][2] = g;
+        x[1][3] = h;
+        x[2][0] = i;
+        x[2][1] = j;
+        x[2][2] = k;
+        x[2][3] = l;
+        x[3][0] = m;
+        x[3][1] = n;
+        x[3][2] = o;
+        x[3][3] = p;
     }
 
     const T *operator[](uint8_t i) const { return x[i]; }
@@ -110,6 +148,28 @@ template <typename T> class Matrix44 {
         return tmp;
     }
 
+    //[comment]
+    // To make it easier to understand how a matrix multiplication works, the
+    // fragment of code
+    // included within the #if-#else statement, show how this works if you were
+    // to iterate
+    // over the coefficients of the resulting matrix (a). However you will often
+    // see this
+    // multiplication being done using the code contained within the #else-#end
+    // statement.
+    // It is exactly the same as the first fragment only we have litteraly
+    // written down
+    // as a series of operations what would actually result from executing the
+    // two for() loops
+    // contained in the first fragment. It is supposed to be faster, however
+    // considering
+    // matrix multiplicatin is not necessarily that common, this is probably not
+    // super
+    // useful nor really necessary (but nice to have -- and it gives you an
+    // example of how
+    // it can be done, as this how you will this operation implemented in most
+    // libraries).
+    //[/comment]
     static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {
 #if 0
         for (uint8_t i = 0; i < 4; ++i) {
@@ -183,26 +243,45 @@ template <typename T> class Matrix44 {
 
         return t;
 #else
-        return Matrix44{{x[0][0], x[1][0], x[2][0], x[3][0]},
-                        {x[0][1], x[1][1], x[2][1], x[3][1]},
-                        {x[0][2], x[1][2], x[2][2], x[3][2]},
-                        {x[0][3], x[1][3], x[2][3], x[3][3]}};
+        return Matrix44(x[0][0], x[1][0], x[2][0], x[3][0], x[0][1], x[1][1],
+                        x[2][1], x[3][1], x[0][2], x[1][2], x[2][2], x[3][2],
+                        x[0][3], x[1][3], x[2][3], x[3][3]);
 #endif
     }
 
     // \brief transpose itself
     Matrix44 &transpose() {
-        Matrix44 tmp{{x[0][0], x[1][0], x[2][0], x[3][0]},
-                     {x[0][1], x[1][1], x[2][1], x[3][1]},
-                     {x[0][2], x[1][2], x[2][2], x[3][2]},
-                     {x[0][3], x[1][3], x[2][3], x[3][3]}};
+        Matrix44 tmp(x[0][0], x[1][0], x[2][0], x[3][0], x[0][1], x[1][1],
+                     x[2][1], x[3][1], x[0][2], x[1][2], x[2][2], x[3][2],
+                     x[0][3], x[1][3], x[2][3], x[3][3]);
         *this = tmp;
 
         return *this;
     }
 
+    //[comment]
+    // This method needs to be used for point-matrix multiplication. Keep in
+    // mind
+    // we don't make the distinction between points and vectors at least from
+    // a programming point of view, as both (as well as normals) are declared as
+    // Vec3.
+    // However, mathematically they need to be treated differently. Points can
+    // be translated
+    // when translation for vectors is meaningless. Furthermore, points are
+    // implicitly
+    // be considered as having homogeneous coordinates. Thus the w coordinates
+    // needs
+    // to be computed and to convert the coordinates from homogeneous back to
+    // Cartesian
+    // coordinates, we need to divided x, y z by w.
+    //
+    // The coordinate w is more often than not equals to 1, but it can be
+    // different than
+    // 1 especially when the matrix is projective matrix (perspective projection
+    // matrix).
+    //[/comment]
     template <typename S>
-    void mult_vec_matrix(const Vec3<S> &src, Vec3<S> &dst) const {
+    void multVecMatrix(const Vec3<S> &src, Vec3<S> &dst) const {
         S a, b, c, w;
 
         a = src[0] * x[0][0] + src[1] * x[1][0] + src[2] * x[2][0] + x[3][0];
@@ -215,8 +294,17 @@ template <typename T> class Matrix44 {
         dst.z = c / w;
     }
 
+    //[comment]
+    // This method needs to be used for vector-matrix multiplication. Look at
+    // the differences
+    // with the previous method (to compute a point-matrix multiplication). We
+    // don't use
+    // the coefficients in the matrix that account for translation (x[3][0],
+    // x[3][1], x[3][2])
+    // and we don't compute w.
+    //[/comment]
     template <typename S>
-    void mult_dir_matrix(const Vec3<S> &src, Vec3<S> &dst) const {
+    void multDirMatrix(const Vec3<S> &src, Vec3<S> &dst) const {
         S a, b, c;
 
         a = src[0] * x[0][0] + src[1] * x[1][0] + src[2] * x[2][0];
@@ -228,6 +316,22 @@ template <typename T> class Matrix44 {
         dst.z = c;
     }
 
+    //[comment]
+    // Compute the inverse of the matrix using the Gauss-Jordan (or reduced row)
+    // elimination method.
+    // We didn't explain in the lesson on Geometry how the inverse of matrix can
+    // be found. Don't
+    // worry at this point if you don't understand how this works. But we will
+    // need to be able to
+    // compute the inverse of matrices in the first lessons of the "Foundation
+    // of 3D Rendering" section,
+    // which is why we've added this code. For now, you can just use it and rely
+    // on it
+    // for doing what it's supposed to do. If you want to learn how this works
+    // though, check the lesson
+    // on called Matrix Inverse in the "Mathematics and Physics of Computer
+    // Graphics" section.
+    //[/comment]
     Matrix44 inverse() {
         int i, j, k;
         Matrix44 s;
@@ -347,5 +451,36 @@ template <typename T> class Matrix44 {
 };
 
 typedef Matrix44<float> Matrix44f;
+
+//[comment]
+// Testing our code. To test the matrix inversion code, we used Maya to output
+// the values of a matrix and its inverse (check the video at the top of this
+// page). Of course this implies
+// that Maya actually does the right thing, but we can probably agree, that is
+// actually does;).
+// These are the values for the input matrix:
+//
+// 0.707107 0 -0.707107 0 -0.331295 0.883452 -0.331295 0 0.624695 0.468521
+// 0.624695 0 4.000574 3.00043 4.000574 1
+//
+// Given the input matrix, the inverse matrix computed by our code should match
+// the following values:
+//
+// 0.707107 -0.331295 0.624695 0 0 0.883452 0.468521 0 -0.707107 -0.331295
+// 0.624695 0 0 0 -6.404043 1
+//[/comment]
+int main(int argc, char **argv) {
+    Vec3f v(0, 1, 2);
+    std::cerr << v << std::endl;
+    Matrix44f a, b, c;
+    c = a * b;
+
+    Matrix44f d(0.707107, 0, -0.707107, 0, -0.331295, 0.883452, -0.331295, 0,
+                0.624695, 0.468521, 0.624695, 0, 4.000574, 3.00043, 4.000574,
+                1);
+    std::cerr << d << std::endl;
+    d.invert();
+    std::cerr << d << std::endl;
+
+    return 0;
 }
-#endif
