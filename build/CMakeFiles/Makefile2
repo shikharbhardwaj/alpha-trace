@@ -106,6 +106,143 @@ clean: src/CMakeFiles/alpha.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory spike/code
+
+# Convenience name for "all" pass in the directory.
+spike/code/all: spike/code/CMakeFiles/projection.dir/all
+.PHONY : spike/code/all
+
+# Convenience name for "clean" pass in the directory.
+spike/code/clean: spike/code/CMakeFiles/projection.dir/clean
+.PHONY : spike/code/clean
+
+# Convenience name for "preinstall" pass in the directory.
+spike/code/preinstall:
+.PHONY : spike/code/preinstall
+
+#=============================================================================
+# Target rules for target spike/code/CMakeFiles/projection.dir
+
+# All Build rule for target.
+spike/code/CMakeFiles/projection.dir/all:
+	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/depend
+	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  4
+	@echo "Built target projection"
+.PHONY : spike/code/CMakeFiles/projection.dir/all
+
+# Include target in all.
+all: spike/code/CMakeFiles/projection.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+spike/code/CMakeFiles/projection.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/projection.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 0
+.PHONY : spike/code/CMakeFiles/projection.dir/rule
+
+# Convenience name for target.
+projection: spike/code/CMakeFiles/projection.dir/rule
+.PHONY : projection
+
+# clean rule for target.
+spike/code/CMakeFiles/projection.dir/clean:
+	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/clean
+.PHONY : spike/code/CMakeFiles/projection.dir/clean
+
+# clean rule for target.
+clean: spike/code/CMakeFiles/projection.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory test
+
+# Convenience name for "all" pass in the directory.
+test/all: test/CMakeFiles/math_test.dir/all
+test/all: test/CMakeFiles/ppm_test.dir/all
+.PHONY : test/all
+
+# Convenience name for "clean" pass in the directory.
+test/clean: test/CMakeFiles/math_test.dir/clean
+test/clean: test/CMakeFiles/ppm_test.dir/clean
+.PHONY : test/clean
+
+# Convenience name for "preinstall" pass in the directory.
+test/preinstall:
+.PHONY : test/preinstall
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/math_test.dir
+
+# All Build rule for target.
+test/CMakeFiles/math_test.dir/all:
+	$(MAKE) -f test/CMakeFiles/math_test.dir/build.make test/CMakeFiles/math_test.dir/depend
+	$(MAKE) -f test/CMakeFiles/math_test.dir/build.make test/CMakeFiles/math_test.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  2
+	@echo "Built target math_test"
+.PHONY : test/CMakeFiles/math_test.dir/all
+
+# Include target in all.
+all: test/CMakeFiles/math_test.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/math_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/math_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/math_test.dir/rule
+
+# Convenience name for target.
+math_test: test/CMakeFiles/math_test.dir/rule
+.PHONY : math_test
+
+# clean rule for target.
+test/CMakeFiles/math_test.dir/clean:
+	$(MAKE) -f test/CMakeFiles/math_test.dir/build.make test/CMakeFiles/math_test.dir/clean
+.PHONY : test/CMakeFiles/math_test.dir/clean
+
+# clean rule for target.
+clean: test/CMakeFiles/math_test.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/ppm_test.dir
+
+# All Build rule for target.
+test/CMakeFiles/ppm_test.dir/all:
+	$(MAKE) -f test/CMakeFiles/ppm_test.dir/build.make test/CMakeFiles/ppm_test.dir/depend
+	$(MAKE) -f test/CMakeFiles/ppm_test.dir/build.make test/CMakeFiles/ppm_test.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  3
+	@echo "Built target ppm_test"
+.PHONY : test/CMakeFiles/ppm_test.dir/all
+
+# Include target in all.
+all: test/CMakeFiles/ppm_test.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/ppm_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/ppm_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/ppm_test.dir/rule
+
+# Convenience name for target.
+ppm_test: test/CMakeFiles/ppm_test.dir/rule
+.PHONY : ppm_test
+
+# clean rule for target.
+test/CMakeFiles/ppm_test.dir/clean:
+	$(MAKE) -f test/CMakeFiles/ppm_test.dir/build.make test/CMakeFiles/ppm_test.dir/clean
+.PHONY : test/CMakeFiles/ppm_test.dir/clean
+
+# clean rule for target.
+clean: test/CMakeFiles/ppm_test.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

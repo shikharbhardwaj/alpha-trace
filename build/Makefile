@@ -114,6 +114,45 @@ alpha/fast:
 	$(MAKE) -f src/CMakeFiles/alpha.dir/build.make src/CMakeFiles/alpha.dir/build
 .PHONY : alpha/fast
 
+#=============================================================================
+# Target rules for targets named projection
+
+# Build rule for target.
+projection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 projection
+.PHONY : projection
+
+# fast build rule for target.
+projection/fast:
+	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/build
+.PHONY : projection/fast
+
+#=============================================================================
+# Target rules for targets named math_test
+
+# Build rule for target.
+math_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 math_test
+.PHONY : math_test
+
+# fast build rule for target.
+math_test/fast:
+	$(MAKE) -f test/CMakeFiles/math_test.dir/build.make test/CMakeFiles/math_test.dir/build
+.PHONY : math_test/fast
+
+#=============================================================================
+# Target rules for targets named ppm_test
+
+# Build rule for target.
+ppm_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ppm_test
+.PHONY : ppm_test
+
+# fast build rule for target.
+ppm_test/fast:
+	$(MAKE) -f test/CMakeFiles/ppm_test.dir/build.make test/CMakeFiles/ppm_test.dir/build
+.PHONY : ppm_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -123,6 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... alpha"
+	@echo "... projection"
+	@echo "... math_test"
+	@echo "... ppm_test"
 .PHONY : help
 
 

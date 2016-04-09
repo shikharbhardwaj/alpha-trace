@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/alpha.dir/alpha.cpp.o"
-  "../bin/alpha.pdb"
-  "../bin/alpha"
+  "../alpha.pdb"
+  "../alpha"
 )
 
 # Per-language clean rules from dependency scanning.

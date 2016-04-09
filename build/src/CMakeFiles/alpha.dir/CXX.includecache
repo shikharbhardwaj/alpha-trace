@@ -6,8 +6,18 @@
 
 #IncludeRegexTransform: 
 
-../src/include/math_alpha.hpp
+../include/math_alpha.hpp
+cstdlib
+-
+cstdio
+-
 iostream
+-
+iomanip
+-
+limits
+-
+cmath
 -
 
 /home/bluefog/Documents/dev/alpha/src/alpha.cpp

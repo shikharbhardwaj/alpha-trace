@@ -46,6 +46,7 @@ flags = [
 '-isystem',
 '../llvm/tools/clang/include',
 '-I',
+'../include',
 '../src/include',
 './include',
 '../thirdparty',
