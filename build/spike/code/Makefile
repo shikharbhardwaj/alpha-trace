@@ -102,6 +102,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+spike/code/CMakeFiles/local_world.dir/rule:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/local_world.dir/rule
+.PHONY : spike/code/CMakeFiles/local_world.dir/rule
+
+# Convenience name for target.
+local_world: spike/code/CMakeFiles/local_world.dir/rule
+.PHONY : local_world
+
+# fast build rule for target.
+local_world/fast:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/build
+.PHONY : local_world/fast
+
+# Convenience name for target.
 spike/code/CMakeFiles/projection.dir/rule:
 	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/projection.dir/rule
 .PHONY : spike/code/CMakeFiles/projection.dir/rule
@@ -114,6 +128,30 @@ projection: spike/code/CMakeFiles/projection.dir/rule
 projection/fast:
 	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/build
 .PHONY : projection/fast
+
+local_world.o: local_world.cpp.o
+.PHONY : local_world.o
+
+# target to build an object file
+local_world.cpp.o:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/local_world.cpp.o
+.PHONY : local_world.cpp.o
+
+local_world.i: local_world.cpp.i
+.PHONY : local_world.i
+
+# target to preprocess a source file
+local_world.cpp.i:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/local_world.cpp.i
+.PHONY : local_world.cpp.i
+
+local_world.s: local_world.cpp.s
+.PHONY : local_world.s
+
+# target to generate assembly for a file
+local_world.cpp.s:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/local_world.cpp.s
+.PHONY : local_world.cpp.s
 
 projection.o: projection.cpp.o
 .PHONY : projection.o
@@ -146,8 +184,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... local_world"
 	@echo "... projection"
 	@echo "... rebuild_cache"
+	@echo "... local_world.o"
+	@echo "... local_world.i"
+	@echo "... local_world.s"
 	@echo "... projection.o"
 	@echo "... projection.i"
 	@echo "... projection.s"

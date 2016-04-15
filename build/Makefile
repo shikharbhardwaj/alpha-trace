@@ -115,6 +115,19 @@ alpha/fast:
 .PHONY : alpha/fast
 
 #=============================================================================
+# Target rules for targets named local_world
+
+# Build rule for target.
+local_world: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 local_world
+.PHONY : local_world
+
+# fast build rule for target.
+local_world/fast:
+	$(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/build
+.PHONY : local_world/fast
+
+#=============================================================================
 # Target rules for targets named projection
 
 # Build rule for target.
@@ -162,6 +175,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... alpha"
+	@echo "... local_world"
 	@echo "... projection"
 	@echo "... math_test"
 	@echo "... ppm_test"

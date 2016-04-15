@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/math_alpha.hpp
+cstdlib
+-
+cstdio
+-
+iostream
+-
+iomanip
+-
+limits
+-
+cmath
+-
+
+../include/ppm_alpha.hpp
+cstdio
+-
+vector
+-
+math_alpha.hpp
+-
+
+/home/bluefog/Documents/dev/alpha/spike/code/sphere.cpp
+math_alpha.hpp
+-
+ppm_alpha.hpp
+-
+cmath
+-
+

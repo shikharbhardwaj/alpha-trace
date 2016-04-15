@@ -109,10 +109,12 @@ clean: src/CMakeFiles/alpha.dir/clean
 # Directory level rules for directory spike/code
 
 # Convenience name for "all" pass in the directory.
+spike/code/all: spike/code/CMakeFiles/local_world.dir/all
 spike/code/all: spike/code/CMakeFiles/projection.dir/all
 .PHONY : spike/code/all
 
 # Convenience name for "clean" pass in the directory.
+spike/code/clean: spike/code/CMakeFiles/local_world.dir/clean
 spike/code/clean: spike/code/CMakeFiles/projection.dir/clean
 .PHONY : spike/code/clean
 
@@ -121,13 +123,48 @@ spike/code/preinstall:
 .PHONY : spike/code/preinstall
 
 #=============================================================================
+# Target rules for target spike/code/CMakeFiles/local_world.dir
+
+# All Build rule for target.
+spike/code/CMakeFiles/local_world.dir/all:
+	$(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/depend
+	$(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  2
+	@echo "Built target local_world"
+.PHONY : spike/code/CMakeFiles/local_world.dir/all
+
+# Include target in all.
+all: spike/code/CMakeFiles/local_world.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+spike/code/CMakeFiles/local_world.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/local_world.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bluefog/Documents/dev/alpha/build/CMakeFiles 0
+.PHONY : spike/code/CMakeFiles/local_world.dir/rule
+
+# Convenience name for target.
+local_world: spike/code/CMakeFiles/local_world.dir/rule
+.PHONY : local_world
+
+# clean rule for target.
+spike/code/CMakeFiles/local_world.dir/clean:
+	$(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/clean
+.PHONY : spike/code/CMakeFiles/local_world.dir/clean
+
+# clean rule for target.
+clean: spike/code/CMakeFiles/local_world.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target spike/code/CMakeFiles/projection.dir
 
 # All Build rule for target.
 spike/code/CMakeFiles/projection.dir/all:
 	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/depend
 	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  5
 	@echo "Built target projection"
 .PHONY : spike/code/CMakeFiles/projection.dir/all
 
@@ -179,7 +216,7 @@ test/preinstall:
 test/CMakeFiles/math_test.dir/all:
 	$(MAKE) -f test/CMakeFiles/math_test.dir/build.make test/CMakeFiles/math_test.dir/depend
 	$(MAKE) -f test/CMakeFiles/math_test.dir/build.make test/CMakeFiles/math_test.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  3
 	@echo "Built target math_test"
 .PHONY : test/CMakeFiles/math_test.dir/all
 
@@ -214,7 +251,7 @@ clean: test/CMakeFiles/math_test.dir/clean
 test/CMakeFiles/ppm_test.dir/all:
 	$(MAKE) -f test/CMakeFiles/ppm_test.dir/build.make test/CMakeFiles/ppm_test.dir/depend
 	$(MAKE) -f test/CMakeFiles/ppm_test.dir/build.make test/CMakeFiles/ppm_test.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bluefog/Documents/dev/alpha/build/CMakeFiles  4
 	@echo "Built target ppm_test"
 .PHONY : test/CMakeFiles/ppm_test.dir/all
 

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/graphics_alpha.hpp
+math_alpha.hpp
+-
+
+../include/math_alpha.hpp
+cstdlib
+-
+cstdio
+-
+iostream
+-
+iomanip
+-
+limits
+-
+cmath
+-
+
+/home/bluefog/Documents/dev/alpha/spike/code/local_world.cpp
+math_alpha.hpp
+-
+graphics_alpha.hpp
+-
+iostream
+-
+

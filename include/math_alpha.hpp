@@ -78,9 +78,44 @@ template <typename T> class Vec3 {
 
     T x, y, z;
 };
+template <typename T> class Vec2 {
+  public:
+    Vec2() : x(0), y(0) {}
+    Vec2(T xx) : x(xx), y(xx) {}
+    Vec2(T xx, T yy) : x(xx), y(yy) {}
+    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }
+    Vec2 operator-(const Vec2 &v) const { return Vec2(x - v.x, y - v.y); }
+    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }
+    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }
+    Vec2 cross_product(const Vec2<T> &v) const {
+        return Vec2<T>(x * v.y - y * v.x);
+    }
+    T norm() const { return x * x + y * y; }
+    T length() const { return sqrt(norm()); }
+
+    const T &operator[](uint8_t i) const { return (&x)[i]; }
+    T &operator[](uint8_t i) { return (&x)[i]; }
+    Vec2 &normalize() {
+        T n = norm();
+        if (n > 0) {
+            T factor = 1 / sqrt(n);
+            x *= factor, y *= factor;
+        }
+
+        return *this;
+    }
+
+    friend std::ostream &operator<<(std::ostream &s, const Vec2<T> &v) {
+        return s << '(' << v.x << ' ' << v.y << ')';
+    }
+
+    T x, y;
+};
 
 typedef Vec3<float> Vec3f;
+typedef Vec2<float> Vec2f;
 typedef Vec3<int> Vec3i;
+typedef Vec2<int> Vec2i;
 
 template <typename T> class Matrix44 {
   public:
