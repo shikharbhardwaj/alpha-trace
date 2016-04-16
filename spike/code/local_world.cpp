@@ -9,10 +9,7 @@ int main() {
     m.invert();
     alpha::Vec3f Pworld(-0.315792, 1.4489, -2.48901);
     alpha::Vec2i Praster;
-    if (!alpha::compute_pixel_coords(Pworld, m.inverse(), 0.1, 0.1, 256, 256,
-                                     Praster)) {
-        std::cerr << "The point is invisible\n";
-    } else {
-        std::cerr << Praster << std::endl;
-    }
+    alpha::compute_pixel_coords(Pworld, m.inverse(), 0.1, 0.1, 256, 256,
+                                Praster);
+    std::cerr << Praster << std::endl;
 }
