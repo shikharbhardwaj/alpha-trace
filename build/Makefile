@@ -115,30 +115,30 @@ alpha/fast:
 .PHONY : alpha/fast
 
 #=============================================================================
-# Target rules for targets named local_world
+# Target rules for targets named canvas_cords
 
 # Build rule for target.
-local_world: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 local_world
-.PHONY : local_world
+canvas_cords: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 canvas_cords
+.PHONY : canvas_cords
 
 # fast build rule for target.
-local_world/fast:
-	$(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/build
-.PHONY : local_world/fast
+canvas_cords/fast:
+	$(MAKE) -f spike/code/CMakeFiles/canvas_cords.dir/build.make spike/code/CMakeFiles/canvas_cords.dir/build
+.PHONY : canvas_cords/fast
 
 #=============================================================================
-# Target rules for targets named projection
+# Target rules for targets named pinhole
 
 # Build rule for target.
-projection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 projection
-.PHONY : projection
+pinhole: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pinhole
+.PHONY : pinhole
 
 # fast build rule for target.
-projection/fast:
-	$(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/build
-.PHONY : projection/fast
+pinhole/fast:
+	$(MAKE) -f spike/code/CMakeFiles/pinhole.dir/build.make spike/code/CMakeFiles/pinhole.dir/build
+.PHONY : pinhole/fast
 
 #=============================================================================
 # Target rules for targets named math_test
@@ -175,8 +175,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... alpha"
-	@echo "... local_world"
-	@echo "... projection"
+	@echo "... canvas_cords"
+	@echo "... pinhole"
 	@echo "... math_test"
 	@echo "... ppm_test"
 .PHONY : help

@@ -102,80 +102,80 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-spike/code/CMakeFiles/local_world.dir/rule:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/local_world.dir/rule
-.PHONY : spike/code/CMakeFiles/local_world.dir/rule
+spike/code/CMakeFiles/canvas_cords.dir/rule:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/canvas_cords.dir/rule
+.PHONY : spike/code/CMakeFiles/canvas_cords.dir/rule
 
 # Convenience name for target.
-local_world: spike/code/CMakeFiles/local_world.dir/rule
-.PHONY : local_world
+canvas_cords: spike/code/CMakeFiles/canvas_cords.dir/rule
+.PHONY : canvas_cords
 
 # fast build rule for target.
-local_world/fast:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/build
-.PHONY : local_world/fast
+canvas_cords/fast:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/canvas_cords.dir/build.make spike/code/CMakeFiles/canvas_cords.dir/build
+.PHONY : canvas_cords/fast
 
 # Convenience name for target.
-spike/code/CMakeFiles/projection.dir/rule:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/projection.dir/rule
-.PHONY : spike/code/CMakeFiles/projection.dir/rule
+spike/code/CMakeFiles/pinhole.dir/rule:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f CMakeFiles/Makefile2 spike/code/CMakeFiles/pinhole.dir/rule
+.PHONY : spike/code/CMakeFiles/pinhole.dir/rule
 
 # Convenience name for target.
-projection: spike/code/CMakeFiles/projection.dir/rule
-.PHONY : projection
+pinhole: spike/code/CMakeFiles/pinhole.dir/rule
+.PHONY : pinhole
 
 # fast build rule for target.
-projection/fast:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/build
-.PHONY : projection/fast
+pinhole/fast:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/pinhole.dir/build.make spike/code/CMakeFiles/pinhole.dir/build
+.PHONY : pinhole/fast
 
-local_world.o: local_world.cpp.o
-.PHONY : local_world.o
-
-# target to build an object file
-local_world.cpp.o:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/local_world.cpp.o
-.PHONY : local_world.cpp.o
-
-local_world.i: local_world.cpp.i
-.PHONY : local_world.i
-
-# target to preprocess a source file
-local_world.cpp.i:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/local_world.cpp.i
-.PHONY : local_world.cpp.i
-
-local_world.s: local_world.cpp.s
-.PHONY : local_world.s
-
-# target to generate assembly for a file
-local_world.cpp.s:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/local_world.dir/build.make spike/code/CMakeFiles/local_world.dir/local_world.cpp.s
-.PHONY : local_world.cpp.s
-
-projection.o: projection.cpp.o
-.PHONY : projection.o
+canvas_cords.o: canvas_cords.cpp.o
+.PHONY : canvas_cords.o
 
 # target to build an object file
-projection.cpp.o:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/projection.cpp.o
-.PHONY : projection.cpp.o
+canvas_cords.cpp.o:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/canvas_cords.dir/build.make spike/code/CMakeFiles/canvas_cords.dir/canvas_cords.cpp.o
+.PHONY : canvas_cords.cpp.o
 
-projection.i: projection.cpp.i
-.PHONY : projection.i
+canvas_cords.i: canvas_cords.cpp.i
+.PHONY : canvas_cords.i
 
 # target to preprocess a source file
-projection.cpp.i:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/projection.cpp.i
-.PHONY : projection.cpp.i
+canvas_cords.cpp.i:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/canvas_cords.dir/build.make spike/code/CMakeFiles/canvas_cords.dir/canvas_cords.cpp.i
+.PHONY : canvas_cords.cpp.i
 
-projection.s: projection.cpp.s
-.PHONY : projection.s
+canvas_cords.s: canvas_cords.cpp.s
+.PHONY : canvas_cords.s
 
 # target to generate assembly for a file
-projection.cpp.s:
-	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/projection.dir/build.make spike/code/CMakeFiles/projection.dir/projection.cpp.s
-.PHONY : projection.cpp.s
+canvas_cords.cpp.s:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/canvas_cords.dir/build.make spike/code/CMakeFiles/canvas_cords.dir/canvas_cords.cpp.s
+.PHONY : canvas_cords.cpp.s
+
+pinhole.o: pinhole.cpp.o
+.PHONY : pinhole.o
+
+# target to build an object file
+pinhole.cpp.o:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/pinhole.dir/build.make spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.o
+.PHONY : pinhole.cpp.o
+
+pinhole.i: pinhole.cpp.i
+.PHONY : pinhole.i
+
+# target to preprocess a source file
+pinhole.cpp.i:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/pinhole.dir/build.make spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.i
+.PHONY : pinhole.cpp.i
+
+pinhole.s: pinhole.cpp.s
+.PHONY : pinhole.s
+
+# target to generate assembly for a file
+pinhole.cpp.s:
+	cd /home/bluefog/Documents/dev/alpha/build && $(MAKE) -f spike/code/CMakeFiles/pinhole.dir/build.make spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.s
+.PHONY : pinhole.cpp.s
 
 # Help Target
 help:
@@ -183,16 +183,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... canvas_cords"
 	@echo "... edit_cache"
-	@echo "... local_world"
-	@echo "... projection"
+	@echo "... pinhole"
 	@echo "... rebuild_cache"
-	@echo "... local_world.o"
-	@echo "... local_world.i"
-	@echo "... local_world.s"
-	@echo "... projection.o"
-	@echo "... projection.i"
-	@echo "... projection.s"
+	@echo "... canvas_cords.o"
+	@echo "... canvas_cords.i"
+	@echo "... canvas_cords.s"
+	@echo "... pinhole.o"
+	@echo "... pinhole.i"
+	@echo "... pinhole.s"
 .PHONY : help
 
 

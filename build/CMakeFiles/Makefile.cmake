@@ -46,8 +46,8 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/alpha.dir/DependInfo.cmake"
-  "spike/code/CMakeFiles/local_world.dir/DependInfo.cmake"
-  "spike/code/CMakeFiles/projection.dir/DependInfo.cmake"
+  "spike/code/CMakeFiles/canvas_cords.dir/DependInfo.cmake"
+  "spike/code/CMakeFiles/pinhole.dir/DependInfo.cmake"
   "test/CMakeFiles/math_test.dir/DependInfo.cmake"
   "test/CMakeFiles/ppm_test.dir/DependInfo.cmake"
   )
