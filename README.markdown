@@ -9,7 +9,7 @@ Scratchapixel, [here](http://www.scratchapixel.com/).
  - *build*: This folder contains all build files, and is removed on a clean. See
    **building** section for build instructions.
  - *doc*: Any notes and docs are here.
- - *src*: This includes all the source files which belong to the project,
+ - *src*: This includes all the source files which belong to the project
  - *include*: Any headers included within the project
  - *spike*: Any small testcases, ideas or implementations live here
  - *thirdparty*: All third party headers, libs etc live here.
@@ -26,6 +26,7 @@ Scratchapixel, [here](http://www.scratchapixel.com/).
 
 ####Steps
 From the project root... you know the deal.
+<br>
 1. `cd ./build`
 2. `cmake ..`
 3. `make`
