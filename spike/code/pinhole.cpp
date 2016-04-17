@@ -59,15 +59,15 @@ const uint32_t tris[num_tris * 3] = {
 // Camera state begin
 float focal_length = 35; // mm
 // 35mm full aperture
-float film_aperture_width = 0.825;
-float film_aperture_height = 0.446;
+float film_aperture_width = 1.995;
+float film_aperture_height = 1.500;
 static const float inch_to_mm = 25.4;
 float z_near = 0.1;
 float z_far = 1000;
 // Camera state end
 // Image info
-uint32_t img_width = 512;
-uint32_t img_height = 512;
+uint32_t img_width = 640;
+uint32_t img_height = 480;
 // Resolution gate strategy
 enum class fit_resolution_gate { Fill = 0, Overscan };
 fit_resolution_gate fit_film = fit_resolution_gate::Overscan;
