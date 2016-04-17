@@ -1,5 +1,0 @@
-/home/bluefog/Documents/dev/alpha/build/src/CMakeFiles/alpha.dir
-/home/bluefog/Documents/dev/alpha/build/spike/code/CMakeFiles/canvas_cords.dir
-/home/bluefog/Documents/dev/alpha/build/test/CMakeFiles/math_test.dir
-/home/bluefog/Documents/dev/alpha/build/spike/code/CMakeFiles/pinhole.dir
-/home/bluefog/Documents/dev/alpha/build/test/CMakeFiles/ppm_test.dir
