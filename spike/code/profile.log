@@ -1,0 +1,1010 @@
+FUNCTION  AutoPairsSpace()
+Called 5 times
+Total time:   0.000771
+ Self time:   0.000771
+
+count  total (s)   self (s)
+    5              0.000240   let line = getline('.')
+    5              0.000134   let prev_char = line[col('.')-2]
+    5              0.000025   let cmd = ''
+    5              0.000058   let cur_char =line[col('.')-1]
+    5              0.000080   if has_key(g:AutoPairsParens, prev_char) && g:AutoPairsParens[prev_char] == cur_char
+                                let cmd = "\<SPACE>\<LEFT>"
+                              endif
+    5              0.000094   return "\<SPACE>".cmd
+
+FUNCTION  <SNR>26_repo_dir()
+Called 460 times
+Total time:   0.006681
+ Self time:   0.006681
+
+count  total (s)   self (s)
+  460              0.005993   return join([self.git_dir]+a:000,'/')
+
+FUNCTION  <SNR>54_OnInsertLeave()
+Called 2 times
+Total time:   0.080042
+ Self time:   0.019310
+
+count  total (s)   self (s)
+    2   0.000248   0.000032   if !s:AllowedToCompleteInCurrentFile()
+                                return
+                              endif
+                            
+    2              0.000012   let s:omnifunc_mode = 0
+    2   0.060588   0.000072   call s:OnFileReadyToParse()
+    2              0.018955   exec s:python_command "ycm_state.OnInsertLeave()"
+    2              0.000101   if g:ycm_autoclose_preview_window_after_completion || g:ycm_autoclose_preview_window_after_insertion
+                                call s:ClosePreviewWindowIfNeeded()
+                              endif
+
+FUNCTION  <SNR>54_GetCompletions()
+Called 54 times
+Total time:   0.898059
+ Self time:   0.875721
+
+count  total (s)   self (s)
+   54              0.870614   exec s:python_command "results = GetCompletionsInner()"
+   54   0.026578   0.004240   let results = s:Pyeval( 'results' )
+   54              0.000346   return results
+
+FUNCTION  <SNR>54_InsideCommentOrStringAndShouldStop()
+Called 51 times
+Total time:   0.438233
+ Self time:   0.002733
+
+count  total (s)   self (s)
+   51   0.436503   0.001003   let retval = s:InsideCommentOrString()
+   51              0.000395   let inside_comment = retval == 1
+   51              0.000295   let inside_string = retval == 2
+                            
+   51              0.000327   if inside_comment && g:ycm_complete_in_comments || inside_string && g:ycm_complete_in_strings
+                                return 0
+                              endif
+                            
+   51              0.000136   return retval
+
+FUNCTION  <SNR>54_OnInsertEnter()
+Called 2 times
+Total time:   0.000464
+ Self time:   0.000205
+
+count  total (s)   self (s)
+    2              0.000100   let s:previous_num_chars_on_current_line = strlen( getline('.') )
+                            
+    2   0.000305   0.000046   if !s:AllowedToCompleteInCurrentFile()
+                                return
+                              endif
+                            
+    2              0.000023   let s:old_cursor_position = []
+
+FUNCTION  LightLineReadonly()
+Called 230 times
+Total time:   0.004435
+ Self time:   0.004435
+
+count  total (s)   self (s)
+  230              0.001342     if &filetype == "help"
+                                    return ""
+                                elseif &readonly
+                                    return ""
+                                else
+  230              0.000477         return ""
+                                endif
+
+FUNCTION  <SNR>31_record()
+Called 2 times
+Total time:   0.001084
+ Self time:   0.000330
+
+count  total (s)   self (s)
+    2              0.000051 	if s:locked | retu | en
+    2              0.000033 	let bufnr = a:bufnr + 0
+    2              0.000027 	let bufname = bufname(bufnr)
+    2              0.000025 	if bufnr > 0 && !empty(bufname)
+    2              0.000073 		cal filter(s:mrbs, 'v:val != bufnr')
+    2              0.000032 		cal insert(s:mrbs, bufnr)
+    2   0.000811   0.000057 		cal s:addtomrufs(bufname)
+    2              0.000007 	en
+
+FUNCTION  LightLineFugitive()
+Called 230 times
+Total time:   0.119605
+ Self time:   0.007266
+
+count  total (s)   self (s)
+  230              0.002410     if exists("*fugitive#head")
+  230   0.114725   0.002386         let _ = fugitive#head()
+  230              0.001735         return strlen(_) ? ' '._ : ''
+                                endif
+                                return ''
+
+FUNCTION  BeforeWrite()
+Called 2 times
+Total time:   0.357292
+ Self time:   0.182461
+
+count  total (s)   self (s)
+    2              0.000081     let a:cursor_pos = getpos(".")
+    2   0.356972   0.182141     execute "%!clang-format-3.6 -style='{BasedOnStyle: llvm, IndentWidth: 4}'"
+    2              0.000206     call setpos('.', a:cursor_pos)
+
+FUNCTION  LightLineModified()
+Called 416 times
+Total time:   0.006743
+ Self time:   0.006743
+
+count  total (s)   self (s)
+  416              0.001864     if &filetype == "help"
+                                    return ""
+                                elseif &modified
+  372              0.000846         return "+"
+                                elseif &modifiable
+   44              0.000125         return ""
+                                else
+                                    return ""
+                                endif
+
+FUNCTION  AutoPairsDelete()
+Called 11 times
+Total time:   0.005201
+ Self time:   0.005201
+
+count  total (s)   self (s)
+   11              0.000284   if !b:autopairs_enabled
+                                return "\<BS>"
+                              end
+                            
+   11              0.000257   let line = getline('.')
+   11              0.000187   let pos = col('.') - 1
+   11              0.000596   let current_char = get(split(strpart(line, pos), '\zs'), 0, '')
+   11              0.000944   let prev_chars = split(strpart(line, 0, pos), '\zs')
+   11              0.000118   let prev_char = get(prev_chars, -1, '')
+   11              0.000104   let pprev_char = get(prev_chars, -2, '')
+                            
+   11              0.000076   if pprev_char == '\'
+                                return "\<BS>"
+                              end
+                            
+                              " Delete last two spaces in parens, work with MapSpace
+   11              0.000141   if has_key(b:AutoPairs, pprev_char) && prev_char == ' ' && current_char == ' '
+                                return "\<BS>\<DEL>"
+                              endif
+                            
+                              " Delete Repeated Pair eg: '''|''' [[|]] {{|}}
+   11              0.000086   if has_key(b:AutoPairs, prev_char)
+                                let times = 0
+                                let p = -1
+                                while get(prev_chars, p, '') == prev_char
+                                  let p = p - 1
+                                  let times = times + 1
+                                endwhile
+                            
+                                let close = b:AutoPairs[prev_char]
+                                let left = repeat(prev_char, times)
+                                let right = repeat(close, times)
+                            
+                                let before = strpart(line, pos-times, times)
+                                let after  = strpart(line, pos, times)
+                                if left == before && right == after
+                                  return repeat("\<BS>\<DEL>", times)
+                                end
+                              end
+                            
+                            
+   11              0.000083   if has_key(b:AutoPairs, prev_char) 
+                                let close = b:AutoPairs[prev_char]
+                                if match(line,'^\s*'.close, col('.')-1) != -1
+                                  " Delete (|___)
+                                  let space = matchstr(line, '^\s*', col('.')-1)
+                                  return "\<BS>". repeat("\<DEL>", len(space)+1)
+                                elseif match(line, '^\s*$', col('.')-1) != -1
+                                  " Delete (|__\n___)
+                                  let nline = getline(line('.')+1)
+                                  if nline =~ '^\s*'.close
+                                    if &filetype == 'vim' && prev_char == '"'
+                                      " Keep next line's comment
+                                      return "\<BS>"
+                                    end
+                            
+                                    let space = matchstr(nline, '^\s*')
+                                    return "\<BS>\<DEL>". repeat("\<DEL>", len(space)+1)
+                                  end
+                                end
+                              end
+                            
+   11              0.000140   return "\<BS>"
+
+FUNCTION  lightline#link()
+Called 115 times
+Total time:   0.015994
+ Self time:   0.015785
+
+count  total (s)   self (s)
+  115              0.004430   let mode = get(s:lightline._mode_, a:0 ? a:1 : mode(), 'normal')
+  115              0.000744   if s:mode == mode
+  111              0.000493     return ''
+                              endif
+    4              0.000021   let s:mode = mode
+    4              0.000042   if !has_key(s:highlight, mode)
+                                call lightline#highlight(mode)
+                              endif
+    4   0.000550   0.000341   let types = map(s:uniq(sort(filter(values(s:lightline.component_type), 'v:val !=# "raw"'))), '[v:val, 1]')
+   12              0.000122   for [p, l] in [['Left', len(s:lightline.active.left)], ['Right', len(s:lightline.active.right)]]
+   44              0.000349     for [i, t] in map(range(0, l), '[v:val, 0]') + types
+   36              0.000129       if i != l
+   28              0.000996         exec printf('hi link LightLine%s_active_%s LightLine%s_%s_%s', p, i, p, mode, i)
+   28              0.000050       endif
+  200              0.001448       for [j, s] in map(range(0, l), '[v:val, 0]') + types
+  164              0.000986         if i + 1 == j || t || s && i != l
+   76              0.002056           exec printf('hi link LightLine%s_active_%s_%s LightLine%s_%s_%s_%s', p, i, j, p, mode, i, j)
+   76              0.000139         endif
+  164              0.000273       endfor
+   36              0.000073     endfor
+    8              0.000015   endfor
+    4              0.000079   exec printf('hi link LightLineMiddle_active LightLineMiddle_%s', mode)
+    4              0.000016   return ''
+
+FUNCTION  <SNR>54_UpdateCursorMoved()
+Called 63 times
+Total time:   0.002751
+ Self time:   0.002751
+
+count  total (s)   self (s)
+   63              0.000576   let current_position = getpos('.')
+   63              0.000535   let s:cursor_moved = current_position != s:old_cursor_position
+                            
+   63              0.000829   let s:moved_vertically_in_insert_mode = s:old_cursor_position != [] && current_position[ 1 ] != s:old_cursor_position[ 1 ]
+                            
+   63              0.000360   let s:old_cursor_position = current_position
+
+FUNCTION  <SNR>54_OnCursorMovedInsertMode()
+Called 63 times
+Total time:   0.548972
+ Self time:   0.028421
+
+count  total (s)   self (s)
+   63   0.005738   0.000838   if !s:AllowedToCompleteInCurrentFile()
+                                return
+                              endif
+                            
+   63              0.021038   exec s:python_command "ycm_state.OnCursorMoved()"
+   63   0.003658   0.000907   call s:UpdateCursorMoved()
+                            
+                              " Basically, we need to only trigger the completion menu when the user has
+                              " inserted or deleted a character, NOT just when the user moves in insert mode
+                              " (with, say, the arrow keys). If we trigger the menu even on pure moves, then
+                              " it's impossible to move in insert mode since the up/down arrows start moving
+                              " the selected completion in the completion menu. Yeah, people shouldn't be
+                              " moving in insert mode at all (that's what normal mode is for) but explain
+                              " that to the users who complain...
+   63   0.003807   0.000791   if !s:BufferTextChangedSinceLastMoveInInsertMode()
+   12              0.000021     return
+                              endif
+                            
+   51   0.049118   0.000602   call s:IdentifierFinishedOperations()
+   51              0.000338   if g:ycm_autoclose_preview_window_after_completion
+                                call s:ClosePreviewWindowIfNeeded()
+                              endif
+                            
+   51              0.000221   if g:ycm_auto_trigger || s:omnifunc_mode
+   51   0.462139   0.000771     call s:InvokeCompletion()
+   51              0.000100   endif
+                            
+                              " We have to make sure we correctly leave omnifunc mode even when the user
+                              " inserts something like a "operator[]" candidate string which fails
+                              " CurrentIdentifierFinished check.
+   51              0.000377   if s:omnifunc_mode && !s:Pyeval( 'base.LastEnteredCharIsIdentifierChar()')
+                                let s:omnifunc_mode = 0
+                              endif
+
+FUNCTION  <SNR>48_uniq()
+Called 4 times
+Total time:   0.000209
+ Self time:   0.000209
+
+count  total (s)   self (s)
+    4              0.000055     let i = len(a:xs) - 1
+    4              0.000033     while i > 0
+                                  if a:xs[i] ==# a:xs[i - 1]
+                                    call remove(a:xs, i)
+                                  endif
+                                  let i -= 1
+                                endwhile
+    4              0.000016     return a:xs
+
+FUNCTION  <SNR>54_InsideCommentOrString()
+Called 51 times
+Total time:   0.435500
+ Self time:   0.435500
+
+count  total (s)   self (s)
+                              " Has to be col('.') -1 because col('.') doesn't exist at this point. We are
+                              " in insert mode when this func is called.
+   51              0.431934   let syntax_group = synIDattr( synIDtrans( synID( line( '.' ), col( '.' ) - 1, 1 ) ), 'name')
+                            
+   51              0.001423   if stridx(syntax_group, 'Comment') > -1
+                                return 1
+                              endif
+                            
+   51              0.000281   if stridx(syntax_group, 'String') > -1
+                                return 2
+                              endif
+                            
+   51              0.000201   return 0
+
+FUNCTION  <SNR>32_SetDefaultCompletionType()
+Called 2 times
+Total time:   0.000355
+ Self time:   0.000115
+
+count  total (s)   self (s)
+    2              0.000048   if exists('b:SuperTabDefaultCompletionType') && (!exists('b:complCommandLine') || !b:complCommandLine)
+    2   0.000290   0.000050     call SuperTabSetCompletionType(b:SuperTabDefaultCompletionType)
+    2              0.000007   endif
+
+FUNCTION  <SNR>54_SetUpYcmChangedTick()
+Called 13 times
+Total time:   0.000336
+ Self time:   0.000336
+
+count  total (s)   self (s)
+   13              0.000294   let b:ycm_changedtick  = get( b:, 'ycm_changedtick', {   'file_ready_to_parse' : -1, } )
+
+FUNCTION  <SNR>26_repo_head_ref()
+Called 230 times
+Total time:   0.040561
+ Self time:   0.033880
+
+count  total (s)   self (s)
+  230   0.017974   0.014106   if !filereadable(self.dir('HEAD'))
+                                return ''
+                              endif
+  230   0.020520   0.017707   return readfile(self.dir('HEAD'))[0]
+
+FUNCTION  <SNR>39_Highlight_Matching_Pair()
+Called 78 times
+Total time:   0.019524
+ Self time:   0.019524
+
+count  total (s)   self (s)
+                              " Remove any previous match.
+   78              0.002088   if exists('w:paren_hl_on') && w:paren_hl_on
+                                3match none
+                                let w:paren_hl_on = 0
+                              endif
+                            
+                              " Avoid that we remove the popup menu.
+                              " Return when there are no colors (looks like the cursor jumps).
+   78              0.001340   if pumvisible() || (&t_Co < 8 && !has("gui_running"))
+                                return
+                              endif
+                            
+                              " Get the character under the cursor and check if it's in 'matchpairs'.
+   78              0.000930   let c_lnum = line('.')
+   78              0.000768   let c_col = col('.')
+   78              0.000321   let before = 0
+                            
+   78              0.001259   let c = getline(c_lnum)[c_col - 1]
+   78              0.004324   let plist = split(&matchpairs, '.\zs[:,]')
+   78              0.000850   let i = index(plist, c)
+   78              0.000273   if i < 0
+                                " not found, in Insert mode try character before the cursor
+   78              0.000660     if c_col > 1 && (mode() == 'i' || mode() == 'R')
+   63              0.000239       let before = 1
+   63              0.000552       let c = getline(c_lnum)[c_col - 2]
+   63              0.000411       let i = index(plist, c)
+   63              0.000122     endif
+   78              0.000230     if i < 0
+                                  " not found, nothing to do
+   78              0.000246       return
+                                endif
+                              endif
+                            
+                              " Figure out the arguments for searchpairpos().
+                              if i % 2 == 0
+                                let s_flags = 'nW'
+                                let c2 = plist[i + 1]
+                              else
+                                let s_flags = 'nbW'
+                                let c2 = c
+                                let c = plist[i - 1]
+                              endif
+                              if c == '['
+                                let c = '\['
+                                let c2 = '\]'
+                              endif
+                            
+                              " Find the match.  When it was just before the cursor move it there for a
+                              " moment.
+                              if before > 0
+                                let save_cursor = winsaveview()
+                                call cursor(c_lnum, c_col - before)
+                              endif
+                            
+                              " When not in a string or comment ignore matches inside them.
+                              " We match "escape" for special items, such as lispEscapeSpecial.
+                              let s_skip ='synIDattr(synID(line("."), col("."), 0), "name") ' . '=~?  "string\\|character\\|singlequote\\|escape\\|comment"'
+                              execute 'if' s_skip '| let s_skip = 0 | endif'
+                            
+                              " Limit the search to lines visible in the window.
+                              let stoplinebottom = line('w$')
+                              let stoplinetop = line('w0')
+                              if i % 2 == 0
+                                let stopline = stoplinebottom
+                              else
+                                let stopline = stoplinetop
+                              endif
+                            
+                              " Limit the search time to 300 msec to avoid a hang on very long lines.
+                              " This fails when a timeout is not supported.
+                              if mode() == 'i' || mode() == 'R'
+                                let timeout = exists("b:matchparen_insert_timeout") ? b:matchparen_insert_timeout : g:matchparen_insert_timeout
+                              else
+                                let timeout = exists("b:matchparen_timeout") ? b:matchparen_timeout : g:matchparen_timeout
+                              endif
+                              try
+                                let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip, stopline, timeout)
+                              catch /E118/
+                                " Can't use the timeout, restrict the stopline a bit more to avoid taking
+                                " a long time on closed folds and long lines.
+                                " The "viewable" variables give a range in which we can scroll while
+                                " keeping the cursor at the same position.
+                                " adjustedScrolloff accounts for very large numbers of scrolloff.
+                                let adjustedScrolloff = min([&scrolloff, (line('w$') - line('w0')) / 2])
+                                let bottom_viewable = min([line('$'), c_lnum + &lines - adjustedScrolloff - 2])
+                                let top_viewable = max([1, c_lnum-&lines+adjustedScrolloff + 2])
+                                " one of these stoplines will be adjusted below, but the current values are
+                                " minimal boundaries within the current window
+                                if i % 2 == 0
+                                  if has("byte_offset") && has("syntax_items") && &smc > 0
+                            	let stopbyte = min([line2byte("$"), line2byte(".") + col(".") + &smc * 2])
+                            	let stopline = min([bottom_viewable, byte2line(stopbyte)])
+                                  else
+                            	let stopline = min([bottom_viewable, c_lnum + 100])
+                                  endif
+                                  let stoplinebottom = stopline
+                                else
+                                  if has("byte_offset") && has("syntax_items") && &smc > 0
+                            	let stopbyte = max([1, line2byte(".") + col(".") - &smc * 2])
+                            	let stopline = max([top_viewable, byte2line(stopbyte)])
+                                  else
+                            	let stopline = max([top_viewable, c_lnum - 100])
+                                  endif
+                                  let stoplinetop = stopline
+                                endif
+                                let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip, stopline)
+                              endtry
+                            
+                              if before > 0
+                                call winrestview(save_cursor)
+                              endif
+                            
+                              " If a match is found setup match highlighting.
+                              if m_lnum > 0 && m_lnum >= stoplinetop && m_lnum <= stoplinebottom 
+                                exe '3match MatchParen /\(\%' . c_lnum . 'l\%' . (c_col - before) . 'c\)\|\(\%' . m_lnum . 'l\%' . m_col . 'c\)/'
+                                let w:paren_hl_on = 1
+                              endif
+
+FUNCTION  youcompleteme#Complete()
+Called 108 times
+Total time:   1.100114
+ Self time:   0.154881
+
+count  total (s)   self (s)
+                              " After the user types one character after the call to the omnifunc, the
+                              " completefunc will be called because of our mapping that calls the
+                              " completefunc on every keystroke. Therefore we need to delegate the call we
+                              " 'stole' back to the omnifunc
+  108              0.001472   if s:omnifunc_mode
+                                return youcompleteme#OmniComplete( a:findstart, a:base )
+                              endif
+                            
+  108              0.000330   if a:findstart
+                                " InvokeCompletion has this check but we also need it here because of random
+                                " Vim bugs and unfortunate interactions with the autocommands of other
+                                " plugins
+   54              0.000171     if !s:cursor_moved
+                                  " for vim, -2 means not found but don't trigger an error message
+                                  " see :h complete-functions
+                                  return -2
+                                endif
+                            
+   54   0.012450   0.000581     if !s:Pyeval( 'ycm_state.IsServerAlive()' )
+                                  return -2
+                                endif
+   54              0.143112     exec s:python_command "ycm_state.CreateCompletionRequest()"
+   54   0.037078   0.001773     return s:Pyeval( 'base.CompletionStartColumn()' )
+                              else
+   54   0.898946   0.000887     return s:GetCompletions()
+                              endif
+
+FUNCTION  SuperTabSetCompletionType()
+Called 2 times
+Total time:   0.000240
+ Self time:   0.000198
+
+count  total (s)   self (s)
+                              " Globally available function that users can use to create mappings to quickly
+                              " switch completion modes.  Useful when a user wants to restore the default or
+                              " switch to another mode without having to kick off a completion of that type
+                              " or use SuperTabHelp.  Note, this function only changes the current
+                              " completion type, not the default, meaning that the default will still be
+                              " restored once the configured retension duration has been met (see
+                              " g:SuperTabRetainCompletionDuration).  To change the default for the current
+                              " buffer, use SuperTabDefaultCompletionType(type) instead.  Example mapping to
+                              " restore SuperTab default:
+                              "   nmap <F6> :call SetSuperTabCompletionType("<c-p>")<cr>
+                            
+                              " don't allow overriding what SuperTabChain has set, otherwise chaining may
+                              " not work.
+    2              0.000019   if exists('b:SuperTabChain')
+                                return
+                              endif
+                            
+    2   0.000087   0.000045   call s:InitBuffer()
+    2              0.000071   exec "let b:complType = \"" . escape(a:type, '<') . "\""
+
+FUNCTION  <SNR>31_addtomrufs()
+Called 2 times
+Total time:   0.000754
+ Self time:   0.000754
+
+count  total (s)   self (s)
+    2              0.000071 	let fn = fnamemodify(a:fname, ':p')
+    2              0.000068 	let fn = exists('+ssl') ? tr(fn, '/', '\') : fn
+    2              0.000418 	if ( !empty({s:in}) && fn !~# {s:in} ) || ( !empty({s:ex}) && fn =~# {s:ex} ) || !empty(getbufvar('^'.fn.'$', '&bt')) || !filereadable(fn) | retu
+                            	en
+    2              0.000054 	let idx = index(s:mrufs, fn, 0, !{s:cseno})
+    2              0.000012 	if idx
+                            		cal filter(s:mrufs, 'v:val !='.( {s:cseno} ? '#' : '?' ).' fn')
+                            		cal insert(s:mrufs, fn)
+                            		if {s:soup} && idx < 0
+                            			cal s:savetofile(s:mergelists())
+                            		en
+                            	en
+
+FUNCTION  <SNR>54_OnCursorMovedNormalMode()
+Called 11 times
+Total time:   0.115268
+ Self time:   0.029693
+
+count  total (s)   self (s)
+   11   0.001331   0.000205   if !s:AllowedToCompleteInCurrentFile()
+                                return
+                              endif
+                            
+   11   0.084691   0.000242   call s:OnFileReadyToParse()
+   11              0.029061   exec s:python_command "ycm_state.OnCursorMoved()"
+
+FUNCTION  lightline#mode()
+Called 115 times
+Total time:   0.001959
+ Self time:   0.001959
+
+count  total (s)   self (s)
+  115              0.001678   return get(s:lightline.mode_map, mode(), s:lightline.mode_map['?'])
+
+FUNCTION  <SNR>26_repo()
+Called 460 times
+Total time:   0.035094
+ Self time:   0.035094
+
+count  total (s)   self (s)
+  460              0.007470   let dir = a:0 ? a:1 : (exists('b:git_dir') && b:git_dir !=# '' ? b:git_dir : fugitive#extract_git_dir(expand('%:p')))
+  460              0.001711   if dir !=# ''
+  460              0.002910     if has_key(s:repos, dir)
+  460              0.003200       let repo = get(s:repos, dir)
+  460              0.000974     else
+                                  let repo = {'git_dir': dir}
+                                  let s:repos[dir] = repo
+                                endif
+  460              0.012848     return extend(extend(repo, s:repo_prototype, 'keep'), s:abstract_prototype, 'keep')
+                              endif
+                              call s:throw('not a git repository: '.expand('%:p'))
+
+FUNCTION  <SNR>54_Pyeval()
+Called 264 times
+Total time:   0.109992
+ Self time:   0.109992
+
+count  total (s)   self (s)
+  264              0.001529   if s:using_python2
+  264              0.107105     return pyeval( a:eval_string )
+                              endif
+                              return py3eval( a:eval_string )
+
+FUNCTION  <SNR>54_OnFileReadyToParse()
+Called 13 times
+Total time:   0.144965
+ Self time:   0.144629
+
+count  total (s)   self (s)
+                              " We need to call this just in case there is no b:ycm_changetick; this can
+                              " happen for special buffers.
+   13   0.000530   0.000194   call s:SetUpYcmChangedTick()
+                            
+                              " Order is important here; we need to extract any information before
+                              " reparsing the file again. If we sent the new parse request first, then
+                              " the response would always be pending when we called
+                              " HandleFileParseRequest.
+   13              0.125762   exec s:python_command "ycm_state.HandleFileParseRequest()"
+                            
+   13              0.000480   let buffer_changed = b:changedtick != b:ycm_changedtick.file_ready_to_parse
+   13              0.000072   if buffer_changed
+    4              0.017392     exec s:python_command "ycm_state.OnFileReadyToParse()"
+    4              0.000104   endif
+   13              0.000207   let b:ycm_changedtick.file_ready_to_parse = b:changedtick
+
+FUNCTION  <SNR>26_sub()
+Called 230 times
+Total time:   0.008029
+ Self time:   0.008029
+
+count  total (s)   self (s)
+  230              0.007618   return substitute(a:str,'\v\C'.a:pat,a:rep,'')
+
+FUNCTION  LightLineFilename()
+Called 230 times
+Total time:   0.018920
+ Self time:   0.007742
+
+count  total (s)   self (s)
+  230   0.018489   0.007311     return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') . ('' != expand('%:t') ? expand('%:t') : '[No Name]') . ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+
+FUNCTION  <SNR>32_InitBuffer()
+Called 2 times
+Total time:   0.000042
+ Self time:   0.000042
+
+count  total (s)   self (s)
+    2              0.000026   if exists('b:SuperTabNoCompleteBefore')
+    2              0.000009     return
+                              endif
+                            
+                              let b:complReset = 0
+                              let b:complTypeManual = !exists('b:complTypeManual') ? '' : b:complTypeManual
+                              let b:complTypeContext = ''
+                            
+                              " init hack for <c-x><c-v> workaround.
+                              let b:complCommandLine = 0
+                            
+                              if !exists('b:SuperTabNoCompleteBefore')
+                                let b:SuperTabNoCompleteBefore = g:SuperTabNoCompleteBefore
+                              endif
+                              if !exists('b:SuperTabNoCompleteAfter')
+                                let b:SuperTabNoCompleteAfter = g:SuperTabNoCompleteAfter
+                              endif
+                            
+                              if !exists('b:SuperTabDefaultCompletionType')
+                                let b:SuperTabDefaultCompletionType = g:SuperTabDefaultCompletionType
+                              endif
+                            
+                              if !exists('b:SuperTabContextDefaultCompletionType')
+                                let b:SuperTabContextDefaultCompletionType = g:SuperTabContextDefaultCompletionType
+                              endif
+                            
+                              " set the current completion type to the default
+                              call SuperTabSetCompletionType(b:SuperTabDefaultCompletionType)
+                            
+                              " hack to programatically revert a change to snipmate that breaks supertab
+                              " but which the new maintainers don't care about:
+                              " http://github.com/garbas/vim-snipmate/issues/37
+                              let snipmate = maparg('<tab>', 'i')
+                              if snipmate =~ '<C-G>u' && g:SuperTabMappingForward =~? '<tab>'
+                                let snipmate = substitute(snipmate, '<C-G>u', '', '')
+                                iunmap <tab>
+                                exec "inoremap <silent> <tab> " . snipmate
+                              endif
+
+FUNCTION  <SNR>54_BufferTextChangedSinceLastMoveInInsertMode()
+Called 63 times
+Total time:   0.003016
+ Self time:   0.003016
+
+count  total (s)   self (s)
+   63              0.000701   let num_chars_in_current_cursor_line = strlen( getline('.') )
+                            
+   63              0.000251   if s:moved_vertically_in_insert_mode
+                                let s:previous_num_chars_on_current_line = num_chars_in_current_cursor_line
+                                return 0
+                              endif
+                            
+   63              0.000523   let changed_text_on_current_line = num_chars_in_current_cursor_line != s:previous_num_chars_on_current_line
+   63              0.000388   let s:previous_num_chars_on_current_line = num_chars_in_current_cursor_line
+                            
+   63              0.000212   return changed_text_on_current_line
+
+FUNCTION  <SNR>26_repo_head()
+Called 230 times
+Total time:   0.082954
+ Self time:   0.019887
+
+count  total (s)   self (s)
+  230   0.059321   0.004283     let head = s:repo().head_ref()
+                            
+  230              0.005549     if head =~# '^ref: '
+  230   0.011533   0.003504       let branch = s:sub(head,'^ref: %(refs/%(heads/|remotes/|tags/)=)=','')
+  230              0.001020     elseif head =~# '^\x\{40\}$'
+                                  " truncate hash to a:1 characters if we're in detached head mode
+                                  let len = a:0 ? a:1 : 0
+                                  let branch = len ? head[0:len-1] : ''
+                                else
+                                  return ''
+                                endif
+                            
+  230              0.000704     return branch
+
+FUNCTION  lightline#update_once()
+Called 11 times
+Total time:   0.000491
+ Self time:   0.000491
+
+count  total (s)   self (s)
+   11              0.000286   if !exists('w:lightline') || w:lightline
+                                call lightline#update()
+                              endif
+
+FUNCTION  fugitive#head()
+Called 230 times
+Total time:   0.112339
+ Self time:   0.008768
+
+count  total (s)   self (s)
+  230              0.001772   if !exists('b:git_dir')
+                                return ''
+                              endif
+                            
+  230   0.108622   0.005051   return s:repo().head(a:0 ? a:1 : 0)
+
+FUNCTION  AutoPairsInsert()
+Called 1 time
+Total time:   0.000957
+ Self time:   0.000957
+
+count  total (s)   self (s)
+    1              0.000037   if !b:autopairs_enabled
+                                return a:key
+                              end
+                            
+    1              0.000030   let line = getline('.')
+    1              0.000027   let pos = col('.') - 1
+    1              0.000019   let before = strpart(line, 0, pos)
+    1              0.000014   let after = strpart(line, pos)
+    1              0.000040   let next_chars = split(after, '\zs')
+    1              0.000019   let current_char = get(next_chars, 0, '')
+    1              0.000015   let next_char = get(next_chars, 1, '')
+    1              0.000085   let prev_chars = split(before, '\zs')
+    1              0.000016   let prev_char = get(prev_chars, -1, '')
+                            
+    1              0.000007   let eol = 0
+    1              0.000017   if col('$') -  col('.') <= 1
+    1              0.000008     let eol = 1
+    1              0.000004   end
+                            
+                              " Ignore auto close if prev character is \
+    1              0.000009   if prev_char == '\'
+                                return a:key
+                              end
+                            
+                              " The key is difference open-pair, then it means only for ) ] } by default
+    1              0.000021   if !has_key(b:AutoPairs, a:key)
+                                let b:autopairs_saved_pair = [a:key, getpos('.')]
+                            
+                                " Skip the character if current character is the same as input
+                                if current_char == a:key
+                                  return "\<Right>"
+                                end
+                            
+                                if !g:AutoPairsFlyMode
+                                  " Skip the character if next character is space
+                                  if current_char == ' ' && next_char == a:key
+                                    return "\<Right>\<Right>"
+                                  end
+                            
+                                  " Skip the character if closed pair is next character
+                                  if current_char == ''
+                                    let next_lineno = line('.')+1
+                                    let next_line = getline(nextnonblank(next_lineno))
+                                    let next_char = matchstr(next_line, '\s*\zs.')
+                                    if next_char == a:key
+                                      return "\<ESC>e^a"
+                                    endif
+                                  endif
+                                endif
+                            
+                                " Fly Mode, and the key is closed-pairs, search closed-pair and jump
+                                if g:AutoPairsFlyMode && has_key(b:AutoPairsClosedPairs, a:key)
+                                  if search(a:key, 'W')
+                                    return "\<Right>"
+                                  endif
+                                endif
+                            
+                                " Insert directly if the key is not an open key
+                                return a:key
+                              end
+                            
+    1              0.000009   let open = a:key
+    1              0.000015   let close = b:AutoPairs[open]
+                            
+    1              0.000012   if current_char == close && open == close
+                                return "\<Right>"
+                              end
+                            
+                              " Ignore auto close ' if follows a word
+                              " MUST after closed check. 'hello|'
+    1              0.000009   if a:key == "'" && prev_char =~ '\v\w'
+                                return a:key
+                              end
+                            
+                              " support for ''' ``` and """
+    1              0.000008   if open == close
+                                " The key must be ' " `
+    1              0.000019     let pprev_char = line[col('.')-3]
+    1              0.000011     if pprev_char == open && prev_char == open
+                                  " Double pair found
+                                  return repeat(a:key, 4) . repeat("\<LEFT>", 3)
+                                end
+    1              0.000004   end
+                            
+    1              0.000008   let quotes_num = 0
+                              " Ignore comment line for vim file
+    1              0.000015   if &filetype == 'vim' && a:key == '"'
+                                if before =~ '^\s*$'
+                                  return a:key
+                                end
+                                if before =~ '^\s*"'
+                                  let quotes_num = -1
+                                end
+                              end
+                            
+                              " Keep quote number is odd.
+                              " Because quotes should be matched in the same line in most of situation
+    1              0.000011   if g:AutoPairsSmartQuotes && open == close
+                                " Remove \\ \" \'
+    1              0.000040     let cleaned_line = substitute(line, '\v(\\.)', '', 'g')
+    1              0.000011     let n = quotes_num
+    1              0.000007     let pos = 0
+    1              0.000008     while 1
+    1              0.000019       let pos = stridx(cleaned_line, open, pos)
+    1              0.000007       if pos == -1
+    1              0.000006         break
+                                  end
+                                  let n = n + 1
+                                  let pos = pos + 1
+                                endwhile
+    1              0.000007     if n % 2 == 1
+                                  return a:key
+                                endif
+    1              0.000003   endif
+                            
+    1              0.000022   return open.close."\<Left>"
+
+FUNCTION  <SNR>54_AllowedToCompleteInCurrentFile()
+Called 78 times
+Total time:   0.006501
+ Self time:   0.006501
+
+count  total (s)   self (s)
+   78              0.002125   if empty( &filetype ) || getbufvar( winbufnr( winnr() ), "&buftype" ) ==# 'nofile' || &filetype ==# 'qf'
+                                return 0
+                              endif
+                            
+   78              0.000547   if exists( 'b:ycm_largefile' )
+                                return 0
+                              endif
+                            
+   78              0.001070   let whitelist_allows = has_key( g:ycm_filetype_whitelist, '*' ) || has_key( g:ycm_filetype_whitelist, &filetype )
+   78              0.000918   let blacklist_allows = !has_key( g:ycm_filetype_blacklist, &filetype )
+                            
+   78              0.000371   return whitelist_allows && blacklist_allows
+
+FUNCTION  <SNR>54_IdentifierFinishedOperations()
+Called 51 times
+Total time:   0.048516
+ Self time:   0.024060
+
+count  total (s)   self (s)
+   51   0.025067   0.000611   if !s:Pyeval( 'base.CurrentIdentifierFinished()' )
+   44              0.000157     return
+                              endif
+    7              0.022897   exec s:python_command "ycm_state.OnCurrentIdentifierFinished()"
+    7              0.000190   let s:omnifunc_mode = 0
+
+FUNCTION  <SNR>54_InvokeCompletion()
+Called 51 times
+Total time:   0.461368
+ Self time:   0.006233
+
+count  total (s)   self (s)
+   51              0.000469   if &completefunc != "youcompleteme#Complete"
+                                return
+                              endif
+                            
+   51   0.457708   0.002573   if s:InsideCommentOrStringAndShouldStop() || s:OnBlankLine()
+                                return
+                              endif
+                            
+                              " This is tricky. First, having 'refresh' set to 'always' in the dictionary
+                              " that our completion function returns makes sure that our completion function
+                              " is called on every keystroke. Second, when the sequence of characters the
+                              " user typed produces no results in our search an infinite loop can occur. The
+                              " problem is that our feedkeys call triggers the OnCursorMovedI event which we
+                              " are tied to. We prevent this infinite loop from starting by making sure that
+                              " the user has moved the cursor since the last time we provided completion
+                              " results.
+   51              0.000252   if !s:cursor_moved
+                                return
+                              endif
+                            
+                              " <c-x><c-u> invokes the user's completion function (which we have set to
+                              " youcompleteme#Complete), and <c-p> tells Vim to select the previous
+                              " completion candidate. This is necessary because by default, Vim selects the
+                              " first candidate when completion is invoked, and selecting a candidate
+                              " automatically replaces the current text with it. Calling <c-p> forces Vim to
+                              " deselect the first candidate and in turn preserve the user's current text
+                              " until he explicitly chooses to replace it with a completion.
+   51              0.001262   call feedkeys( "\<C-X>\<C-U>\<C-P>", 'n' )
+
+FUNCTION  <SNR>54_OnBlankLine()
+Called 51 times
+Total time:   0.016902
+ Self time:   0.000878
+
+count  total (s)   self (s)
+   51   0.016737   0.000713   return s:Pyeval( 'not vim.current.line or vim.current.line.isspace()' )
+
+FUNCTION  <SNR>54_OnCompleteDone()
+Called 51 times
+Total time:   0.035046
+ Self time:   0.035046
+
+count  total (s)   self (s)
+   51              0.034741   exec s:python_command "ycm_state.OnCompleteDone()"
+
+FUNCTIONS SORTED ON TOTAL TIME
+count  total (s)   self (s)  function
+  108   1.100114   0.154881  youcompleteme#Complete()
+   54   0.898059   0.875721  <SNR>54_GetCompletions()
+   63   0.548972   0.028421  <SNR>54_OnCursorMovedInsertMode()
+   51   0.461368   0.006233  <SNR>54_InvokeCompletion()
+   51   0.438233   0.002733  <SNR>54_InsideCommentOrStringAndShouldStop()
+   51   0.435500             <SNR>54_InsideCommentOrString()
+    2   0.357292   0.182461  BeforeWrite()
+   13   0.144965   0.144629  <SNR>54_OnFileReadyToParse()
+  230   0.119605   0.007266  LightLineFugitive()
+   11   0.115268   0.029693  <SNR>54_OnCursorMovedNormalMode()
+  230   0.112339   0.008768  fugitive#head()
+  264   0.109992             <SNR>54_Pyeval()
+  230   0.082954   0.019887  <SNR>26_repo_head()
+    2   0.080042   0.019310  <SNR>54_OnInsertLeave()
+   51   0.048516   0.024060  <SNR>54_IdentifierFinishedOperations()
+  230   0.040561   0.033880  <SNR>26_repo_head_ref()
+  460   0.035094             <SNR>26_repo()
+   51   0.035046             <SNR>54_OnCompleteDone()
+   78   0.019524             <SNR>39_Highlight_Matching_Pair()
+  230   0.018920   0.007742  LightLineFilename()
+
+FUNCTIONS SORTED ON SELF TIME
+count  total (s)   self (s)  function
+   54   0.898059   0.875721  <SNR>54_GetCompletions()
+   51              0.435500  <SNR>54_InsideCommentOrString()
+    2   0.357292   0.182461  BeforeWrite()
+  108   1.100114   0.154881  youcompleteme#Complete()
+   13   0.144965   0.144629  <SNR>54_OnFileReadyToParse()
+  264              0.109992  <SNR>54_Pyeval()
+  460              0.035094  <SNR>26_repo()
+   51              0.035046  <SNR>54_OnCompleteDone()
+  230   0.040561   0.033880  <SNR>26_repo_head_ref()
+   11   0.115268   0.029693  <SNR>54_OnCursorMovedNormalMode()
+   63   0.548972   0.028421  <SNR>54_OnCursorMovedInsertMode()
+   51   0.048516   0.024060  <SNR>54_IdentifierFinishedOperations()
+  230   0.082954   0.019887  <SNR>26_repo_head()
+   78              0.019524  <SNR>39_Highlight_Matching_Pair()
+    2   0.080042   0.019310  <SNR>54_OnInsertLeave()
+  115   0.015994   0.015785  lightline#link()
+  230   0.112339   0.008768  fugitive#head()
+  230              0.008029  <SNR>26_sub()
+  230   0.018920   0.007742  LightLineFilename()
+  230   0.119605   0.007266  LightLineFugitive()
+

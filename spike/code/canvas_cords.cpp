@@ -1,8 +1,8 @@
 // POC to find the canvas coords
 #include <iostream>
 #include <cmath>
-#include <prettyprint.hpp>
 #include <math_alpha.hpp>
+#include <prettyprint.hpp>
 float focal_length = 35;            // mm
 float film_aperture_width = 0.980;  // in
 float film_aperture_height = 0.735; // in

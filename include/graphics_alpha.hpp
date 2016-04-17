@@ -14,6 +14,7 @@
 #ifndef GRAPHICS_ALPHA_HPP
 #define GRAPHICS_ALPHA_HPP
 #include <math_alpha.hpp>
+#include <iostream>
 namespace alpha {
 void compute_pixel_coords(const Vec3f &p_world, const Matrix44f &world_to_cam,
                           const float canvas_width, const float canvas_height,
@@ -51,7 +52,7 @@ bool compute_pixel_coords(const Vec3f &p_world, const Matrix44f &world_to_cam,
     p_NDC.y = (p_screen.y + t) / (2 * t);
     // Convert to raster
     p_raster.x = p_NDC.x * img_width;
-    p_raster.y = p_NDC.y * img_height;
+    p_raster.y = (1 - p_NDC.y) * img_height;
     bool visible = true;
     // Check if visible
     if (p_screen.x > r || p_screen.y > t || p_screen.x < l || p_screen.y < b) {

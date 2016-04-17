@@ -3,5 +3,6 @@
 
 spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.o: ../include/graphics_alpha.hpp
 spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.o: ../include/math_alpha.hpp
+spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.o: ../thirdparty/prettyprint.hpp
 spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.o: ../spike/code/pinhole.cpp
 

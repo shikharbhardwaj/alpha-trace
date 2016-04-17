@@ -4,4 +4,5 @@
 spike/code/CMakeFiles/pinhole.dir/pinhole.cpp.o
  ../include/graphics_alpha.hpp
  ../include/math_alpha.hpp
+ ../thirdparty/prettyprint.hpp
  /home/bluefog/Documents/dev/alpha/spike/code/pinhole.cpp
