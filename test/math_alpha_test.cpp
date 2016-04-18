@@ -107,6 +107,19 @@ int main() {
     } else {
         expected(0, 0);
     }
+    std::cout << "\nalpha::mat44::inverse\t\t:\t";
+    alpha::Matrix44<float> inv_test{
+        {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 3, 4}, {0, 0, 1, 1}};
+    alpha::Matrix44<float> inv_pre{
+        {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, -1, 4}, {0, 0, 1, -3}};
+    inv_test.invert();
+    if (inv_test == inv_pre) {
+        expected(0, 0);
+    } else {
+        expected(1, 0);
+    }
+    std::cout << "\nalpha::mat44::opertor==\t\t:\t";
+    expected(1, 1);
     if (!fail) {
         std::cout << "\n\n" << colours::green << "[OK] " << colours::reset
                   << "All tests successful";

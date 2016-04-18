@@ -19,19 +19,20 @@
 #include <iomanip>
 #include <limits>
 #include <cmath>
-
+#include <prettyprint.hpp>
+// TODO: Write tests
 namespace alpha {
 template <typename T> bool is_equal(T a, T b) {
     if (a > 1.0 && b > 1.0) {
         // Return true if the relative error is less than the system epsilon
         if ((fabs(fabs(a) - fabs(b))) <=
-                fabs(a) * std::numeric_limits<T>::epsilon() ||
+                fabs(a) * 2 * std::numeric_limits<T>::epsilon() ||
             a == b) {
             return true;
         }
     } else {
-        if (fabs(fabs(a) - fabs(b)) <= std::numeric_limits<T>::epsilon() ||
-            a == b) {
+        if (fabs(fabs(a) - fabs(b)) <= 2 * std::numeric_limits<T>::epsilon() ||
+            a == b || (a == 0 && b == 0)) {
             return true;
         }
     }
@@ -145,7 +146,19 @@ template <typename T> class Matrix44 {
 
         return tmp;
     }
-
+    bool operator==(const Matrix44 &lhs) {
+        bool equal = true;
+        for (uint8_t i = 0; i < 4 && equal; i++) {
+            for (uint8_t j = 0; j < 4 && equal; j++) {
+                if (!is_equal(lhs[i][j], (*this)[i][j])) {
+                    printf("%d, %d", i, j);
+                    equal = false;
+                    break;
+                }
+            }
+        }
+        return equal;
+    }
     static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {
 #if 0
         for (uint8_t i = 0; i < 4; ++i) {
