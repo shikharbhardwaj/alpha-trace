@@ -1,4 +1,6 @@
 // Implement the simplest form of the rasterisation algorithm
+//
+// Computing the bounding box of a number of triangles
 #include <math_alpha.hpp>
 #include <prettyprint.hpp>
 typedef struct tri { int v[3]; } tri;
