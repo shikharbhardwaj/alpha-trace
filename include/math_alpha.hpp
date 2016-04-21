@@ -395,5 +395,8 @@ template <typename T> class Matrix44 {
 };
 
 typedef Matrix44<float> Matrix44f;
+bool edge_function(const Vec2f &a, const Vec3f &b, const Vec2f &c) {
+    return ((b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)) >= 0;
+}
 }
 #endif

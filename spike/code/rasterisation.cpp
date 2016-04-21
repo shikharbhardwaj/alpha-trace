@@ -1,35 +1,40 @@
 // Implement the simplest form of the rasterisation algorithm
-//
-// Computing the bounding box of a number of triangles
 #include <math_alpha.hpp>
+#include <ppm_alpha.hpp>
 #include <prettyprint.hpp>
-typedef struct tri { int v[3]; } tri;
-int img_width;
-int img_height;
-tri triangle[3];
-float project_and_convert_to_NDC(float);
-std::pair<alpha::Vec2f, alpha::Vec2f> compute_bounding_box() {
-    std::pair<alpha::Vec2f, alpha::Vec2f> bounding_box;
-    auto &bbmin = bounding_box.first;
-    auto &bbmax = bounding_box.second;
-    alpha::Vec2f vertice_projection[3];
-    for (int i = 0; i < 3; ++i) {
-        vertice_projection[i] = project_and_convert_to_NDC(triangle[i].v[i]);
-        vertice_projection[i].x *= img_width;
-        vertice_projection[i].y *= img_height;
-        if (vertice_projection[i].x < bbmin.x) {
-            bbmin.x = vertice_projection[i].x;
-        }
-        if (vertice_projection[i].y < bbmin.y) {
-            bbmin.y = vertice_projection[i].y;
-        }
-        if (vertice_projection[i].x > bbmax.x) {
-            bbmax.x = vertice_projection[i].x;
-        }
-        if (vertice_projection[i].y > bbmax.y) {
-            bbmax.y = vertice_projection[i].y;
+using namespace alpha;
+float edge_function(const Vec2f &a, const Vec2f &b, const Vec2f &c) {
+    return ((b.y - a.y) * (c.x - a.x) - (b.x - a.x) * (c.y - a.y));
+}
+int main() {
+    alpha::Vec2f v0(491.407, 411.407);
+    alpha::Vec2f v1(148.593, 68.5928);
+    alpha::Vec2f v2(148.593, 411.407);
+    alpha::Vec3f c0(1, 0, 0);
+    alpha::Vec3f c1(0, 1, 0);
+    alpha::Vec3f c2(0, 0, 1);
+    alpha::ppm_image out("2draster.ppm", 512, 512);
+    float area = edge_function(v0, v1, v2);
+    std::cout << "\nArea : " << area << std::endl;
+    for (int j = 0; j < 512; j++) {
+        for (int i = 0; i < 512; i++) {
+            alpha::Vec2f p(i + 0.5f, j + 0.5f);
+            float w0 = edge_function(v1, v2, p);
+            float w1 = edge_function(v2, v0, p);
+            float w2 = edge_function(v0, v1, p);
+            if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
+                // The point is visible
+                w0 /= area;
+                w1 /= area;
+                w2 /= area;
+                // Compute contribution of each vertex
+                Vec3i color;
+                color.x = w0 * 255;
+                color.y = w1 * 255;
+                color.z = w2 * 255;
+                out.set(i, j, color);
+            }
         }
     }
-    return bounding_box;
+    out.dump();
 }
-int main() {}
