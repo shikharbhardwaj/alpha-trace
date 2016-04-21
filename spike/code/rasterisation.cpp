@@ -7,18 +7,20 @@ float edge_function(const Vec2f &a, const Vec2f &b, const Vec2f &c) {
     return ((b.y - a.y) * (c.x - a.x) - (b.x - a.x) * (c.y - a.y));
 }
 int main() {
-    alpha::Vec2f v0(491.407, 411.407);
-    alpha::Vec2f v1(148.593, 68.5928);
-    alpha::Vec2f v2(148.593, 411.407);
+    const int img_width = 1366;
+    const int img_height = 768;
+    alpha::Vec2f v0(0, 0);
+    alpha::Vec2f v1(0, img_height);
+    alpha::Vec2f v2(img_width, img_height);
     alpha::Vec3f c0(1, 0, 0);
     alpha::Vec3f c1(0, 1, 0);
     alpha::Vec3f c2(0, 0, 1);
-    alpha::ppm_image out("2draster.ppm", 512, 512);
+    alpha::ppm_image out("2draster.ppm", img_height, img_width);
     float area = edge_function(v0, v1, v2);
     std::cout << "\nArea : " << area << std::endl;
-    for (int j = 0; j < 512; j++) {
-        for (int i = 0; i < 512; i++) {
-            alpha::Vec2f p(i + 0.5f, j + 0.5f);
+    for (int j = 0; j < img_height; j++) {
+        for (int i = 0; i < img_width; i++) {
+            alpha::Vec2f p(i + .16f, j + 0.9f);
             float w0 = edge_function(v1, v2, p);
             float w1 = edge_function(v2, v0, p);
             float w2 = edge_function(v0, v1, p);
