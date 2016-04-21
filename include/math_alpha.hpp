@@ -20,7 +20,6 @@
 #include <limits>
 #include <cmath>
 #include <prettyprint.hpp>
-// TODO: Write tests
 namespace alpha {
 template <typename T> bool is_equal(T a, T b) {
     if (a > 1.0 && b > 1.0) {
