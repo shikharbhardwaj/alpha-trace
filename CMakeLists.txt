@@ -5,7 +5,7 @@ project("alpha-trace")
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(warnings "-Wall -Wextra -Werror -std=c++11 -O3 -march=native")
+    set(warnings "-Wall -Wextra -Werror -std=c++11 -pthread -O3 -march=native")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(warnings "/W4 /WX /EHsc")
 endif()
@@ -20,6 +20,7 @@ link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 # Add the source directory
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
-add_subdirectory(${PROJECT_SOURCE_DIR}/spike/code)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+add_subdirectory(${PROJECT_SOURCE_DIR}/spike/code)
+add_subdirectory(${PROJECT_SOURCE_DIR}/spike/bench)
 
