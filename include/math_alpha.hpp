@@ -21,6 +21,12 @@
 #include <cmath>
 #include <prettyprint.hpp>
 namespace alpha {
+template <typename T> T min_3(T a, T b, T c) {
+    return std::min(std::min(a, b), c);
+}
+template <typename T> T max_3(T a, T b, T c) {
+    return std::max(std::max(a, b), c);
+}
 template <typename T> bool is_equal(T a, T b) {
     if (a > 1.0 && b > 1.0) {
         // Return true if the relative error is less than the system epsilon
@@ -395,8 +401,5 @@ template <typename T> class Matrix44 {
 };
 
 typedef Matrix44<float> Matrix44f;
-bool edge_function(const Vec2f &a, const Vec3f &b, const Vec2f &c) {
-    return ((b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)) >= 0;
-}
 }
 #endif
