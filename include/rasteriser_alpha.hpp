@@ -50,7 +50,7 @@ class Rasteriser {
     std::unique_ptr<Framebuffer> buf;
     uint32_t screen_width, screen_height;
     float edge_function(const Point &a, const Point &b, const Point &c) {
-        return (c.x * (a.y - b.y) + c.y * (b.x - a.x) + a.x * b.y - a.y - b.x);
+        return c.x * (a.y - b.y) + c.y * (b.x - a.x) + a.x * b.y - a.y * b.x;
     }
     std::pair<Point, Point> compute_bounding_box(const Point &a, const Point &b,
                                                  const Point &c) {
@@ -91,7 +91,7 @@ class Rasteriser {
             float w1 = w1_row;
             float w2 = w2_row;
             for (p.x = bbox.first.x; p.x <= bbox.second.x; p.x++) {
-                if ((w1 | w2 | w3) >= 0) {
+                if (w1 >= 0 && w2 >= 0 && w0 >= 0) {
                     // If p is visible, render
                     buf->set(p.x, p.y, rgb(w0 * buf->col_space / total_area,
                                            w1 * buf->col_space / total_area,
@@ -101,9 +101,9 @@ class Rasteriser {
                 w1 += a20;
                 w2 += a01;
             }
-            w0_row += b12;
-            w1_row += b20;
-            w2_row += b01;
+            w0_row -= b12;
+            w1_row -= b20;
+            w2_row -= b01;
         }
     }
 };
