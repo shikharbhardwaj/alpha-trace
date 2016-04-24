@@ -5,7 +5,7 @@ project("alpha-trace")
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(warnings "-Wall -Wextra -Werror -std=c++11 -pthread -O3 -march=native")
+set(warnings "-Wall -Werror -Wextra -std=c++11 -pthread -O3 -march=native")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(warnings "/W4 /WX /EHsc")
 endif()

@@ -10,4 +10,3 @@ alpha::Rasteriser rast(width, height);
 NONIUS_BENCHMARK("Rasteriser", [](nonius::chronometer meter) {
     meter.measure([] { rast.draw_triangle(v0, v1, v2); });
 });
-// Current times : 2ms per frame
