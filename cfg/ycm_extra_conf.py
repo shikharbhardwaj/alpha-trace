@@ -38,21 +38,16 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-'-std=c++14',
+'-pedantic',
+'-std=c++11',
 '-x',
 'c++',
-'-isystem',
-'../BoostParts',
-'-isystem',
-'../llvm/tools/clang/include',
 '-I',
 '../include',
 '-I',
 '../thirdparty',
 './',
 '/usr/include/c++/4.8.4',
-'-isystem',
-'/home/shikhar/Documents/dev/breakout/src/include',
 ]
 
 

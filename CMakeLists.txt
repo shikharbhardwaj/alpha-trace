@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
+set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
+include (cotire)
 
 project("alpha-trace")
 
@@ -23,4 +25,3 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/code)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/bench)
-
