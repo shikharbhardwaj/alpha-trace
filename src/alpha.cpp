@@ -12,63 +12,30 @@ void help() {
     std::cout << "\n -r \t\t:\t Use rasterisation for image generation";
     std::cout << std::endl;
 }
-int find_pos(char **begin, char **end, const char *val) {
-    int sz = end - begin;
-    for (int i = 0; i < sz; i++) {
-        if (strcmp(*(begin + i), val) == 0) {
-            return i;
-        }
-    }
-    return sz;
-}
-bool is_there(char **begin, char **end, const char *val) {
-    while (begin != end) {
-        if (strcmp(*begin, val) == 0) {
-            return true;
-        }
-        begin++;
-    }
-    return false;
-}
 int main(int argc, char **argv) {
-    if (argc == 1) {
-        // Display help
-        help();
+    std::vector<std::string> args(argc);
+    for (int i = 0; i < argc; i++) {
+        args[i] = std::string(argv[i]);
     }
-    if (argc > 1) {
-        if (is_there(argv, argv + argc, "-h")) {
-            help();
-        } else if (is_there(argv, argv + argc, "-r")) {
-            int pos = find_pos(argv, argv + argc, "-d");
-            if (pos == argc) {
-                std::cout
-                    << "Specify image dimensions with flag -d WIDTH HEIGHT"
-                    << std::endl;
-            } else {
-                int height, width, a, b, c, d, e, f;
-                width = atoi(*(argv + pos + 1));
-                height = atoi(*(argv + pos + 2));
-                std::cout << "Rasterising image with dimensions : " << width
-                          << "x" << height << std::endl;
-                std::cout
-                    << "Enter co-ordinates of triangle vertexes to render, EOF "
-                    << "starts rendering" << std::endl;
-                std::vector<alpha::Vec2i> triangles;
-                while (std::cin >> a >> b >> c >> d >> e >> f) {
-                    triangles.push_back({a, b});
-                    triangles.push_back({c, d});
-                    triangles.push_back({e, f});
-                }
-                std::cout << "Starting rendering...";
-                alpha::Rasteriser rast(width, height);
-                for (auto it = triangles.begin(); it + 2 < triangles.end();
-                     it += 3) {
-                    rast.draw_triangle(*(it), *(it + 1), *(it + 2));
-                }
-                std::cout << "Done";
-                std::cout << "\nDumping framebuffer to disk";
-                rast.dump_as_ppm("result.ppm");
-            }
+    // Now process the args
+    if (std::find(args.begin(), args.end(), "-h") != args.end()) {
+        help();
+    } else if (std::find(args.begin(), args.end(), "-r") != args.end()) {
+        if (std::find(args.begin(), args.end(), "-d") + 2 >= args.end()) {
+            std::cerr
+                << "\nNo image dimensions specified. Use -h flag for help";
+        } else {
+            auto pos = std::find(args.begin(), args.end(), "-d");
+            int width = atoi((pos + 1)->c_str());
+            int height = atoi((pos + 2)->c_str());
+            std::cout << "\nRasterising image with dimensions : " << width
+                      << " x " << height << std::endl;
+            alpha::Rasteriser rast(width, height);
+            alpha::Vec2i orig = {0, 0};
+            alpha::Vec2i final = {width, height};
+            alpha::Vec2i finalx = {width, 0};
+            rast.draw_triangle(orig, finalx, final);
+            rast.dump_as_ppm("heha.ppm");
         }
     }
 }

@@ -20,6 +20,7 @@
 namespace alpha {
 using rgb = Vec3<uint8_t>;
 using Point = Vec2i;
+class Zbuffer {};
 class Framebuffer {
     std::vector<std::vector<uint8_t>> buffer;
     uint32_t width, height;
