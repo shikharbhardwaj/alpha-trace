@@ -13,6 +13,8 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 endif()
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${warnings}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
+find_package(GLUT)
+find_package(OpenGL)
 # Configure sources, includes and libs
 # Add the include directory
 include_directories(${PROJECT_SOURCE_DIR}/include)
