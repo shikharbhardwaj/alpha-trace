@@ -1,4 +1,4 @@
-//===--- graphics.hpp --- Math abstraction definitions ----------*- C++ -*-===//
+//===---- rasteriser ------- Rasterisation routines -------------*- C++ -*-===//
 //
 // Alpha-trace -> Minimal C++ raytracer
 //
@@ -7,17 +7,18 @@
 //===----------------------------------------------------------------------===//
 ///
 /// \file
-///
 /// Implement a rasterisation algorithm
 ///
 //===----------------------------------------------------------------------===//
 #ifndef RASTERISER_ALPHA_HPP
 #define RASTERISER_ALPHA_HPP
-#include <memory>
+#include <camera_alpha.hpp>
 #include <fstream>
 #include <math_alpha.hpp>
+#include <memory>
 #include <prettyprint.hpp>
 namespace alpha {
+using namespace math;
 using rgb = Vec3<uint8_t>;
 using Point = Vec2i;
 class Zbuffer {};
@@ -54,7 +55,7 @@ class Framebuffer {
 class Rasteriser {
     std::unique_ptr<Framebuffer> buf;
     inline int edge_function(const Point &a, const Point &b, const Point &c) {
-        return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+        return (a.x - b.x) * (c.y - a.y) + (b.y - a.y) * (c.x - a.x);
     }
     int screen_width, screen_height;
 
@@ -67,10 +68,12 @@ class Rasteriser {
     }
     void dump_as_ppm(const std::string &name) { buf->dump_as_ppm(name); }
     void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {
-        const int min_x = std::max(min_3(v0.x, v1.x, v2.x), 0);
-        const int min_y = std::max(min_3(v0.y, v1.y, v2.y), 0);
-        const int max_x = std::min(max_3(v0.x, v1.x, v2.x), screen_width - 1);
-        const int max_y = std::min(max_3(v0.y, v1.y, v2.y), screen_height - 1);
+        const int min_x = std::max(min_3(v0.x, v1.x, v2.x), 0.f);
+        const int min_y = std::max(min_3(v0.y, v1.y, v2.y), 0.f);
+        const int max_x =
+            std::min(max_3(v0.x, v1.x, v2.x), float(screen_width - 1));
+        const int max_y =
+            std::min(max_3(v0.y, v1.y, v2.y), float(screen_height - 1));
         // Keep in screen bounds
         const float total_area = edge_function(v0, v1, v2);
         const float mult = buf->col_space / total_area;
@@ -83,6 +86,7 @@ class Rasteriser {
         int w0_row = edge_function(v0, v1, {min_x, min_y});
         int w1_row = edge_function(v1, v2, {min_x, min_y});
         int w2_row = edge_function(v2, v0, {min_x, min_y});
+        std::cout << "w's" << a01 << ", " << a12 << ", " << a20 << std::endl;
         int w0, w1, w2;
         int x, y;
         auto &buf_ref = *buf;

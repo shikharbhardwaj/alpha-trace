@@ -3,8 +3,8 @@
 int main() {
     const int width = 1366, height = 768;
     alpha::Vec2i v0 = {0, 0};
-    alpha::Vec2i v1 = {width + 1, 0};
-    alpha::Vec2i v2 = {width, height};
+    alpha::Vec2i v1 = {width, height};
+    alpha::Vec2i v2 = {width + 1, 0};
     alpha::Rasteriser rast(width, height);
     rast.draw_triangle(v0, v1, v2);
     rast.dump_as_ppm("rast2d.ppm");

@@ -1,17 +1,17 @@
 // Tests for the math library
-#include <math_alpha.hpp>
+#include <chrono>
 #include <colours.hpp>
 #include <iostream>
-#include <random>
-#include <chrono>
 #include <limits>
+#include <math_alpha.hpp>
+#include <random>
 bool fail = false;
 std::random_device rd;
 std::mt19937 gen(rd());
 void ok() { std::cout << colours::green << "OK ✓ " << colours::reset; }
 void nok() { std::cout << colours::red << "ERROR ❌ " << colours::reset; }
-template <typename T> void expected(T a, T b) {
-    if (alpha::is_equal(a, b)) {
+void expected(float a, float b) {
+    if (alpha::math::is_equal(a, b)) {
         ok();
     } else {
         nok();
@@ -21,9 +21,10 @@ template <typename T> void expected(T a, T b) {
     }
 }
 int main() {
+    using namespace alpha::math;
     std::uniform_real_distribution<float> dist(-500000, 500000);
     std::cout << "Testing math library : ";
-    alpha::Vec3<float> test_vec(dist(gen), dist(gen), dist(gen));
+    Vec3<float> test_vec(dist(gen), dist(gen), dist(gen));
     std::cout << "\n\t\tTesting " << colours::cyan << "alpha::vec3"
               << colours::reset;
     std::cout << "\nalpha::vec3::mod \t\t:\t";
@@ -51,12 +52,12 @@ int main() {
     expected(test_vec[1], y);
     expected(test_vec[2], z);
     std::cout << "\nalpha::vec3::dot \t\t:\t";
-    alpha::Vec3<float> ultimate(dist(gen), dist(gen), dist(gen));
+    Vec3<float> ultimate(dist(gen), dist(gen), dist(gen));
     x *= ultimate[0];
     y *= ultimate[1];
     z *= ultimate[2];
     expected(test_vec.dot_product(ultimate), (x + y) + z);
-    test_vec = alpha::Vec3<float>(x, y, z);
+    test_vec = Vec3<float>(x, y, z);
     std::cout << "\nalpha::vec3::operator+ \t\t:\t";
     test_vec = test_vec + ultimate;
     x += ultimate[0];
@@ -66,7 +67,7 @@ int main() {
     expected(test_vec[1], y);
     expected(test_vec[2], z);
     std::cout << "\nalpha::vec3::operator- \t\t:\t";
-    ultimate = alpha::Vec3<float>(dist(gen), dist(gen), dist(gen));
+    ultimate = Vec3<float>(dist(gen), dist(gen), dist(gen));
     test_vec = test_vec - ultimate;
     x -= ultimate[0];
     y -= ultimate[1];
@@ -85,12 +86,11 @@ int main() {
     expected(test_vec[2], zz);
     std::cout << "\n\t\tTesting " << colours::cyan << "alpha::mat44"
               << colours::reset;
-    alpha::Matrix44<float> test_mat{
-        {dist(gen), dist(gen), dist(gen), dist(gen)},
-        {dist(gen), dist(gen), dist(gen), dist(gen)},
-        {dist(gen), dist(gen), dist(gen), dist(gen)},
-        {dist(gen), dist(gen), dist(gen), dist(gen)}};
-    alpha::Matrix44<float> test_mat2 = test_mat;
+    Matrix44<float> test_mat{{dist(gen), dist(gen), dist(gen), dist(gen)},
+                             {dist(gen), dist(gen), dist(gen), dist(gen)},
+                             {dist(gen), dist(gen), dist(gen), dist(gen)},
+                             {dist(gen), dist(gen), dist(gen), dist(gen)}};
+    Matrix44<float> test_mat2 = test_mat;
     test_mat.transpose();
     bool found = true;
     for (int i = 0; i < 4; i++) {
@@ -108,9 +108,9 @@ int main() {
         expected(0, 0);
     }
     std::cout << "\nalpha::mat44::inverse\t\t:\t";
-    alpha::Matrix44<float> inv_test{
+    Matrix44<float> inv_test{
         {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 3, 4}, {0, 0, 1, 1}};
-    alpha::Matrix44<float> inv_pre{
+    Matrix44<float> inv_pre{
         {1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, -1, 4}, {0, 0, 1, -3}};
     inv_test.invert();
     if (inv_test == inv_pre) {
@@ -121,10 +121,12 @@ int main() {
     std::cout << "\nalpha::mat44::opertor==\t\t:\t";
     expected(1, 1);
     if (!fail) {
-        std::cout << "\n\n" << colours::green << "[OK] " << colours::reset
+        std::cout << "\n\n"
+                  << colours::green << "[OK] " << colours::reset
                   << "All tests successful";
     } else {
-        std::cout << "\n\n" << colours::red << "[ERROR] " << colours::reset
+        std::cout << "\n\n"
+                  << colours::red << "[ERROR] " << colours::reset
                   << "Some tests failed";
     }
     std::cout << std::endl;

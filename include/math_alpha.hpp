@@ -13,30 +13,29 @@
 //===----------------------------------------------------------------------===//
 #ifndef MATH_ALPHA_HPP
 #define MATH_ALPHA_HPP
-#include <cstdlib>
-#include <cstdio>
-#include <iostream>
-#include <iomanip>
-#include <limits>
 #include <cmath>
-#include <prettyprint.hpp>
+#include <iomanip>
+#include <iostream>
+#include <limits>
 namespace alpha {
-template <typename T> T min_3(T a, T b, T c) {
+namespace math {
+inline float min_3(float a, float b, float c) {
     return std::min(std::min(a, b), c);
 }
-template <typename T> T max_3(T a, T b, T c) {
+inline float max_3(float a, float b, float c) {
     return std::max(std::max(a, b), c);
 }
-template <typename T> bool is_equal(T a, T b) {
+inline bool is_equal(float a, float b) {
     if (a > 1.0 && b > 1.0) {
         // Return true if the relative error is less than the system epsilon
         if ((fabs(fabs(a) - fabs(b))) <=
-                fabs(a) * 2 * std::numeric_limits<T>::epsilon() ||
+                fabs(a) * 2 * std::numeric_limits<float>::epsilon() ||
             a == b) {
             return true;
         }
     } else {
-        if (fabs(fabs(a) - fabs(b)) <= 2 * std::numeric_limits<T>::epsilon() ||
+        if (fabs(fabs(a) - fabs(b)) <=
+                2 * std::numeric_limits<float>::epsilon() ||
             a == b || (a == 0 && b == 0)) {
             return true;
         }
@@ -401,5 +400,6 @@ template <typename T> class Matrix44 {
 };
 
 typedef Matrix44<float> Matrix44f;
+}
 }
 #endif
