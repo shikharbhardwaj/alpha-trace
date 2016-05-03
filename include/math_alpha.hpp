@@ -19,6 +19,7 @@
 #include <limits>
 namespace alpha {
 namespace math {
+
 inline float min_3(float a, float b, float c) {
     return std::min(std::min(a, b), c);
 }
@@ -400,6 +401,9 @@ template <typename T> class Matrix44 {
 };
 
 typedef Matrix44<float> Matrix44f;
+inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {
+    return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]);
+}
 }
 }
 #endif

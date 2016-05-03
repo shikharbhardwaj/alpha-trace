@@ -21,7 +21,6 @@ enum class fit_resolution_gate { Fill = 0, Overscan };
 class Camera {
   private:
     float inch_to_mm = 25.4f;
-    uint32_t img_width, img_height;
     float film_aperture_width, film_aperture_height;
     fit_resolution_gate fit_setting;
     float near_clipping_plain, far_clipping_plain;
@@ -30,13 +29,14 @@ class Camera {
     Matrix44f world_to_cam;
 
   public:
+    uint32_t img_width, img_height;
     Camera() = delete;
     Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,
            float z_near, float z_far, float f_length, Matrix44f w2cam)
-        : img_width(width), img_height(height), film_aperture_width(fa_w),
-          film_aperture_height(fa_h), near_clipping_plain(z_near),
-          far_clipping_plain(z_far), focal_length(f_length),
-          world_to_cam(w2cam) {
+        : film_aperture_width(fa_w), film_aperture_height(fa_h),
+          near_clipping_plain(z_near), far_clipping_plain(z_far),
+          focal_length(f_length), world_to_cam(w2cam), img_width(width),
+          img_height(height) {
         compute_screen_coordinates();
     }
     void compute_screen_coordinates() {
