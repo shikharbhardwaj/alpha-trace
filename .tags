@@ -1,0 +1,1061 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	298;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	301;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	304;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	307;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	310;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	313;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	316;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	320;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	291;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	294;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	297;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	300;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	303;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	306;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	309;"	d	file:
+ARCHITECTURE_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	313;"	d	file:
+BASE_FLAGS	cfg/ycm_extra_conf.py	/^BASE_FLAGS = [$/;"	v
+BUFFERS_ALPHA_HPP	include/buffers_alpha.hpp	14;"	d
+CAMERA_ALPHA_HPP	include/camera_alpha.hpp	15;"	d
+COLOURS	include/colours.hpp	2;"	d
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	107;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	112;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	119;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	122;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	125;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	133;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	13;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	152;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	160;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	165;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	170;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	177;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	194;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	197;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	200;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	24;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	32;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	38;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	44;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	50;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	56;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	70;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	77;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	85;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	88;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	90;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	99;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	104;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	112;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	117;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	124;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	127;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	12;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	135;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	154;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	162;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	167;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	170;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	187;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	18;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	190;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	193;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	29;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	37;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	43;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	49;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	55;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	61;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	75;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	82;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	90;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	93;"	d	file:
+COMPILER_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	95;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	100;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	108;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	114;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	126;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	135;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	154;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	15;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	172;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	180;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	185;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	25;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	33;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	39;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	46;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	52;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	59;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	64;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	72;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	79;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	93;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	105;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	113;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	119;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	128;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	137;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	14;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	156;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	173;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	178;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	20;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	30;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	38;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	44;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	51;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	57;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	64;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	69;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	77;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	84;"	d	file:
+COMPILER_VERSION_MAJOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	98;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	101;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	109;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	115;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	127;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	136;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	155;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	16;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	173;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	181;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	186;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	26;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	34;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	40;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	47;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	53;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	60;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	65;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	73;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	80;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	94;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	106;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	114;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	120;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	129;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	138;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	157;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	15;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	174;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	179;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	21;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	31;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	39;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	45;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	52;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	58;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	65;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	70;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	78;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	85;"	d	file:
+COMPILER_VERSION_MINOR	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	99;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	103;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	116;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	129;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	140;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	143;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	156;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	174;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	17;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	182;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	187;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	28;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	35;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	41;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	61;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	66;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	74;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	81;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	95;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	100;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	108;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	121;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	131;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	142;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	145;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	158;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	175;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	180;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	22;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	33;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	40;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	46;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	66;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	71;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	79;"	d	file:
+COMPILER_VERSION_PATCH	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	86;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	147;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	20;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	149;"	d	file:
+COMPILER_VERSION_TWEAK	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	25;"	d	file:
+CPPTEMPL_H	thirdparty/nonius.h++	2174;"	d
+Camera	include/camera_alpha.hpp	/^    Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,$/;"	f	class:alpha::Camera
+Camera	include/camera_alpha.hpp	/^class Camera {$/;"	c	namespace:alpha
+DEC	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	324;"	d	file:
+DEC	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	317;"	d	file:
+Data	thirdparty/nonius.h++	/^    class Data$/;"	c	namespace:cpptempl
+DataList	thirdparty/nonius.h++	/^        DataList(const data_list &items) : m_items(items){}$/;"	f	class:cpptempl::DataList
+DataList	thirdparty/nonius.h++	/^    class DataList : public Data$/;"	c	namespace:cpptempl
+DataMap	thirdparty/nonius.h++	/^        DataMap(const data_map &items) : m_items(items){}$/;"	f	class:cpptempl::DataMap
+DataMap	thirdparty/nonius.h++	/^    class DataMap : public Data$/;"	c	namespace:cpptempl
+DataValue	thirdparty/nonius.h++	/^        DataValue(std::string value) : m_value(value){}$/;"	f	class:cpptempl::DataValue
+DataValue	thirdparty/nonius.h++	/^    class DataValue : public Data$/;"	c	namespace:cpptempl
+Fbuf	include/rasteriser_alpha.hpp	/^    std::unique_ptr<Framebuffer> Fbuf;$/;"	m	class:alpha::Rasteriser
+Fill	include/camera_alpha.hpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	m	class:alpha::fit_resolution_gate
+Fill	spike/code/pinhole.cpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	m	class:fit_resolution_gate	file:
+FindNearest	cfg/ycm_extra_conf.py	/^def FindNearest(path, target):$/;"	f
+FitResolutionGate	spike/code/raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	g	file:
+FlagsForClangComplete	cfg/ycm_extra_conf.py	/^def FlagsForClangComplete(root):$/;"	f
+FlagsForCompilationDatabase	cfg/ycm_extra_conf.py	/^def FlagsForCompilationDatabase(root, filename):$/;"	f
+FlagsForFile	cfg/ycm_extra_conf.py	/^def FlagsForFile(filename):$/;"	f
+FlagsForInclude	cfg/ycm_extra_conf.py	/^def FlagsForInclude(root):$/;"	f
+Framebuffer	include/buffers_alpha.hpp	/^    Framebuffer(uint32_t w, uint32_t h, int space)$/;"	f	class:Framebuffer
+Framebuffer	include/buffers_alpha.hpp	/^class Framebuffer {$/;"	c
+G	spike/code/aek.cpp	/^i G[] = {247570, 280596, 280600, 249748, 18578, 18577, 231184, 16, 16};$/;"	v
+GetCompilationInfoForFile	cfg/ycm_extra_conf.py	/^def GetCompilationInfoForFile(database, filename):$/;"	f
+HEADER_EXTENSIONS	cfg/ycm_extra_conf.py	/^HEADER_EXTENSIONS = [$/;"	v
+HEX	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	335;"	d	file:
+HEX	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	328;"	d	file:
+H_PRETTY_PRINT	thirdparty/prettyprint.hpp	12;"	d
+ID_VOID_MAIN	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	9;"	d	file:
+Int	thirdparty/prettyprint.hpp	/^    template <std::size_t I> struct Int {};$/;"	s	struct:pretty_print::print_container_helper::printer
+InvSqrt	spike/bench/sqrt_comp.cpp	/^float InvSqrt(float x) {$/;"	f
+IsHeaderFile	cfg/ycm_extra_conf.py	/^def IsHeaderFile(filename):$/;"	f
+MATH_ALPHA_HPP	include/math_alpha.hpp	15;"	d
+MakeRelativePathsInFlagsAbsolute	cfg/ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute(flags, working_directory):$/;"	f
+Matrix44	include/math_alpha.hpp	/^    Matrix44() {}$/;"	f	class:alpha::math::Matrix44
+Matrix44	include/math_alpha.hpp	/^    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {$/;"	f	class:alpha::math::Matrix44
+Matrix44	include/math_alpha.hpp	/^template <typename T> class Matrix44 {$/;"	c	namespace:alpha::math
+Matrix44	spike/code/geometry.h	/^    Matrix44() {}$/;"	f	class:Matrix44
+Matrix44	spike/code/geometry.h	/^    Matrix44(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j, T k, T l, T m,$/;"	f	class:Matrix44
+Matrix44	spike/code/geometry.h	/^template <typename T> class Matrix44 {$/;"	c
+Matrix44f	include/math_alpha.hpp	/^typedef Matrix44<float> Matrix44f;$/;"	t	namespace:alpha::math
+Matrix44f	spike/code/geometry.h	/^typedef Matrix44<float> Matrix44f;$/;"	t
+NONIUS_ARGPARSE_HPP	thirdparty/nonius.h++	3432;"	d
+NONIUS_BENCHMARK	thirdparty/nonius.h++	758;"	d
+NONIUS_BENCHMARK_HPP	thirdparty/nonius.h++	125;"	d
+NONIUS_BENCHMARK_RESULTS_HPP	thirdparty/nonius.h++	882;"	d
+NONIUS_CHRONOMETER_HPP	thirdparty/nonius.h++	271;"	d
+NONIUS_CLOCK_HPP	thirdparty/nonius.h++	62;"	d
+NONIUS_CONFIGURATION_HPP	thirdparty/nonius.h++	141;"	d
+NONIUS_CONSTRUCTOR_HPP	thirdparty/nonius.h++	775;"	d
+NONIUS_DETAIL_ANALYSE_HPP	thirdparty/nonius.h++	1627;"	d
+NONIUS_DETAIL_ANALYSIS_HPP	thirdparty/nonius.h++	1329;"	d
+NONIUS_DETAIL_BENCHMARK_FUNCTION_HPP	thirdparty/nonius.h++	459;"	d
+NONIUS_DETAIL_COMPLETE_INVOKE_HPP	thirdparty/nonius.h++	287;"	d
+NONIUS_DETAIL_ENVIRONMENT_HPP	thirdparty/nonius.h++	1313;"	d
+NONIUS_DETAIL_ESCAPE_HPP	thirdparty/nonius.h++	1929;"	d
+NONIUS_DETAIL_MEASURE_HPP	thirdparty/nonius.h++	398;"	d
+NONIUS_DETAIL_MISMATCH_HPP	thirdparty/nonius.h++	3448;"	d
+NONIUS_DETAIL_NOEXCEPT_HPP	thirdparty/nonius.h++	611;"	d
+NONIUS_DETAIL_REPEAT_HPP	thirdparty/nonius.h++	542;"	d
+NONIUS_DETAIL_TIMING_HPP	thirdparty/nonius.h++	414;"	d
+NONIUS_DETAIL_UNIQUE_NAME	thirdparty/nonius.h++	683;"	d
+NONIUS_DETAIL_UNIQUE_NAME_HPP	thirdparty/nonius.h++	678;"	d
+NONIUS_DETAIL_UNIQUE_NAME_LINE	thirdparty/nonius.h++	681;"	d
+NONIUS_DETAIL_UNIQUE_NAME_LINE_CAT	thirdparty/nonius.h++	680;"	d
+NONIUS_ENVIRONMENT_HPP	thirdparty/nonius.h++	177;"	d
+NONIUS_ESTIMATE_HPP	thirdparty/nonius.h++	898;"	d
+NONIUS_EXECUTION_PLAN_HPP	thirdparty/nonius.h++	242;"	d
+NONIUS_GO_HPP	thirdparty/nonius.h++	850;"	d
+NONIUS_HPP	thirdparty/nonius.h++	46;"	d
+NONIUS_MAIN_HPP	thirdparty/nonius.h++	3416;"	d
+NONIUS_NOEXCEPT	thirdparty/nonius.h++	614;"	d
+NONIUS_OUTLIERS_HPP	thirdparty/nonius.h++	193;"	d
+NONIUS_PRETTY_PRINT_HPP	thirdparty/nonius.h++	1119;"	d
+NONIUS_REPORTER	thirdparty/nonius.h++	1085;"	d
+NONIUS_REPORTERS_CSV_REPORTER_HPP	thirdparty/nonius.h++	1788;"	d
+NONIUS_REPORTERS_HTML_ALL_REPORTER_HPP	thirdparty/nonius.h++	2115;"	d
+NONIUS_REPORTERS_JUNIT_REPORTER_HPP	thirdparty/nonius.h++	1913;"	d
+NONIUS_REPORTERS_STANDARD_REPORTER_HPP	thirdparty/nonius.h++	1103;"	d
+NONIUS_REPORTER_HPP	thirdparty/nonius.h++	866;"	d
+NONIUS_RUNNER	spike/bench/rasteriser.cpp	2;"	d	file:
+NONIUS_RUNNER	spike/bench/sqrt_comp.cpp	1;"	d	file:
+NONIUS_RUN_FOR_AT_LEAST_HPP	thirdparty/nonius.h++	579;"	d
+NONIUS_SINGLE_INCLUDE_HPP	thirdparty/nonius.h++	16;"	d
+NONIUS_TIMEOUT_ERROR_HPP	thirdparty/nonius.h++	595;"	d
+NONIUS_USE_BOOST_CHRONO	thirdparty/nonius.h++	66;"	d
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	212;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	215;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	218;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	221;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	224;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	227;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	230;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	233;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	236;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	239;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	242;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	245;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	248;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	251;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	254;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	257;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	260;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	263;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	266;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	269;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	272;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	275;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	278;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	281;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	284;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	287;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	205;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	208;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	211;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	214;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	217;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	220;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	223;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	226;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	229;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	232;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	235;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	238;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	241;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	244;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	247;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	250;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	253;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	256;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	259;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	262;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	265;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	268;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	271;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	274;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	277;"	d	file:
+PLATFORM_ID	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	280;"	d	file:
+R	spike/code/aek.cpp	/^f R() { return (f)rand() \/ RAND_MAX; }$/;"	f
+RASTERISER_ALPHA_HPP	include/rasteriser_alpha.hpp	14;"	d
+Rasteriser	include/rasteriser_alpha.hpp	/^    Rasteriser(std::shared_ptr<Camera> cam_inst, int col_space = 255) {$/;"	f	class:alpha::Rasteriser
+Rasteriser	include/rasteriser_alpha.hpp	/^class Rasteriser {$/;"	c	namespace:alpha
+S	spike/code/aek.cpp	/^v S(v o, v d) {$/;"	f
+SOURCE_EXTENSIONS	cfg/ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [$/;"	v
+T	spike/code/aek.cpp	/^i T(v o, v d, f &t, v &n) {$/;"	f
+TOKEN_TYPE_ENDFOR	thirdparty/nonius.h++	/^        TOKEN_TYPE_ENDFOR,$/;"	e	enum:cpptempl::__anon1
+TOKEN_TYPE_ENDIF	thirdparty/nonius.h++	/^        TOKEN_TYPE_ENDIF,$/;"	e	enum:cpptempl::__anon1
+TOKEN_TYPE_FOR	thirdparty/nonius.h++	/^        TOKEN_TYPE_FOR,$/;"	e	enum:cpptempl::__anon1
+TOKEN_TYPE_IF	thirdparty/nonius.h++	/^        TOKEN_TYPE_IF,$/;"	e	enum:cpptempl::__anon1
+TOKEN_TYPE_NONE	thirdparty/nonius.h++	/^        TOKEN_TYPE_NONE,$/;"	e	enum:cpptempl::__anon1
+TOKEN_TYPE_TEXT	thirdparty/nonius.h++	/^        TOKEN_TYPE_TEXT,$/;"	e	enum:cpptempl::__anon1
+TOKEN_TYPE_VAR	thirdparty/nonius.h++	/^        TOKEN_TYPE_VAR,$/;"	e	enum:cpptempl::__anon1
+TStorage	thirdparty/nonius.h++	/^            typedef typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type TStorage;$/;"	t	struct:nonius::detail::object_storage
+TemplateException	thirdparty/nonius.h++	/^        TemplateException(std::string reason) : m_reason(std::move(reason)){}$/;"	f	class:cpptempl::TemplateException
+TemplateException	thirdparty/nonius.h++	/^    class TemplateException : public std::exception$/;"	c	namespace:cpptempl
+Token	thirdparty/nonius.h++	/^    class Token$/;"	c	namespace:cpptempl
+TokenEnd	thirdparty/nonius.h++	/^        TokenEnd(std::string text) : m_type(text){}$/;"	f	class:cpptempl::TokenEnd
+TokenEnd	thirdparty/nonius.h++	/^    class TokenEnd : public Token \/\/ end of control block$/;"	c	namespace:cpptempl
+TokenFor	thirdparty/nonius.h++	/^    class TokenFor : public Token$/;"	c	namespace:cpptempl
+TokenFor	thirdparty/nonius.h++	/^    inline TokenFor::TokenFor(std::string expr)$/;"	f	class:cpptempl::TokenFor
+TokenIf	thirdparty/nonius.h++	/^        TokenIf(std::string expr) : m_expr(expr){}$/;"	f	class:cpptempl::TokenIf
+TokenIf	thirdparty/nonius.h++	/^    class TokenIf : public Token$/;"	c	namespace:cpptempl
+TokenText	thirdparty/nonius.h++	/^        TokenText(std::string text) : m_text(text){}$/;"	f	class:cpptempl::TokenText
+TokenText	thirdparty/nonius.h++	/^    class TokenText : public Token$/;"	c	namespace:cpptempl
+TokenType	thirdparty/nonius.h++	/^    } TokenType;$/;"	t	namespace:cpptempl	typeref:enum:cpptempl::__anon1
+TokenVar	thirdparty/nonius.h++	/^        TokenVar(std::string key) : m_key(key){}$/;"	f	class:cpptempl::TokenVar
+TokenVar	thirdparty/nonius.h++	/^    class TokenVar : public Token$/;"	c	namespace:cpptempl
+Vec2	include/math_alpha.hpp	/^    Vec2() : x(0), y(0) {}$/;"	f	class:alpha::math::Vec2
+Vec2	include/math_alpha.hpp	/^    Vec2(T xx) : x(xx), y(xx) {}$/;"	f	class:alpha::math::Vec2
+Vec2	include/math_alpha.hpp	/^    Vec2(T xx, T yy) : x(xx), y(yy) {}$/;"	f	class:alpha::math::Vec2
+Vec2	include/math_alpha.hpp	/^template <typename T> class Vec2 {$/;"	c	namespace:alpha::math
+Vec2	spike/code/geometry.h	/^    Vec2() : x(0), y(0) {}$/;"	f	class:Vec2
+Vec2	spike/code/geometry.h	/^    Vec2(T xx) : x(xx), y(xx) {}$/;"	f	class:Vec2
+Vec2	spike/code/geometry.h	/^    Vec2(T xx, T yy) : x(xx), y(yy) {}$/;"	f	class:Vec2
+Vec2	spike/code/geometry.h	/^template <typename T> class Vec2 {$/;"	c
+Vec2f	include/math_alpha.hpp	/^typedef Vec2<float> Vec2f;$/;"	t	namespace:alpha::math
+Vec2f	spike/code/geometry.h	/^typedef Vec2<float> Vec2f;$/;"	t
+Vec2i	include/math_alpha.hpp	/^typedef Vec2<int> Vec2i;$/;"	t	namespace:alpha::math
+Vec2i	spike/code/geometry.h	/^typedef Vec2<int> Vec2i;$/;"	t
+Vec3	include/math_alpha.hpp	/^    Vec3() : x(0), y(0), z(0) {}$/;"	f	class:alpha::math::Vec3
+Vec3	include/math_alpha.hpp	/^    Vec3(T xx) : x(xx), y(xx), z(xx) {}$/;"	f	class:alpha::math::Vec3
+Vec3	include/math_alpha.hpp	/^    Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {}$/;"	f	class:alpha::math::Vec3
+Vec3	include/math_alpha.hpp	/^template <typename T> class Vec3 {$/;"	c	namespace:alpha::math
+Vec3	spike/code/geometry.h	/^    Vec3() : x(T(0)), y(T(0)), z(T(0)) {}$/;"	f	class:Vec3
+Vec3	spike/code/geometry.h	/^    Vec3(T xx) : x(xx), y(xx), z(xx) {}$/;"	f	class:Vec3
+Vec3	spike/code/geometry.h	/^    Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {}$/;"	f	class:Vec3
+Vec3	spike/code/geometry.h	/^template <typename T> class Vec3 {$/;"	c
+Vec3f	include/math_alpha.hpp	/^typedef Vec3<float> Vec3f;$/;"	t	namespace:alpha::math
+Vec3f	spike/code/geometry.h	/^typedef Vec3<float> Vec3f;$/;"	t
+Vec3i	include/math_alpha.hpp	/^typedef Vec3<int> Vec3i;$/;"	t	namespace:alpha::math
+Vec3i	spike/code/geometry.h	/^typedef Vec3<int> Vec3i;$/;"	t
+Zbuf	include/rasteriser_alpha.hpp	/^    std::unique_ptr<Zbuffer> Zbuf;$/;"	m	class:alpha::Rasteriser
+Zbuffer	include/buffers_alpha.hpp	/^    Zbuffer(uint8_t w, uint32_t h, float far) : width(w), height(h) {$/;"	f	class:Zbuffer
+Zbuffer	include/buffers_alpha.hpp	/^class Zbuffer {$/;"	c
+_array	thirdparty/prettyprint.hpp	/^    const T *const _array;$/;"	m	struct:pretty_print::array_wrapper_n
+_n	thirdparty/prettyprint.hpp	/^    size_t _n;$/;"	m	struct:pretty_print::array_wrapper_n
+alpha	include/camera_alpha.hpp	/^namespace alpha {$/;"	n
+alpha	include/math_alpha.hpp	/^namespace alpha {$/;"	n
+alpha	include/rasteriser_alpha.hpp	/^namespace alpha {$/;"	n
+always_true	thirdparty/nonius.h++	/^        template <typename> struct always_true : std::true_type {};$/;"	s	namespace:nonius::detail
+analyse	thirdparty/nonius.h++	/^        sample_analysis<Duration> analyse(configuration cfg, environment<Duration>, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+analyse_samples	thirdparty/nonius.h++	/^        bootstrap_analysis analyse_samples(double confidence_level, int n_resamples, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+analysis	thirdparty/nonius.h++	/^            sample_analysis<fp_seconds> analysis;$/;"	m	struct:nonius::junit_reporter::result
+analysis_complete	thirdparty/nonius.h++	/^        void analysis_complete(sample_analysis<fp_seconds> const& analysis) {$/;"	f	struct:nonius::reporter
+analysis_start	thirdparty/nonius.h++	/^        void analysis_start() {$/;"	f	struct:nonius::reporter
+argument	thirdparty/nonius.h++	/^            std::string argument;$/;"	m	struct:nonius::detail::option
+argument_error	thirdparty/nonius.h++	/^        struct argument_error {$/;"	s	namespace:nonius::detail
+array_wrapper_n	thirdparty/prettyprint.hpp	/^    array_wrapper_n(const T *const a, size_t n) : _array(a), _n(n) {}$/;"	f	struct:pretty_print::array_wrapper_n
+array_wrapper_n	thirdparty/prettyprint.hpp	/^template <typename T> struct array_wrapper_n {$/;"	s	namespace:pretty_print
+bad_stream	thirdparty/nonius.h++	/^    struct bad_stream : virtual std::exception {$/;"	s	namespace:nonius
+base	thirdparty/prettyprint.hpp	/^    std::unique_ptr<custom_delims_base> base;$/;"	m	struct:pretty_print::custom_delims
+beg_value	thirdparty/prettyprint.hpp	/^    static bool const beg_value = sizeof(f<T>(nullptr)) == sizeof(yes);$/;"	m	struct:pretty_print::detail::has_begin_end
+begin	thirdparty/prettyprint.hpp	/^    const_iterator begin() const { return m_map.cbegin(n); }$/;"	f	struct:pretty_print::bucket_print_wrapper
+begin	thirdparty/prettyprint.hpp	/^    inline const_iterator begin() const { return _array; }$/;"	f	struct:pretty_print::array_wrapper_n
+benchmark	thirdparty/nonius.h++	/^        benchmark(std::string name, detail::benchmark_function fun)$/;"	f	struct:nonius::benchmark
+benchmark	thirdparty/nonius.h++	/^    struct benchmark {$/;"	s	namespace:nonius
+benchmark_complete	thirdparty/nonius.h++	/^        void benchmark_complete() {$/;"	f	struct:nonius::reporter
+benchmark_failure	thirdparty/nonius.h++	/^        void benchmark_failure(std::exception_ptr error) {$/;"	f	struct:nonius::reporter
+benchmark_function	thirdparty/nonius.h++	/^            benchmark_function(Fun&& fun)$/;"	f	struct:nonius::detail::benchmark_function
+benchmark_function	thirdparty/nonius.h++	/^            benchmark_function(benchmark_function const& that)$/;"	f	struct:nonius::detail::benchmark_function
+benchmark_function	thirdparty/nonius.h++	/^            benchmark_function(benchmark_function&& that)$/;"	f	struct:nonius::detail::benchmark_function
+benchmark_function	thirdparty/nonius.h++	/^        struct benchmark_function {$/;"	s	namespace:nonius::detail
+benchmark_registrar	thirdparty/nonius.h++	/^        benchmark_registrar(benchmark_registry& registry, std::string name, Fun&& registrant) {$/;"	f	struct:nonius::benchmark_registrar
+benchmark_registrar	thirdparty/nonius.h++	/^    struct benchmark_registrar {$/;"	s	namespace:nonius
+benchmark_start	thirdparty/nonius.h++	/^        void benchmark_start(std::string const& name) {$/;"	f	struct:nonius::reporter
+benchmark_user_error	thirdparty/nonius.h++	/^    struct benchmark_user_error : virtual std::exception {$/;"	s	namespace:nonius
+bootstrap	thirdparty/nonius.h++	/^        estimate<double> bootstrap(double confidence_level, Iterator first, Iterator last, sample const& resample, Estimator&& estimator) {$/;"	f	namespace:nonius::detail
+bootstrap_analysis	thirdparty/nonius.h++	/^        struct bootstrap_analysis {$/;"	s	namespace:nonius::detail
+bottom	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+bucket_print	thirdparty/prettyprint.hpp	/^pretty_print::bucket_print_wrapper<T> bucket_print(const T &m,$/;"	f
+bucket_print_wrapper	thirdparty/prettyprint.hpp	/^    bucket_print_wrapper(const T &m, size_type bucket) : m_map(m), n(bucket) {}$/;"	f	struct:pretty_print::bucket_print_wrapper
+bucket_print_wrapper	thirdparty/prettyprint.hpp	/^template <typename T> struct bucket_print_wrapper {$/;"	s	namespace:pretty_print
+buffer	include/buffers_alpha.hpp	/^    std::vector<std::vector<uint8_t>> buffer;$/;"	m	class:Framebuffer
+call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::false_type) const {$/;"	f	struct:nonius::detail::benchmark_function::model
+call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::true_type) const {$/;"	f	struct:nonius::detail::benchmark_function::model
+cam	include/rasteriser_alpha.hpp	/^    std::shared_ptr<Camera> cam;$/;"	m	class:alpha::Rasteriser
+chronometer	thirdparty/nonius.h++	/^        chronometer(detail::chronometer_concept& meter, int k)$/;"	f	struct:nonius::chronometer
+chronometer	thirdparty/nonius.h++	/^    struct chronometer {$/;"	s	namespace:nonius
+chronometer_concept	thirdparty/nonius.h++	/^        struct chronometer_concept {$/;"	s	namespace:nonius::detail
+classify_outliers	thirdparty/nonius.h++	/^        outlier_classification classify_outliers(Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+clock_cost	thirdparty/nonius.h++	/^        environment_estimate<FloatDuration<Clock>> clock_cost;$/;"	m	struct:nonius::environment
+clock_cost_estimation_iterations	thirdparty/nonius.h++	/^        const auto clock_cost_estimation_iterations = 10000;$/;"	m	namespace:nonius::detail
+clock_cost_estimation_tick_limit	thirdparty/nonius.h++	/^        const auto clock_cost_estimation_tick_limit = 100000;$/;"	m	namespace:nonius::detail
+clock_cost_estimation_time	thirdparty/nonius.h++	/^        const auto clock_cost_estimation_time = chrono::milliseconds(10);$/;"	m	namespace:nonius::detail
+clock_cost_estimation_time_limit	thirdparty/nonius.h++	/^        const auto clock_cost_estimation_time_limit = chrono::seconds(1);$/;"	m	namespace:nonius::detail
+clock_resolution	thirdparty/nonius.h++	/^        environment_estimate<FloatDuration<Clock>> clock_resolution;$/;"	m	struct:nonius::environment
+clock_resolution_estimation_time	thirdparty/nonius.h++	/^        const auto clock_resolution_estimation_time = chrono::milliseconds(500);$/;"	m	namespace:nonius::detail
+col_space	include/buffers_alpha.hpp	/^    int col_space;$/;"	m	class:Framebuffer
+colours	include/colours.hpp	/^namespace colours {$/;"	n
+command_line_options	thirdparty/nonius.h++	/^        inline detail::option_set const& command_line_options() {$/;"	f	class:nonius::detail::detail
+complete_invoke	thirdparty/nonius.h++	/^        CompleteType<ResultOf<Fun(Args...)>> complete_invoke(Fun&& fun, Args&&... args) {$/;"	f	namespace:nonius::detail
+complete_invoker	thirdparty/nonius.h++	/^        struct complete_invoker {$/;"	s	namespace:nonius::detail
+complete_invoker	thirdparty/nonius.h++	/^        struct complete_invoker<void> {$/;"	s	namespace:nonius::detail
+complete_type	thirdparty/nonius.h++	/^        struct complete_type { using type = T; };$/;"	s	namespace:nonius::detail
+complete_type	thirdparty/nonius.h++	/^        struct complete_type<void> { struct type {}; };$/;"	s	namespace:nonius::detail
+compose_rotation	spike/code/decompose.m	/^function R = compose_rotation(x, y, z)$/;"	f
+computePixelCoordinates	spike/code/perspproj.cpp	/^void computePixelCoordinates(const Vec3f &p_world, Vec2i &p_raster,$/;"	f
+computeScreenCoordinates	spike/code/raster3d.cpp	/^void computeScreenCoordinates(const float &filmApertureWidth,$/;"	f
+compute_screen_coordinates	include/camera_alpha.hpp	/^    void compute_screen_coordinates() {$/;"	f	class:alpha::Camera
+concept	thirdparty/nonius.h++	/^            struct concept {$/;"	s	struct:nonius::detail::benchmark_function
+confidence_interval	thirdparty/nonius.h++	/^        double confidence_interval = 0.95;$/;"	m	struct:nonius::configuration
+confidence_interval	thirdparty/nonius.h++	/^        double confidence_interval;$/;"	m	struct:nonius::estimate
+confidence_interval	thirdparty/nonius.h++	/^        double confidence_interval;$/;"	m	struct:nonius::junit_reporter
+configuration	thirdparty/nonius.h++	/^    struct configuration {$/;"	s	namespace:nonius
+configure	thirdparty/nonius.h++	/^        void configure(configuration& cfg) {$/;"	f	struct:nonius::reporter
+const_iterator	thirdparty/prettyprint.hpp	/^    typedef const T *const_iterator;$/;"	t	struct:pretty_print::array_wrapper_n
+const_iterator	thirdparty/prettyprint.hpp	/^    typedef typename T::const_local_iterator const_iterator;$/;"	t	struct:pretty_print::bucket_print_wrapper
+construct	thirdparty/nonius.h++	/^            void construct(Args&&... args)$/;"	f	struct:nonius::detail::object_storage
+container_	thirdparty/prettyprint.hpp	/^    const T &container_;$/;"	m	struct:pretty_print::print_container_helper
+convertToRaster	spike/code/raster3d.cpp	/^void convertToRaster(const Vec3f &vertexWorld, const Matrix44f &worldToCamera,$/;"	f
+convert_to_raster	include/camera_alpha.hpp	/^    void convert_to_raster(const Vec3f &v_world, Vec3f &raster) {$/;"	f	class:alpha::Camera
+cpptempl	thirdparty/nonius.h++	/^namespace cpptempl$/;"	n
+crossProduct	spike/code/geometry.h	/^    Vec3 crossProduct(const Vec3<T> &v) const {$/;"	f	class:Vec3
+cross_product	include/math_alpha.hpp	/^    Vec2 cross_product(const Vec2<T> &v) const {$/;"	f	class:alpha::math::Vec2
+cross_product	include/math_alpha.hpp	/^    Vec3 cross_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
+csv_reporter	thirdparty/nonius.h++	/^    struct csv_reporter : reporter {$/;"	s	namespace:nonius
+current	thirdparty/nonius.h++	/^        std::string current;$/;"	m	struct:nonius::csv_reporter
+current	thirdparty/nonius.h++	/^        std::string current;$/;"	m	struct:nonius::html_reporter
+current	thirdparty/nonius.h++	/^        std::string current;$/;"	m	struct:nonius::junit_reporter
+current	thirdparty/nonius.h++	/^        std::string current;$/;"	m	struct:nonius::standard_reporter
+custom_delims	thirdparty/prettyprint.hpp	/^    custom_delims(const Container &c)$/;"	f	struct:pretty_print::custom_delims
+custom_delims	thirdparty/prettyprint.hpp	/^template <typename Delims> struct custom_delims {$/;"	s	namespace:pretty_print
+custom_delims_base	thirdparty/prettyprint.hpp	/^struct custom_delims_base {$/;"	s	namespace:pretty_print
+custom_delims_wrapper	thirdparty/prettyprint.hpp	/^    custom_delims_wrapper(const T &t_) : t(t_) {}$/;"	f	struct:pretty_print::custom_delims_wrapper
+custom_delims_wrapper	thirdparty/prettyprint.hpp	/^struct custom_delims_wrapper : custom_delims_base {$/;"	s	namespace:pretty_print
+data	thirdparty/nonius.h++	/^            TStorage data;$/;"	m	struct:nonius::detail::object_storage
+data	thirdparty/nonius.h++	/^        std::unordered_map<std::string, data_ptr> data;$/;"	m	class:cpptempl::data_map
+data	thirdparty/nonius.h++	/^        std::unordered_map<std::string, result> data;$/;"	m	struct:nonius::junit_reporter
+data	thirdparty/nonius.h++	/^        std::unordered_map<std::string, std::vector<fp_seconds>> data;$/;"	m	struct:nonius::csv_reporter
+data	thirdparty/nonius.h++	/^        std::unordered_map<std::string, std::vector<fp_seconds>> data;$/;"	m	struct:nonius::html_reporter
+data_list	thirdparty/nonius.h++	/^    typedef std::vector<data_ptr> data_list ;$/;"	t	namespace:cpptempl
+data_map	thirdparty/nonius.h++	/^    class data_map {$/;"	c	namespace:cpptempl
+data_ptr	thirdparty/nonius.h++	/^        data_ptr() {}$/;"	f	class:cpptempl::data_ptr
+data_ptr	thirdparty/nonius.h++	/^        data_ptr(const data_ptr& data) {$/;"	f	class:cpptempl::data_ptr
+data_ptr	thirdparty/nonius.h++	/^        template<typename T> data_ptr(const T& data) {$/;"	f	class:cpptempl::data_ptr
+data_ptr	thirdparty/nonius.h++	/^    class data_ptr {$/;"	c	namespace:cpptempl
+data_ptr	thirdparty/nonius.h++	/^    inline data_ptr::data_ptr(DataList* data) : ptr(data) {}$/;"	f	class:cpptempl::data_ptr
+data_ptr	thirdparty/nonius.h++	/^    inline data_ptr::data_ptr(DataMap* data) : ptr(data) {}$/;"	f	class:cpptempl::data_ptr
+data_ptr	thirdparty/nonius.h++	/^    inline data_ptr::data_ptr(DataValue* data) : ptr(data) {}$/;"	f	class:cpptempl::data_ptr
+decompose_rotation	spike/code/decompose.m	/^function [x,y,z] = decompose_rotation(R)$/;"	f
+delimiter	thirdparty/prettyprint.hpp	/^    const char_type *delimiter;$/;"	m	struct:pretty_print::delimiters_values
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::multiset<T, TComp, TAllocator>, char> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::multiset<T, TComp, TAllocator>, wchar_t> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::pair<T1, T2>, wchar_t> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::set<T, TComp, TAllocator>, char> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::set<T, TComp, TAllocator>, wchar_t> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::unordered_multiset<T, THash, TEqual, TAllocator>,$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::unordered_set<T, THash, TEqual, TAllocator>, char> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^struct delimiters<::std::unordered_set<T, THash, TEqual, TAllocator>, wchar_t> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^template <typename T, typename TChar> struct delimiters {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^template <typename T1, typename T2> struct delimiters<std::pair<T1, T2>, char> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^template <typename T> struct delimiters<T, char> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^template <typename T> struct delimiters<T, wchar_t> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^template <typename... Args> struct delimiters<::std::tuple<Args...>, wchar_t> {$/;"	s	namespace:pretty_print
+delimiters	thirdparty/prettyprint.hpp	/^template <typename... Args> struct delimiters<std::tuple<Args...>, char> {$/;"	s	namespace:pretty_print
+delimiters_values	thirdparty/prettyprint.hpp	/^template <typename TChar> struct delimiters_values {$/;"	s	namespace:pretty_print
+depth_buffer	include/buffers_alpha.hpp	/^    std::vector<float> depth_buffer;$/;"	m	class:Zbuffer
+description	thirdparty/nonius.h++	/^            std::string description;$/;"	m	struct:nonius::detail::option
+destruct	thirdparty/nonius.h++	/^            typename std::enable_if<AllowManualDestruction>::type destruct()$/;"	f	struct:nonius::detail::object_storage
+destruct_on_exit	thirdparty/nonius.h++	/^            void destruct_on_exit(typename std::enable_if<!Destruct, U>::type* = 0) { }$/;"	f	struct:nonius::detail::object_storage
+destruct_on_exit	thirdparty/nonius.h++	/^            void destruct_on_exit(typename std::enable_if<Destruct, U>::type* = 0) { destruct<true>(); }$/;"	f	struct:nonius::detail::object_storage
+detail	thirdparty/nonius.h++	/^    namespace detail {$/;"	n	namespace:nonius
+detail	thirdparty/prettyprint.hpp	/^namespace detail {$/;"	n	namespace:pretty_print
+do_analysis_complete	thirdparty/nonius.h++	/^        virtual void do_analysis_complete(sample_analysis<fp_seconds> const& \/*analysis*\/) {}$/;"	f	struct:nonius::reporter
+do_analysis_start	thirdparty/nonius.h++	/^        virtual void do_analysis_start() {} \/\/ TODO make generic?$/;"	f	struct:nonius::reporter
+do_benchmark_complete	thirdparty/nonius.h++	/^        virtual void do_benchmark_complete() {}$/;"	f	struct:nonius::reporter
+do_benchmark_failure	thirdparty/nonius.h++	/^        virtual void do_benchmark_failure(std::exception_ptr \/*error*\/) {}$/;"	f	struct:nonius::reporter
+do_benchmark_start	thirdparty/nonius.h++	/^        virtual void do_benchmark_start(std::string const& \/*name*\/) {}$/;"	f	struct:nonius::reporter
+do_configure	thirdparty/nonius.h++	/^        virtual void do_configure(configuration& \/*cfg*\/) {}$/;"	f	struct:nonius::reporter
+do_estimate_clock_cost_complete	thirdparty/nonius.h++	/^        virtual void do_estimate_clock_cost_complete(environment_estimate<fp_seconds> \/*estimate*\/) {}$/;"	f	struct:nonius::reporter
+do_estimate_clock_cost_start	thirdparty/nonius.h++	/^        virtual void do_estimate_clock_cost_start() {}$/;"	f	struct:nonius::reporter
+do_estimate_clock_resolution_complete	thirdparty/nonius.h++	/^        virtual void do_estimate_clock_resolution_complete(environment_estimate<fp_seconds> \/*estimate*\/) {}$/;"	f	struct:nonius::reporter
+do_estimate_clock_resolution_start	thirdparty/nonius.h++	/^        virtual void do_estimate_clock_resolution_start() {}$/;"	f	struct:nonius::reporter
+do_measurement_complete	thirdparty/nonius.h++	/^        virtual void do_measurement_complete(std::vector<fp_seconds> const& \/*samples*\/) {}$/;"	f	struct:nonius::reporter
+do_measurement_start	thirdparty/nonius.h++	/^        virtual void do_measurement_start(execution_plan<fp_seconds> \/*plan*\/) {}$/;"	f	struct:nonius::reporter
+do_suite_complete	thirdparty/nonius.h++	/^        virtual void do_suite_complete() {}$/;"	f	struct:nonius::reporter
+do_suite_start	thirdparty/nonius.h++	/^        virtual void do_suite_start() {}$/;"	f	struct:nonius::reporter
+do_warmup_end	thirdparty/nonius.h++	/^        virtual void do_warmup_end(int \/*iterations*\/) {}$/;"	f	struct:nonius::reporter
+do_warmup_start	thirdparty/nonius.h++	/^        virtual void do_warmup_start() {}$/;"	f	struct:nonius::reporter
+dotProduct	spike/code/geometry.h	/^    T dotProduct(const Vec3<T> &v) const { return x * v.x + y * v.y + z * v.z; }$/;"	f	class:Vec3
+dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }$/;"	f	class:alpha::math::Vec2
+dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
+draw_triangle	include/rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {$/;"	f	class:alpha::Rasteriser
+dump_as_ppm	include/buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Framebuffer
+dump_as_ppm	include/rasteriser_alpha.hpp	/^    void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }$/;"	f	class:alpha::Rasteriser
+duplicate_benchmarks	thirdparty/nonius.h++	/^    struct duplicate_benchmarks : virtual std::exception {$/;"	s	namespace:nonius
+edgeFunction	spike/code/raster3d.cpp	/^float edgeFunction(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f
+edge_function	include/math_alpha.hpp	/^inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f	namespace:alpha::math
+elapsed	thirdparty/nonius.h++	/^        Duration elapsed;$/;"	m	struct:nonius::timing
+empty	thirdparty/nonius.h++	/^    inline bool DataList::empty()$/;"	f	class:cpptempl::DataList
+empty	thirdparty/nonius.h++	/^    inline bool DataMap::empty()$/;"	f	class:cpptempl::DataMap
+empty	thirdparty/nonius.h++	/^    inline bool DataValue::empty()$/;"	f	class:cpptempl::DataValue
+empty	thirdparty/nonius.h++	/^    inline bool data_map::empty() {$/;"	f	class:cpptempl::data_map
+end	thirdparty/prettyprint.hpp	/^    const_iterator end() const { return m_map.cend(n); }$/;"	f	struct:pretty_print::bucket_print_wrapper
+end	thirdparty/prettyprint.hpp	/^    inline const_iterator end() const { return _array + _n; }$/;"	f	struct:pretty_print::array_wrapper_n
+end_value	thirdparty/prettyprint.hpp	/^    static bool const end_value = sizeof(g<T>(nullptr)) == sizeof(yes);$/;"	m	struct:pretty_print::detail::has_begin_end
+environment	thirdparty/nonius.h++	/^    struct environment {$/;"	s	namespace:nonius
+environment_estimate	thirdparty/nonius.h++	/^    struct environment_estimate {$/;"	s	namespace:nonius
+error_stream	thirdparty/nonius.h++	/^        std::ostream& error_stream() {$/;"	f	struct:nonius::reporter
+escape	thirdparty/nonius.h++	/^        inline std::string escape(std::string const& source, std::unordered_map<char, std::string> const& escapes) {$/;"	f	namespace:nonius::detail
+escape	thirdparty/nonius.h++	/^        static std::string escape(std::string const& source) {$/;"	f	struct:nonius::csv_reporter
+escape	thirdparty/nonius.h++	/^        static std::string escape(std::string const& source) {$/;"	f	struct:nonius::html_reporter
+escape	thirdparty/nonius.h++	/^        static std::string escape(std::string const& source) {$/;"	f	struct:nonius::junit_reporter
+estimate	thirdparty/nonius.h++	/^    struct estimate {$/;"	s	namespace:nonius
+estimate_clock_cost	thirdparty/nonius.h++	/^        environment_estimate<FloatDuration<Clock>> estimate_clock_cost(FloatDuration<Clock> resolution) {$/;"	f	namespace:nonius::detail
+estimate_clock_cost_complete	thirdparty/nonius.h++	/^        void estimate_clock_cost_complete(environment_estimate<fp_seconds> estimate) {$/;"	f	struct:nonius::reporter
+estimate_clock_cost_start	thirdparty/nonius.h++	/^        void estimate_clock_cost_start() {$/;"	f	struct:nonius::reporter
+estimate_clock_resolution	thirdparty/nonius.h++	/^        environment_estimate<FloatDuration<Clock>> estimate_clock_resolution(int iterations) {$/;"	f	namespace:nonius::detail
+estimate_clock_resolution_complete	thirdparty/nonius.h++	/^        void estimate_clock_resolution_complete(environment_estimate<fp_seconds> estimate) {$/;"	f	struct:nonius::reporter
+estimate_clock_resolution_start	thirdparty/nonius.h++	/^        void estimate_clock_resolution_start() {$/;"	f	struct:nonius::reporter
+estimated_duration	thirdparty/nonius.h++	/^        Duration estimated_duration;$/;"	m	struct:nonius::execution_plan
+execution_plan	thirdparty/nonius.h++	/^    struct execution_plan {$/;"	s	namespace:nonius
+expected	test/math_alpha_test.cpp	/^void expected(float a, float b) {$/;"	f
+f	spike/code/aek.cpp	/^typedef float f;$/;"	t	file:
+f	thirdparty/nonius.h++	/^            std::unique_ptr<concept> f;$/;"	m	struct:nonius::detail::benchmark_function
+fail	test/math_alpha_test.cpp	/^bool fail = false;$/;"	v
+failure	thirdparty/nonius.h++	/^            std::exception_ptr failure;$/;"	m	struct:nonius::junit_reporter::result
+farClippingPLane	spike/code/raster3d.cpp	/^const float farClippingPLane = 1000;$/;"	v
+far_clipping_plain	include/camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
+far_clipping_plain	include/rasteriser_alpha.hpp	/^    float far_clipping_plain;$/;"	m	class:alpha::Rasteriser
+far_clipping_plain	spike/code/canvas_cords.cpp	/^float far_clipping_plain = 1000;$/;"	v
+filmApertureHeight	spike/code/raster3d.cpp	/^float filmApertureHeight = 0.735;$/;"	v
+filmApertureWidth	spike/code/raster3d.cpp	/^float filmApertureWidth = 0.980;$/;"	v
+film_aperture_height	include/camera_alpha.hpp	/^    float film_aperture_width, film_aperture_height;$/;"	m	class:alpha::Camera
+film_aperture_height	spike/code/canvas_cords.cpp	/^float film_aperture_height = 0.735; \/\/ in$/;"	v
+film_aperture_height	spike/code/pinhole.cpp	/^float film_aperture_height = 1.500;$/;"	v
+film_aperture_width	include/camera_alpha.hpp	/^    float film_aperture_width, film_aperture_height;$/;"	m	class:alpha::Camera
+film_aperture_width	spike/code/canvas_cords.cpp	/^float film_aperture_width = 0.980;  \/\/ in$/;"	v
+film_aperture_width	spike/code/pinhole.cpp	/^float film_aperture_width = 1.995;$/;"	v
+final	thirdparty/nonius.h++	/^        struct chronometer_model final : public chronometer_concept {$/;"	s	namespace:nonius::detail
+finished	thirdparty/nonius.h++	/^            TimePoint<Clock> finished;$/;"	m	struct:nonius::detail::final
+fit_film	spike/code/pinhole.cpp	/^fit_resolution_gate fit_film = fit_resolution_gate::Overscan;$/;"	v
+fit_resolution_gate	include/camera_alpha.hpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	c	namespace:alpha
+fit_resolution_gate	spike/code/pinhole.cpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	c	file:
+fit_setting	include/camera_alpha.hpp	/^    fit_resolution_gate fit_setting;$/;"	m	class:alpha::Camera
+focalLength	spike/code/raster3d.cpp	/^float focalLength = 20; \/\/ in mm$/;"	v
+focal_length	include/camera_alpha.hpp	/^    float focal_length;$/;"	m	class:alpha::Camera
+focal_length	spike/code/canvas_cords.cpp	/^float focal_length = 35;            \/\/ mm$/;"	v
+focal_length	spike/code/pinhole.cpp	/^float focal_length = 35; \/\/ mm$/;"	v
+fun	thirdparty/nonius.h++	/^                Fun fun;$/;"	m	struct:nonius::detail::benchmark_function::model
+fun	thirdparty/nonius.h++	/^            Fun fun;$/;"	m	struct:nonius::detail::repeater
+fun	thirdparty/nonius.h++	/^        detail::benchmark_function fun;$/;"	m	struct:nonius::benchmark
+get	include/buffers_alpha.hpp	/^    float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }$/;"	f	class:Zbuffer
+get_children	thirdparty/nonius.h++	/^    inline token_vector & Token::get_children()$/;"	f	class:cpptempl::Token
+get_children	thirdparty/nonius.h++	/^    inline token_vector & TokenFor::get_children()$/;"	f	class:cpptempl::TokenFor
+get_children	thirdparty/nonius.h++	/^    inline token_vector & TokenIf::get_children()$/;"	f	class:cpptempl::TokenIf
+get_magnitude	thirdparty/nonius.h++	/^        inline double get_magnitude(fp_seconds secs) {$/;"	f	namespace:nonius::detail
+get_max_width	thirdparty/nonius.h++	/^        int get_max_width(Iterator first, Iterator last, Projection proj) {$/;"	f	namespace:nonius::detail
+getlist	thirdparty/nonius.h++	/^    inline data_list& Data::getlist()$/;"	f	class:cpptempl::Data
+getlist	thirdparty/nonius.h++	/^    inline data_list& DataList::getlist()$/;"	f	class:cpptempl::DataList
+getmap	thirdparty/nonius.h++	/^    inline data_map& Data::getmap()$/;"	f	class:cpptempl::Data
+getmap	thirdparty/nonius.h++	/^    inline data_map& DataMap:: getmap()$/;"	f	class:cpptempl::DataMap
+gettext	thirdparty/nonius.h++	/^    inline std::string gettext(token_ptr token, data_map &data)$/;"	f	namespace:cpptempl
+gettext	thirdparty/nonius.h++	/^    inline void TokenEnd::gettext( std::ostream &, data_map &)$/;"	f	class:cpptempl::TokenEnd
+gettext	thirdparty/nonius.h++	/^    inline void TokenFor::gettext( std::ostream &stream, data_map &data )$/;"	f	class:cpptempl::TokenFor
+gettext	thirdparty/nonius.h++	/^    inline void TokenIf::gettext( std::ostream &stream, data_map &data )$/;"	f	class:cpptempl::TokenIf
+gettext	thirdparty/nonius.h++	/^    inline void TokenText::gettext( std::ostream &stream, data_map & )$/;"	f	class:cpptempl::TokenText
+gettext	thirdparty/nonius.h++	/^    inline void TokenVar::gettext( std::ostream &stream, data_map &data )$/;"	f	class:cpptempl::TokenVar
+gettype	thirdparty/nonius.h++	/^    inline TokenType TokenEnd::gettype()$/;"	f	class:cpptempl::TokenEnd
+gettype	thirdparty/nonius.h++	/^    inline TokenType TokenFor::gettype()$/;"	f	class:cpptempl::TokenFor
+gettype	thirdparty/nonius.h++	/^    inline TokenType TokenIf::gettype()$/;"	f	class:cpptempl::TokenIf
+gettype	thirdparty/nonius.h++	/^    inline TokenType TokenText::gettype()$/;"	f	class:cpptempl::TokenText
+gettype	thirdparty/nonius.h++	/^    inline TokenType TokenVar::gettype()$/;"	f	class:cpptempl::TokenVar
+getvalue	thirdparty/nonius.h++	/^    inline std::string Data::getvalue()$/;"	f	class:cpptempl::Data
+getvalue	thirdparty/nonius.h++	/^    inline std::string DataValue::getvalue()$/;"	f	class:cpptempl::DataValue
+global_benchmark_registry	thirdparty/nonius.h++	/^    inline benchmark_registry& global_benchmark_registry() {$/;"	f	namespace:nonius
+global_reporter_registry	thirdparty/nonius.h++	/^    inline reporter_registry& global_reporter_registry() {$/;"	f	namespace:nonius
+go	thirdparty/nonius.h++	/^    void go(configuration cfg, Iterator first, Iterator last, reporter& rep) {$/;"	f	namespace:nonius
+go	thirdparty/nonius.h++	/^    void go(configuration cfg, Iterator first, Iterator last, reporter&& rep) {$/;"	f	namespace:nonius
+go	thirdparty/nonius.h++	/^    void go(configuration cfg, benchmark_registry& benchmarks = global_benchmark_registry(), reporter_registry& reporters = global_reporter_registry()) {$/;"	f	namespace:nonius
+has	thirdparty/nonius.h++	/^    inline bool data_map::has(const std::string& key) {$/;"	f	class:cpptempl::data_map
+has_begin_end	thirdparty/prettyprint.hpp	/^template <typename T> struct has_begin_end : private sfinae_base {$/;"	s	namespace:pretty_print::detail
+has_const_iterator	thirdparty/prettyprint.hpp	/^template <typename T> struct has_const_iterator : private sfinae_base {$/;"	s	namespace:pretty_print::detail
+height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Framebuffer
+height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
+height	spike/bench/rasteriser.cpp	/^const int width = 512, height = 512;$/;"	v
+help	src/alpha.cpp	/^void help() {$/;"	f
+help	thirdparty/nonius.h++	/^        bool help = false;$/;"	m	struct:nonius::configuration
+help_text	thirdparty/nonius.h++	/^            help_text(std::string name, option_set const& options) : name(std::move(name)), options(options) {}$/;"	f	struct:nonius::detail::help_text
+help_text	thirdparty/nonius.h++	/^        struct help_text {$/;"	s	namespace:nonius::detail
+high_mild	thirdparty/nonius.h++	/^        int high_mild = 0;      \/\/ 1.5 to 3 times IQR above Q3$/;"	m	struct:nonius::outlier_classification
+high_severe	thirdparty/nonius.h++	/^        int high_severe = 0;    \/\/ more than 3 times IQR above Q3$/;"	m	struct:nonius::outlier_classification
+html_reporter	thirdparty/nonius.h++	/^    struct html_reporter : reporter {$/;"	s	namespace:nonius
+i	spike/code/aek.cpp	/^typedef int i;$/;"	t	file:
+ideal_magnitude	thirdparty/nonius.h++	/^        double ideal_magnitude() const {$/;"	f	struct:nonius::html_reporter
+imageHeight	spike/code/raster3d.cpp	/^const uint32_t imageHeight = 480;$/;"	v
+imageWidth	spike/code/raster3d.cpp	/^const uint32_t imageWidth = 640;$/;"	v
+img_height	include/camera_alpha.hpp	/^    uint32_t img_width, img_height;$/;"	m	class:alpha::Camera
+img_height	include/rasteriser_alpha.hpp	/^    int img_width, img_height;$/;"	m	class:alpha::Rasteriser
+img_height	spike/code/pinhole.cpp	/^uint32_t img_height = 480;$/;"	v
+img_width	include/camera_alpha.hpp	/^    uint32_t img_width, img_height;$/;"	m	class:alpha::Camera
+img_width	include/rasteriser_alpha.hpp	/^    int img_width, img_height;$/;"	m	class:alpha::Rasteriser
+img_width	spike/code/pinhole.cpp	/^uint32_t img_width = 640;$/;"	v
+impl	thirdparty/nonius.h++	/^        detail::chronometer_concept* impl;$/;"	m	struct:nonius::chronometer
+inchToMm	spike/code/raster3d.cpp	/^static const float inchToMm = 25.4;$/;"	v	file:
+inch_to_mm	include/camera_alpha.hpp	/^    float inch_to_mm = 25.4f;$/;"	m	class:alpha::Camera
+inch_to_mm	spike/code/canvas_cords.cpp	/^static const float inch_to_mm = 25.4;$/;"	v	file:
+inch_to_mm	spike/code/pinhole.cpp	/^static const float inch_to_mm = 25.4;$/;"	v	file:
+info_arch	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_arch	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
+info_compiler	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_compiler	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
+info_platform	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_platform	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v
+info_version	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
+info_version	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
+inverse	include/math_alpha.hpp	/^    Matrix44 inverse() {$/;"	f	class:alpha::math::Matrix44
+inverse	spike/code/geometry.h	/^    Matrix44 inverse() const {$/;"	f	class:Matrix44
+invert	include/math_alpha.hpp	/^    const Matrix44<T> &invert() {$/;"	f	class:alpha::math::Matrix44
+invert	spike/code/geometry.h	/^    const Matrix44<T> &invert() {$/;"	f	class:Matrix44
+invoke	thirdparty/nonius.h++	/^            static CompleteType<void> invoke(Fun&& fun, Args&&... args) {$/;"	f	struct:nonius::detail::complete_invoker
+invoke	thirdparty/nonius.h++	/^            static Result invoke(Fun&& fun, Args&&... args) {$/;"	f	struct:nonius::detail::complete_invoker
+is_callable	thirdparty/nonius.h++	/^        struct is_callable<Fun(Args...)> : decltype(is_callable_tester::test<Fun, Args...>(0)) {};$/;"	s	namespace:nonius::detail
+is_callable_tester	thirdparty/nonius.h++	/^        struct is_callable_tester {$/;"	s	namespace:nonius::detail
+is_container	thirdparty/prettyprint.hpp	/^struct is_container$/;"	s	namespace:pretty_print
+is_container	thirdparty/prettyprint.hpp	/^struct is_container<T[N]> : std::true_type {};$/;"	s	namespace:pretty_print
+is_container	thirdparty/prettyprint.hpp	/^struct is_container<std::pair<T1, T2>> : std::true_type {};$/;"	s	namespace:pretty_print
+is_container	thirdparty/prettyprint.hpp	/^struct is_container<std::tuple<Args...>> : std::true_type {};$/;"	s	namespace:pretty_print
+is_container	thirdparty/prettyprint.hpp	/^template <std::size_t N> struct is_container<char[N]> : std::false_type {};$/;"	s	namespace:pretty_print
+is_container	thirdparty/prettyprint.hpp	/^template <typename T> struct is_container<std::valarray<T>> : std::true_type {};$/;"	s	namespace:pretty_print
+is_equal	include/math_alpha.hpp	/^inline bool is_equal(float a, float b) {$/;"	f	namespace:alpha::math
+is_related	thirdparty/nonius.h++	/^        struct is_related$/;"	s	namespace:nonius::detail
+is_true	thirdparty/nonius.h++	/^    inline bool TokenIf::is_true( std::string expr, data_map &data )$/;"	f	class:cpptempl::TokenIf
+iterations	thirdparty/nonius.h++	/^        int iterations;$/;"	m	struct:nonius::timing
+iterations_per_sample	thirdparty/nonius.h++	/^        int iterations_per_sample;$/;"	m	struct:nonius::execution_plan
+jackknife	thirdparty/nonius.h++	/^        sample jackknife(Estimator&& estimator, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+junit_reporter	thirdparty/nonius.h++	/^    struct junit_reporter : reporter {$/;"	s	namespace:nonius
+k	thirdparty/nonius.h++	/^        int k;$/;"	m	struct:nonius::chronometer
+kFill	spike/code/raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	e	enum:FitResolutionGate	file:
+kOverscan	spike/code/raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	e	enum:FitResolutionGate	file:
+left	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+length	include/math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec2
+length	include/math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec3
+length	spike/code/geometry.h	/^    T length() const { return sqrt(norm()); }$/;"	f	class:Vec3
+list_benchmarks	thirdparty/nonius.h++	/^        bool list_benchmarks = false;$/;"	m	struct:nonius::configuration
+list_benchmarks	thirdparty/nonius.h++	/^    inline int list_benchmarks() {$/;"	f	namespace:nonius
+list_reporters	thirdparty/nonius.h++	/^        bool list_reporters = false;$/;"	m	struct:nonius::configuration
+list_reporters	thirdparty/nonius.h++	/^    inline int list_reporters() {$/;"	f	namespace:nonius
+long_form	thirdparty/nonius.h++	/^            std::string long_form;$/;"	m	struct:nonius::detail::option
+long_separator	thirdparty/nonius.h++	/^            std::tuple<bool, std::string::const_iterator> long_separator(std::string const& s) const {$/;"	f	struct:nonius::detail::option
+low_mild	thirdparty/nonius.h++	/^        int low_mild = 0;       \/\/ 1.5 to 3 times IQR below Q1$/;"	m	struct:nonius::outlier_classification
+low_severe	thirdparty/nonius.h++	/^        int low_severe = 0;     \/\/ more than 3 times IQR below Q1$/;"	m	struct:nonius::outlier_classification
+lower_bound	thirdparty/nonius.h++	/^        Duration lower_bound;$/;"	m	struct:nonius::estimate
+m_children	thirdparty/nonius.h++	/^        token_vector m_children ;$/;"	m	class:cpptempl::TokenFor
+m_children	thirdparty/nonius.h++	/^        token_vector m_children ;$/;"	m	class:cpptempl::TokenIf
+m_expr	thirdparty/nonius.h++	/^        std::string m_expr ;$/;"	m	class:cpptempl::TokenIf
+m_items	thirdparty/nonius.h++	/^        data_list m_items ;$/;"	m	class:cpptempl::DataList
+m_items	thirdparty/nonius.h++	/^        data_map m_items ;$/;"	m	class:cpptempl::DataMap
+m_key	thirdparty/nonius.h++	/^        std::string m_key ;$/;"	m	class:cpptempl::TokenFor
+m_key	thirdparty/nonius.h++	/^        std::string m_key ;$/;"	m	class:cpptempl::TokenVar
+m_map	thirdparty/prettyprint.hpp	/^    const T &m_map;$/;"	m	struct:pretty_print::bucket_print_wrapper
+m_reason	thirdparty/nonius.h++	/^        std::string m_reason;$/;"	m	class:cpptempl::TemplateException
+m_text	thirdparty/nonius.h++	/^        std::string m_text ;$/;"	m	class:cpptempl::TokenText
+m_type	thirdparty/nonius.h++	/^        std::string m_type ;$/;"	m	class:cpptempl::TokenEnd
+m_val	thirdparty/nonius.h++	/^        std::string m_val ;$/;"	m	class:cpptempl::TokenFor
+m_value	thirdparty/nonius.h++	/^        std::string m_value ;$/;"	m	class:cpptempl::DataValue
+main	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^int main(int argc, char* argv[])$/;"	f
+main	CMakeFiles/2.8.12.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
+main	CMakeFiles/2.8.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	spike/bench/sse.cpp	/^int main(int argc, char **argv) {$/;"	f
+main	spike/code/aek.cpp	/^i main() {$/;"	f
+main	spike/code/canvas_cords.cpp	/^int main() {$/;"	f
+main	spike/code/local_world.cpp	/^int main() {$/;"	f
+main	spike/code/opengl.cpp	/^int main(int argc, char **argv) {$/;"	f
+main	spike/code/perspproj.cpp	/^int main() {$/;"	f
+main	spike/code/pinhole.cpp	/^int main() {$/;"	f
+main	spike/code/projection.cpp	/^int main() {$/;"	f
+main	spike/code/raster3d.cpp	/^int main() {$/;"	f
+main	spike/code/rasterisation.cpp	/^int main() {$/;"	f
+main	spike/code/sphere.cpp	/^int main() {$/;"	f
+main	src/alpha.cpp	/^int main(int argc, char **argv) {$/;"	f
+main	test/math_alpha_test.cpp	/^int main() {$/;"	f
+main	thirdparty/nonius.h++	/^    inline int main(int argc, char** argv) {$/;"	f	namespace:nonius
+main	thirdparty/nonius.h++	/^    int main(std::string const& name, Iterator first, Iterator last) {$/;"	f	namespace:nonius
+main	thirdparty/nonius.h++	/^int main(int argc, char** argv) {$/;"	f
+make_data	thirdparty/nonius.h++	/^    inline data_ptr make_data(data_list &val)$/;"	f	namespace:cpptempl
+make_data	thirdparty/nonius.h++	/^    inline data_ptr make_data(data_map &val)$/;"	f	namespace:cpptempl
+make_data	thirdparty/nonius.h++	/^    inline data_ptr make_data(std::string val)$/;"	f	namespace:cpptempl
+matches_long	thirdparty/nonius.h++	/^            bool matches_long(std::string const& s) const {$/;"	f	struct:nonius::detail::option
+matches_long	thirdparty/nonius.h++	/^            bool matches_long(std::string const& s, std::string& argument) const {$/;"	f	struct:nonius::detail::option
+matches_short	thirdparty/nonius.h++	/^            bool matches_short(std::string const& s) const {$/;"	f	struct:nonius::detail::option
+math	include/math_alpha.hpp	/^namespace math {$/;"	n	namespace:alpha
+max3	spike/code/raster3d.cpp	/^float max3(const float &a, const float &b, const float &c) {$/;"	f
+max_3	include/math_alpha.hpp	/^inline float max_3(float a, float b, float c) {$/;"	f	namespace:alpha::math
+mean	thirdparty/nonius.h++	/^            estimate<double> mean;$/;"	m	struct:nonius::detail::bootstrap_analysis
+mean	thirdparty/nonius.h++	/^        Duration mean;$/;"	m	struct:nonius::environment_estimate
+mean	thirdparty/nonius.h++	/^        double mean(Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+mean	thirdparty/nonius.h++	/^        estimate<Duration> mean;$/;"	m	struct:nonius::sample_analysis
+measure	thirdparty/nonius.h++	/^        TimingOf<Clock, Fun(Args...)> measure(Fun&& fun, Args&&... args) {$/;"	f	namespace:nonius::detail
+measure	thirdparty/nonius.h++	/^        void measure(Fun&& fun) { measure(std::forward<Fun>(fun), detail::is_callable<Fun(int)>()); }$/;"	f	struct:nonius::chronometer
+measure	thirdparty/nonius.h++	/^        void measure(Fun&& fun, std::false_type) {$/;"	f	struct:nonius::chronometer
+measure	thirdparty/nonius.h++	/^        void measure(Fun&& fun, std::true_type) {$/;"	f	struct:nonius::chronometer
+measure_environment	thirdparty/nonius.h++	/^        environment<FloatDuration<Clock>> measure_environment(reporter& rep) {$/;"	f	namespace:nonius::detail
+measurement_complete	thirdparty/nonius.h++	/^        void measurement_complete(std::vector<fp_seconds> const& samples) {$/;"	f	struct:nonius::reporter
+measurement_start	thirdparty/nonius.h++	/^        void measurement_start(execution_plan<fp_seconds> plan) {$/;"	f	struct:nonius::reporter
+message	thirdparty/nonius.h++	/^        std::string message;$/;"	m	struct:nonius::timeout_error
+min3	spike/code/raster3d.cpp	/^float min3(const float &a, const float &b, const float &c) {$/;"	f
+min_3	include/math_alpha.hpp	/^inline float min_3(float a, float b, float c) {$/;"	f	namespace:alpha::math
+minimum_ticks	thirdparty/nonius.h++	/^        const auto minimum_ticks = 1000;$/;"	m	namespace:nonius::detail
+mismatch	thirdparty/nonius.h++	/^        std::pair<InputIt1, InputIt2> mismatch(InputIt1 first1, InputIt1 last1, InputIt2 first2, InputIt2 last2, BinaryPredicate p) {$/;"	f	namespace:nonius::detail
+model	thirdparty/nonius.h++	/^                model(Fun const& fun) : fun(fun) {}$/;"	f	struct:nonius::detail::benchmark_function::model
+model	thirdparty/nonius.h++	/^                model(Fun&& fun) : fun(std::move(fun)) {}$/;"	f	struct:nonius::detail::benchmark_function::model
+model	thirdparty/nonius.h++	/^            struct model : public concept {$/;"	s	struct:nonius::detail::benchmark_function
+multDirMatrix	spike/code/geometry.h	/^    void multDirMatrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:Matrix44
+multVecMatrix	spike/code/geometry.h	/^    void multVecMatrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:Matrix44
+mult_dir_matrix	include/math_alpha.hpp	/^    void mult_dir_matrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:alpha::math::Matrix44
+mult_vec_matrix	include/math_alpha.hpp	/^    void mult_vec_matrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:alpha::math::Matrix44
+multiple	thirdparty/nonius.h++	/^            bool multiple;$/;"	m	struct:nonius::detail::option
+multiply	include/math_alpha.hpp	/^    static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {$/;"	f	class:alpha::math::Matrix44
+multiply	spike/code/geometry.h	/^    static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {$/;"	f	class:Matrix44
+n	thirdparty/prettyprint.hpp	/^    const size_type n;$/;"	m	struct:pretty_print::bucket_print_wrapper
+n_resamples	thirdparty/nonius.h++	/^        int n_resamples = 0;$/;"	m	struct:nonius::standard_reporter
+n_samples	thirdparty/nonius.h++	/^        int n_samples = 0;$/;"	m	struct:nonius::standard_reporter
+n_samples	thirdparty/nonius.h++	/^        int n_samples;$/;"	m	struct:nonius::csv_reporter
+n_samples	thirdparty/nonius.h++	/^        int n_samples;$/;"	m	struct:nonius::html_reporter
+n_samples	thirdparty/nonius.h++	/^        int n_samples;$/;"	m	struct:nonius::junit_reporter
+name	thirdparty/nonius.h++	/^            std::string name;$/;"	m	struct:nonius::detail::help_text
+name	thirdparty/nonius.h++	/^        std::string name;$/;"	m	struct:nonius::benchmark
+nearClippingPLane	spike/code/raster3d.cpp	/^const float nearClippingPLane = 1;$/;"	v
+near_clipping_plain	include/camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
+near_clipping_plain	spike/code/canvas_cords.cpp	/^float near_clipping_plain = 0.1;$/;"	v
+no_analysis	thirdparty/nonius.h++	/^        bool no_analysis = false;$/;"	m	struct:nonius::configuration
+no_such_reporter	thirdparty/nonius.h++	/^    struct no_such_reporter : virtual std::exception {$/;"	s	namespace:nonius
+nok	test/math_alpha_test.cpp	/^void nok() { std::cout << colours::red << "ERROR ❌ " << colours::reset; }$/;"	f
+nonius	thirdparty/nonius.h++	/^namespace nonius {$/;"	n
+norm	include/math_alpha.hpp	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:alpha::math::Vec3
+norm	include/math_alpha.hpp	/^    T norm() const { return x * x + y * y; }$/;"	f	class:alpha::math::Vec2
+norm	spike/code/geometry.h	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:Vec3
+normal	spike/bench/sse.cpp	/^void normal(float *a, int N) {$/;"	f
+normalize	include/math_alpha.hpp	/^    Vec2 &normalize() {$/;"	f	class:alpha::math::Vec2
+normalize	include/math_alpha.hpp	/^    Vec3 &normalize() {$/;"	f	class:alpha::math::Vec3
+normalize	spike/code/geometry.h	/^    Vec3 &normalize() {$/;"	f	class:Vec3
+now	thirdparty/nonius.h++	/^    struct now {$/;"	s	namespace:nonius
+ntris	spike/code/raster3d.cpp	/^const uint32_t ntris = 3156;$/;"	v
+numTris	spike/code/perspproj.cpp	/^const uint32_t numTris = 128;$/;"	v
+num_tris	spike/code/pinhole.cpp	/^const uint32_t num_tris = 51;$/;"	v
+nvertices	spike/code/cow.h	/^uint32_t nvertices[9468] = {$/;"	v
+object_storage	thirdparty/nonius.h++	/^            object_storage() : data() {}$/;"	f	struct:nonius::detail::object_storage
+object_storage	thirdparty/nonius.h++	/^            object_storage(const object_storage& other)$/;"	f	struct:nonius::detail::object_storage
+object_storage	thirdparty/nonius.h++	/^            object_storage(object_storage&& other)$/;"	f	struct:nonius::detail::object_storage
+object_storage	thirdparty/nonius.h++	/^        struct object_storage$/;"	s	namespace:nonius::detail
+ok	test/math_alpha_test.cpp	/^void ok() { std::cout << colours::green << "OK ✓ " << colours::reset; }$/;"	f
+operator !	spike/code/aek.cpp	/^    v operator!() { return *this * (1 \/ sqrt(*this % *this)); }$/;"	f	struct:v
+operator %	spike/code/aek.cpp	/^    f operator%(v r) { return x * r.x + y * r.y + z * r.z; }$/;"	f	struct:v
+operator ()	thirdparty/nonius.h++	/^            void operator()(chronometer meter) const { f->call(meter); }$/;"	f	struct:nonius::detail::benchmark_function
+operator ()	thirdparty/nonius.h++	/^            void operator()(int k) const {$/;"	f	struct:nonius::detail::repeater
+operator ()	thirdparty/nonius.h++	/^        TimePoint<Clock> operator()() const {$/;"	f	struct:nonius::now
+operator ()	thirdparty/nonius.h++	/^        void operator()(chronometer meter) const {$/;"	f	struct:nonius::benchmark
+operator ()	thirdparty/prettyprint.hpp	/^    inline void operator()(ostream_type &stream) const {$/;"	f	struct:pretty_print::print_container_helper
+operator *	include/math_alpha.hpp	/^    Matrix44 operator*(const Matrix44 &v) const {$/;"	f	class:alpha::math::Matrix44
+operator *	include/math_alpha.hpp	/^    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }$/;"	f	class:alpha::math::Vec2
+operator *	include/math_alpha.hpp	/^    Vec3 operator*(const T &r) const { return Vec3(x * r, y * r, z * r); }$/;"	f	class:alpha::math::Vec3
+operator *	spike/code/aek.cpp	/^    v operator*(f r) { return v(x * r, y * r, z * r); }$/;"	f	struct:v
+operator *	spike/code/geometry.h	/^    Matrix44 operator*(const Matrix44 &v) const {$/;"	f	class:Matrix44
+operator *	spike/code/geometry.h	/^    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }$/;"	f	class:Vec2
+operator *	spike/code/geometry.h	/^    Vec3 operator*(const T &r) const { return Vec3(x * r, y * r, z * r); }$/;"	f	class:Vec3
+operator *	spike/code/geometry.h	/^    Vec3 operator*(const Vec3 &v) const {$/;"	f	class:Vec3
+operator *	spike/code/geometry.h	/^    friend Vec2 operator*(const T &r, const Vec2<T> &v) {$/;"	f	class:Vec2
+operator *	spike/code/geometry.h	/^    friend Vec3 operator*(const T &r, const Vec3 &v) {$/;"	f	class:Vec3
+operator *=	spike/code/geometry.h	/^    Vec2 &operator*=(const T &r) {$/;"	f	class:Vec2
+operator *=	spike/code/geometry.h	/^    Vec3 &operator*=(const T &r) {$/;"	f	class:Vec3
+operator +	include/math_alpha.hpp	/^    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }$/;"	f	class:alpha::math::Vec2
+operator +	include/math_alpha.hpp	/^    Vec3 operator+(const Vec3 &v) const {$/;"	f	class:alpha::math::Vec3
+operator +	spike/code/aek.cpp	/^    v operator+(v r) { return v(x + r.x, y + r.y, z + r.z); }$/;"	f	struct:v
+operator +	spike/code/geometry.h	/^    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }$/;"	f	class:Vec2
+operator +	spike/code/geometry.h	/^    Vec3 operator+(const Vec3 &v) const {$/;"	f	class:Vec3
+operator -	include/math_alpha.hpp	/^    Vec2 operator-(const Vec2 &v) const { return Vec2(x - v.x, y - v.y); }$/;"	f	class:alpha::math::Vec2
+operator -	include/math_alpha.hpp	/^    Vec3 operator-(const Vec3 &v) const {$/;"	f	class:alpha::math::Vec3
+operator -	spike/code/geometry.h	/^    Vec3 operator-() const { return Vec3(-x, -y, -z); }$/;"	f	class:Vec3
+operator -	spike/code/geometry.h	/^    Vec3 operator-(const Vec3 &v) const {$/;"	f	class:Vec3
+operator ->	thirdparty/nonius.h++	/^        Data* operator ->() {$/;"	f	class:cpptempl::data_ptr
+operator /	spike/code/geometry.h	/^    Vec2 operator\/(const T &r) const { return Vec2(x \/ r, y \/ r); }$/;"	f	class:Vec2
+operator /	spike/code/geometry.h	/^    friend Vec3 operator\/(const T &r, const Vec3 &v) {$/;"	f	class:Vec3
+operator /=	spike/code/geometry.h	/^    Vec2 &operator\/=(const T &r) {$/;"	f	class:Vec2
+operator /=	spike/code/geometry.h	/^    Vec3 &operator\/=(const T &r) {$/;"	f	class:Vec3
+operator <<	include/math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {$/;"	f	class:alpha::math::Matrix44
+operator <<	include/math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Vec2<T> &v) {$/;"	f	class:alpha::math::Vec2
+operator <<	include/math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Vec3<T> &v) {$/;"	f	class:alpha::math::Vec3
+operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {$/;"	f	class:Matrix44
+operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ostream &s, const Vec2<T> &v) {$/;"	f	class:Vec2
+operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ostream &s, const Vec3<T> &v) {$/;"	f	class:Vec3
+operator <<	thirdparty/nonius.h++	/^        inline std::ostream& operator<<(std::ostream& os, help_text h) {$/;"	f	namespace:nonius::detail
+operator <<	thirdparty/prettyprint.hpp	/^inline std::basic_ostream<TChar, TCharTraits> &operator<<($/;"	f	namespace:pretty_print
+operator <<	thirdparty/prettyprint.hpp	/^operator<<(basic_ostream<TChar, TCharTraits> &stream, const T &container) {$/;"	f	namespace:std
+operator <<	thirdparty/prettyprint.hpp	/^operator<<(std::basic_ostream<TChar, TCharTraits> &s,$/;"	f	namespace:pretty_print
+operator =	thirdparty/nonius.h++	/^            benchmark_function& operator=(benchmark_function const& that) {$/;"	f	struct:nonius::detail::benchmark_function
+operator =	thirdparty/nonius.h++	/^            benchmark_function& operator=(benchmark_function&& that) {$/;"	f	struct:nonius::detail::benchmark_function
+operator =	thirdparty/nonius.h++	/^    inline void data_ptr::operator = (const data_map& data) {$/;"	f	class:cpptempl::data_ptr
+operator =	thirdparty/nonius.h++	/^    inline void data_ptr::operator = (const data_ptr& data) {$/;"	f	class:cpptempl::data_ptr
+operator =	thirdparty/nonius.h++	/^    inline void data_ptr::operator = (const std::string& data) {$/;"	f	class:cpptempl::data_ptr
+operator =	thirdparty/nonius.h++	/^    void data_ptr::operator = (const T& data) {$/;"	f	class:cpptempl::data_ptr
+operator ==	include/math_alpha.hpp	/^    bool operator==(const Matrix44 &lhs) {$/;"	f	class:alpha::math::Matrix44
+operator []	include/math_alpha.hpp	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:alpha::math::Vec2
+operator []	include/math_alpha.hpp	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:alpha::math::Vec3
+operator []	include/math_alpha.hpp	/^    T *operator[](uint8_t i) { return x[i]; }$/;"	f	class:alpha::math::Matrix44
+operator []	include/math_alpha.hpp	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:alpha::math::Vec2
+operator []	include/math_alpha.hpp	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:alpha::math::Vec3
+operator []	include/math_alpha.hpp	/^    const T *operator[](uint8_t i) const { return x[i]; }$/;"	f	class:alpha::math::Matrix44
+operator []	spike/code/geometry.h	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:Vec3
+operator []	spike/code/geometry.h	/^    T *operator[](uint8_t i) { return x[i]; }$/;"	f	class:Matrix44
+operator []	spike/code/geometry.h	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:Vec3
+operator []	spike/code/geometry.h	/^    const T *operator[](uint8_t i) const { return x[i]; }$/;"	f	class:Matrix44
+operator []	thirdparty/nonius.h++	/^    inline data_ptr& data_map::operator [](const std::string& key) {$/;"	f	class:cpptempl::data_map
+operator ^	spike/code/aek.cpp	/^    v operator^(v r) {$/;"	f	struct:v
+operator environment_estimate<Duration2>	thirdparty/nonius.h++	/^        operator environment_estimate<Duration2>() const {$/;"	f	struct:nonius::environment_estimate
+operator estimate<Duration2>	thirdparty/nonius.h++	/^        operator estimate<Duration2>() const {$/;"	f	struct:nonius::estimate
+operator execution_plan<Duration2>	thirdparty/nonius.h++	/^        operator execution_plan<Duration2>() const {$/;"	f	struct:nonius::execution_plan
+operator sample_analysis<Duration2>	thirdparty/nonius.h++	/^        operator sample_analysis<Duration2>() const {$/;"	f	struct:nonius::sample_analysis
+option	thirdparty/nonius.h++	/^            option(std::string long_form, std::string short_form, std::string description, std::string argument = std::string(), bool multiple = false)$/;"	f	struct:nonius::detail::option
+option	thirdparty/nonius.h++	/^        struct option {$/;"	s	namespace:nonius::detail
+options	thirdparty/nonius.h++	/^            option_set const& options;$/;"	m	struct:nonius::detail::help_text
+os	thirdparty/nonius.h++	/^        std::function<std::ostream&()> os;$/;"	m	struct:nonius::reporter
+outlier_classification	thirdparty/nonius.h++	/^    struct outlier_classification {$/;"	s	namespace:nonius
+outlier_variance	thirdparty/nonius.h++	/^            double outlier_variance;$/;"	m	struct:nonius::detail::bootstrap_analysis
+outlier_variance	thirdparty/nonius.h++	/^        double outlier_variance;$/;"	m	struct:nonius::sample_analysis
+outlier_variance	thirdparty/nonius.h++	/^        inline double outlier_variance(estimate<double> mean, estimate<double> stddev, int n) {$/;"	f	namespace:nonius::detail
+outliers	thirdparty/nonius.h++	/^        outlier_classification outliers;$/;"	m	struct:nonius::environment_estimate
+outliers	thirdparty/nonius.h++	/^        outlier_classification outliers;$/;"	m	struct:nonius::sample_analysis
+output_file	thirdparty/nonius.h++	/^        std::string output_file;$/;"	m	struct:nonius::configuration
+parse	thirdparty/nonius.h++	/^            static bool parse(std::string const&) { return true; }$/;"	f	struct:nonius::detail::parser
+parse	thirdparty/nonius.h++	/^            static double parse(std::string const& s) { return std::stod(s); }$/;"	f	struct:nonius::detail::parser
+parse	thirdparty/nonius.h++	/^            static int parse(std::string const& s) { return std::stoi(s); }$/;"	f	struct:nonius::detail::parser
+parse	thirdparty/nonius.h++	/^            static std::string parse(std::string const& s) { return s; }$/;"	f	struct:nonius::detail::parser
+parse	thirdparty/nonius.h++	/^        void parse(T& variable, detail::arguments& args, std::string const& option) {$/;"	f	namespace:nonius::detail
+parse	thirdparty/nonius.h++	/^        void parse(T& variable, detail::arguments& args, std::string const& option, Predicate&& is_valid) {$/;"	f	namespace:nonius::detail
+parse	thirdparty/nonius.h++	/^    inline std::string parse(std::string templ_text, data_map &data)$/;"	f	namespace:cpptempl
+parse	thirdparty/nonius.h++	/^    inline void parse(std::ostream &stream, std::string templ_text, data_map &data)$/;"	f	namespace:cpptempl
+parse_args	thirdparty/nonius.h++	/^        configuration parse_args(std::string const& name, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+parse_arguments	thirdparty/nonius.h++	/^        arguments parse_arguments(option_set const& options, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+parse_long	thirdparty/nonius.h++	/^        inline void parse_long(option const& o, arguments& args, std::string&& arg) {$/;"	f	namespace:nonius::detail
+parse_short	thirdparty/nonius.h++	/^        void parse_short(option const& o, arguments& args, Iterator& first, Iterator last) {$/;"	f	namespace:nonius::detail
+parse_tree	thirdparty/nonius.h++	/^    inline void parse_tree(token_vector &tokens, token_vector &tree, TokenType until)$/;"	f	namespace:cpptempl
+parse_val	thirdparty/nonius.h++	/^    inline data_ptr parse_val(std::string key, data_map &data)$/;"	f	namespace:cpptempl
+parser	thirdparty/nonius.h++	/^        struct parser<bool> {$/;"	s	namespace:nonius::detail
+parser	thirdparty/nonius.h++	/^        struct parser<double> {$/;"	s	namespace:nonius::detail
+parser	thirdparty/nonius.h++	/^        struct parser<int> {$/;"	s	namespace:nonius::detail
+parser	thirdparty/nonius.h++	/^        struct parser<std::string> {$/;"	s	namespace:nonius::detail
+percentage	thirdparty/nonius.h++	/^        inline std::string percentage(double d) {$/;"	f	namespace:nonius::detail
+percentage_ratio	thirdparty/nonius.h++	/^        inline std::string percentage_ratio(double part, double whole) {$/;"	f	namespace:nonius::detail
+point	thirdparty/nonius.h++	/^        Duration point;$/;"	m	struct:nonius::estimate
+postfix	thirdparty/prettyprint.hpp	/^    const char_type *postfix;$/;"	m	struct:pretty_print::delimiters_values
+prefix	thirdparty/prettyprint.hpp	/^    const char_type *prefix;$/;"	m	struct:pretty_print::delimiters_values
+prepare	thirdparty/nonius.h++	/^        execution_plan<FloatDuration<Clock>> prepare(configuration cfg, environment<FloatDuration<Clock>> env) const {$/;"	f	struct:nonius::benchmark
+pretty_duration	thirdparty/nonius.h++	/^        inline std::string pretty_duration(fp_seconds secs) {$/;"	f	namespace:nonius::detail
+pretty_print	thirdparty/prettyprint.hpp	/^namespace pretty_print {$/;"	n
+pretty_print_array	thirdparty/prettyprint.hpp	/^inline pretty_print::array_wrapper_n<T> pretty_print_array(const T *const a,$/;"	f
+print_body	thirdparty/prettyprint.hpp	/^        static void print_body(const U &c, ostream_type &stream) {$/;"	f	struct:pretty_print::print_container_helper::printer
+print_body	thirdparty/prettyprint.hpp	/^    static void print_body(const element_type &c, ostream_type &stream) {$/;"	f	struct:pretty_print::print_container_helper::printer
+print_body	thirdparty/prettyprint.hpp	/^    static void print_body(const std::pair<T1, T2> &c, ostream_type &stream) {$/;"	f	struct:pretty_print::print_container_helper::printer
+print_container_helper	thirdparty/prettyprint.hpp	/^    print_container_helper(const T &container) : container_(container) {}$/;"	f	struct:pretty_print::print_container_helper
+print_container_helper	thirdparty/prettyprint.hpp	/^struct print_container_helper {$/;"	s	namespace:pretty_print
+print_environment_estimate	thirdparty/nonius.h++	/^        void print_environment_estimate(environment_estimate<fp_seconds> e, int iterations) {$/;"	f	struct:nonius::standard_reporter
+print_help	thirdparty/nonius.h++	/^    inline int print_help(std::string const& name) {$/;"	f	namespace:nonius
+print_outlier_count	thirdparty/nonius.h++	/^        void print_outlier_count(const char* description, int count, int total) {$/;"	f	struct:nonius::standard_reporter
+print_outliers	thirdparty/nonius.h++	/^        void print_outliers(outlier_classification o) {$/;"	f	struct:nonius::standard_reporter
+print_statistic_estimate	thirdparty/nonius.h++	/^        void print_statistic_estimate(const char* name, estimate<fp_seconds> estimate) {$/;"	f	struct:nonius::standard_reporter
+printer	thirdparty/prettyprint.hpp	/^                              TDelimiters>::printer<std::pair<T1, T2>> {$/;"	s	class:pretty_print::print_container_helper
+printer	thirdparty/prettyprint.hpp	/^                              TDelimiters>::printer<std::tuple<Args...>> {$/;"	s	class:pretty_print::print_container_helper
+printer	thirdparty/prettyprint.hpp	/^    template <typename U> struct printer {$/;"	s	struct:pretty_print::print_container_helper
+progress_stream	thirdparty/nonius.h++	/^        std::ostream& progress_stream() {$/;"	f	struct:nonius::reporter
+ptr	thirdparty/nonius.h++	/^        std::shared_ptr<Data> ptr;$/;"	m	class:cpptempl::data_ptr
+push_back	thirdparty/nonius.h++	/^    inline void data_ptr::push_back(const data_ptr& data) {$/;"	f	class:cpptempl::data_ptr
+rd	test/math_alpha_test.cpp	/^std::random_device rd;$/;"	v
+repeat	thirdparty/nonius.h++	/^        repeater<typename std::decay<Fun>::type> repeat(Fun&& fun) {$/;"	f	namespace:nonius::detail
+repeater	thirdparty/nonius.h++	/^        struct repeater {$/;"	s	namespace:nonius::detail
+report_stream	thirdparty/nonius.h++	/^        std::ostream& report_stream() {$/;"	f	struct:nonius::reporter
+reporter	thirdparty/nonius.h++	/^        std::string reporter;$/;"	m	struct:nonius::configuration
+reporter	thirdparty/nonius.h++	/^    struct reporter {$/;"	s	namespace:nonius
+reporter_registrar	thirdparty/nonius.h++	/^        reporter_registrar(reporter_registry& registry, std::string name, reporter* registrant) {$/;"	f	struct:nonius::reporter_registrar
+reporter_registrar	thirdparty/nonius.h++	/^    struct reporter_registrar {$/;"	s	namespace:nonius
+resample	thirdparty/nonius.h++	/^        sample resample(URng& rng, int resamples, Iterator first, Iterator last, Estimator& estimator) {$/;"	f	namespace:nonius::detail
+resamples	thirdparty/nonius.h++	/^        int resamples = 100000;$/;"	m	struct:nonius::configuration
+resamples	thirdparty/nonius.h++	/^        int resamples;$/;"	m	struct:nonius::junit_reporter
+resolution	thirdparty/nonius.h++	/^        std::vector<double> resolution(int k) {$/;"	f	namespace:nonius::detail
+result	thirdparty/nonius.h++	/^        Result result;$/;"	m	struct:nonius::timing
+result	thirdparty/nonius.h++	/^        struct result {$/;"	s	struct:nonius::junit_reporter
+right	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+rotation_matrix_demo	spike/code/decompose.m	/^function rotation_matrix_demo$/;"	f
+run	thirdparty/nonius.h++	/^        std::vector<FloatDuration<Clock>> run(configuration cfg, environment<FloatDuration<Clock>> env, execution_plan<FloatDuration<Clock>> plan) const {$/;"	f	struct:nonius::benchmark
+run_for_at_least	thirdparty/nonius.h++	/^        TimingOf<Clock, Fun(int)> run_for_at_least(Duration<Clock> how_long, int seed, Fun&& fun) {$/;"	f	namespace:nonius::detail
+run_it	thirdparty/nonius.h++	/^    inline int run_it(configuration cfg) {$/;"	f	namespace:nonius
+runs	thirdparty/nonius.h++	/^        int runs() const { return k; }$/;"	f	struct:nonius::chronometer
+sample_analysis	thirdparty/nonius.h++	/^    struct sample_analysis {$/;"	s	namespace:nonius
+samples	thirdparty/nonius.h++	/^        int samples = 100;$/;"	m	struct:nonius::configuration
+samples	thirdparty/nonius.h++	/^        std::vector<Duration> samples;$/;"	m	struct:nonius::sample_analysis
+samples_seen	thirdparty/nonius.h++	/^        int samples_seen = 0;$/;"	m	struct:nonius::outlier_classification
+set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, float z) {$/;"	f	class:Zbuffer
+set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Framebuffer
+set_children	thirdparty/nonius.h++	/^    inline void Token::set_children( token_vector & )$/;"	f	class:cpptempl::Token
+set_children	thirdparty/nonius.h++	/^    inline void TokenFor::set_children( token_vector &children )$/;"	f	class:cpptempl::TokenFor
+set_children	thirdparty/nonius.h++	/^    inline void TokenIf::set_children( token_vector &children )$/;"	f	class:cpptempl::TokenIf
+sfinae_base	thirdparty/prettyprint.hpp	/^struct sfinae_base {$/;"	s	namespace:pretty_print::detail
+short_form	thirdparty/nonius.h++	/^            std::string short_form;$/;"	m	struct:nonius::detail::option
+size_type	thirdparty/prettyprint.hpp	/^    typedef typename T::size_type size_type;$/;"	t	struct:pretty_print::bucket_print_wrapper
+sse	spike/bench/sse.cpp	/^void sse(float *a, int N) {$/;"	f
+st	spike/code/cow.h	/^Vec2f st[3056] = {$/;"	v
+standard_deviation	thirdparty/nonius.h++	/^            estimate<double> standard_deviation;$/;"	m	struct:nonius::detail::bootstrap_analysis
+standard_deviation	thirdparty/nonius.h++	/^        double standard_deviation(Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+standard_deviation	thirdparty/nonius.h++	/^        estimate<Duration> standard_deviation;$/;"	m	struct:nonius::sample_analysis
+standard_reporter	thirdparty/nonius.h++	/^    struct standard_reporter : reporter {$/;"	s	namespace:nonius
+started	thirdparty/nonius.h++	/^            TimePoint<Clock> started;$/;"	m	struct:nonius::detail::final
+std	thirdparty/prettyprint.hpp	/^namespace std {$/;"	n
+stindices	spike/code/cow.h	/^uint32_t stindices[9468] = {$/;"	v
+stored_object	thirdparty/nonius.h++	/^            T& stored_object()$/;"	f	struct:nonius::detail::object_storage
+stream	thirdparty/prettyprint.hpp	/^    std::ostream &stream(std::ostream &s) {$/;"	f	struct:pretty_print::custom_delims_wrapper
+stream	thirdparty/prettyprint.hpp	/^    std::wostream &stream(std::wostream &s) {$/;"	f	struct:pretty_print::custom_delims_wrapper
+suite_complete	thirdparty/nonius.h++	/^        void suite_complete() {$/;"	f	struct:nonius::reporter
+suite_start	thirdparty/nonius.h++	/^        void suite_start() {$/;"	f	struct:nonius::reporter
+summary	thirdparty/nonius.h++	/^        bool summary = false;$/;"	m	struct:nonius::configuration
+summary	thirdparty/nonius.h++	/^        bool summary = false;$/;"	m	struct:nonius::standard_reporter
+t	thirdparty/prettyprint.hpp	/^    const T &t;$/;"	m	struct:pretty_print::custom_delims_wrapper
+template_string	thirdparty/nonius.h++	/^        static std::string const& template_string() {$/;"	f	class:nonius::html_reporter::std
+timeout_error	thirdparty/nonius.h++	/^        timeout_error(int seed, int iters) {$/;"	f	struct:nonius::timeout_error
+timeout_error	thirdparty/nonius.h++	/^    struct timeout_error : virtual std::exception {$/;"	s	namespace:nonius
+timing	thirdparty/nonius.h++	/^    struct timing {$/;"	s	namespace:nonius
+title	thirdparty/nonius.h++	/^        std::string title = "benchmarks";$/;"	m	struct:nonius::configuration
+title	thirdparty/nonius.h++	/^        std::string title;$/;"	m	struct:nonius::html_reporter
+title	thirdparty/nonius.h++	/^        std::string title;$/;"	m	struct:nonius::junit_reporter
+token_ptr	thirdparty/nonius.h++	/^    typedef std::shared_ptr<Token> token_ptr ;$/;"	t	namespace:cpptempl
+token_vector	thirdparty/nonius.h++	/^    typedef std::vector<token_ptr> token_vector ;$/;"	t	namespace:cpptempl
+tokenize	thirdparty/nonius.h++	/^    inline token_vector & tokenize(std::string text, token_vector &tokens)$/;"	f	namespace:cpptempl
+top	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+total	thirdparty/nonius.h++	/^        int total() const {$/;"	f	struct:nonius::outlier_classification
+transpose	include/math_alpha.hpp	/^    Matrix44 &transpose() {$/;"	f	class:alpha::math::Matrix44
+transpose	spike/code/geometry.h	/^    Matrix44 &transpose() {$/;"	f	class:Matrix44
+transposed	include/math_alpha.hpp	/^    Matrix44 transposed() const {$/;"	f	class:alpha::math::Matrix44
+transposed	spike/code/geometry.h	/^    Matrix44 transposed() const {$/;"	f	class:Matrix44
+tris	spike/code/perspproj.cpp	/^const uint32_t tris[numTris * 3] = {$/;"	v
+tris	spike/code/pinhole.cpp	/^const uint32_t tris[num_tris * 3] = {$/;"	v
+truncate	thirdparty/nonius.h++	/^        static double truncate(double x) {$/;"	f	struct:nonius::html_reporter
+tuple_print	thirdparty/prettyprint.hpp	/^    static void tuple_print(const element_type &, ostream_type &,$/;"	f	struct:pretty_print::print_container_helper::printer
+tuple_print	thirdparty/prettyprint.hpp	/^    static void tuple_print(const element_type &c, ostream_type &stream,$/;"	f	struct:pretty_print::print_container_helper::printer
+tuple_print	thirdparty/prettyprint.hpp	/^    tuple_print(const element_type &c, ostream_type &stream,$/;"	f	struct:pretty_print::print_container_helper::printer
+type	thirdparty/nonius.h++	/^        struct complete_type<void> { struct type {}; };$/;"	s	struct:nonius::detail::complete_type
+units_for_magnitude	thirdparty/nonius.h++	/^        inline std::string units_for_magnitude(double magnitude) {$/;"	f	namespace:nonius::detail
+upper_bound	thirdparty/nonius.h++	/^        Duration upper_bound;$/;"	m	struct:nonius::estimate
+user_code	thirdparty/nonius.h++	/^    detail::CompleteType<detail::ResultOf<Fun()>> user_code(reporter& rep, Fun&& fun) {$/;"	f	namespace:nonius
+v	spike/code/aek.cpp	/^    v() {}$/;"	f	struct:v
+v	spike/code/aek.cpp	/^    } v(f a, f b, f c) {$/;"	f	struct:v
+v	spike/code/aek.cpp	/^struct v {$/;"	s	file:
+v0	spike/bench/rasteriser.cpp	/^alpha::Vec2i v0 = {width, height};$/;"	v
+v1	spike/bench/rasteriser.cpp	/^alpha::Vec2i v1 = {0, 0};$/;"	v
+v2	spike/bench/rasteriser.cpp	/^alpha::Vec2i v2 = {width + 3, 0};$/;"	v
+validate_benchmarks	thirdparty/nonius.h++	/^    void validate_benchmarks(Iterator first, Iterator last) {$/;"	f	namespace:nonius
+value	thirdparty/prettyprint.hpp	/^    static const bool value = sizeof(test<T>(nullptr)) == sizeof(yes);$/;"	m	struct:pretty_print::detail::has_const_iterator
+value_type	thirdparty/prettyprint.hpp	/^    typedef T value_type;$/;"	t	struct:pretty_print::array_wrapper_n
+values	thirdparty/prettyprint.hpp	/^                                            wchar_t>::values = {L"{", L", ",$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^                                         char>::values = {"{", ", ", "}"};$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^               wchar_t>::values = {L"{", L", ", L"}"};$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    ::std::unordered_multiset<T, THash, TEqual, TAllocator>, char>::values = {$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    ::std::unordered_set<T, THash, TEqual, TAllocator>, char>::values = {$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    ::std::unordered_set<T, THash, TEqual, TAllocator>, wchar_t>::values = {$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    delimiters<::std::multiset<T, TComp, TAllocator>, wchar_t>::values = {$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    delimiters<::std::pair<T1, T2>, wchar_t>::values = {L"(", L", ", L")"};$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    delimiters<::std::tuple<Args...>, wchar_t>::values = {L"(", L", ", L")"};$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    static const delimiters_values<char> values;$/;"	m	struct:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    static const delimiters_values<wchar_t> values;$/;"	m	struct:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^    static const type values;$/;"	m	struct:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<T, char>::values = {"[", ", ", "]"};$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<std::pair<T1, T2>, char>::values = {$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<std::tuple<Args...>, char>::values = {$/;"	m	class:pretty_print::delimiters
+values	thirdparty/prettyprint.hpp	/^const delimiters_values<wchar_t> delimiters<T, wchar_t>::values = {L"[", L", ",$/;"	m	class:pretty_print::delimiters
+verbose	thirdparty/nonius.h++	/^        bool verbose = false;$/;"	m	struct:nonius::configuration
+verbose	thirdparty/nonius.h++	/^        bool verbose = false;$/;"	m	struct:nonius::standard_reporter
+verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::csv_reporter
+verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::html_reporter
+verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::junit_reporter
+vertices	spike/code/cow.h	/^Vec3f vertices[1732] = {$/;"	v
+verts	spike/code/perspproj.cpp	/^const Vec3f verts[146] = {{0, 39.034, 0},$/;"	v
+verts	spike/code/pinhole.cpp	/^const alpha::Vec3f verts[146] = {{-2.5703, 0.78053, -2.4e-05},$/;"	v
+warmup	thirdparty/nonius.h++	/^        int warmup() {$/;"	f	namespace:nonius::detail
+warmup_end	thirdparty/nonius.h++	/^        void warmup_end(int iterations) {$/;"	f	struct:nonius::reporter
+warmup_iterations	thirdparty/nonius.h++	/^        const auto warmup_iterations = 10000;$/;"	m	namespace:nonius::detail
+warmup_seed	thirdparty/nonius.h++	/^        const auto warmup_seed = 10000;$/;"	m	namespace:nonius::detail
+warmup_start	thirdparty/nonius.h++	/^        void warmup_start() {$/;"	f	struct:nonius::reporter
+warmup_time	thirdparty/nonius.h++	/^        const auto warmup_time = chrono::milliseconds(100);$/;"	m	namespace:nonius::detail
+weighted_average_quantile	thirdparty/nonius.h++	/^        double weighted_average_quantile(int k, int q, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
+width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Framebuffer
+width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
+width	spike/bench/rasteriser.cpp	/^const int width = 512, height = 512;$/;"	v
+worldToCamera	spike/code/raster3d.cpp	/^const Matrix44f worldToCamera = {$/;"	v
+world_to_cam	include/camera_alpha.hpp	/^    Matrix44f world_to_cam;$/;"	m	class:alpha::Camera
+x	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
+x	include/math_alpha.hpp	/^    T x, y;$/;"	m	class:alpha::math::Vec2
+x	include/math_alpha.hpp	/^    T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};$/;"	m	class:alpha::math::Matrix44
+x	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
+x	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
+x	spike/code/geometry.h	/^    T x, y;$/;"	m	class:Vec2
+x	spike/code/geometry.h	/^    T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};$/;"	m	class:Matrix44
+y	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
+y	include/math_alpha.hpp	/^    T x, y;$/;"	m	class:alpha::math::Vec2
+y	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
+y	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
+y	spike/code/geometry.h	/^    T x, y;$/;"	m	class:Vec2
+z	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
+z	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
+z	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
+z_far	spike/code/pinhole.cpp	/^float z_far = 1000;$/;"	v
+z_near	spike/code/pinhole.cpp	/^float z_near = 0.1;$/;"	v
+~custom_delims_base	thirdparty/prettyprint.hpp	/^    virtual ~custom_delims_base() {}$/;"	f	struct:pretty_print::custom_delims_base
+~data_ptr	thirdparty/nonius.h++	/^        virtual ~data_ptr() {}$/;"	f	class:cpptempl::data_ptr
+~object_storage	thirdparty/nonius.h++	/^            ~object_storage() { destruct_on_exit<T>(); }$/;"	f	struct:nonius::detail::object_storage

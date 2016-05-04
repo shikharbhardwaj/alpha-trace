@@ -22,6 +22,8 @@ namespace alpha {
 using namespace math;
 class Rasteriser {
     using Point = Vec3f;
+
+  private:
     std::unique_ptr<Framebuffer> Fbuf;
     std::unique_ptr<Zbuffer> Zbuf;
     std::shared_ptr<Camera> cam;
