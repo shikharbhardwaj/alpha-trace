@@ -81,34 +81,49 @@ class Rasteriser {
         st0 = st0 * v0_rast.z;
         st1 = st1 * v1_rast.z;
         st2 = st2 * v2_rast.z;
+        // Triangle setup
+        float a01 = v0_rast.y - v1_rast.y, b01 = v1_rast.x - v0_rast.x;
+        float a12 = v1_rast.y - v2_rast.y, b12 = v2_rast.x - v1_rast.x;
+        float a20 = v2_rast.y - v0_rast.y, b20 = v0_rast.x - v2_rast.x;
+        // Computing the Barycentric co-ords at minX, minY
+        Vec3f p = {float(x0) + 0.5f, float(y0) + 0.5f, 0.f};
+        float w0_row = edge_function(v1_rast, v2_rast, p);
+        float w1_row = edge_function(v2_rast, v0_rast, p);
+        float w2_row = edge_function(v0_rast, v1_rast, p);
+        // The inner loop
         for (uint32_t y = y0; y <= y1; y++) {
+            float w0 = w0_row;
+            float w1 = w1_row;
+            float w2 = w2_row;
             for (uint32_t x = x0; x <= x1; x++) {
                 Vec3f pixel_sample(x + 0.5f, y + 0.5f, 0);
-                float w0 = edge_function(v1_rast, v2_rast, pixel_sample);
-                float w1 = edge_function(v2_rast, v0_rast, pixel_sample);
-                float w2 = edge_function(v0_rast, v1_rast, pixel_sample);
+#ifdef ALPHA_DEBUG
+                std::cout << alpha::math::Vec3f(w0, w1, w2) << " : "
+                          << Vec2i(x, y) << std::endl;
+                std::cin.get();
+#endif
                 if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
-                    w0 *= total_area_inv;
-                    w1 *= total_area_inv;
-                    w2 *= total_area_inv;
+                    float b0 = w0 * total_area_inv;
+                    float b1 = w1 * total_area_inv;
+                    float b2 = w2 * total_area_inv;
                     // Compute correct interpolation
                     float z_inv =
-                        v0_rast.z * w0 + v1_rast.z * w1 + v2_rast.z * w2;
+                        v0_rast.z * b0 + v1_rast.z * b1 + v2_rast.z * b2;
                     float z = 1 / z_inv;
                     if (z < Zbuf->get(x, y)) {
                         Zbuf->set(x, y, z);
-                        Vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
+                        Vec2f st = st0 * b0 + st1 * b1 + st2 * b2;
                         st = st * z;
                         alpha::math::Vec3f v0_cam, v1_cam, v2_cam;
                         cam->convert_to_camera_space(v0, v0_cam);
                         cam->convert_to_camera_space(v1, v1_cam);
                         cam->convert_to_camera_space(v2, v2_cam);
-                        float px = (v0_cam.x / -v0_cam.z) * w0 +
-                                   (v1_cam.x / -v1_cam.z) * w1 +
-                                   (v2_cam.x / -v2_cam.z) * w2;
-                        float py = (v0_cam.y / -v0_cam.z) * w0 +
-                                   (v1_cam.y / -v1_cam.z) * w1 +
-                                   (v2_cam.y / -v2_cam.z) * w2;
+                        float px = (v0_cam.x / -v0_cam.z) * b0 +
+                                   (v1_cam.x / -v1_cam.z) * b1 +
+                                   (v2_cam.x / -v2_cam.z) * b2;
+                        float py = (v0_cam.y / -v0_cam.z) * b0 +
+                                   (v1_cam.y / -v1_cam.z) * b1 +
+                                   (v2_cam.y / -v2_cam.z) * b2;
                         alpha::math::Vec3f pt(px * z, py * z,
                                               -z); // In camera space
                         auto normal =
@@ -128,12 +143,17 @@ class Rasteriser {
                         float checker = (fmod(st.x * M, 1.0) > 0.5) ^
                                         (fmod(st.y * M, 1.0) < 0.5);
                         float c = 0.3 * (1 - checker) + 0.7 * checker;
-                        n_dot_alpha *= c;
-                        Fbuf->set(x, y, 255 * n_dot_alpha, 255 * n_dot_alpha,
-                                  255 * n_dot_alpha);
+                        Fbuf->set(x, y, 255 * n_dot_alpha * c,
+                                  255 * n_dot_alpha * c, 255 * n_dot_alpha * c);
                     }
                 }
+                w0 -= a12;
+                w1 -= a20;
+                w2 -= a01;
             }
+            w0_row -= b12;
+            w1_row -= b20;
+            w2_row -= b01;
         }
     }
 };

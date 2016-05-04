@@ -237,6 +237,9 @@ int main() {
                 float w0 = edgeFunction(v1Raster, v2Raster, pixelSample);
                 float w1 = edgeFunction(v2Raster, v0Raster, pixelSample);
                 float w2 = edgeFunction(v0Raster, v1Raster, pixelSample);
+                std::cout << Vec3f(w0, w1, w2) << " : " << Vec2i(x, y)
+                          << std::endl;
+                std::cin.get();
                 if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
                     w0 /= area;
                     w1 /= area;
@@ -248,7 +251,6 @@ int main() {
                     // Depth-buffer test
                     // [/comment]
                     if (z < depthBuffer[y * imageWidth + x]) {
-
                         depthBuffer[y * imageWidth + x] = z;
 
                         Vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
@@ -279,7 +281,6 @@ int main() {
                                    (v2Cam.y / -v2Cam.z) * w2;
 
                         Vec3f pt(px * z, py * z, -z); // pt is in camera space
-
                         // [comment]
                         // Compute the face normal which is used for a simple
                         // facing ratio.
