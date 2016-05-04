@@ -33,13 +33,13 @@ class Rasteriser {
   public:
     Rasteriser() = delete;
     Rasteriser(std::shared_ptr<Camera> cam_inst, int col_space = 255) {
+        cam = std::move(cam_inst);
         img_width = cam->img_width;
         img_height = cam->img_height;
         Fbuf = std::unique_ptr<Framebuffer>(
             new Framebuffer(img_width, img_height, col_space));
         Zbuf = std::unique_ptr<Zbuffer>(
             new Zbuffer(img_width, img_height, far_clipping_plain));
-        cam = cam_inst;
     }
     void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }
     void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {
@@ -47,6 +47,10 @@ class Rasteriser {
         cam->convert_to_raster(v0, v0_rast);
         cam->convert_to_raster(v1, v1_rast);
         cam->convert_to_raster(v2, v2_rast);
+#ifndef NDEBUG
+        std::cout << "\nThe raster coords : " << v0_rast << " | " << v1_rast
+                  << " | " << v2_rast;
+#endif
         // Precompute multiplicative inverse of the z co ordinate
         v0_rast.z = 1 / v0_rast.z;
         v1_rast.z = 1 / v1_rast.z;
@@ -67,6 +71,7 @@ class Rasteriser {
         uint32_t y1 =
             std::max(int32_t(img_height) - 1, (int32_t)(std::floor(ymin)));
         float total_area_inv = 1 / edge_function(v0_rast, v1_rast, v2_rast);
+        std::cout << "Total area : " << 1 / total_area_inv;
         for (uint32_t y = y0; y <= y1; y++) {
             for (uint32_t x = x0; x <= x1; x++) {
                 Vec3f pixel_sample(x + 0.5f, y + 0.5f, 0);

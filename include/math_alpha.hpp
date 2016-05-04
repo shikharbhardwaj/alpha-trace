@@ -44,8 +44,9 @@ inline bool is_equal(float a, float b) {
     return false;
 }
 
-template <typename T> class Vec3 {
-  public:
+template <typename T>
+class Vec3 {
+   public:
     Vec3() : x(0), y(0), z(0) {}
     Vec3(T xx) : x(xx), y(xx), z(xx) {}
     Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {}
@@ -84,8 +85,9 @@ template <typename T> class Vec3 {
 
     T x, y, z;
 };
-template <typename T> class Vec2 {
-  public:
+template <typename T>
+class Vec2 {
+   public:
     Vec2() : x(0), y(0) {}
     Vec2(T xx) : x(xx), y(xx) {}
     Vec2(T xx, T yy) : x(xx), y(yy) {}
@@ -123,8 +125,9 @@ typedef Vec2<float> Vec2f;
 typedef Vec3<int> Vec3i;
 typedef Vec2<int> Vec2i;
 
-template <typename T> class Matrix44 {
-  public:
+template <typename T>
+class Matrix44 {
+   public:
     T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
 
     Matrix44() {}
@@ -293,14 +296,12 @@ template <typename T> class Matrix44 {
 
             T pivotsize = t[i][i];
 
-            if (pivotsize < 0)
-                pivotsize = -pivotsize;
+            if (pivotsize < 0) pivotsize = -pivotsize;
 
             for (j = i + 1; j < 4; j++) {
                 T tmp = t[j][i];
 
-                if (tmp < 0)
-                    tmp = -tmp;
+                if (tmp < 0) tmp = -tmp;
 
                 if (tmp > pivotsize) {
                     pivot = j;
@@ -372,8 +373,8 @@ template <typename T> class Matrix44 {
 
     friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {
         std::ios_base::fmtflags oldFlags = s.flags();
-        int width = 12; // total with of the displayed number
-        s.precision(5); // control the number of displayed decimals
+        int width = 12;  // total with of the displayed number
+        s.precision(5);  // control the number of displayed decimals
         s.setf(std::ios_base::fixed);
 
         s << "(" << std::setw(width) << m[0][0] << " " << std::setw(width)
