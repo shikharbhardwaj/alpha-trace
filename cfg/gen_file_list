@@ -1,0 +1,3 @@
+#!/bin/bash
+cd ../
+git ls-tree -r --name-only $(git rev-parse --abbrev-ref HEAD)  
