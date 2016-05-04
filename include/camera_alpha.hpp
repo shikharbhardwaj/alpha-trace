@@ -37,9 +37,10 @@ class Camera {
           near_clipping_plain(z_near), far_clipping_plain(z_far),
           focal_length(f_length), world_to_cam(w2cam), img_width(width),
           img_height(height) {
-        fit_setting = fit_resolution_gate::Fill;
+        fit_setting = fit_resolution_gate::Overscan;
         compute_screen_coordinates();
     }
+    float get_far_clipping_plain() { return far_clipping_plain; }
     void compute_screen_coordinates() {
         // Implements a pinhole camera model
         float film_aspect_ratio = film_aperture_width / film_aperture_height;
@@ -68,7 +69,7 @@ class Camera {
         top *= yscale;
         bottom = -top;
         left = -right;
-#ifndef NDEBUG
+#ifdef ALPHA_DEBUG
         float fov = 2 * 180 / M_PI * atan((right / near_clipping_plain));
         std::cout << "Field of view : " << fov << std::endl;
         std::cout << "Screen co-ords : " << top << "x" << right << std::endl;
@@ -76,15 +77,22 @@ class Camera {
 #endif
     }
     void convert_to_raster(const Vec3f &v_world, Vec3f &raster) {
+#ifdef ALPHA_DEBUG
+        std::cout << "\nWorld co-ords" << v_world;
+#endif
         Vec3f v_cam;
         world_to_cam.mult_vec_matrix(v_world, v_cam);
+#ifdef ALPHA_DEBUG
         std::cout << "\nCam co-ords" << v_cam;
+#endif
         // Convert to screen space
         // Perform perspective divide
         Vec2f v_screen;
         v_screen.x = near_clipping_plain * v_cam.x / -v_cam.z;
         v_screen.y = near_clipping_plain * v_cam.y / -v_cam.z;
+#ifdef ALPHA_DEBUG
         std::cout << "\nScreen co-ordinates : " << v_screen;
+#endif
         // Convert to NDC
         Vec2f v_NDC;
         v_NDC.x =
@@ -95,6 +103,9 @@ class Camera {
         raster.x = (v_NDC.x + 1) / 2 * img_width;
         raster.y = (1 - v_NDC.y) / 2 * img_height;
         raster.z = -v_cam.z;
+    }
+    void convert_to_camera_space(const Vec3f &v_world, Vec3f &v_cam) {
+        world_to_cam.mult_vec_matrix(v_world, v_cam);
     }
 };
 }

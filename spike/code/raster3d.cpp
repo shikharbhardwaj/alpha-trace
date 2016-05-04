@@ -103,13 +103,14 @@ void convertToRaster(const Vec3f &vertexWorld, const Matrix44f &worldToCamera,
                      const uint32_t &imageWidth, const uint32_t &imageHeight,
                      Vec3f &vertexRaster) {
     Vec3f vertexCamera;
-
+    // std::cout << "World co-ords" << vertexWorld << std::endl;
     worldToCamera.multVecMatrix(vertexWorld, vertexCamera);
-
+    // std::cout << "The cam co-ords" << vertexCamera << std::endl;
     // convert to screen space
     Vec2f vertexScreen;
     vertexScreen.x = near * vertexCamera.x / -vertexCamera.z;
     vertexScreen.y = near * vertexCamera.y / -vertexCamera.z;
+    // std::cout << "The screen co-ords" << vertexScreen << std::endl;
 
     // now convert point from screen space to NDC space (in range [-1,1])
     Vec2f vertexNDC;
@@ -150,7 +151,7 @@ float filmApertureWidth = 0.980;
 float filmApertureHeight = 0.735;
 
 int main() {
-
+    // std::cout << worldToCamera;
     // compute screen coordinates
     float t, b, l, r;
 
@@ -188,6 +189,9 @@ int main() {
                         imageWidth, imageHeight, v1Raster);
         convertToRaster(v2, worldToCamera, l, r, t, b, nearClippingPLane,
                         imageWidth, imageHeight, v2Raster);
+        // std::cout << "The rasters : " << v0Raster << " | " << v1Raster << " |
+        // "
+        //<< v2Raster << std::endl;
 
         // [comment]
         // Precompute reciprocal of vertex z-coordinate
@@ -223,9 +227,7 @@ int main() {
         uint32_t y0 = std::max(int32_t(0), (int32_t)(std::floor(ymin)));
         uint32_t y1 =
             std::min(int32_t(imageHeight) - 1, (int32_t)(std::floor(ymax)));
-
         float area = edgeFunction(v0Raster, v1Raster, v2Raster);
-
         // [comment]
         // Inner loop
         // [/comment]
@@ -246,6 +248,7 @@ int main() {
                     // Depth-buffer test
                     // [/comment]
                     if (z < depthBuffer[y * imageWidth + x]) {
+
                         depthBuffer[y * imageWidth + x] = z;
 
                         Vec2f st = st0 * w0 + st1 * w1 + st2 * w2;
@@ -306,7 +309,7 @@ int main() {
                                         (fmod(st.y * M, 1.0) < 0.5);
                         float c = 0.3 * (1 - checker) + 0.7 * checker;
                         nDotView *= c;
-                        frameBuffer[y * imageWidth + x].x = nDotView * 255;
+                        frameBuffer[y * imageWidth + x].x = nDotView * 254;
                         frameBuffer[y * imageWidth + x].y = nDotView * 255;
                         frameBuffer[y * imageWidth + x].z = nDotView * 255;
                     }

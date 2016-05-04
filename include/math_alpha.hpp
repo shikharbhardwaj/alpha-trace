@@ -44,9 +44,8 @@ inline bool is_equal(float a, float b) {
     return false;
 }
 
-template <typename T>
-class Vec3 {
-   public:
+template <typename T> class Vec3 {
+  public:
     Vec3() : x(0), y(0), z(0) {}
     Vec3(T xx) : x(xx), y(xx), z(xx) {}
     Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {}
@@ -85,22 +84,29 @@ class Vec3 {
 
     T x, y, z;
 };
-template <typename T>
-class Vec2 {
-   public:
+template <typename T> class Vec2 {
+  public:
+    template <typename U> friend void swap(Vec2 &, Vec2 &);
     Vec2() : x(0), y(0) {}
     Vec2(T xx) : x(xx), y(xx) {}
     Vec2(T xx, T yy) : x(xx), y(yy) {}
+    Vec2 &operator=(Vec2 other) {
+        swap(*this, other);
+        return *this;
+    }
     Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }
     Vec2 operator-(const Vec2 &v) const { return Vec2(x - v.x, y - v.y); }
     Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }
+    friend void swap(Vec2 &first, Vec2 &second) {
+        std::swap(first.x, second.x);
+        std::swap(first.y, second.y);
+    }
     T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }
     Vec2 cross_product(const Vec2<T> &v) const {
         return Vec2<T>(x * v.y - y * v.x);
     }
     T norm() const { return x * x + y * y; }
     T length() const { return sqrt(norm()); }
-
     const T &operator[](uint8_t i) const { return (&x)[i]; }
     T &operator[](uint8_t i) { return (&x)[i]; }
     Vec2 &normalize() {
@@ -125,9 +131,8 @@ typedef Vec2<float> Vec2f;
 typedef Vec3<int> Vec3i;
 typedef Vec2<int> Vec2i;
 
-template <typename T>
-class Matrix44 {
-   public:
+template <typename T> class Matrix44 {
+  public:
     T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
 
     Matrix44() {}
@@ -260,6 +265,7 @@ class Matrix44 {
 
     template <typename S>
     void mult_vec_matrix(const Vec3<S> &src, Vec3<S> &dst) const {
+        // TODO: Problem
         S a, b, c, w;
 
         a = src[0] * x[0][0] + src[1] * x[1][0] + src[2] * x[2][0] + x[3][0];
@@ -296,12 +302,14 @@ class Matrix44 {
 
             T pivotsize = t[i][i];
 
-            if (pivotsize < 0) pivotsize = -pivotsize;
+            if (pivotsize < 0)
+                pivotsize = -pivotsize;
 
             for (j = i + 1; j < 4; j++) {
                 T tmp = t[j][i];
 
-                if (tmp < 0) tmp = -tmp;
+                if (tmp < 0)
+                    tmp = -tmp;
 
                 if (tmp > pivotsize) {
                     pivot = j;
@@ -373,8 +381,8 @@ class Matrix44 {
 
     friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {
         std::ios_base::fmtflags oldFlags = s.flags();
-        int width = 12;  // total with of the displayed number
-        s.precision(5);  // control the number of displayed decimals
+        int width = 12; // total with of the displayed number
+        s.precision(5); // control the number of displayed decimals
         s.setf(std::ios_base::fixed);
 
         s << "(" << std::setw(width) << m[0][0] << " " << std::setw(width)
