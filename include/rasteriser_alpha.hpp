@@ -43,6 +43,7 @@ class Rasteriser {
     void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }
     void draw_triangle(const Point &v0, const Point &v1, const Point &v2,
                        Vec2f &st0, Vec2f &st1, Vec2f &st2) {
+        // TODO: Optimize
         Vec3f v0_rast, v1_rast, v2_rast;
         cam->convert_to_raster(v0, v0_rast);
         cam->convert_to_raster(v1, v1_rast);

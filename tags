@@ -101,6 +101,7 @@ const_iterator	thirdparty/prettyprint.hpp	/^    typedef const T *const_iterator;
 const_iterator	thirdparty/prettyprint.hpp	/^    typedef typename T::const_local_iterator const_iterator;$/;"	t	struct:pretty_print::bucket_print_wrapper
 container_	thirdparty/prettyprint.hpp	/^    const T &container_;$/;"	m	struct:pretty_print::print_container_helper
 convertToRaster	spike/code/raster3d.cpp	/^void convertToRaster(const Vec3f &vertexWorld, const Matrix44f &worldToCamera,$/;"	f
+convert_to_camera_space	include/camera_alpha.hpp	/^    void convert_to_camera_space(const Vec3f &v_world, Vec3f &v_cam) {$/;"	f	class:alpha::Camera
 convert_to_raster	include/camera_alpha.hpp	/^    void convert_to_raster(const Vec3f &v_world, Vec3f &raster) {$/;"	f	class:alpha::Camera
 crossProduct	spike/code/geometry.h	/^    Vec3 crossProduct(const Vec3<T> &v) const {$/;"	f	class:Vec3
 cross_product	include/math_alpha.hpp	/^    Vec2 cross_product(const Vec2<T> &v) const {$/;"	f	class:alpha::math::Vec2
@@ -132,7 +133,7 @@ detail	thirdparty/prettyprint.hpp	/^namespace detail {$/;"	n	namespace:pretty_pr
 dotProduct	spike/code/geometry.h	/^    T dotProduct(const Vec3<T> &v) const { return x * v.x + y * v.y + z * v.z; }$/;"	f	class:Vec3
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }$/;"	f	class:alpha::math::Vec2
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
-draw_triangle	include/rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {$/;"	f	class:alpha::Rasteriser
+draw_triangle	include/rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2,$/;"	f	class:alpha::Rasteriser
 dump_as_ppm	include/buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Framebuffer
 dump_as_ppm	include/rasteriser_alpha.hpp	/^    void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }$/;"	f	class:alpha::Rasteriser
 edgeFunction	spike/code/raster3d.cpp	/^float edgeFunction(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f
@@ -145,7 +146,6 @@ f	spike/code/aek.cpp	/^typedef float f;$/;"	t	file:
 fail	test/math_alpha_test.cpp	/^bool fail = false;$/;"	v
 farClippingPLane	spike/code/raster3d.cpp	/^const float farClippingPLane = 1000;$/;"	v
 far_clipping_plain	include/camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
-far_clipping_plain	include/rasteriser_alpha.hpp	/^    float far_clipping_plain;$/;"	m	class:alpha::Rasteriser
 far_clipping_plain	spike/code/canvas_cords.cpp	/^float far_clipping_plain = 1000;$/;"	v
 filmApertureHeight	spike/code/raster3d.cpp	/^float filmApertureHeight = 0.735;$/;"	v
 filmApertureWidth	spike/code/raster3d.cpp	/^float filmApertureWidth = 0.980;$/;"	v
@@ -164,6 +164,7 @@ focal_length	include/camera_alpha.hpp	/^    float focal_length;$/;"	m	class:alph
 focal_length	spike/code/canvas_cords.cpp	/^float focal_length = 35;            \/\/ mm$/;"	v
 focal_length	spike/code/pinhole.cpp	/^float focal_length = 35; \/\/ mm$/;"	v
 get	include/buffers_alpha.hpp	/^    float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }$/;"	f	class:Zbuffer
+get_far_clipping_plain	include/camera_alpha.hpp	/^    float get_far_clipping_plain() { return far_clipping_plain; }$/;"	f	class:alpha::Camera
 has_begin_end	thirdparty/prettyprint.hpp	/^template <typename T> struct has_begin_end : private sfinae_base {$/;"	s	namespace:pretty_print::detail
 has_const_iterator	thirdparty/prettyprint.hpp	/^template <typename T> struct has_const_iterator : private sfinae_base {$/;"	s	namespace:pretty_print::detail
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Framebuffer
@@ -279,6 +280,7 @@ operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ost
 operator <<	thirdparty/prettyprint.hpp	/^inline std::basic_ostream<TChar, TCharTraits> &operator<<($/;"	f	namespace:pretty_print
 operator <<	thirdparty/prettyprint.hpp	/^operator<<(basic_ostream<TChar, TCharTraits> &stream, const T &container) {$/;"	f	namespace:std
 operator <<	thirdparty/prettyprint.hpp	/^operator<<(std::basic_ostream<TChar, TCharTraits> &s,$/;"	f	namespace:pretty_print
+operator =	include/math_alpha.hpp	/^    Vec2 &operator=(Vec2 other) {$/;"	f	class:alpha::math::Vec2
 operator ==	include/math_alpha.hpp	/^    bool operator==(const Matrix44 &lhs) {$/;"	f	class:alpha::math::Matrix44
 operator []	include/math_alpha.hpp	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:alpha::math::Vec2
 operator []	include/math_alpha.hpp	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:alpha::math::Vec3
@@ -312,10 +314,13 @@ sfinae_base	thirdparty/prettyprint.hpp	/^struct sfinae_base {$/;"	s	namespace:pr
 size_type	thirdparty/prettyprint.hpp	/^    typedef typename T::size_type size_type;$/;"	t	struct:pretty_print::bucket_print_wrapper
 sse	spike/bench/sse.cpp	/^void sse(float *a, int N) {$/;"	f
 st	spike/code/cow.h	/^Vec2f st[3056] = {$/;"	v
+st	spike/code/cow.hpp	/^Vec2f st[3056] = {$/;"	v
 std	thirdparty/prettyprint.hpp	/^namespace std {$/;"	n
 stindices	spike/code/cow.h	/^uint32_t stindices[9468] = {$/;"	v
+stindices	spike/code/cow.hpp	/^uint32_t stindices[9468] = {$/;"	v
 stream	thirdparty/prettyprint.hpp	/^    std::ostream &stream(std::ostream &s) {$/;"	f	struct:pretty_print::custom_delims_wrapper
 stream	thirdparty/prettyprint.hpp	/^    std::wostream &stream(std::wostream &s) {$/;"	f	struct:pretty_print::custom_delims_wrapper
+swap	include/math_alpha.hpp	/^    friend void swap(Vec2 &first, Vec2 &second) {$/;"	f	class:alpha::math::Vec2
 t	thirdparty/prettyprint.hpp	/^    const T &t;$/;"	m	struct:pretty_print::custom_delims_wrapper
 top	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
 transpose	include/math_alpha.hpp	/^    Matrix44 &transpose() {$/;"	f	class:alpha::math::Matrix44
@@ -352,6 +357,7 @@ values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<std
 values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<std::tuple<Args...>, char>::values = {$/;"	m	class:pretty_print::delimiters
 values	thirdparty/prettyprint.hpp	/^const delimiters_values<wchar_t> delimiters<T, wchar_t>::values = {L"[", L", ",$/;"	m	class:pretty_print::delimiters
 vertices	spike/code/cow.h	/^Vec3f vertices[1732] = {$/;"	v
+vertices	spike/code/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
 verts	spike/code/perspproj.cpp	/^const Vec3f verts[146] = {{0, 39.034, 0},$/;"	v
 verts	spike/code/pinhole.cpp	/^const alpha::Vec3f verts[146] = {{-2.5703, 0.78053, -2.4e-05},$/;"	v
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Framebuffer

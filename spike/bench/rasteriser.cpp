@@ -1,13 +1,31 @@
 // A simple benchmark to test rasteriser performance
 #define NONIUS_RUNNER
+#include "cow.hpp"
 #include <nonius.h++>
 #include <rasteriser_alpha.hpp>
-const int width = 512, height = 512;
-alpha::Vec2i v2 = {width + 3, 0};
-alpha::Vec2i v1 = {0, 0};
-alpha::Vec2i v0 = {width, height};
-alpha::Rasteriser rast(width, height);
+const int width = 640, height = 480;
+auto cam_inst = std::make_shared<alpha::Camera>(
+    width, height, 0.980, 0.735, 1, 1000, 20,
+    std::initializer_list<std::initializer_list<float>>{
+        {0.707107, -0.331295, 0.624695, 0},
+        {0, 0.883452, 0.468521, 0},
+        {-0.707107, -0.331295, 0.624695, 0},
+        {-1.63871, -5.747777, -40.400412, 1},
+    });
+alpha::Rasteriser rast(cam_inst, 255);
+// Render the cow for me
+const int num_tris = 3156;
 NONIUS_BENCHMARK("Rasteriser", [](nonius::chronometer meter) {
-    meter.measure([] { rast.draw_triangle(v0, v1, v2); });
+    meter.measure([] {
+        for (volatile int i = 0; i < num_tris; i++) {
+            const alpha::Vec3f &v0 = vertices[nvertices[i * 3]];
+            const alpha::Vec3f &v1 = vertices[nvertices[i * 3 + 1]];
+            const alpha::Vec3f &v2 = vertices[nvertices[i * 3 + 2]];
+            alpha::math::Vec2f st0 = st[stindices[i * 3]];
+            alpha::math::Vec2f st1 = st[stindices[i * 3 + 1]];
+            alpha::math::Vec2f st2 = st[stindices[i * 3 + 2]];
+            rast.draw_triangle(v0, v1, v2, st0, st1, st2);
+        }
+    });
+
 });
-// Curren time : 6.8ms

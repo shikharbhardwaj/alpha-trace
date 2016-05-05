@@ -237,9 +237,9 @@ int main() {
                 float w0 = edgeFunction(v1Raster, v2Raster, pixelSample);
                 float w1 = edgeFunction(v2Raster, v0Raster, pixelSample);
                 float w2 = edgeFunction(v0Raster, v1Raster, pixelSample);
-                std::cout << Vec3f(w0, w1, w2) << " : " << Vec2i(x, y)
-                          << std::endl;
-                std::cin.get();
+                // std::cout << Vec3f(w0, w1, w2) << " : " << Vec2i(x, y)
+                //<< std::endl;
+                // std::cin.get();
                 if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
                     w0 /= area;
                     w1 /= area;

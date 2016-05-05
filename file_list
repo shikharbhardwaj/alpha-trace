@@ -42,5 +42,4 @@ src/alpha.cpp
 tags
 test/CMakeLists.txt
 test/math_alpha_test.cpp
-thirdparty/nonius.h++
 thirdparty/prettyprint.hpp

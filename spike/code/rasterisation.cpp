@@ -5,19 +5,21 @@
 #include <math_alpha.hpp>
 #include <memory>
 #include <rasteriser_alpha.hpp>
+const int width = 640, height = 480, z_near = 1, z_far = 1000,
+          focal_length = 20;
+const float aperture_width = 0.980, aperture_height = 0.735;
+auto cam_inst = std::make_shared<alpha::Camera>(
+    width, height, 0.980, 0.735, 1, 1000, 20,
+    std::initializer_list<std::initializer_list<float>>{
+        {0.707107, -0.331295, 0.624695, 0},
+        {0, 0.883452, 0.468521, 0},
+        {-0.707107, -0.331295, 0.624695, 0},
+        {-1.63871, -5.747777, -40.400412, 1},
+    });
+alpha::Rasteriser rast(cam_inst, 255);
+// Render the cow for me
+const int num_tris = 3156;
 int main() {
-    const int width = 640, height = 480;
-    auto cam_inst = std::make_shared<alpha::Camera>(
-        width, height, 0.980, 0.735, 1, 1000, 20,
-        std::initializer_list<std::initializer_list<float>>{
-            {0.707107, -0.331295, 0.624695, 0},
-            {0, 0.883452, 0.468521, 0},
-            {-0.707107, -0.331295, 0.624695, 0},
-            {-1.63871, -5.747777, -40.400412, 1},
-        });
-    alpha::Rasteriser rast(cam_inst, 255);
-    // Render the cow for me
-    const int num_tris = 3156;
     auto t1 = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < num_tris; i++) {
         const alpha::Vec3f &v0 = vertices[nvertices[i * 3]];
