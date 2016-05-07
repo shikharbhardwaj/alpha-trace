@@ -28,7 +28,7 @@ int main() {
         alpha::math::Vec2f st0 = st[stindices[i * 3]];
         alpha::math::Vec2f st1 = st[stindices[i * 3 + 1]];
         alpha::math::Vec2f st2 = st[stindices[i * 3 + 2]];
-        rast.draw_triangle(v0, v1, v2, st0, st1, st2);
+        rast.draw_triangle_16xAA(v0, v1, v2, st0, st1, st2);
     }
     auto t2 = std::chrono::high_resolution_clock::now();
     std::cout << "Total wall time : "

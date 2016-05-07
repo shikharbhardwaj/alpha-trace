@@ -4,13 +4,14 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AA_mode	include/rasteriser_alpha.hpp	/^enum class AA_mode { none, MSAA2x, MSAA4x MSAA8x, MSAA16x };$/;"	c	namespace:alpha
 BASE_FLAGS	cfg/ycm_extra_conf.py	/^BASE_FLAGS = [$/;"	v
 BUFFERS_ALPHA_HPP	include/buffers_alpha.hpp	14;"	d
 CAMERA_ALPHA_HPP	include/camera_alpha.hpp	15;"	d
 COLOURS	include/colours.hpp	2;"	d
 Camera	include/camera_alpha.hpp	/^    Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,$/;"	f	class:alpha::Camera
 Camera	include/camera_alpha.hpp	/^class Camera {$/;"	c	namespace:alpha
-Fbuf	include/rasteriser_alpha.hpp	/^    std::unique_ptr<Framebuffer> Fbuf;$/;"	m	class:alpha::Rasteriser
+Fbuf	include/rasteriser_alpha.hpp	/^    std::unique_ptr<Imagebuffer> Fbuf;$/;"	m	class:alpha::Rasteriser
 Fill	include/camera_alpha.hpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	m	class:alpha::fit_resolution_gate
 Fill	spike/code/pinhole.cpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	m	class:fit_resolution_gate	file:
 FindNearest	cfg/ycm_extra_conf.py	/^def FindNearest(path, target):$/;"	f
@@ -19,16 +20,18 @@ FlagsForClangComplete	cfg/ycm_extra_conf.py	/^def FlagsForClangComplete(root):$/
 FlagsForCompilationDatabase	cfg/ycm_extra_conf.py	/^def FlagsForCompilationDatabase(root, filename):$/;"	f
 FlagsForFile	cfg/ycm_extra_conf.py	/^def FlagsForFile(filename):$/;"	f
 FlagsForInclude	cfg/ycm_extra_conf.py	/^def FlagsForInclude(root):$/;"	f
-Framebuffer	include/buffers_alpha.hpp	/^    Framebuffer(uint32_t w, uint32_t h, int space)$/;"	f	class:Framebuffer
-Framebuffer	include/buffers_alpha.hpp	/^class Framebuffer {$/;"	c
 G	spike/code/aek.cpp	/^i G[] = {247570, 280596, 280600, 249748, 18578, 18577, 231184, 16, 16};$/;"	v
 GetCompilationInfoForFile	cfg/ycm_extra_conf.py	/^def GetCompilationInfoForFile(database, filename):$/;"	f
 HEADER_EXTENSIONS	cfg/ycm_extra_conf.py	/^HEADER_EXTENSIONS = [$/;"	v
 H_PRETTY_PRINT	thirdparty/prettyprint.hpp	12;"	d
+Imagebuffer	include/buffers_alpha.hpp	/^    Imagebuffer(uint32_t w, uint32_t h, int space)$/;"	f	class:Imagebuffer
+Imagebuffer	include/buffers_alpha.hpp	/^class Imagebuffer {$/;"	c
 Int	thirdparty/prettyprint.hpp	/^    template <std::size_t I> struct Int {};$/;"	s	struct:pretty_print::print_container_helper::printer
 InvSqrt	spike/bench/sqrt_comp.cpp	/^float InvSqrt(float x) {$/;"	f
 IsHeaderFile	cfg/ycm_extra_conf.py	/^def IsHeaderFile(filename):$/;"	f
 MATH_ALPHA_HPP	include/math_alpha.hpp	15;"	d
+MSAA2x	include/rasteriser_alpha.hpp	/^enum class AA_mode { none, MSAA2x, MSAA4x MSAA8x, MSAA16x };$/;"	m	class:alpha::AA_mode
+MSAA8x	include/rasteriser_alpha.hpp	/^enum class AA_mode { none, MSAA2x, MSAA4x MSAA8x, MSAA16x };$/;"	m	class:alpha::AA_mode
 MakeRelativePathsInFlagsAbsolute	cfg/ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute(flags, working_directory):$/;"	f
 Matrix44	include/math_alpha.hpp	/^    Matrix44() {}$/;"	f	class:alpha::math::Matrix44
 Matrix44	include/math_alpha.hpp	/^    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {$/;"	f	class:alpha::math::Matrix44
@@ -79,6 +82,9 @@ _n	thirdparty/prettyprint.hpp	/^    size_t _n;$/;"	m	struct:pretty_print::array_
 alpha	include/camera_alpha.hpp	/^namespace alpha {$/;"	n
 alpha	include/math_alpha.hpp	/^namespace alpha {$/;"	n
 alpha	include/rasteriser_alpha.hpp	/^namespace alpha {$/;"	n
+anti_aliasing_mode	include/rasteriser_alpha.hpp	/^    AA_mode anti_aliasing_mode;$/;"	m	class:alpha::Rasteriser
+aperture_height	spike/code/rasterisation.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
+aperture_width	spike/code/rasterisation.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 array_wrapper_n	thirdparty/prettyprint.hpp	/^    array_wrapper_n(const T *const a, size_t n) : _array(a), _n(n) {}$/;"	f	struct:pretty_print::array_wrapper_n
 array_wrapper_n	thirdparty/prettyprint.hpp	/^template <typename T> struct array_wrapper_n {$/;"	s	namespace:pretty_print
 base	thirdparty/prettyprint.hpp	/^    std::unique_ptr<custom_delims_base> base;$/;"	m	struct:pretty_print::custom_delims
@@ -89,9 +95,11 @@ bottom	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	clas
 bucket_print	thirdparty/prettyprint.hpp	/^pretty_print::bucket_print_wrapper<T> bucket_print(const T &m,$/;"	f
 bucket_print_wrapper	thirdparty/prettyprint.hpp	/^    bucket_print_wrapper(const T &m, size_type bucket) : m_map(m), n(bucket) {}$/;"	f	struct:pretty_print::bucket_print_wrapper
 bucket_print_wrapper	thirdparty/prettyprint.hpp	/^template <typename T> struct bucket_print_wrapper {$/;"	s	namespace:pretty_print
-buffer	include/buffers_alpha.hpp	/^    std::vector<std::vector<uint8_t>> buffer;$/;"	m	class:Framebuffer
+buffer	include/buffers_alpha.hpp	/^    std::vector<std::vector<uint8_t>> buffer;$/;"	m	class:Imagebuffer
 cam	include/rasteriser_alpha.hpp	/^    std::shared_ptr<Camera> cam;$/;"	m	class:alpha::Rasteriser
-col_space	include/buffers_alpha.hpp	/^    int col_space;$/;"	m	class:Framebuffer
+cam_inst	spike/bench/rasteriser.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
+cam_inst	spike/code/rasterisation.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
+col_space	include/buffers_alpha.hpp	/^    int col_space;$/;"	m	class:Imagebuffer
 colours	include/colours.hpp	/^namespace colours {$/;"	n
 compose_rotation	spike/code/decompose.m	/^function R = compose_rotation(x, y, z)$/;"	f
 computePixelCoordinates	spike/code/perspproj.cpp	/^void computePixelCoordinates(const Vec3f &p_world, Vec2i &p_raster,$/;"	f
@@ -134,7 +142,8 @@ dotProduct	spike/code/geometry.h	/^    T dotProduct(const Vec3<T> &v) const { re
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }$/;"	f	class:alpha::math::Vec2
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
 draw_triangle	include/rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2,$/;"	f	class:alpha::Rasteriser
-dump_as_ppm	include/buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Framebuffer
+draw_triangle_4xAA	include/rasteriser_alpha.hpp	/^    void draw_triangle_4xAA(const Point &v0, const Point &v1, const Point &v2,$/;"	f	class:alpha::Rasteriser
+dump_as_ppm	include/buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Imagebuffer
 dump_as_ppm	include/rasteriser_alpha.hpp	/^    void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }$/;"	f	class:alpha::Rasteriser
 edgeFunction	spike/code/raster3d.cpp	/^float edgeFunction(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f
 edge_function	include/math_alpha.hpp	/^inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f	namespace:alpha::math
@@ -163,13 +172,15 @@ focalLength	spike/code/raster3d.cpp	/^float focalLength = 20; \/\/ in mm$/;"	v
 focal_length	include/camera_alpha.hpp	/^    float focal_length;$/;"	m	class:alpha::Camera
 focal_length	spike/code/canvas_cords.cpp	/^float focal_length = 35;            \/\/ mm$/;"	v
 focal_length	spike/code/pinhole.cpp	/^float focal_length = 35; \/\/ mm$/;"	v
+focal_length	spike/code/rasterisation.cpp	/^          focal_length = 20;$/;"	v
 get	include/buffers_alpha.hpp	/^    float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }$/;"	f	class:Zbuffer
 get_far_clipping_plain	include/camera_alpha.hpp	/^    float get_far_clipping_plain() { return far_clipping_plain; }$/;"	f	class:alpha::Camera
 has_begin_end	thirdparty/prettyprint.hpp	/^template <typename T> struct has_begin_end : private sfinae_base {$/;"	s	namespace:pretty_print::detail
 has_const_iterator	thirdparty/prettyprint.hpp	/^template <typename T> struct has_const_iterator : private sfinae_base {$/;"	s	namespace:pretty_print::detail
-height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Framebuffer
+height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
-height	spike/bench/rasteriser.cpp	/^const int width = 512, height = 512;$/;"	v
+height	spike/bench/rasteriser.cpp	/^const int width = 640, height = 480;$/;"	v
+height	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 help	src/alpha.cpp	/^void help() {$/;"	f
 i	spike/code/aek.cpp	/^typedef int i;$/;"	t	file:
 imageHeight	spike/code/raster3d.cpp	/^const uint32_t imageHeight = 480;$/;"	v
@@ -231,6 +242,7 @@ nearClippingPLane	spike/code/raster3d.cpp	/^const float nearClippingPLane = 1;$/
 near_clipping_plain	include/camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
 near_clipping_plain	spike/code/canvas_cords.cpp	/^float near_clipping_plain = 0.1;$/;"	v
 nok	test/math_alpha_test.cpp	/^void nok() { std::cout << colours::red << "ERROR ❌ " << colours::reset; }$/;"	f
+none	include/rasteriser_alpha.hpp	/^enum class AA_mode { none, MSAA2x, MSAA4x MSAA8x, MSAA16x };$/;"	m	class:alpha::AA_mode
 norm	include/math_alpha.hpp	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:alpha::math::Vec3
 norm	include/math_alpha.hpp	/^    T norm() const { return x * x + y * y; }$/;"	f	class:alpha::math::Vec2
 norm	spike/code/geometry.h	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:Vec3
@@ -240,7 +252,9 @@ normalize	include/math_alpha.hpp	/^    Vec3 &normalize() {$/;"	f	class:alpha::ma
 normalize	spike/code/geometry.h	/^    Vec3 &normalize() {$/;"	f	class:Vec3
 ntris	spike/code/raster3d.cpp	/^const uint32_t ntris = 3156;$/;"	v
 numTris	spike/code/perspproj.cpp	/^const uint32_t numTris = 128;$/;"	v
+num_tris	spike/bench/rasteriser.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/pinhole.cpp	/^const uint32_t num_tris = 51;$/;"	v
+num_tris	spike/code/rasterisation.cpp	/^const int num_tris = 3156;$/;"	v
 nvertices	spike/code/cow.h	/^uint32_t nvertices[9468] = {$/;"	v
 ok	test/math_alpha_test.cpp	/^void ok() { std::cout << colours::green << "OK ✓ " << colours::reset; }$/;"	f
 operator !	spike/code/aek.cpp	/^    v operator!() { return *this * (1 \/ sqrt(*this % *this)); }$/;"	f	struct:v
@@ -309,7 +323,7 @@ rd	test/math_alpha_test.cpp	/^std::random_device rd;$/;"	v
 right	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
 rotation_matrix_demo	spike/code/decompose.m	/^function rotation_matrix_demo$/;"	f
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, float z) {$/;"	f	class:Zbuffer
-set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Framebuffer
+set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Imagebuffer
 sfinae_base	thirdparty/prettyprint.hpp	/^struct sfinae_base {$/;"	s	namespace:pretty_print::detail
 size_type	thirdparty/prettyprint.hpp	/^    typedef typename T::size_type size_type;$/;"	t	struct:pretty_print::bucket_print_wrapper
 sse	spike/bench/sse.cpp	/^void sse(float *a, int N) {$/;"	f
@@ -335,9 +349,6 @@ tuple_print	thirdparty/prettyprint.hpp	/^    tuple_print(const element_type &c, 
 v	spike/code/aek.cpp	/^    v() {}$/;"	f	struct:v
 v	spike/code/aek.cpp	/^    } v(f a, f b, f c) {$/;"	f	struct:v
 v	spike/code/aek.cpp	/^struct v {$/;"	s	file:
-v0	spike/bench/rasteriser.cpp	/^alpha::Vec2i v0 = {width, height};$/;"	v
-v1	spike/bench/rasteriser.cpp	/^alpha::Vec2i v1 = {0, 0};$/;"	v
-v2	spike/bench/rasteriser.cpp	/^alpha::Vec2i v2 = {width + 3, 0};$/;"	v
 value	thirdparty/prettyprint.hpp	/^    static const bool value = sizeof(test<T>(nullptr)) == sizeof(yes);$/;"	m	struct:pretty_print::detail::has_const_iterator
 value_type	thirdparty/prettyprint.hpp	/^    typedef T value_type;$/;"	t	struct:pretty_print::array_wrapper_n
 values	thirdparty/prettyprint.hpp	/^                                            wchar_t>::values = {L"{", L", ",$/;"	m	class:pretty_print::delimiters
@@ -360,9 +371,10 @@ vertices	spike/code/cow.h	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
 verts	spike/code/perspproj.cpp	/^const Vec3f verts[146] = {{0, 39.034, 0},$/;"	v
 verts	spike/code/pinhole.cpp	/^const alpha::Vec3f verts[146] = {{-2.5703, 0.78053, -2.4e-05},$/;"	v
-width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Framebuffer
+width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
-width	spike/bench/rasteriser.cpp	/^const int width = 512, height = 512;$/;"	v
+width	spike/bench/rasteriser.cpp	/^const int width = 640, height = 480;$/;"	v
+width	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 worldToCamera	spike/code/raster3d.cpp	/^const Matrix44f worldToCamera = {$/;"	v
 world_to_cam	include/camera_alpha.hpp	/^    Matrix44f world_to_cam;$/;"	m	class:alpha::Camera
 x	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
@@ -381,5 +393,7 @@ z	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
 z	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 z	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 z_far	spike/code/pinhole.cpp	/^float z_far = 1000;$/;"	v
+z_far	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/pinhole.cpp	/^float z_near = 0.1;$/;"	v
+z_near	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 ~custom_delims_base	thirdparty/prettyprint.hpp	/^    virtual ~custom_delims_base() {}$/;"	f	struct:pretty_print::custom_delims_base
