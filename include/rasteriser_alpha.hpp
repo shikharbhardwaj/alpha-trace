@@ -20,13 +20,15 @@
 #include <prettyprint.hpp>
 namespace alpha {
 using namespace math;
+enum class AA_mode { none, MSAA2x, MSAA4x MSAA8x, MSAA16x };
 class Rasteriser {
     using Point = Vec3f;
 
   private:
-    std::unique_ptr<Framebuffer> Fbuf;
+    std::unique_ptr<Imagebuffer> Fbuf;
     std::unique_ptr<Zbuffer> Zbuf;
     std::shared_ptr<Camera> cam;
+    AA_mode anti_aliasing_mode;
     int img_width, img_height;
 
   public:
@@ -35,10 +37,11 @@ class Rasteriser {
         cam = std::move(cam_inst);
         img_width = cam->img_width;
         img_height = cam->img_height;
-        Fbuf = std::unique_ptr<Framebuffer>(
-            new Framebuffer(img_width, img_height, col_space));
+        Fbuf = std::unique_ptr<Imagebuffer>(
+            new Imagebuffer(img_width, img_height, col_space));
         Zbuf = std::unique_ptr<Zbuffer>(
             new Zbuffer(img_width, img_height, cam->get_far_clipping_plain()));
+        anti_aliasing_mode = AA_mode::none;
     }
     void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }
     void draw_triangle(const Point &v0, const Point &v1, const Point &v2,

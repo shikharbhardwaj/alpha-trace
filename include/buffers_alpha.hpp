@@ -29,14 +29,14 @@ class Zbuffer {
     }
     float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }
 };
-class Framebuffer {
+class Imagebuffer {
     std::vector<std::vector<uint8_t>> buffer;
     uint32_t width, height;
 
   public:
     int col_space;
-    Framebuffer() = delete;
-    Framebuffer(uint32_t w, uint32_t h, int space)
+    Imagebuffer() = delete;
+    Imagebuffer(uint32_t w, uint32_t h, int space)
         : width(w), height(h), col_space(space) {
         buffer.assign(height, {});
         for (auto &elem : buffer) {
