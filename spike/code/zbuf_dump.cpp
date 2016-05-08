@@ -35,7 +35,8 @@ int main() {
               << std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1)
                      .count()
               << "ms\n";
-    rast.dump_as_ppm("test.ppm");
+    rast.dump_as_ppm("test_noAA.ppm");
+    rast.dump_zbuf("zbuf.ppm");
     // const int width = 1366, height = 768;
     // auto cam_inst = std::make_shared<alpha::Camera>(
     // width, height, 0.980, 0.735, 1, 1000, 20, alpha::Matrix44f());

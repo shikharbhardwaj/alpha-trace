@@ -41,9 +41,11 @@ class Rasteriser {
             new Zbuffer(img_width, img_height, cam->get_far_clipping_plain()));
     }
     void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }
+    void dump_zbuf(const std::string &name) { Zbuf->dump_as_ppm(name); }
     void draw_triangle(const Point &v0, const Point &v1, const Point &v2,
                        Vec2f &st0, Vec2f &st1, Vec2f &st2) {
         // TODO: Optimize
+        // TODO: Implement face culling
         Vec3f v0_rast, v1_rast, v2_rast;
         cam->convert_to_raster(v0, v0_rast);
         cam->convert_to_raster(v1, v1_rast);
@@ -79,6 +81,10 @@ class Rasteriser {
 #ifdef ALPHA_DEBUG
         std::cout << "Total area : " << 1 / total_area_inv;
 #endif
+        if (total_area_inv < 0.f) {
+            // We do not render negative area triangles
+            return;
+        }
         st0 = st0 * v0_rast.z;
         st1 = st1 * v1_rast.z;
         st2 = st2 * v2_rast.z;
@@ -131,8 +137,17 @@ class Rasteriser {
                         normal.normalize();
                         Vec3f view_dir = pt * -1.f;
                         view_dir.normalize();
-                        float n_dot_alpha =
-                            std::max(0.f, normal.dot_product(view_dir));
+                        float n_dot_alpha = normal.dot_product(view_dir);
+                        if (n_dot_alpha < 0.f) {
+                            continue;
+                        }
+                        // Culling threshold = 0.5deg
+                        const float back_face_culling_threshold = 0.99996192306;
+                        if (n_dot_alpha /
+                                (normal.length() * view_dir.length()) >
+                            back_face_culling_threshold) {
+                            continue;
+                        }
                         // This is the value of "intensity" ratio, which is to
                         // be multiplied with the original color at the point to
                         // obtain the final shade, when viewed at the current
