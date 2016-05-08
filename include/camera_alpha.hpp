@@ -16,9 +16,9 @@
 #include <iostream>
 #include <math_alpha.hpp>
 namespace alpha {
-using namespace math;
 enum class fit_resolution_gate { Fill = 0, Overscan };
 class Camera {
+
   private:
     float inch_to_mm = 25.4f;
     float film_aperture_width, film_aperture_height;
@@ -26,13 +26,13 @@ class Camera {
     float near_clipping_plain, far_clipping_plain;
     float focal_length;
     float top, bottom, left, right;
-    Matrix44f world_to_cam;
+    math::Matrix44f world_to_cam;
 
   public:
     uint32_t img_width, img_height;
     Camera() = delete;
     Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,
-           float z_near, float z_far, float f_length, Matrix44f w2cam)
+           float z_near, float z_far, float f_length, math::Matrix44f w2cam)
         : film_aperture_width(fa_w), film_aperture_height(fa_h),
           near_clipping_plain(z_near), far_clipping_plain(z_far),
           focal_length(f_length), world_to_cam(w2cam), img_width(width),
@@ -76,25 +76,25 @@ class Camera {
         std::cout << "Img_dims" << img_width << "x" << img_height << std::endl;
 #endif
     }
-    void convert_to_raster(const Vec3f &v_world, Vec3f &raster) {
+    void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,
+                           math::Vec3f &v_cam) {
 #ifdef ALPHA_DEBUG
         std::cout << "\nWorld co-ords" << v_world;
 #endif
-        Vec3f v_cam;
         world_to_cam.mult_vec_matrix(v_world, v_cam);
 #ifdef ALPHA_DEBUG
         std::cout << "\nCam co-ords" << v_cam;
 #endif
         // Convert to screen space
         // Perform perspective divide
-        Vec2f v_screen;
+        math::Vec2f v_screen;
         v_screen.x = near_clipping_plain * v_cam.x / -v_cam.z;
         v_screen.y = near_clipping_plain * v_cam.y / -v_cam.z;
 #ifdef ALPHA_DEBUG
         std::cout << "\nScreen co-ordinates : " << v_screen;
 #endif
         // Convert to NDC
-        Vec2f v_NDC;
+        math::Vec2f v_NDC;
         v_NDC.x =
             2 * v_screen.x / (right - left) - (right + left) / (right - left);
         v_NDC.y =
@@ -103,9 +103,6 @@ class Camera {
         raster.x = (v_NDC.x + 1) / 2 * img_width;
         raster.y = (1 - v_NDC.y) / 2 * img_height;
         raster.z = -v_cam.z;
-    }
-    void convert_to_camera_space(const Vec3f &v_world, Vec3f &v_cam) {
-        world_to_cam.mult_vec_matrix(v_world, v_cam);
     }
 };
 }

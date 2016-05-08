@@ -1,7 +1,7 @@
 // Alpha-trace : Main app
-#include <iostream>
 #include <algorithm>
 #include <cstring>
+#include <iostream>
 #include <math_alpha.hpp>
 #include <rasteriser_alpha.hpp>
 void help() {
@@ -25,17 +25,7 @@ int main(int argc, char **argv) {
             std::cerr
                 << "\nNo image dimensions specified. Use -h flag for help";
         } else {
-            auto pos = std::find(args.begin(), args.end(), "-d");
-            int width = atoi((pos + 1)->c_str());
-            int height = atoi((pos + 2)->c_str());
-            std::cout << "\nRasterising image with dimensions : " << width
-                      << " x " << height << std::endl;
-            alpha::Rasteriser rast(width, height);
-            alpha::Vec2i orig = {0, 0};
-            alpha::Vec2i final = {width, height};
-            alpha::Vec2i finalx = {width, 0};
-            rast.draw_triangle(orig, finalx, final);
-            rast.dump_as_ppm("heha.ppm");
+            std::cout << "\nNot implemented yet :D";
         }
     }
 }
