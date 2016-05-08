@@ -1,4 +1,4 @@
-// Implement the simplest form of the rasterisation algorithm
+// Show Antialiasing
 #include "cow.hpp"
 #include <camera_alpha.hpp>
 #include <chrono>
@@ -28,14 +28,14 @@ int main() {
         alpha::math::Vec2f st0 = st[stindices[i * 3]];
         alpha::math::Vec2f st1 = st[stindices[i * 3 + 1]];
         alpha::math::Vec2f st2 = st[stindices[i * 3 + 2]];
-        rast.draw_triangle(v0, v1, v2, st0, st1, st2);
+        rast.draw_triangle_16xAA(v0, v1, v2, st0, st1, st2);
     }
     auto t2 = std::chrono::high_resolution_clock::now();
     std::cout << "Total wall time : "
               << std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1)
                      .count()
               << "ms\n";
-    rast.dump_as_ppm("test_noAA.ppm");
+    rast.dump_as_ppm("test_withAA.ppm");
     // const int width = 1366, height = 768;
     // auto cam_inst = std::make_shared<alpha::Camera>(
     // width, height, 0.980, 0.735, 1, 1000, 20, alpha::Matrix44f());
