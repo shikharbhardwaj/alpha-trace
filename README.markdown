@@ -1,5 +1,5 @@
 ##Alpha trace
-[Software emulation of vision](http://bluefog.me/img/alpha-trace.png)
+![Software emulation of vision](http://bluefog.me/img/alpha-trace.png)
 A raytracer written in C++ 
 
 I am following the excellent tutorial and introduction to computer graphics by
