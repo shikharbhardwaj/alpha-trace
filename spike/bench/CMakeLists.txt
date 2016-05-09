@@ -2,4 +2,5 @@
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 set(LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 add_executable(rasteriser_bench rasteriser.cpp)
+add_executable(antialiasing_bench antialiasing.cpp)
 # Add executables here
