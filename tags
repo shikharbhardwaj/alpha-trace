@@ -83,6 +83,7 @@ NONIUS_REPORTERS_HTML_ALL_REPORTER_HPP	thirdparty/nonius.h++	2115;"	d
 NONIUS_REPORTERS_JUNIT_REPORTER_HPP	thirdparty/nonius.h++	1913;"	d
 NONIUS_REPORTERS_STANDARD_REPORTER_HPP	thirdparty/nonius.h++	1103;"	d
 NONIUS_REPORTER_HPP	thirdparty/nonius.h++	866;"	d
+NONIUS_RUNNER	spike/bench/antialiasing.cpp	2;"	d	file:
 NONIUS_RUNNER	spike/bench/rasteriser.cpp	2;"	d	file:
 NONIUS_RUNNER	spike/bench/sqrt_comp.cpp	1;"	d	file:
 NONIUS_RUN_FOR_AT_LEAST_HPP	thirdparty/nonius.h++	579;"	d
@@ -193,6 +194,7 @@ buffer	include/buffers_alpha.hpp	/^    std::vector<std::vector<uint8_t>> buffer;
 call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::false_type) const {$/;"	f	struct:nonius::detail::benchmark_function::model
 call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::true_type) const {$/;"	f	struct:nonius::detail::benchmark_function::model
 cam	include/rasteriser_alpha.hpp	/^    std::shared_ptr<Camera> cam;$/;"	m	class:alpha::Rasteriser
+cam_inst	spike/bench/antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/bench/rasteriser.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/rasterisation.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
@@ -394,6 +396,7 @@ has_const_iterator	thirdparty/prettyprint.hpp	/^template <typename T> struct has
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
 height	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
+height	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
 height	spike/bench/rasteriser.cpp	/^const int width = 640, height = 480;$/;"	v
 height	spike/code/antialiasing.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
@@ -407,6 +410,7 @@ high_severe	thirdparty/nonius.h++	/^        int high_severe = 0;    \/\/ more th
 html_reporter	thirdparty/nonius.h++	/^    struct html_reporter : reporter {$/;"	s	namespace:nonius
 i	spike/code/aek.cpp	/^typedef int i;$/;"	t	file:
 id	include/shader.hpp	/^    int id = 0;$/;"	m	struct:render_triangle
+id	spike/bench/antialiasing.cpp	/^int render_triangle::id = 0; \/\/ The triangle to start from$/;"	m	class:render_triangle	file:
 id	spike/bench/rasteriser.cpp	/^int render_triangle::id = 0; \/\/ The triangle to start from$/;"	m	class:render_triangle	file:
 id	spike/bench/shader.hpp	/^    static int id;$/;"	m	struct:render_triangle
 id	spike/code/antialiasing.cpp	/^int render_triangle::id = 0;$/;"	m	class:render_triangle	file:
@@ -546,6 +550,7 @@ normalize	spike/code/geometry.h	/^    Vec3 &normalize() {$/;"	f	class:Vec3
 now	thirdparty/nonius.h++	/^    struct now {$/;"	s	namespace:nonius
 ntris	spike/code/raster3d.cpp	/^const uint32_t ntris = 3156;$/;"	v
 numTris	spike/code/perspproj.cpp	/^const uint32_t numTris = 128;$/;"	v
+num_tris	spike/bench/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/bench/rasteriser.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/rasterisation.cpp	/^const int num_tris = 3156;$/;"	v
@@ -688,6 +693,7 @@ render_triangle	spike/bench/shader.hpp	/^typedef struct render_triangle {$/;"	s
 render_triangle	spike/bench/shader.hpp	/^} render_triangle;$/;"	t	typeref:struct:render_triangle
 render_triangle	spike/code/shader.hpp	/^typedef struct render_triangle {$/;"	s
 render_triangle	spike/code/shader.hpp	/^} render_triangle;$/;"	t	typeref:struct:render_triangle
+renderer	spike/bench/antialiasing.cpp	/^render_triangle renderer;$/;"	v
 renderer	spike/bench/rasteriser.cpp	/^render_triangle renderer;$/;"	v
 renderer	spike/code/antialiasing.cpp	/^render_triangle renderer;$/;"	v
 renderer	spike/code/rasterisation.cpp	/^render_triangle renderer;$/;"	v
@@ -811,6 +817,7 @@ weighted_average_quantile	thirdparty/nonius.h++	/^        double weighted_averag
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
 width	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
+width	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
 width	spike/bench/rasteriser.cpp	/^const int width = 640, height = 480;$/;"	v
 width	spike/code/antialiasing.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 width	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v

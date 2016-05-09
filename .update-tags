@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git ls-tree -r --name-only $(git rev-parse --abbrev-ref HEAD) > file_list
+sed -n '/nonius.h++/!p' file_list > file_list_2
+cat file_list | cat file_list |  ctags -f tags --sort=yes -L -
+rm file_list
+rm file_list_2
