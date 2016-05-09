@@ -27,12 +27,12 @@ template <typename Shader> class Rasteriser {
     std::unique_ptr<Imagebuffer> Fbuf;
     std::unique_ptr<Zbuffer> Zbuf;
     std::shared_ptr<Camera> cam;
-    std::shared_ptr<Shader> render_triangle;
+    Shader render_triangle;
     int width, height;
 
   public:
     Rasteriser() = delete;
-    Rasteriser(std::shared_ptr<Camera> cam_inst, std::shared_ptr<Shader> f,
+    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f,
                int col_space = 255) {
         cam = std::move(cam_inst);
         render_triangle = std::move(f);
@@ -115,8 +115,8 @@ template <typename Shader> class Rasteriser {
                     if (z < Zbuf->get(x, y)) {
                         // Yay! Render
                         Zbuf->set(x, y, z);
-                        auto col = (*render_triangle)(b0, b1, b2, z, v0_cam,
-                                                      v1_cam, v2_cam);
+                        auto col = render_triangle(b0, b1, b2, z, v0_cam,
+                                                   v1_cam, v2_cam);
                         Fbuf->set(x, y, col.x, col.y, col.z);
                     }
                 }
@@ -223,8 +223,8 @@ template <typename Shader> class Rasteriser {
                             b0 *= total_area_inv;
                             b1 *= total_area_inv;
                             b2 *= total_area_inv;
-                            auto col = (*render_triangle)(b0, b1, b2, z, v0_cam,
-                                                          v1_cam, v2_cam);
+                            auto col = render_triangle(b0, b1, b2, z, v0_cam,
+                                                       v1_cam, v2_cam);
                             total_color = total_color + col;
                         }
                         Fbuf->set(x, y, total_color.x / 16, total_color.y / 16,
