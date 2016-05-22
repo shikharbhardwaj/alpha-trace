@@ -1,8 +1,8 @@
+#include <chrono>
+#include <cmath>
+#include <cstdio>
 #include <emmintrin.h>
 #include <iostream>
-#include <cstdio>
-#include <cmath>
-#include <chrono>
 void normal(float *a, int N) {
     for (int i = 0; i < N; ++i)
         a[i] = sqrt(a[i]);

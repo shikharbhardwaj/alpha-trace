@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 2.6)
 cmake_policy(SET CMP0011 NEW)
 set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cfg")
-include (cotire)
-
+include(cotire)
 project("alpha-trace")
 
 
@@ -18,6 +17,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 find_package(GLUT)
 find_package(OpenGL)
+find_library(GOOGLE_BENCHMARK NAME libbenchmark 
+    HINTS "/usr/local/lib"
+    )
 # Configure sources, includes and libs
 # Add the include directory
 include_directories(${PROJECT_SOURCE_DIR}/include)

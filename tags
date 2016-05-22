@@ -40,9 +40,9 @@ MakeRelativePathsInFlagsAbsolute	cfg/ycm_extra_conf.py	/^def MakeRelativePathsIn
 Matrix44	include/math_alpha.hpp	/^    Matrix44() {}$/;"	f	class:alpha::math::Matrix44
 Matrix44	include/math_alpha.hpp	/^    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {$/;"	f	class:alpha::math::Matrix44
 Matrix44	include/math_alpha.hpp	/^template <typename T> class Matrix44 {$/;"	c	namespace:alpha::math
+Matrix44	spike/code/geometry.h	/^    Matrix44 (T a, T b, T c, T d, T e, T f, T g, T h,$/;"	f	class:Matrix44
 Matrix44	spike/code/geometry.h	/^    Matrix44() {}$/;"	f	class:Matrix44
-Matrix44	spike/code/geometry.h	/^    Matrix44(T a, T b, T c, T d, T e, T f, T g, T h, T i, T j, T k, T l, T m,$/;"	f	class:Matrix44
-Matrix44	spike/code/geometry.h	/^template <typename T> class Matrix44 {$/;"	c
+Matrix44	spike/code/geometry.h	/^class Matrix44$/;"	c
 Matrix44f	include/math_alpha.hpp	/^typedef Matrix44<float> Matrix44f;$/;"	t	namespace:alpha::math
 Matrix44f	spike/code/geometry.h	/^typedef Matrix44<float> Matrix44f;$/;"	t
 NONIUS_ARGPARSE_HPP	thirdparty/nonius.h++	3432;"	d
@@ -126,7 +126,7 @@ Vec2	include/math_alpha.hpp	/^template <typename T> class Vec2 {$/;"	c	namespace
 Vec2	spike/code/geometry.h	/^    Vec2() : x(0), y(0) {}$/;"	f	class:Vec2
 Vec2	spike/code/geometry.h	/^    Vec2(T xx) : x(xx), y(xx) {}$/;"	f	class:Vec2
 Vec2	spike/code/geometry.h	/^    Vec2(T xx, T yy) : x(xx), y(yy) {}$/;"	f	class:Vec2
-Vec2	spike/code/geometry.h	/^template <typename T> class Vec2 {$/;"	c
+Vec2	spike/code/geometry.h	/^class Vec2$/;"	c
 Vec2f	include/math_alpha.hpp	/^typedef Vec2<float> Vec2f;$/;"	t	namespace:alpha::math
 Vec2f	spike/code/geometry.h	/^typedef Vec2<float> Vec2f;$/;"	t
 Vec2i	include/math_alpha.hpp	/^typedef Vec2<int> Vec2i;$/;"	t	namespace:alpha::math
@@ -138,7 +138,7 @@ Vec3	include/math_alpha.hpp	/^template <typename T> class Vec3 {$/;"	c	namespace
 Vec3	spike/code/geometry.h	/^    Vec3() : x(T(0)), y(T(0)), z(T(0)) {}$/;"	f	class:Vec3
 Vec3	spike/code/geometry.h	/^    Vec3(T xx) : x(xx), y(xx), z(xx) {}$/;"	f	class:Vec3
 Vec3	spike/code/geometry.h	/^    Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {}$/;"	f	class:Vec3
-Vec3	spike/code/geometry.h	/^template <typename T> class Vec3 {$/;"	c
+Vec3	spike/code/geometry.h	/^class Vec3$/;"	c
 Vec3f	include/math_alpha.hpp	/^typedef Vec3<float> Vec3f;$/;"	t	namespace:alpha::math
 Vec3f	spike/code/geometry.h	/^typedef Vec3<float> Vec3f;$/;"	t
 Vec3i	include/math_alpha.hpp	/^typedef Vec3<int> Vec3i;$/;"	t	namespace:alpha::math
@@ -235,7 +235,7 @@ container_	thirdparty/prettyprint.hpp	/^    const T &container_;$/;"	m	struct:pr
 convertToRaster	spike/code/raster3d.cpp	/^void convertToRaster(const Vec3f &vertexWorld, const Matrix44f &worldToCamera,$/;"	f
 convert_to_raster	include/camera_alpha.hpp	/^    void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,$/;"	f	class:alpha::Camera
 cpptempl	thirdparty/nonius.h++	/^namespace cpptempl$/;"	n
-crossProduct	spike/code/geometry.h	/^    Vec3 crossProduct(const Vec3<T> &v) const {$/;"	f	class:Vec3
+crossProduct	spike/code/geometry.h	/^    Vec3 crossProduct(const Vec3<T> &v) const$/;"	f	class:Vec3
 cross_product	include/math_alpha.hpp	/^    Vec2 cross_product(const Vec2<T> &v) const {$/;"	f	class:alpha::math::Vec2
 cross_product	include/math_alpha.hpp	/^    Vec3 cross_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
 csv_reporter	thirdparty/nonius.h++	/^    struct csv_reporter : reporter {$/;"	s	namespace:nonius
@@ -302,7 +302,7 @@ do_suite_complete	thirdparty/nonius.h++	/^        virtual void do_suite_complete
 do_suite_start	thirdparty/nonius.h++	/^        virtual void do_suite_start() {}$/;"	f	struct:nonius::reporter
 do_warmup_end	thirdparty/nonius.h++	/^        virtual void do_warmup_end(int \/*iterations*\/) {}$/;"	f	struct:nonius::reporter
 do_warmup_start	thirdparty/nonius.h++	/^        virtual void do_warmup_start() {}$/;"	f	struct:nonius::reporter
-dotProduct	spike/code/geometry.h	/^    T dotProduct(const Vec3<T> &v) const { return x * v.x + y * v.y + z * v.z; }$/;"	f	class:Vec3
+dotProduct	spike/code/geometry.h	/^    T dotProduct(const Vec3<T> &v) const$/;"	f	class:Vec3
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }$/;"	f	class:alpha::math::Vec2
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
 draw_triangle	include/rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {$/;"	f	class:alpha::Rasteriser
@@ -385,8 +385,11 @@ gettype	thirdparty/nonius.h++	/^    inline TokenType TokenText::gettype()$/;"	f	
 gettype	thirdparty/nonius.h++	/^    inline TokenType TokenVar::gettype()$/;"	f	class:cpptempl::TokenVar
 getvalue	thirdparty/nonius.h++	/^    inline std::string Data::getvalue()$/;"	f	class:cpptempl::Data
 getvalue	thirdparty/nonius.h++	/^    inline std::string DataValue::getvalue()$/;"	f	class:cpptempl::DataValue
+glFrustum	spike/code/glprojmatrix.cpp	/^void glFrustum($/;"	f
+glOrtho	spike/code/glorthoprojmatrix.cpp	/^void glOrtho($/;"	f
 global_benchmark_registry	thirdparty/nonius.h++	/^    inline benchmark_registry& global_benchmark_registry() {$/;"	f	namespace:nonius
 global_reporter_registry	thirdparty/nonius.h++	/^    inline reporter_registry& global_reporter_registry() {$/;"	f	namespace:nonius
+gluPerspective	spike/code/glprojmatrix.cpp	/^void gluPerspective($/;"	f
 go	thirdparty/nonius.h++	/^    void go(configuration cfg, Iterator first, Iterator last, reporter& rep) {$/;"	f	namespace:nonius
 go	thirdparty/nonius.h++	/^    void go(configuration cfg, Iterator first, Iterator last, reporter&& rep) {$/;"	f	namespace:nonius
 go	thirdparty/nonius.h++	/^    void go(configuration cfg, benchmark_registry& benchmarks = global_benchmark_registry(), reporter_registry& reporters = global_reporter_registry()) {$/;"	f	namespace:nonius
@@ -426,9 +429,9 @@ impl	thirdparty/nonius.h++	/^        detail::chronometer_concept* impl;$/;"	m	st
 inchToMm	spike/code/raster3d.cpp	/^static const float inchToMm = 25.4;$/;"	v	file:
 inch_to_mm	include/camera_alpha.hpp	/^    float inch_to_mm = 25.4f;$/;"	m	class:alpha::Camera
 inverse	include/math_alpha.hpp	/^    Matrix44 inverse() {$/;"	f	class:alpha::math::Matrix44
-inverse	spike/code/geometry.h	/^    Matrix44 inverse() const {$/;"	f	class:Matrix44
+inverse	spike/code/geometry.h	/^    Matrix44 inverse() const$/;"	f	class:Matrix44
 invert	include/math_alpha.hpp	/^    const Matrix44<T> &invert() {$/;"	f	class:alpha::math::Matrix44
-invert	spike/code/geometry.h	/^    const Matrix44<T> &invert() {$/;"	f	class:Matrix44
+invert	spike/code/geometry.h	/^    const Matrix44<T>& invert()$/;"	f	class:Matrix44
 invoke	thirdparty/nonius.h++	/^            static CompleteType<void> invoke(Fun&& fun, Args&&... args) {$/;"	f	struct:nonius::detail::complete_invoker
 invoke	thirdparty/nonius.h++	/^            static Result invoke(Fun&& fun, Args&&... args) {$/;"	f	struct:nonius::detail::complete_invoker
 is_callable	thirdparty/nonius.h++	/^        struct is_callable<Fun(Args...)> : decltype(is_callable_tester::test<Fun, Args...>(0)) {};$/;"	s	namespace:nonius::detail
@@ -452,7 +455,7 @@ kOverscan	spike/code/raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOversca
 left	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
 length	include/math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec2
 length	include/math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec3
-length	spike/code/geometry.h	/^    T length() const { return sqrt(norm()); }$/;"	f	class:Vec3
+length	spike/code/geometry.h	/^    T length() const$/;"	f	class:Vec3
 list_benchmarks	thirdparty/nonius.h++	/^        bool list_benchmarks = false;$/;"	m	struct:nonius::configuration
 list_benchmarks	thirdparty/nonius.h++	/^    inline int list_benchmarks() {$/;"	f	namespace:nonius
 list_reporters	thirdparty/nonius.h++	/^        bool list_reporters = false;$/;"	m	struct:nonius::configuration
@@ -479,9 +482,12 @@ main	spike/bench/sse.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	spike/code/aek.cpp	/^i main() {$/;"	f
 main	spike/code/antialiasing.cpp	/^int main() {$/;"	f
 main	spike/code/cube.cpp	/^int main() {$/;"	f
+main	spike/code/glorthoprojmatrix.cpp	/^int main(int argc, char **argv)$/;"	f
+main	spike/code/glprojmatrix.cpp	/^int main(int argc, char **argv)$/;"	f
 main	spike/code/local_world.cpp	/^int main() {$/;"	f
 main	spike/code/perspproj.cpp	/^int main() {$/;"	f
 main	spike/code/projection.cpp	/^int main() {$/;"	f
+main	spike/code/projmatrix.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	spike/code/raster3d.cpp	/^int main() {$/;"	f
 main	spike/code/rasterisation.cpp	/^int main() {$/;"	f
 main	spike/code/sphere.cpp	/^int main() {$/;"	f
@@ -519,13 +525,16 @@ mismatch	thirdparty/nonius.h++	/^        std::pair<InputIt1, InputIt2> mismatch(
 model	thirdparty/nonius.h++	/^                model(Fun const& fun) : fun(fun) {}$/;"	f	struct:nonius::detail::benchmark_function::model
 model	thirdparty/nonius.h++	/^                model(Fun&& fun) : fun(std::move(fun)) {}$/;"	f	struct:nonius::detail::benchmark_function::model
 model	thirdparty/nonius.h++	/^            struct model : public concept {$/;"	s	struct:nonius::detail::benchmark_function
-multDirMatrix	spike/code/geometry.h	/^    void multDirMatrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:Matrix44
-multVecMatrix	spike/code/geometry.h	/^    void multVecMatrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:Matrix44
+multDirMatrix	spike/code/geometry.h	/^    void multDirMatrix(const Vec3<S> &src, Vec3<S> &dst) const$/;"	f	class:Matrix44
+multPointMatrix	spike/code/glorthoprojmatrix.cpp	/^void multPointMatrix(const Vec3f &in, Vec3f &out, const Matrix44f &M)$/;"	f
+multPointMatrix	spike/code/glprojmatrix.cpp	/^void multPointMatrix(const Vec3f &in, Vec3f &out, const Matrix44f &M)$/;"	f
+multPointMatrix	spike/code/projmatrix.cpp	/^void multPointMatrix(const Vec3f &in, Vec3f &out, const Matrix44f &M) {$/;"	f
+multVecMatrix	spike/code/geometry.h	/^    void multVecMatrix(const Vec3<S> &src, Vec3<S> &dst) const$/;"	f	class:Matrix44
 mult_dir_matrix	include/math_alpha.hpp	/^    void mult_dir_matrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:alpha::math::Matrix44
 mult_vec_matrix	include/math_alpha.hpp	/^    void mult_vec_matrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:alpha::math::Matrix44
 multiple	thirdparty/nonius.h++	/^            bool multiple;$/;"	m	struct:nonius::detail::option
 multiply	include/math_alpha.hpp	/^    static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {$/;"	f	class:alpha::math::Matrix44
-multiply	spike/code/geometry.h	/^    static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {$/;"	f	class:Matrix44
+multiply	spike/code/geometry.h	/^    static void multiply(const Matrix44<T> &a, const Matrix44& b, Matrix44 &c)$/;"	f	class:Matrix44
 n	thirdparty/prettyprint.hpp	/^    const size_type n;$/;"	m	struct:pretty_print::bucket_print_wrapper
 n_resamples	thirdparty/nonius.h++	/^        int n_resamples = 0;$/;"	m	struct:nonius::standard_reporter
 n_samples	thirdparty/nonius.h++	/^        int n_samples = 0;$/;"	m	struct:nonius::standard_reporter
@@ -542,14 +551,15 @@ nok	test/math_alpha_test.cpp	/^void nok() { std::cout << colours::red << "ERROR 
 nonius	thirdparty/nonius.h++	/^namespace nonius {$/;"	n
 norm	include/math_alpha.hpp	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:alpha::math::Vec3
 norm	include/math_alpha.hpp	/^    T norm() const { return x * x + y * y; }$/;"	f	class:alpha::math::Vec2
-norm	spike/code/geometry.h	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:Vec3
+norm	spike/code/geometry.h	/^    T norm() const$/;"	f	class:Vec3
 normal	spike/bench/sse.cpp	/^void normal(float *a, int N) {$/;"	f
 normalize	include/math_alpha.hpp	/^    Vec2 &normalize() {$/;"	f	class:alpha::math::Vec2
 normalize	include/math_alpha.hpp	/^    Vec3 &normalize() {$/;"	f	class:alpha::math::Vec3
-normalize	spike/code/geometry.h	/^    Vec3 &normalize() {$/;"	f	class:Vec3
+normalize	spike/code/geometry.h	/^    Vec3& normalize()$/;"	f	class:Vec3
 now	thirdparty/nonius.h++	/^    struct now {$/;"	s	namespace:nonius
 ntris	spike/code/raster3d.cpp	/^const uint32_t ntris = 3156;$/;"	v
 numTris	spike/code/perspproj.cpp	/^const uint32_t numTris = 128;$/;"	v
+numVertices	spike/code/vertexdata.h	/^const uint32_t numVertices = 2630;$/;"	v
 num_tris	spike/bench/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/bench/rasteriser.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
@@ -575,34 +585,34 @@ operator *	include/math_alpha.hpp	/^    Matrix44 operator*(const Matrix44 &v) co
 operator *	include/math_alpha.hpp	/^    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }$/;"	f	class:alpha::math::Vec2
 operator *	include/math_alpha.hpp	/^    Vec3 operator*(const T &r) const { return Vec3(x * r, y * r, z * r); }$/;"	f	class:alpha::math::Vec3
 operator *	spike/code/aek.cpp	/^    v operator*(f r) { return v(x * r, y * r, z * r); }$/;"	f	struct:v
-operator *	spike/code/geometry.h	/^    Matrix44 operator*(const Matrix44 &v) const {$/;"	f	class:Matrix44
-operator *	spike/code/geometry.h	/^    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }$/;"	f	class:Vec2
-operator *	spike/code/geometry.h	/^    Vec3 operator*(const T &r) const { return Vec3(x * r, y * r, z * r); }$/;"	f	class:Vec3
-operator *	spike/code/geometry.h	/^    Vec3 operator*(const Vec3 &v) const {$/;"	f	class:Vec3
-operator *	spike/code/geometry.h	/^    friend Vec2 operator*(const T &r, const Vec2<T> &v) {$/;"	f	class:Vec2
-operator *	spike/code/geometry.h	/^    friend Vec3 operator*(const T &r, const Vec3 &v) {$/;"	f	class:Vec3
-operator *=	spike/code/geometry.h	/^    Vec2 &operator*=(const T &r) {$/;"	f	class:Vec2
-operator *=	spike/code/geometry.h	/^    Vec3 &operator*=(const T &r) {$/;"	f	class:Vec3
+operator *	spike/code/geometry.h	/^    Matrix44 operator * (const Matrix44& v) const$/;"	f	class:Matrix44
+operator *	spike/code/geometry.h	/^    Vec2 operator * (const T &r) const$/;"	f	class:Vec2
+operator *	spike/code/geometry.h	/^    Vec3 operator * (const T &r) const$/;"	f	class:Vec3
+operator *	spike/code/geometry.h	/^    Vec3 operator * (const Vec3 &v) const$/;"	f	class:Vec3
+operator *	spike/code/geometry.h	/^    friend Vec2 operator * (const T &r, const Vec2<T> &v)$/;"	f	class:Vec2
+operator *	spike/code/geometry.h	/^    friend Vec3 operator * (const T &r, const Vec3 &v)$/;"	f	class:Vec3
+operator *=	spike/code/geometry.h	/^    Vec2& operator *= (const T &r)$/;"	f	class:Vec2
+operator *=	spike/code/geometry.h	/^    Vec3& operator *= (const T &r)$/;"	f	class:Vec3
 operator +	include/math_alpha.hpp	/^    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }$/;"	f	class:alpha::math::Vec2
 operator +	include/math_alpha.hpp	/^    Vec3 operator+(const Vec3 &v) const {$/;"	f	class:alpha::math::Vec3
 operator +	spike/code/aek.cpp	/^    v operator+(v r) { return v(x + r.x, y + r.y, z + r.z); }$/;"	f	struct:v
-operator +	spike/code/geometry.h	/^    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }$/;"	f	class:Vec2
-operator +	spike/code/geometry.h	/^    Vec3 operator+(const Vec3 &v) const {$/;"	f	class:Vec3
+operator +	spike/code/geometry.h	/^    Vec2 operator + (const Vec2 &v) const$/;"	f	class:Vec2
+operator +	spike/code/geometry.h	/^    Vec3 operator + (const Vec3 &v) const$/;"	f	class:Vec3
 operator -	include/math_alpha.hpp	/^    Vec2 operator-(const Vec2 &v) const { return Vec2(x - v.x, y - v.y); }$/;"	f	class:alpha::math::Vec2
 operator -	include/math_alpha.hpp	/^    Vec3 operator-(const Vec3 &v) const {$/;"	f	class:alpha::math::Vec3
-operator -	spike/code/geometry.h	/^    Vec3 operator-() const { return Vec3(-x, -y, -z); }$/;"	f	class:Vec3
-operator -	spike/code/geometry.h	/^    Vec3 operator-(const Vec3 &v) const {$/;"	f	class:Vec3
+operator -	spike/code/geometry.h	/^    Vec3 operator - () const$/;"	f	class:Vec3
+operator -	spike/code/geometry.h	/^    Vec3 operator - (const Vec3 &v) const$/;"	f	class:Vec3
 operator ->	thirdparty/nonius.h++	/^        Data* operator ->() {$/;"	f	class:cpptempl::data_ptr
-operator /	spike/code/geometry.h	/^    Vec2 operator\/(const T &r) const { return Vec2(x \/ r, y \/ r); }$/;"	f	class:Vec2
-operator /	spike/code/geometry.h	/^    friend Vec3 operator\/(const T &r, const Vec3 &v) {$/;"	f	class:Vec3
-operator /=	spike/code/geometry.h	/^    Vec2 &operator\/=(const T &r) {$/;"	f	class:Vec2
-operator /=	spike/code/geometry.h	/^    Vec3 &operator\/=(const T &r) {$/;"	f	class:Vec3
+operator /	spike/code/geometry.h	/^    Vec2 operator \/ (const T &r) const$/;"	f	class:Vec2
+operator /	spike/code/geometry.h	/^    friend Vec3 operator \/ (const T &r, const Vec3 &v)$/;"	f	class:Vec3
+operator /=	spike/code/geometry.h	/^    Vec2& operator \/= (const T &r)$/;"	f	class:Vec2
+operator /=	spike/code/geometry.h	/^    Vec3& operator \/= (const T &r)$/;"	f	class:Vec3
 operator <<	include/math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {$/;"	f	class:alpha::math::Matrix44
 operator <<	include/math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Vec2<T> &v) {$/;"	f	class:alpha::math::Vec2
 operator <<	include/math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Vec3<T> &v) {$/;"	f	class:alpha::math::Vec3
-operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {$/;"	f	class:Matrix44
-operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ostream &s, const Vec2<T> &v) {$/;"	f	class:Vec2
-operator <<	spike/code/geometry.h	/^    friend std::ostream &operator<<(std::ostream &s, const Vec3<T> &v) {$/;"	f	class:Vec3
+operator <<	spike/code/geometry.h	/^    friend std::ostream& operator << (std::ostream &s, const Matrix44 &m)$/;"	f	class:Matrix44
+operator <<	spike/code/geometry.h	/^    friend std::ostream& operator << (std::ostream &s, const Vec2<T> &v)$/;"	f	class:Vec2
+operator <<	spike/code/geometry.h	/^    friend std::ostream& operator << (std::ostream &s, const Vec3<T> &v)$/;"	f	class:Vec3
 operator <<	thirdparty/nonius.h++	/^        inline std::ostream& operator<<(std::ostream& os, help_text h) {$/;"	f	namespace:nonius::detail
 operator <<	thirdparty/prettyprint.hpp	/^inline std::basic_ostream<TChar, TCharTraits> &operator<<($/;"	f	namespace:pretty_print
 operator <<	thirdparty/prettyprint.hpp	/^operator<<(basic_ostream<TChar, TCharTraits> &stream, const T &container) {$/;"	f	namespace:std
@@ -621,10 +631,10 @@ operator []	include/math_alpha.hpp	/^    T *operator[](uint8_t i) { return x[i];
 operator []	include/math_alpha.hpp	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:alpha::math::Vec2
 operator []	include/math_alpha.hpp	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:alpha::math::Vec3
 operator []	include/math_alpha.hpp	/^    const T *operator[](uint8_t i) const { return x[i]; }$/;"	f	class:alpha::math::Matrix44
-operator []	spike/code/geometry.h	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:Vec3
-operator []	spike/code/geometry.h	/^    T *operator[](uint8_t i) { return x[i]; }$/;"	f	class:Matrix44
-operator []	spike/code/geometry.h	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:Vec3
-operator []	spike/code/geometry.h	/^    const T *operator[](uint8_t i) const { return x[i]; }$/;"	f	class:Matrix44
+operator []	spike/code/geometry.h	/^    T& operator [] (uint8_t i) { return (&x)[i]; }$/;"	f	class:Vec3
+operator []	spike/code/geometry.h	/^    T* operator [] (uint8_t i) { return x[i]; }$/;"	f	class:Matrix44
+operator []	spike/code/geometry.h	/^    const T& operator [] (uint8_t i) const { return (&x)[i]; }$/;"	f	class:Vec3
+operator []	spike/code/geometry.h	/^    const T* operator [] (uint8_t i) const { return x[i]; }$/;"	f	class:Matrix44
 operator []	thirdparty/nonius.h++	/^    inline data_ptr& data_map::operator [](const std::string& key) {$/;"	f	class:cpptempl::data_map
 operator ^	spike/code/aek.cpp	/^    v operator^(v r) {$/;"	f	struct:v
 operator environment_estimate<Duration2>	thirdparty/nonius.h++	/^        operator environment_estimate<Duration2>() const {$/;"	f	struct:nonius::environment_estimate
@@ -723,6 +733,7 @@ samples	thirdparty/nonius.h++	/^        std::vector<Duration> samples;$/;"	m	str
 samples_seen	thirdparty/nonius.h++	/^        int samples_seen = 0;$/;"	m	struct:nonius::outlier_classification
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, float z) {$/;"	f	class:Zbuffer
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Imagebuffer
+setProjectionMatrix	spike/code/projmatrix.cpp	/^void setProjectionMatrix(const float &angleOfView, const float &near,$/;"	f
 set_children	thirdparty/nonius.h++	/^    inline void Token::set_children( token_vector & )$/;"	f	class:cpptempl::Token
 set_children	thirdparty/nonius.h++	/^    inline void TokenFor::set_children( token_vector &children )$/;"	f	class:cpptempl::TokenFor
 set_children	thirdparty/nonius.h++	/^    inline void TokenIf::set_children( token_vector &children )$/;"	f	class:cpptempl::TokenIf
@@ -764,9 +775,9 @@ tokenize	thirdparty/nonius.h++	/^    inline token_vector & tokenize(std::string 
 top	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
 total	thirdparty/nonius.h++	/^        int total() const {$/;"	f	struct:nonius::outlier_classification
 transpose	include/math_alpha.hpp	/^    Matrix44 &transpose() {$/;"	f	class:alpha::math::Matrix44
-transpose	spike/code/geometry.h	/^    Matrix44 &transpose() {$/;"	f	class:Matrix44
+transpose	spike/code/geometry.h	/^    Matrix44& transpose ()$/;"	f	class:Matrix44
 transposed	include/math_alpha.hpp	/^    Matrix44 transposed() const {$/;"	f	class:alpha::math::Matrix44
-transposed	spike/code/geometry.h	/^    Matrix44 transposed() const {$/;"	f	class:Matrix44
+transposed	spike/code/geometry.h	/^    Matrix44 transposed() const$/;"	f	class:Matrix44
 tris	spike/code/perspproj.cpp	/^const uint32_t tris[numTris * 3] = {$/;"	v
 truncate	thirdparty/nonius.h++	/^        static double truncate(double x) {$/;"	f	struct:nonius::html_reporter
 tuple_print	thirdparty/prettyprint.hpp	/^    static void tuple_print(const element_type &, ostream_type &,$/;"	f	struct:pretty_print::print_container_helper::printer
@@ -806,6 +817,7 @@ verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::junit
 vertices	spike/bench/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.h	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
+vertices	spike/code/vertexdata.h	/^const Vec3f vertices[numVertices] = {$/;"	v
 verts	spike/code/perspproj.cpp	/^const Vec3f verts[146] = {{0, 39.034, 0},$/;"	v
 warmup	thirdparty/nonius.h++	/^        int warmup() {$/;"	f	namespace:nonius::detail
 warmup_end	thirdparty/nonius.h++	/^        void warmup_end(int iterations) {$/;"	f	struct:nonius::reporter
@@ -830,7 +842,7 @@ x	include/math_alpha.hpp	/^    T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1
 x	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 x	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 x	spike/code/geometry.h	/^    T x, y;$/;"	m	class:Vec2
-x	spike/code/geometry.h	/^    T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};$/;"	m	class:Matrix44
+x	spike/code/geometry.h	/^    T x[4][4] = {{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}};$/;"	m	class:Matrix44
 y	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
 y	include/math_alpha.hpp	/^    T x, y;$/;"	m	class:alpha::math::Vec2
 y	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
