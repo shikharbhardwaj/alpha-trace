@@ -13,6 +13,7 @@
 //===----------------------------------------------------------------------===//
 #ifndef CAMERA_ALPHA_HPP
 #define CAMERA_ALPHA_HPP
+#include <cassert>
 #include <iostream>
 #include <math_alpha.hpp>
 namespace alpha {
@@ -28,6 +29,7 @@ class Camera {
     float focal_length;
     float top, bottom, left, right;
     math::Matrix44f world_to_cam;
+    math::Matrix44f M_proj;
 
   public:
     uint32_t img_width, img_height;
@@ -70,12 +72,32 @@ class Camera {
         top *= yscale;
         bottom = -top;
         left = -right;
+
+        float fov = 2.f * 180.f / M_PI * atan((right / near_clipping_plain));
+        compute_projection_matrix(fov, film_aspect_ratio);
 #ifdef ALPHA_DEBUG
-        float fov = 2 * 180 / M_PI * atan((right / near_clipping_plain));
         std::cout << "Field of view : " << fov << std::endl;
         std::cout << "Screen co-ords : " << top << "x" << right << std::endl;
         std::cout << "Img_dims" << img_width << "x" << img_height << std::endl;
 #endif
+    }
+    void compute_projection_matrix(float fov, float aspect) {
+        float far = far_clipping_plain;
+        float near = near_clipping_plain;
+        if (fov <= 0 || aspect == 0) {
+            assert(fov > 0 && aspect != 0);
+            return;
+        }
+
+        float frustum_depth = far - near;
+        float inv_depth = 1.f / frustum_depth;
+
+        M_proj[1][1] = 1.f / tan(0.5f * fov);
+        M_proj[0][0] = M_proj[1][1] / aspect;
+        M_proj[2][2] = far * inv_depth;
+        M_proj[3][2] = (-far * near) * inv_depth;
+        M_proj[2][3] = -1.f;
+        M_proj[3][3] = 0;
     }
     void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,
                            math::Vec3f &v_cam) {
@@ -86,23 +108,13 @@ class Camera {
 #ifdef ALPHA_DEBUG
         std::cout << "\nCam co-ords" << v_cam;
 #endif
-        // Convert to screen space
-        // Perform perspective divide
-        math::Vec2f v_screen;
-        v_screen.x = near_clipping_plain * v_cam.x / -v_cam.z;
-        v_screen.y = near_clipping_plain * v_cam.y / -v_cam.z;
-#ifdef ALPHA_DEBUG
-        std::cout << "\nScreen co-ordinates : " << v_screen;
-#endif
-        // Convert to NDC
-        math::Vec2f v_NDC;
-        v_NDC.x =
-            2 * v_screen.x / (right - left) - (right + left) / (right - left);
-        v_NDC.y =
-            2 * v_screen.y / (top - bottom) - (top + bottom) / (top - bottom);
+        // Convert to clip space
+        math::Vec3f v_clip;
+        M_proj.mult_vec_matrix(v_cam, v_clip);
         // Convert to raster space
-        raster.x = (v_NDC.x + 1) / 2 * img_width;
-        raster.y = (1 - v_NDC.y) / 2 * img_height;
+        //
+        raster.x = (v_clip.x + 1) / 2 * img_width;
+        raster.y = (1 - v_clip.y) / 2 * img_height;
         raster.z = -v_cam.z;
     }
 };

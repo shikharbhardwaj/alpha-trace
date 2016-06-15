@@ -6,7 +6,7 @@
 #include <memory>
 #include <rasteriser_alpha.hpp>
 int render_triangle::id = 0;
-const int width = 640, height = 480, z_near = 1, z_far = 1000,
+const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,
           focal_length = 20;
 const float aperture_width = 0.980, aperture_height = 0.735;
 auto cam_inst = std::make_shared<alpha::Camera>(

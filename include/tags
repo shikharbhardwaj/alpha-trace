@@ -1,0 +1,132 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUFFERS_ALPHA_HPP	buffers_alpha.hpp	14;"	d
+CAMERA_ALPHA_HPP	camera_alpha.hpp	15;"	d
+COLOURS	colours.hpp	2;"	d
+Camera	camera_alpha.hpp	/^    Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,$/;"	f	class:alpha::Camera
+Camera	camera_alpha.hpp	/^class Camera {$/;"	c	namespace:alpha
+Fbuf	rasteriser_alpha.hpp	/^    std::unique_ptr<Imagebuffer> Fbuf;$/;"	m	class:alpha::Rasteriser
+Fill	camera_alpha.hpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	m	class:alpha::fit_resolution_gate
+Imagebuffer	buffers_alpha.hpp	/^    Imagebuffer(uint32_t w, uint32_t h, int space)$/;"	f	class:Imagebuffer
+Imagebuffer	buffers_alpha.hpp	/^class Imagebuffer {$/;"	c
+MATH_ALPHA_HPP	math_alpha.hpp	15;"	d
+Matrix44	math_alpha.hpp	/^    Matrix44() {}$/;"	f	class:alpha::math::Matrix44
+Matrix44	math_alpha.hpp	/^    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {$/;"	f	class:alpha::math::Matrix44
+Matrix44	math_alpha.hpp	/^template <typename T> class Matrix44 {$/;"	c	namespace:alpha::math
+Matrix44f	math_alpha.hpp	/^typedef Matrix44<float> Matrix44f;$/;"	t	namespace:alpha::math
+RASTERISER_ALPHA_HPP	rasteriser_alpha.hpp	14;"	d
+Rasteriser	rasteriser_alpha.hpp	/^    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f,$/;"	f	class:alpha::Rasteriser
+Rasteriser	rasteriser_alpha.hpp	/^template <typename Shader> class Rasteriser {$/;"	c	namespace:alpha
+Vec2	math_alpha.hpp	/^    Vec2() : x(0), y(0) {}$/;"	f	class:alpha::math::Vec2
+Vec2	math_alpha.hpp	/^    Vec2(T xx) : x(xx), y(xx) {}$/;"	f	class:alpha::math::Vec2
+Vec2	math_alpha.hpp	/^    Vec2(T xx, T yy) : x(xx), y(yy) {}$/;"	f	class:alpha::math::Vec2
+Vec2	math_alpha.hpp	/^template <typename T> class Vec2 {$/;"	c	namespace:alpha::math
+Vec2f	math_alpha.hpp	/^typedef Vec2<float> Vec2f;$/;"	t	namespace:alpha::math
+Vec2i	math_alpha.hpp	/^typedef Vec2<int> Vec2i;$/;"	t	namespace:alpha::math
+Vec3	math_alpha.hpp	/^    Vec3() : x(0), y(0), z(0) {}$/;"	f	class:alpha::math::Vec3
+Vec3	math_alpha.hpp	/^    Vec3(T xx) : x(xx), y(xx), z(xx) {}$/;"	f	class:alpha::math::Vec3
+Vec3	math_alpha.hpp	/^    Vec3(T xx, T yy, T zz) : x(xx), y(yy), z(zz) {}$/;"	f	class:alpha::math::Vec3
+Vec3	math_alpha.hpp	/^template <typename T> class Vec3 {$/;"	c	namespace:alpha::math
+Vec3f	math_alpha.hpp	/^typedef Vec3<float> Vec3f;$/;"	t	namespace:alpha::math
+Vec3i	math_alpha.hpp	/^typedef Vec3<int> Vec3i;$/;"	t	namespace:alpha::math
+Zbuf	rasteriser_alpha.hpp	/^    std::unique_ptr<Zbuffer> Zbuf;$/;"	m	class:alpha::Rasteriser
+Zbuffer	buffers_alpha.hpp	/^    Zbuffer(uint32_t w, uint32_t h, float far) : width(w), height(h) {$/;"	f	class:Zbuffer
+Zbuffer	buffers_alpha.hpp	/^class Zbuffer {$/;"	c
+alpha	camera_alpha.hpp	/^namespace alpha {$/;"	n
+alpha	math_alpha.hpp	/^namespace alpha {$/;"	n
+alpha	rasteriser_alpha.hpp	/^namespace alpha {$/;"	n
+bottom	camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+buffer	buffers_alpha.hpp	/^    std::vector<std::vector<uint8_t>> buffer;$/;"	m	class:Imagebuffer
+cam	rasteriser_alpha.hpp	/^    std::shared_ptr<Camera> cam;$/;"	m	class:alpha::Rasteriser
+col_space	buffers_alpha.hpp	/^    int col_space;$/;"	m	class:Imagebuffer
+colours	colours.hpp	/^namespace colours {$/;"	n
+compute_screen_coordinates	camera_alpha.hpp	/^    void compute_screen_coordinates() {$/;"	f	class:alpha::Camera
+convert_to_raster	camera_alpha.hpp	/^    void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,$/;"	f	class:alpha::Camera
+cross_product	math_alpha.hpp	/^    Vec2 cross_product(const Vec2<T> &v) const {$/;"	f	class:alpha::math::Vec2
+cross_product	math_alpha.hpp	/^    Vec3 cross_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
+depth_buffer	buffers_alpha.hpp	/^    std::vector<float> depth_buffer;$/;"	m	class:Zbuffer
+dot_product	math_alpha.hpp	/^    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }$/;"	f	class:alpha::math::Vec2
+dot_product	math_alpha.hpp	/^    T dot_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
+draw_triangle	rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {$/;"	f	class:alpha::Rasteriser
+draw_triangle_16xAA	rasteriser_alpha.hpp	/^    void draw_triangle_16xAA(const Point &v0, const Point &v1,$/;"	f	class:alpha::Rasteriser
+dump_as_ppm	buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Imagebuffer
+dump_as_ppm	buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Zbuffer
+dump_as_ppm	rasteriser_alpha.hpp	/^    void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }$/;"	f	class:alpha::Rasteriser
+dump_zbuf	rasteriser_alpha.hpp	/^    void dump_zbuf(const std::string &name) { Zbuf->dump_as_ppm(name); }$/;"	f	class:alpha::Rasteriser
+edge_function	math_alpha.hpp	/^inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f	namespace:alpha::math
+far_clipping_plain	camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
+film_aperture_height	camera_alpha.hpp	/^    float film_aperture_width, film_aperture_height;$/;"	m	class:alpha::Camera
+film_aperture_width	camera_alpha.hpp	/^    float film_aperture_width, film_aperture_height;$/;"	m	class:alpha::Camera
+fit_resolution_gate	camera_alpha.hpp	/^enum class fit_resolution_gate { Fill = 0, Overscan };$/;"	c	namespace:alpha
+fit_setting	camera_alpha.hpp	/^    fit_resolution_gate fit_setting;$/;"	m	class:alpha::Camera
+focal_length	camera_alpha.hpp	/^    float focal_length;$/;"	m	class:alpha::Camera
+get	buffers_alpha.hpp	/^    float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }$/;"	f	class:Zbuffer
+get_far_clipping_plain	camera_alpha.hpp	/^    float get_far_clipping_plain() { return far_clipping_plain; }$/;"	f	class:alpha::Camera
+height	buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
+height	buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
+height	rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
+id	shader.hpp	/^    int id = 0;$/;"	m	struct:render_triangle
+img_height	camera_alpha.hpp	/^    uint32_t img_width, img_height;$/;"	m	class:alpha::Camera
+img_width	camera_alpha.hpp	/^    uint32_t img_width, img_height;$/;"	m	class:alpha::Camera
+inch_to_mm	camera_alpha.hpp	/^    float inch_to_mm = 25.4f;$/;"	m	class:alpha::Camera
+inverse	math_alpha.hpp	/^    Matrix44 inverse() {$/;"	f	class:alpha::math::Matrix44
+invert	math_alpha.hpp	/^    const Matrix44<T> &invert() {$/;"	f	class:alpha::math::Matrix44
+is_equal	math_alpha.hpp	/^inline bool is_equal(float a, float b) {$/;"	f	namespace:alpha::math
+left	camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+length	math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec2
+length	math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec3
+math	math_alpha.hpp	/^namespace math {$/;"	n	namespace:alpha
+max_3	math_alpha.hpp	/^inline float max_3(float a, float b, float c) {$/;"	f	namespace:alpha::math
+min_3	math_alpha.hpp	/^inline float min_3(float a, float b, float c) {$/;"	f	namespace:alpha::math
+mult_dir_matrix	math_alpha.hpp	/^    void mult_dir_matrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:alpha::math::Matrix44
+mult_vec_matrix	math_alpha.hpp	/^    void mult_vec_matrix(const Vec3<S> &src, Vec3<S> &dst) const {$/;"	f	class:alpha::math::Matrix44
+multiply	math_alpha.hpp	/^    static void multiply(const Matrix44<T> &a, const Matrix44 &b, Matrix44 &c) {$/;"	f	class:alpha::math::Matrix44
+near_clipping_plain	camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
+norm	math_alpha.hpp	/^    T norm() const { return x * x + y * y + z * z; }$/;"	f	class:alpha::math::Vec3
+norm	math_alpha.hpp	/^    T norm() const { return x * x + y * y; }$/;"	f	class:alpha::math::Vec2
+normalize	math_alpha.hpp	/^    Vec2 &normalize() {$/;"	f	class:alpha::math::Vec2
+normalize	math_alpha.hpp	/^    Vec3 &normalize() {$/;"	f	class:alpha::math::Vec3
+operator ()	shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
+operator *	math_alpha.hpp	/^    Matrix44 operator*(const Matrix44 &v) const {$/;"	f	class:alpha::math::Matrix44
+operator *	math_alpha.hpp	/^    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }$/;"	f	class:alpha::math::Vec2
+operator *	math_alpha.hpp	/^    Vec3 operator*(const T &r) const { return Vec3(x * r, y * r, z * r); }$/;"	f	class:alpha::math::Vec3
+operator +	math_alpha.hpp	/^    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }$/;"	f	class:alpha::math::Vec2
+operator +	math_alpha.hpp	/^    Vec3 operator+(const Vec3 &v) const {$/;"	f	class:alpha::math::Vec3
+operator -	math_alpha.hpp	/^    Vec2 operator-(const Vec2 &v) const { return Vec2(x - v.x, y - v.y); }$/;"	f	class:alpha::math::Vec2
+operator -	math_alpha.hpp	/^    Vec3 operator-(const Vec3 &v) const {$/;"	f	class:alpha::math::Vec3
+operator <<	math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Matrix44 &m) {$/;"	f	class:alpha::math::Matrix44
+operator <<	math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Vec2<T> &v) {$/;"	f	class:alpha::math::Vec2
+operator <<	math_alpha.hpp	/^    friend std::ostream &operator<<(std::ostream &s, const Vec3<T> &v) {$/;"	f	class:alpha::math::Vec3
+operator =	math_alpha.hpp	/^    Vec2 &operator=(Vec2 other) {$/;"	f	class:alpha::math::Vec2
+operator ==	math_alpha.hpp	/^    bool operator==(const Matrix44 &lhs) {$/;"	f	class:alpha::math::Matrix44
+operator []	math_alpha.hpp	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:alpha::math::Vec2
+operator []	math_alpha.hpp	/^    T &operator[](uint8_t i) { return (&x)[i]; }$/;"	f	class:alpha::math::Vec3
+operator []	math_alpha.hpp	/^    T *operator[](uint8_t i) { return x[i]; }$/;"	f	class:alpha::math::Matrix44
+operator []	math_alpha.hpp	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:alpha::math::Vec2
+operator []	math_alpha.hpp	/^    const T &operator[](uint8_t i) const { return (&x)[i]; }$/;"	f	class:alpha::math::Vec3
+operator []	math_alpha.hpp	/^    const T *operator[](uint8_t i) const { return x[i]; }$/;"	f	class:alpha::math::Matrix44
+projection_matrix	camera_alpha.hpp	/^    math::Matrix44f projection_matrix;$/;"	m	class:alpha::Camera
+render_triangle	rasteriser_alpha.hpp	/^    Shader render_triangle;$/;"	m	class:alpha::Rasteriser
+render_triangle	shader.hpp	/^typedef struct render_triangle {$/;"	s
+render_triangle	shader.hpp	/^} render_triangle;$/;"	t	typeref:struct:render_triangle
+right	camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+set	buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, float z) {$/;"	f	class:Zbuffer
+set	buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Imagebuffer
+swap	math_alpha.hpp	/^    friend void swap(Vec2 &first, Vec2 &second) {$/;"	f	class:alpha::math::Vec2
+top	camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+transpose	math_alpha.hpp	/^    Matrix44 &transpose() {$/;"	f	class:alpha::math::Matrix44
+transposed	math_alpha.hpp	/^    Matrix44 transposed() const {$/;"	f	class:alpha::math::Matrix44
+width	buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
+width	buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
+width	rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
+world_to_cam	camera_alpha.hpp	/^    math::Matrix44f world_to_cam;$/;"	m	class:alpha::Camera
+x	math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
+x	math_alpha.hpp	/^    T x, y;$/;"	m	class:alpha::math::Vec2
+x	math_alpha.hpp	/^    T x[4][4] = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};$/;"	m	class:alpha::math::Matrix44
+y	math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
+y	math_alpha.hpp	/^    T x, y;$/;"	m	class:alpha::math::Vec2
+z	math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
