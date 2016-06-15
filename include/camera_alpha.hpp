@@ -19,6 +19,7 @@ namespace alpha {
 enum class fit_resolution_gate { Fill = 0, Overscan };
 class Camera {
 
+    // TODO: Use projection matrices
   private:
     float inch_to_mm = 25.4f;
     float film_aperture_width, film_aperture_height;

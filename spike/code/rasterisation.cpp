@@ -10,7 +10,7 @@ const int width = 640, height = 480, z_near = 1, z_far = 1000,
           focal_length = 20;
 const float aperture_width = 0.980, aperture_height = 0.735;
 auto cam_inst = std::make_shared<alpha::Camera>(
-    width, height, 0.980, 0.735, 1, 1000, 20,
+    width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
     std::initializer_list<std::initializer_list<float>>{
         {0.707107, -0.331295, 0.624695, 0},
         {0, 0.883452, 0.468521, 0},

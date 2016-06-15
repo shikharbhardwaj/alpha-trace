@@ -1,4 +1,4 @@
-//===---- buffers ------- Rasterisation routines -------------*- C++ -*-===//
+//===---- buffers --------- Memory buffer definitions -----------*- C++ -*-===//
 //
 // Alpha-trace -> Minimal C++ raytracer
 //
@@ -72,4 +72,5 @@ class Imagebuffer {
         file_h.close();
     }
 };
+
 #endif

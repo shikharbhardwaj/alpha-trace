@@ -7,14 +7,15 @@ project("alpha-trace")
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-set(warnings "-Wall -Werror -Wextra -std=c++11 -pthread -march=native")
+set(warnings "-Wall -Werror -Wextra -std=c++14 -pthread")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(warnings "/W4 /WX /EHsc")
 endif()
+set(bench_flags "-O3 -fno-exceptions -fno-rtti -fno-omit-frame-pointer -g")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${warnings}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} ${bench_flags}")
 find_package(GLUT)
 find_package(OpenGL)
 find_library(GOOGLE_BENCHMARK NAME libbenchmark 

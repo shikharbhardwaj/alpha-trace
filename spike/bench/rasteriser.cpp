@@ -23,7 +23,7 @@ static void BM_draw_triangle(benchmark::State &state) {
         // Render the cow for me
         const int num_tris = 3156;
 
-        for (volatile int i = 0; i < num_tris; i++) {
+        for (int i = 0; i < num_tris; i++) {
             const alpha::math::Vec3f &v0 = vertices[nvertices[i * 3]];
             const alpha::math::Vec3f &v1 = vertices[nvertices[i * 3 + 1]];
             const alpha::math::Vec3f &v2 = vertices[nvertices[i * 3 + 2]];
