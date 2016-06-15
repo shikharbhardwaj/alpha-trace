@@ -1,5 +1,6 @@
 ##Alpha trace
 ![Software emulation of vision](https://raw.githubusercontent.com/shikharbhardwaj/alpha-trace/master/spike/art/logo.png)
+<br>
 A raytracer written in C++ 
 
 I am following the excellent tutorial and introduction to computer graphics by
@@ -24,6 +25,8 @@ Scratchapixel, [here](http://www.scratchapixel.com/).
  * `make`
  * `C++11` compliant compiler set up with appropriate standard headers and
    libraries(tested with `g++-4.8` & `clang++-3.6`)
+ * [Google benchmark](https://github.com/google/benchmark) for compiling
+   benchmarks
 
 ####Steps
 From the project root... you know the deal.
