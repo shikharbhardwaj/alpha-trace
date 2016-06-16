@@ -19,7 +19,21 @@
 #include <memory>
 #include <prettyprint.hpp>
 namespace alpha {
-template <typename Shader> class Rasteriser {
+namespace shaders {
+struct do_nothing {
+    void operator()(float b0, float b1, float b2, float z, math::Vec3f v0_cam,
+                    math::Vec3f v1_cam, math::Vec3f v2_cam) {
+        (void)b0;
+        (void)b1;
+        (void)b2;
+        (void)z;
+        (void)v0_cam;
+        (void)v1_cam;
+        (void)v2_cam;
+    }
+};
+}
+template <typename Shader = shaders::do_nothing> class Rasteriser {
     using Point = math::Vec3f;
     using RGB = math::Vec3f;
 
@@ -32,7 +46,7 @@ template <typename Shader> class Rasteriser {
 
   public:
     Rasteriser() = delete;
-    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f,
+    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f = Shader(),
                int col_space = 255) {
         cam = std::move(cam_inst);
         render_triangle = std::move(f);

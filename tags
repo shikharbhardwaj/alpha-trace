@@ -15,6 +15,7 @@ COLOURS	include/colours.hpp	2;"	d
 CPPTEMPL_H	thirdparty/nonius.h++	2174;"	d
 Camera	include/camera_alpha.hpp	/^    Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,$/;"	f	class:alpha::Camera
 Camera	include/camera_alpha.hpp	/^class Camera {$/;"	c	namespace:alpha
+Circle	spike/code/ray_trace.cpp	/^struct Circle {$/;"	s	file:
 Data	thirdparty/nonius.h++	/^    class Data$/;"	c	namespace:cpptempl
 DataList	thirdparty/nonius.h++	/^        DataList(const data_list &items) : m_items(items){}$/;"	f	class:cpptempl::DataList
 DataList	thirdparty/nonius.h++	/^    class DataList : public Data$/;"	c	namespace:cpptempl
@@ -94,10 +95,12 @@ NONIUS_RUN_FOR_AT_LEAST_HPP	thirdparty/nonius.h++	579;"	d
 NONIUS_SINGLE_INCLUDE_HPP	thirdparty/nonius.h++	16;"	d
 NONIUS_TIMEOUT_ERROR_HPP	thirdparty/nonius.h++	595;"	d
 NONIUS_USE_BOOST_CHRONO	thirdparty/nonius.h++	66;"	d
+Object	spike/code/ray_trace.cpp	/^template <typename intsersect_test> struct Object {$/;"	s	file:
 R	spike/code/aek.cpp	/^f R() { return (f)rand() \/ RAND_MAX; }$/;"	f
 RASTERISER_ALPHA_HPP	include/rasteriser_alpha.hpp	14;"	d
 Rasteriser	include/rasteriser_alpha.hpp	/^    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f,$/;"	f	class:alpha::Rasteriser
 Rasteriser	include/rasteriser_alpha.hpp	/^template <typename Shader> class Rasteriser {$/;"	c	namespace:alpha
+Ray	spike/code/ray_trace.cpp	/^struct Ray {$/;"	s	file:
 S	spike/code/aek.cpp	/^v S(v o, v d) {$/;"	f
 SOURCE_EXTENSIONS	cfg/ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [$/;"	v
 T	spike/code/aek.cpp	/^i T(v o, v d, f &t, v &n) {$/;"	f
@@ -290,6 +293,7 @@ destruct_on_exit	thirdparty/nonius.h++	/^            void destruct_on_exit(typen
 destruct_on_exit	thirdparty/nonius.h++	/^            void destruct_on_exit(typename std::enable_if<Destruct, U>::type* = 0) { destruct<true>(); }$/;"	f	struct:nonius::detail::object_storage
 detail	thirdparty/nonius.h++	/^    namespace detail {$/;"	n	namespace:nonius
 detail	thirdparty/prettyprint.hpp	/^namespace detail {$/;"	n	namespace:pretty_print
+dir	spike/code/ray_trace.cpp	/^    alpha::math::Vec3f dir;$/;"	m	struct:Ray	file:
 do_analysis_complete	thirdparty/nonius.h++	/^        virtual void do_analysis_complete(sample_analysis<fp_seconds> const& \/*analysis*\/) {}$/;"	f	struct:nonius::reporter
 do_analysis_start	thirdparty/nonius.h++	/^        virtual void do_analysis_start() {} \/\/ TODO make generic?$/;"	f	struct:nonius::reporter
 do_benchmark_complete	thirdparty/nonius.h++	/^        virtual void do_benchmark_complete() {}$/;"	f	struct:nonius::reporter
@@ -431,6 +435,7 @@ img_width	include/camera_alpha.hpp	/^    uint32_t img_width, img_height;$/;"	m	c
 impl	thirdparty/nonius.h++	/^        detail::chronometer_concept* impl;$/;"	m	struct:nonius::chronometer
 inchToMm	spike/code/raster3d.cpp	/^static const float inchToMm = 25.4;$/;"	v	file:
 inch_to_mm	include/camera_alpha.hpp	/^    float inch_to_mm = 25.4f;$/;"	m	class:alpha::Camera
+intsersect	spike/code/ray_trace.cpp	/^    bool intsersect(const Ray &cam_ray) { return tester(cam_ray); }$/;"	f	struct:Object
 inverse	include/math_alpha.hpp	/^    Matrix44 inverse() {$/;"	f	class:alpha::math::Matrix44
 inverse	spike/code/geometry.h	/^    Matrix44 inverse() const$/;"	f	class:Matrix44
 invert	include/math_alpha.hpp	/^    const Matrix44<T> &invert() {$/;"	f	class:alpha::math::Matrix44
@@ -493,6 +498,7 @@ main	spike/code/projection.cpp	/^int main() {$/;"	f
 main	spike/code/projmatrix.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	spike/code/raster3d.cpp	/^int main() {$/;"	f
 main	spike/code/rasterisation.cpp	/^int main() {$/;"	f
+main	spike/code/ray_trace.cpp	/^int main() {$/;"	f
 main	spike/code/sphere.cpp	/^int main() {$/;"	f
 main	spike/code/zbuf_dump.cpp	/^int main() {$/;"	f
 main	src/alpha.cpp	/^int main(int argc, char **argv) {$/;"	f
@@ -577,6 +583,7 @@ operator !	spike/code/aek.cpp	/^    v operator!() { return *this * (1 \/ sqrt(*t
 operator %	spike/code/aek.cpp	/^    f operator%(v r) { return x * r.x + y * r.y + z * r.z; }$/;"	f	struct:v
 operator ()	include/shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
 operator ()	spike/bench/shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
+operator ()	spike/code/ray_trace.cpp	/^    bool operator()(const Ray &cam_ray) {$/;"	f	struct:Circle
 operator ()	spike/code/shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
 operator ()	thirdparty/nonius.h++	/^            void operator()(chronometer meter) const { f->call(meter); }$/;"	f	struct:nonius::detail::benchmark_function
 operator ()	thirdparty/nonius.h++	/^            void operator()(int k) const {$/;"	f	struct:nonius::detail::repeater
@@ -697,6 +704,7 @@ printer	thirdparty/prettyprint.hpp	/^    template <typename U> struct printer {$
 progress_stream	thirdparty/nonius.h++	/^        std::ostream& progress_stream() {$/;"	f	struct:nonius::reporter
 ptr	thirdparty/nonius.h++	/^        std::shared_ptr<Data> ptr;$/;"	m	class:cpptempl::data_ptr
 push_back	thirdparty/nonius.h++	/^    inline void data_ptr::push_back(const data_ptr& data) {$/;"	f	class:cpptempl::data_ptr
+radius	spike/code/ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 rd	test/math_alpha_test.cpp	/^std::random_device rd;$/;"	v
 render_triangle	include/rasteriser_alpha.hpp	/^    Shader render_triangle;$/;"	m	class:alpha::Rasteriser
 render_triangle	include/shader.hpp	/^typedef struct render_triangle {$/;"	s
@@ -732,6 +740,7 @@ sample_analysis	thirdparty/nonius.h++	/^    struct sample_analysis {$/;"	s	names
 samples	thirdparty/nonius.h++	/^        int samples = 100;$/;"	m	struct:nonius::configuration
 samples	thirdparty/nonius.h++	/^        std::vector<Duration> samples;$/;"	m	struct:nonius::sample_analysis
 samples_seen	thirdparty/nonius.h++	/^        int samples_seen = 0;$/;"	m	struct:nonius::outlier_classification
+scene	spike/code/ray_trace.cpp	/^std::vector<Object<Circle>> scene;$/;"	v
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, float z) {$/;"	f	class:Zbuffer
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Imagebuffer
 setProjectionMatrix	spike/code/projmatrix.cpp	/^void setProjectionMatrix(const float &angleOfView, const float &near,$/;"	f
@@ -764,6 +773,7 @@ summary	thirdparty/nonius.h++	/^        bool summary = false;$/;"	m	struct:noniu
 swap	include/math_alpha.hpp	/^    friend void swap(Vec2 &first, Vec2 &second) {$/;"	f	class:alpha::math::Vec2
 t	thirdparty/prettyprint.hpp	/^    const T &t;$/;"	m	struct:pretty_print::custom_delims_wrapper
 template_string	thirdparty/nonius.h++	/^        static std::string const& template_string() {$/;"	f	class:nonius::html_reporter::std
+tester	spike/code/ray_trace.cpp	/^    intsersect_test tester;$/;"	m	struct:Object	file:
 timeout_error	thirdparty/nonius.h++	/^        timeout_error(int seed, int iters) {$/;"	f	struct:nonius::timeout_error
 timeout_error	thirdparty/nonius.h++	/^    struct timeout_error : virtual std::exception {$/;"	s	namespace:nonius
 timing	thirdparty/nonius.h++	/^    struct timing {$/;"	s	namespace:nonius
@@ -843,11 +853,13 @@ x	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 x	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 x	spike/code/geometry.h	/^    T x, y;$/;"	m	class:Vec2
 x	spike/code/geometry.h	/^    T x[4][4] = {{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}};$/;"	m	class:Matrix44
+x	spike/code/ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 y	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
 y	include/math_alpha.hpp	/^    T x, y;$/;"	m	class:alpha::math::Vec2
 y	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 y	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 y	spike/code/geometry.h	/^    T x, y;$/;"	m	class:Vec2
+y	spike/code/ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 z	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
 z	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 z	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3

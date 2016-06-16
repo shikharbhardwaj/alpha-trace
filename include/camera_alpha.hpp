@@ -117,6 +117,10 @@ class Camera {
         raster.y = (1 - v_clip.y) / 2 * img_height;
         raster.z = -v_cam.z;
     }
+    void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster) {
+        math::Vec3f v_cam;
+        convert_to_raster(v_world, raster, v_cam);
+    }
 };
 }
 #endif
