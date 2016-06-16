@@ -40,7 +40,7 @@ typedef struct render_triangle {
         // perspective
 
         // Generate the checkerboard pattern
-        const int M = 10;
+        const int M = 100;
         float checker =
             (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
         float c = 0.3 * (1 - checker) + 0.7 * checker;

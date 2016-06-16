@@ -5,6 +5,10 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 BASE_FLAGS	cfg/ycm_extra_conf.py	/^BASE_FLAGS = [$/;"	v
+BM_draw_triangle	spike/bench/rasteriser.cpp	/^BENCHMARK(BM_draw_triangle);$/;"	v
+BM_draw_triangle	spike/bench/rasteriser.cpp	/^static void BM_draw_triangle(benchmark::State &state) {$/;"	f	file:
+BM_draw_triangle_setup	spike/bench/rasteriser.cpp	/^BENCHMARK(BM_draw_triangle_setup);$/;"	v
+BM_draw_triangle_setup	spike/bench/rasteriser.cpp	/^static void BM_draw_triangle_setup(benchmark::State &state) {$/;"	f	file:
 BUFFERS_ALPHA_HPP	include/buffers_alpha.hpp	14;"	d
 CAMERA_ALPHA_HPP	include/camera_alpha.hpp	15;"	d
 COLOURS	include/colours.hpp	2;"	d
@@ -36,6 +40,7 @@ Int	thirdparty/prettyprint.hpp	/^    template <std::size_t I> struct Int {};$/;"
 InvSqrt	spike/bench/sqrt_comp.cpp	/^float InvSqrt(float x) {$/;"	f
 IsHeaderFile	cfg/ycm_extra_conf.py	/^def IsHeaderFile(filename):$/;"	f
 MATH_ALPHA_HPP	include/math_alpha.hpp	15;"	d
+M_proj	include/camera_alpha.hpp	/^    math::Matrix44f M_proj;$/;"	m	class:alpha::Camera
 MakeRelativePathsInFlagsAbsolute	cfg/ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute(flags, working_directory):$/;"	f
 Matrix44	include/math_alpha.hpp	/^    Matrix44() {}$/;"	f	class:alpha::math::Matrix44
 Matrix44	include/math_alpha.hpp	/^    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {$/;"	f	class:alpha::math::Matrix44
@@ -84,7 +89,6 @@ NONIUS_REPORTERS_JUNIT_REPORTER_HPP	thirdparty/nonius.h++	1913;"	d
 NONIUS_REPORTERS_STANDARD_REPORTER_HPP	thirdparty/nonius.h++	1103;"	d
 NONIUS_REPORTER_HPP	thirdparty/nonius.h++	866;"	d
 NONIUS_RUNNER	spike/bench/antialiasing.cpp	2;"	d	file:
-NONIUS_RUNNER	spike/bench/rasteriser.cpp	2;"	d	file:
 NONIUS_RUNNER	spike/bench/sqrt_comp.cpp	1;"	d	file:
 NONIUS_RUN_FOR_AT_LEAST_HPP	thirdparty/nonius.h++	579;"	d
 NONIUS_SINGLE_INCLUDE_HPP	thirdparty/nonius.h++	16;"	d
@@ -195,7 +199,6 @@ call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::f
 call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::true_type) const {$/;"	f	struct:nonius::detail::benchmark_function::model
 cam	include/rasteriser_alpha.hpp	/^    std::shared_ptr<Camera> cam;$/;"	m	class:alpha::Rasteriser
 cam_inst	spike/bench/antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
-cam_inst	spike/bench/rasteriser.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/rasterisation.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/zbuf_dump.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
@@ -221,6 +224,7 @@ complete_type	thirdparty/nonius.h++	/^        struct complete_type<void> { struc
 compose_rotation	spike/code/decompose.m	/^function R = compose_rotation(x, y, z)$/;"	f
 computePixelCoordinates	spike/code/perspproj.cpp	/^void computePixelCoordinates(const Vec3f &p_world, Vec2i &p_raster,$/;"	f
 computeScreenCoordinates	spike/code/raster3d.cpp	/^void computeScreenCoordinates(const float &filmApertureWidth,$/;"	f
+compute_projection_matrix	include/camera_alpha.hpp	/^    void compute_projection_matrix(float fov, float aspect) {$/;"	f	class:alpha::Camera
 compute_screen_coordinates	include/camera_alpha.hpp	/^    void compute_screen_coordinates() {$/;"	f	class:alpha::Camera
 concept	thirdparty/nonius.h++	/^            struct concept {$/;"	s	struct:nonius::detail::benchmark_function
 confidence_interval	thirdparty/nonius.h++	/^        double confidence_interval = 0.95;$/;"	m	struct:nonius::configuration
@@ -400,9 +404,8 @@ height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Image
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
 height	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
 height	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
-height	spike/bench/rasteriser.cpp	/^const int width = 640, height = 480;$/;"	v
-height	spike/code/antialiasing.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
-height	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
+height	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+height	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 help	src/alpha.cpp	/^void help() {$/;"	f
 help	thirdparty/nonius.h++	/^        bool help = false;$/;"	m	struct:nonius::configuration
@@ -561,7 +564,6 @@ ntris	spike/code/raster3d.cpp	/^const uint32_t ntris = 3156;$/;"	v
 numTris	spike/code/perspproj.cpp	/^const uint32_t numTris = 128;$/;"	v
 numVertices	spike/code/vertexdata.h	/^const uint32_t numVertices = 2630;$/;"	v
 num_tris	spike/bench/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
-num_tris	spike/bench/rasteriser.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/rasterisation.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/zbuf_dump.cpp	/^const int num_tris = 3156;$/;"	v
@@ -704,7 +706,6 @@ render_triangle	spike/bench/shader.hpp	/^} render_triangle;$/;"	t	typeref:struct
 render_triangle	spike/code/shader.hpp	/^typedef struct render_triangle {$/;"	s
 render_triangle	spike/code/shader.hpp	/^} render_triangle;$/;"	t	typeref:struct:render_triangle
 renderer	spike/bench/antialiasing.cpp	/^render_triangle renderer;$/;"	v
-renderer	spike/bench/rasteriser.cpp	/^render_triangle renderer;$/;"	v
 renderer	spike/code/antialiasing.cpp	/^render_triangle renderer;$/;"	v
 renderer	spike/code/rasterisation.cpp	/^render_triangle renderer;$/;"	v
 renderer	spike/code/zbuf_dump.cpp	/^render_triangle renderer;$/;"	v
@@ -830,9 +831,8 @@ width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imageb
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
 width	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
 width	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
-width	spike/bench/rasteriser.cpp	/^const int width = 640, height = 480;$/;"	v
-width	spike/code/antialiasing.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
-width	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
+width	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+width	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 width	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 worldToCamera	spike/code/raster3d.cpp	/^const Matrix44f worldToCamera = {$/;"	v
 world_to_cam	include/camera_alpha.hpp	/^    math::Matrix44f world_to_cam;$/;"	m	class:alpha::Camera
@@ -851,11 +851,11 @@ y	spike/code/geometry.h	/^    T x, y;$/;"	m	class:Vec2
 z	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
 z	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 z	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
-z_far	spike/code/antialiasing.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
-z_far	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
+z_far	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+z_far	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_far	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
-z_near	spike/code/antialiasing.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
-z_near	spike/code/rasterisation.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
+z_near	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+z_near	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 ~custom_delims_base	thirdparty/prettyprint.hpp	/^    virtual ~custom_delims_base() {}$/;"	f	struct:pretty_print::custom_delims_base
 ~data_ptr	thirdparty/nonius.h++	/^        virtual ~data_ptr() {}$/;"	f	class:cpptempl::data_ptr
