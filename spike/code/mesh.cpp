@@ -1,5 +1,5 @@
-// TODO: Render the polygon mesh
 //
+// TODO: Render the polygon mesh
 //
 #include "cow.hpp"
 #include <buffers_alpha.hpp>
@@ -24,8 +24,7 @@ auto cam_inst = std::make_shared<alpha::Camera>(
 void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,
               std::ofstream &ofs) {
     ofs << "<line x1='" << (int)first.x << "' y1 = '" << (int)first.y
-        << "' x2 = '";
-    ofs << (int)sec.x << "' y2 ='" << (int)sec.y << "'/>\n";
+        << "' x2 = '" << (int)sec.x << "' y2 ='" << (int)sec.y << "'/>\n";
 }
 alpha::Rasteriser<> rast(cam_inst);
 int main() {

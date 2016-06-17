@@ -1,0 +1,42 @@
+#!/usr/bin/python3
+
+#Process RAW format files to give vertices
+import os
+import collections
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("file_name", help="Name of the file to be processed")
+parser.add_argument("out_file_name", help="Name of the file to be processed")
+args = parser.parse_args()
+point = collections.namedtuple('Point', ['x', 'y', 'z'])
+if os.path.exists(args.file_name) : 
+    print("Reading file : " + args.file_name)
+    final_data = []
+    with open(args.file_name) as f_handle:
+        for line in f_handle:
+            float_str = line.split()
+            numbers_float = [float(x) for x in float_str]
+            i = 0
+            while i+2 < len(numbers_float):
+                x = numbers_float[i]
+                y = numbers_float[i+1]
+                z = numbers_float[i+2]
+                final_data.append(point(x, y, z))
+                i = i + 3
+
+    with open(args.out_file_name, 'w') as f_handle:
+        f_handle.write('#include <math_alpha.hpp>\n')
+        f_handle.write('alpha::math::Vec3f vertices['+str(len(final_data))+
+                       '] = {\n')
+        i = 0
+        for sample in final_data:
+            f_handle.write('{'+str(sample.x)+', '+str(sample.y)+', '+
+                           str(sample.z)+'}')
+            if i < len(final_data) - 1:
+                f_handle.write(',\n')
+            i = i + 1
+        f_handle.write('};')
+
+else : 
+    print("File does not exist")
+

@@ -1,35 +1,49 @@
+#include "cube_vert.hpp"
+#include <math_alpha.hpp>
 #include <rasteriser_alpha.hpp>
+void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,
+              std::ofstream &ofs) {
+    ofs << "<line x1='" << (int)first.x << "' y1 = '" << (int)first.y
+        << "' x2 = '" << (int)sec.x << "' y2 ='" << (int)sec.y << "'/>\n";
+}
+
 int main() {
     // Render a cube from a perspective
-    const alpha::math::Matrix44f world_to_cam{
-        {0.6859, 0.7276, -0.0108, -0.3382},
-        {-0.3174, 0.3125, 0.8953, -0.3767},
-        {0.6549, -0.6107, 0.4452, -11.2523},
-        {0.0000, 0.0000, 0.0000, 1.0000}};
-    const int img_width = 640, img_height = 480;
-    float aperture_width = 0.980, aperture_height = 0.735;
-    float z_near = 1, z_far = 1000, focal_length = 20;
-    auto cam_inst = std::make_shared<alpha::Camera>(
-        img_width, img_height, aperture_width, aperture_height, z_near, z_far,
-        focal_length, world_to_cam);
-    alpha::Rasteriser rast(cam_inst, 255);
-    // Now render the cube
-    std::vector<alpha::math::Vec3f> vertices = {
-        {1.000000, -1.000000, -1.000000},
-        {1.000000, -1.000000, 1.000000},
-        {-1.000000, -1.000000, 1.000000},
-        {-1.000000, -1.000000, -1.000000},
-        {1.000000, 1.000000, -0.999999},
-        {0.999999, 1.000000, 1.000001},
-        {-1.000000, 1.000000, 1.000000},
-        {-1.000000, 1.000000, -1.000000}
+    std::cout << "Rendering polygon mesh to .svg file";
+    std::ofstream ofs("out.svg");
+    const int width = 1366, height = 768;
+    ofs << "<svg version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" "
+           "xmlns=\"http://www.w3.org/2000/svg\" height=\""
+        << height << "\" width=\"" << width << "\">" << std::endl;
+    ofs << "<style> line{stroke:rgb(0, 0, 0); stroke-width:0.2;} </style>\n";
 
-    };
+    alpha::math::Matrix44f world_to_cam{{0.6858, -0.3173, 0.6548, 7.4811},
+                                        {0.7276, 0.31246, -0.610, -6.5076},
+                                        {-0.0108, 0.89534, 0.4452, 5.3436},
+                                        {0.0, 0.0, 0.0, 1.0}};
+    float aperture_width = 0.980, aperture_height = 0.735;
+    float z_near = 10, z_far = 1000, focal_length = 20;
+    auto cam_inst = std::make_shared<alpha::Camera>(
+        width, height, aperture_width, aperture_height, z_near, z_far,
+        focal_length, world_to_cam);
+    alpha::Rasteriser<> rast(cam_inst);
+    // Now render the cube
     // What should the shader triangles be?
-    alpha::math::Vec2f shader = {0.5, 0.5};
-    rast.draw_triangle(vertices[0], vertices[1], vertices[2], shader, shader,
-                       shader);
-    rast.draw_triangle(vertices[3], vertices[4], vertices[5], shader, shader,
-                       shader);
-    rast.dump_as_ppm("cube.ppm");
+    for (int i = 0; i < numtris; i++) {
+        const auto v0 = vertices[3 * i];
+        const auto v1 = vertices[3 * i + 1];
+        const auto v2 = vertices[3 * i + 2];
+        alpha::math::Vec3f v0_rast;
+        alpha::math::Vec3f v1_rast;
+        alpha::math::Vec3f v2_rast;
+        cam_inst->convert_to_raster(v0, v0_rast);
+        cam_inst->convert_to_raster(v1, v1_rast);
+        cam_inst->convert_to_raster(v2, v2_rast);
+        put_line(v0_rast, v1_rast, ofs);
+        put_line(v1_rast, v2_rast, ofs);
+        put_line(v2_rast, v0_rast, ofs);
+    }
+    ofs << "</svg>\n";
+    std::cout << "\nDone. \n";
+    ofs.close();
 }
