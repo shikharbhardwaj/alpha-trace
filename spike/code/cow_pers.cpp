@@ -1,7 +1,7 @@
-#include "cube_vert.hpp"
+#include "cow_vert.hpp"
 #include <math_alpha.hpp>
 #include <rasteriser_alpha.hpp>
-int numtris = 12;
+int numtris = 3156;
 void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,
               std::ofstream &ofs) {
     ofs << "<line x1='" << (int)first.x << "' y1 = '" << (int)first.y
@@ -19,10 +19,9 @@ int main() {
     ofs << "<style> line{stroke:rgb(0, 0, 0); stroke-width:0.2;} </style>\n";
 
     alpha::math::Matrix44f world_to_cam{
-        {-4.371138828673793e-08, 4.371138828673793e-08, 1.0, 4.814777374267578},
-        {0.0, 1.0, -4.371138828673793e-08, 0.5494518280029297},
-        {-1.0, -1.910685676922942e-15, -4.371138828673793e-08,
-         1.4970126152038574},
+        {0.7071067690849304, -0.5, 0.5, 3.0206594467163086},
+        {0.0, 0.7071067690849304, 0.7071067690849304, 5.744779586791992},
+        {0.7071067690849304, 0.4999999701976776, -0.5, -3.3517706394195557},
         {0.0, 0.0, 0.0, 1.0}};
     world_to_cam.invert();
     world_to_cam.transpose();

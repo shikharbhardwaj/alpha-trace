@@ -21,7 +21,7 @@ if os.path.exists(args.file_name) :
                 x = numbers_float[i]
                 y = numbers_float[i+1]
                 z = numbers_float[i+2]
-                final_data.append(point(x, y, z))
+                final_data.append(point(x, z, y))
                 i = i + 3
 
     with open(args.out_file_name, 'w') as f_handle:

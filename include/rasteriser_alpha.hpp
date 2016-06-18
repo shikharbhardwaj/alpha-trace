@@ -21,8 +21,9 @@
 namespace alpha {
 namespace shaders {
 struct do_nothing {
-    void operator()(float b0, float b1, float b2, float z, math::Vec3f v0_cam,
-                    math::Vec3f v1_cam, math::Vec3f v2_cam) {
+    using RGB = math::Vec3f;
+    RGB operator()(float b0, float b1, float b2, float z, math::Vec3f v0_cam,
+                   math::Vec3f v1_cam, math::Vec3f v2_cam) {
         (void)b0;
         (void)b1;
         (void)b2;
@@ -30,6 +31,7 @@ struct do_nothing {
         (void)v0_cam;
         (void)v1_cam;
         (void)v2_cam;
+        return RGB(0, 0, 0);
     }
 };
 }
@@ -59,7 +61,7 @@ template <typename Shader = shaders::do_nothing> class Rasteriser {
     }
     void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }
     void dump_zbuf(const std::string &name) { Zbuf->dump_as_ppm(name); }
-    void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {
+    bool draw_triangle(const Point &v0, const Point &v1, const Point &v2) {
         // TODO : Optimize
         Point v0_rast, v1_rast, v2_rast, v0_cam, v1_cam, v2_cam;
         cam->convert_to_raster(v0, v0_rast, v0_cam);
@@ -82,7 +84,7 @@ template <typename Shader = shaders::do_nothing> class Rasteriser {
 #ifdef ALPHA_DEBUG
             std::cout << "\nTriangle not present";
 #endif
-            return;
+            return false;
         }
         typedef int32_t i32t;
         uint32_t x0 = std::max(i32t(0), (i32t)(std::floor(xmin)));
@@ -96,7 +98,7 @@ template <typename Shader = shaders::do_nothing> class Rasteriser {
 #endif
         if (total_area_inv < 0.f) {
             // We do not render negative area triangles
-            return;
+            return false;
         }
         // Triangle setup
         float a01 = v0_rast.y - v1_rast.y, b01 = v1_rast.x - v0_rast.x;
@@ -114,7 +116,7 @@ template <typename Shader = shaders::do_nothing> class Rasteriser {
             float w2 = w2_row;
             for (uint32_t x = x0; x <= x1; x++) {
 #ifdef ALPHA_DEBUG
-                std::cout << Point(w0, w1, w2) << " : " << Vec2i(x, y)
+                std::cout << Point(w0, w1, w2) << " : " << math::Vec2i(x, y)
                           << std::endl;
                 std::cin.get();
 #endif
@@ -142,6 +144,7 @@ template <typename Shader = shaders::do_nothing> class Rasteriser {
             w1_row -= b20;
             w2_row -= b01;
         }
+        return true;
     }
     void draw_triangle_16xAA(const Point &v0, const Point &v1,
                              const Point &v2) {
@@ -195,7 +198,7 @@ template <typename Shader = shaders::do_nothing> class Rasteriser {
             float w2 = w2_row;
             for (uint32_t x = x0; x <= x1; x++) {
 #ifdef ALPHA_DEBUG
-                std::cout << Point(w0, w1, w2) << " : " << Vec2i(x, y)
+                std::cout << Point(w0, w1, w2) << " : " << math::Vec2i(x, y)
                           << std::endl;
                 std::cin.get();
 #endif

@@ -35,12 +35,13 @@ class Camera {
     uint32_t img_width, img_height;
     Camera() = delete;
     Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,
-           float z_near, float z_far, float f_length, math::Matrix44f w2cam)
+           float z_near, float z_far, float f_length, math::Matrix44f w2cam,
+           fit_resolution_gate setting = fit_resolution_gate::Overscan)
         : film_aperture_width(fa_w), film_aperture_height(fa_h),
           near_clipping_plain(z_near), far_clipping_plain(z_far),
           focal_length(f_length), world_to_cam(w2cam), img_width(width),
           img_height(height) {
-        fit_setting = fit_resolution_gate::Overscan;
+        fit_setting = setting;
         compute_screen_coordinates();
     }
     float get_far_clipping_plain() { return far_clipping_plain; }
