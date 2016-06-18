@@ -30,6 +30,7 @@ int main() {
     auto cam_inst = std::make_shared<alpha::Camera>(
         width, height, aperture_width, aperture_height, z_near, z_far,
         focal_length, world_to_cam);
+    cam_inst->print_info();
     alpha::Rasteriser<> rast(cam_inst);
     // Now render the cube
     for (int i = 0; i < numtris; i++) {

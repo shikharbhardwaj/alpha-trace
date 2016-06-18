@@ -2,11 +2,10 @@
 // TODO: Render the polygon mesh
 //
 #include "cow.hpp"
-#include <buffers_alpha.hpp>
 #include <fstream>
 #include <iostream>
-#include <math_alpha.hpp>
 #include <rasteriser_alpha.hpp>
+#include <svg_alpha.hpp>
 
 // Setup view
 const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,
@@ -29,12 +28,7 @@ void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,
 alpha::Rasteriser<> rast(cam_inst);
 int main() {
     std::cout << "Rendering polygon mesh to .svg file";
-    std::ofstream ofs("out.svg");
-    ofs << "<svg version=\"1.1\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" "
-           "xmlns=\"http://www.w3.org/2000/svg\" height=\""
-        << height << "\" width=\"" << width << "\">" << std::endl;
-    ofs << "<style> line{stroke:rgb(0, 0, 0); stroke-width:0.2;} </style>\n";
-
+    alpha::SVG_export svg(width, height, "name.svg");
     int num_tris = 3156;
     for (int i = 0; i < num_tris; i++) {
         const alpha::math::Vec3f &v0 = vertices[nvertices[i * 3]];
@@ -46,11 +40,9 @@ int main() {
         cam_inst->convert_to_raster(v0, v0_rast);
         cam_inst->convert_to_raster(v1, v1_rast);
         cam_inst->convert_to_raster(v2, v2_rast);
-        put_line(v0_rast, v1_rast, ofs);
-        put_line(v1_rast, v2_rast, ofs);
-        put_line(v2_rast, v0_rast, ofs);
+        svg.put_line(v0_rast, v1_rast);
+        svg.put_line(v1_rast, v2_rast);
+        svg.put_line(v2_rast, v0_rast);
     }
-    ofs << "</svg>\n";
     std::cout << "\nDone. \n";
-    ofs.close();
 }

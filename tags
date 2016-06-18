@@ -13,6 +13,7 @@ BUFFERS_ALPHA_HPP	include/buffers_alpha.hpp	14;"	d
 CAMERA_ALPHA_HPP	include/camera_alpha.hpp	15;"	d
 COLOURS	include/colours.hpp	2;"	d
 CPPTEMPL_H	thirdparty/nonius.h++	2174;"	d
+Camera	include/camera_alpha.hpp	/^    Camera(const std::string &file_name) {$/;"	f	class:alpha::Camera
 Camera	include/camera_alpha.hpp	/^    Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,$/;"	f	class:alpha::Camera
 Camera	include/camera_alpha.hpp	/^class Camera {$/;"	c	namespace:alpha
 Circle	spike/code/ray_trace.cpp	/^struct Circle {$/;"	s	file:
@@ -98,8 +99,8 @@ NONIUS_USE_BOOST_CHRONO	thirdparty/nonius.h++	66;"	d
 Object	spike/code/ray_trace.cpp	/^template <typename intsersect_test> struct Object {$/;"	s	file:
 R	spike/code/aek.cpp	/^f R() { return (f)rand() \/ RAND_MAX; }$/;"	f
 RASTERISER_ALPHA_HPP	include/rasteriser_alpha.hpp	14;"	d
-Rasteriser	include/rasteriser_alpha.hpp	/^    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f,$/;"	f	class:alpha::Rasteriser
-Rasteriser	include/rasteriser_alpha.hpp	/^template <typename Shader> class Rasteriser {$/;"	c	namespace:alpha
+Rasteriser	include/rasteriser_alpha.hpp	/^    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f = Shader(),$/;"	f	class:alpha::Rasteriser
+Rasteriser	include/rasteriser_alpha.hpp	/^template <typename Shader = shaders::do_nothing> class Rasteriser {$/;"	c	namespace:alpha
 Ray	spike/code/ray_trace.cpp	/^struct Ray {$/;"	s	file:
 S	spike/code/aek.cpp	/^v S(v o, v d) {$/;"	f
 SOURCE_EXTENSIONS	cfg/ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [$/;"	v
@@ -165,9 +166,11 @@ analysis	thirdparty/nonius.h++	/^            sample_analysis<fp_seconds> analysi
 analysis_complete	thirdparty/nonius.h++	/^        void analysis_complete(sample_analysis<fp_seconds> const& analysis) {$/;"	f	struct:nonius::reporter
 analysis_start	thirdparty/nonius.h++	/^        void analysis_start() {$/;"	f	struct:nonius::reporter
 aperture_height	spike/code/antialiasing.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
+aperture_height	spike/code/mesh.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_height	spike/code/rasterisation.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_height	spike/code/zbuf_dump.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_width	spike/code/antialiasing.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
+aperture_width	spike/code/mesh.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_width	spike/code/rasterisation.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_width	spike/code/zbuf_dump.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 argument	thirdparty/nonius.h++	/^            std::string argument;$/;"	m	struct:nonius::detail::option
@@ -193,7 +196,7 @@ benchmark_start	thirdparty/nonius.h++	/^        void benchmark_start(std::string
 benchmark_user_error	thirdparty/nonius.h++	/^    struct benchmark_user_error : virtual std::exception {$/;"	s	namespace:nonius
 bootstrap	thirdparty/nonius.h++	/^        estimate<double> bootstrap(double confidence_level, Iterator first, Iterator last, sample const& resample, Estimator&& estimator) {$/;"	f	namespace:nonius::detail
 bootstrap_analysis	thirdparty/nonius.h++	/^        struct bootstrap_analysis {$/;"	s	namespace:nonius::detail
-bottom	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+bottom	include/camera_alpha.hpp	/^    float top, bottom, left, right, fov;$/;"	m	class:alpha::Camera
 bucket_print	thirdparty/prettyprint.hpp	/^pretty_print::bucket_print_wrapper<T> bucket_print(const T &m,$/;"	f
 bucket_print_wrapper	thirdparty/prettyprint.hpp	/^    bucket_print_wrapper(const T &m, size_type bucket) : m_map(m), n(bucket) {}$/;"	f	struct:pretty_print::bucket_print_wrapper
 bucket_print_wrapper	thirdparty/prettyprint.hpp	/^template <typename T> struct bucket_print_wrapper {$/;"	s	namespace:pretty_print
@@ -203,8 +206,10 @@ call	thirdparty/nonius.h++	/^                void call(chronometer meter, std::t
 cam	include/rasteriser_alpha.hpp	/^    std::shared_ptr<Camera> cam;$/;"	m	class:alpha::Rasteriser
 cam_inst	spike/bench/antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
+cam_inst	spike/code/mesh.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/rasterisation.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	spike/code/zbuf_dump.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
+cameras	spike/code/camera.py	/^cameras = {}$/;"	v
 chronometer	thirdparty/nonius.h++	/^        chronometer(detail::chronometer_concept& meter, int k)$/;"	f	struct:nonius::chronometer
 chronometer	thirdparty/nonius.h++	/^    struct chronometer {$/;"	s	namespace:nonius
 chronometer_concept	thirdparty/nonius.h++	/^        struct chronometer_concept {$/;"	s	namespace:nonius::detail
@@ -227,7 +232,7 @@ complete_type	thirdparty/nonius.h++	/^        struct complete_type<void> { struc
 compose_rotation	spike/code/decompose.m	/^function R = compose_rotation(x, y, z)$/;"	f
 computePixelCoordinates	spike/code/perspproj.cpp	/^void computePixelCoordinates(const Vec3f &p_world, Vec2i &p_raster,$/;"	f
 computeScreenCoordinates	spike/code/raster3d.cpp	/^void computeScreenCoordinates(const float &filmApertureWidth,$/;"	f
-compute_projection_matrix	include/camera_alpha.hpp	/^    void compute_projection_matrix(float fov, float aspect) {$/;"	f	class:alpha::Camera
+compute_projection_matrix	include/camera_alpha.hpp	/^    void compute_projection_matrix(float aspect) {$/;"	f	class:alpha::Camera
 compute_screen_coordinates	include/camera_alpha.hpp	/^    void compute_screen_coordinates() {$/;"	f	class:alpha::Camera
 concept	thirdparty/nonius.h++	/^            struct concept {$/;"	s	struct:nonius::detail::benchmark_function
 confidence_interval	thirdparty/nonius.h++	/^        double confidence_interval = 0.95;$/;"	m	struct:nonius::configuration
@@ -240,6 +245,7 @@ const_iterator	thirdparty/prettyprint.hpp	/^    typedef typename T::const_local_
 construct	thirdparty/nonius.h++	/^            void construct(Args&&... args)$/;"	f	struct:nonius::detail::object_storage
 container_	thirdparty/prettyprint.hpp	/^    const T &container_;$/;"	m	struct:pretty_print::print_container_helper
 convertToRaster	spike/code/raster3d.cpp	/^void convertToRaster(const Vec3f &vertexWorld, const Matrix44f &worldToCamera,$/;"	f
+convert_to_raster	include/camera_alpha.hpp	/^    void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster) {$/;"	f	class:alpha::Camera
 convert_to_raster	include/camera_alpha.hpp	/^    void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,$/;"	f	class:alpha::Camera
 cpptempl	thirdparty/nonius.h++	/^namespace cpptempl$/;"	n
 crossProduct	spike/code/geometry.h	/^    Vec3 crossProduct(const Vec3<T> &v) const$/;"	f	class:Vec3
@@ -306,6 +312,7 @@ do_estimate_clock_resolution_complete	thirdparty/nonius.h++	/^        virtual vo
 do_estimate_clock_resolution_start	thirdparty/nonius.h++	/^        virtual void do_estimate_clock_resolution_start() {}$/;"	f	struct:nonius::reporter
 do_measurement_complete	thirdparty/nonius.h++	/^        virtual void do_measurement_complete(std::vector<fp_seconds> const& \/*samples*\/) {}$/;"	f	struct:nonius::reporter
 do_measurement_start	thirdparty/nonius.h++	/^        virtual void do_measurement_start(execution_plan<fp_seconds> \/*plan*\/) {}$/;"	f	struct:nonius::reporter
+do_nothing	include/rasteriser_alpha.hpp	/^struct do_nothing {$/;"	s	namespace:alpha::shaders
 do_suite_complete	thirdparty/nonius.h++	/^        virtual void do_suite_complete() {}$/;"	f	struct:nonius::reporter
 do_suite_start	thirdparty/nonius.h++	/^        virtual void do_suite_start() {}$/;"	f	struct:nonius::reporter
 do_warmup_end	thirdparty/nonius.h++	/^        virtual void do_warmup_end(int \/*iterations*\/) {}$/;"	f	struct:nonius::reporter
@@ -313,7 +320,7 @@ do_warmup_start	thirdparty/nonius.h++	/^        virtual void do_warmup_start() {
 dotProduct	spike/code/geometry.h	/^    T dotProduct(const Vec3<T> &v) const$/;"	f	class:Vec3
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }$/;"	f	class:alpha::math::Vec2
 dot_product	include/math_alpha.hpp	/^    T dot_product(const Vec3<T> &v) const {$/;"	f	class:alpha::math::Vec3
-draw_triangle	include/rasteriser_alpha.hpp	/^    void draw_triangle(const Point &v0, const Point &v1, const Point &v2) {$/;"	f	class:alpha::Rasteriser
+draw_triangle	include/rasteriser_alpha.hpp	/^    bool draw_triangle(const Point &v0, const Point &v1, const Point &v2) {$/;"	f	class:alpha::Rasteriser
 draw_triangle_16xAA	include/rasteriser_alpha.hpp	/^    void draw_triangle_16xAA(const Point &v0, const Point &v1,$/;"	f	class:alpha::Rasteriser
 dump_as_ppm	include/buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Imagebuffer
 dump_as_ppm	include/buffers_alpha.hpp	/^    void dump_as_ppm(const std::string &name) {$/;"	f	class:Zbuffer
@@ -364,8 +371,11 @@ fit_setting	include/camera_alpha.hpp	/^    fit_resolution_gate fit_setting;$/;"	
 focalLength	spike/code/raster3d.cpp	/^float focalLength = 20; \/\/ in mm$/;"	v
 focal_length	include/camera_alpha.hpp	/^    float focal_length;$/;"	m	class:alpha::Camera
 focal_length	spike/code/antialiasing.cpp	/^          focal_length = 20;$/;"	v
+focal_length	spike/code/mesh.cpp	/^          focal_length = 20;$/;"	v
 focal_length	spike/code/rasterisation.cpp	/^          focal_length = 20;$/;"	v
 focal_length	spike/code/zbuf_dump.cpp	/^          focal_length = 20;$/;"	v
+fov	include/camera_alpha.hpp	/^    float top, bottom, left, right, fov;$/;"	m	class:alpha::Camera
+frame	spike/code/camera.py	/^frame = scene.frame_current - 1$/;"	v
 fun	thirdparty/nonius.h++	/^                Fun fun;$/;"	m	struct:nonius::detail::benchmark_function::model
 fun	thirdparty/nonius.h++	/^            Fun fun;$/;"	m	struct:nonius::detail::repeater
 fun	thirdparty/nonius.h++	/^        detail::benchmark_function fun;$/;"	m	struct:nonius::benchmark
@@ -409,6 +419,7 @@ height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuff
 height	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
 height	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
 height	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+height	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 help	src/alpha.cpp	/^void help() {$/;"	f
@@ -460,7 +471,7 @@ junit_reporter	thirdparty/nonius.h++	/^    struct junit_reporter : reporter {$/;
 k	thirdparty/nonius.h++	/^        int k;$/;"	m	struct:nonius::chronometer
 kFill	spike/code/raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	e	enum:FitResolutionGate	file:
 kOverscan	spike/code/raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	e	enum:FitResolutionGate	file:
-left	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+left	include/camera_alpha.hpp	/^    float top, bottom, left, right, fov;$/;"	m	class:alpha::Camera
 length	include/math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec2
 length	include/math_alpha.hpp	/^    T length() const { return sqrt(norm()); }$/;"	f	class:alpha::math::Vec3
 length	spike/code/geometry.h	/^    T length() const$/;"	f	class:Vec3
@@ -489,10 +500,12 @@ m_value	thirdparty/nonius.h++	/^        std::string m_value ;$/;"	m	class:cpptem
 main	spike/bench/sse.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	spike/code/aek.cpp	/^i main() {$/;"	f
 main	spike/code/antialiasing.cpp	/^int main() {$/;"	f
+main	spike/code/cow_pers.cpp	/^int main() {$/;"	f
 main	spike/code/cube.cpp	/^int main() {$/;"	f
 main	spike/code/glorthoprojmatrix.cpp	/^int main(int argc, char **argv)$/;"	f
 main	spike/code/glprojmatrix.cpp	/^int main(int argc, char **argv)$/;"	f
 main	spike/code/local_world.cpp	/^int main() {$/;"	f
+main	spike/code/mesh.cpp	/^int main() {$/;"	f
 main	spike/code/perspproj.cpp	/^int main() {$/;"	f
 main	spike/code/projection.cpp	/^int main() {$/;"	f
 main	spike/code/projmatrix.cpp	/^int main(int argc, char **argv) {$/;"	f
@@ -573,6 +586,9 @@ num_tris	spike/bench/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/rasterisation.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/zbuf_dump.cpp	/^const int num_tris = 3156;$/;"	v
+numtris	spike/code/cow_pers.cpp	/^int numtris = 3156;$/;"	v
+numtris	spike/code/cube.cpp	/^int numtris = 12;$/;"	v
+numtris	spike/code/mod_cube.hpp	/^int numtris = 12;$/;"	v
 nvertices	spike/code/cow.h	/^uint32_t nvertices[9468] = {$/;"	v
 object_storage	thirdparty/nonius.h++	/^            object_storage() : data() {}$/;"	f	struct:nonius::detail::object_storage
 object_storage	thirdparty/nonius.h++	/^            object_storage(const object_storage& other)$/;"	f	struct:nonius::detail::object_storage
@@ -581,6 +597,7 @@ object_storage	thirdparty/nonius.h++	/^        struct object_storage$/;"	s	names
 ok	test/math_alpha_test.cpp	/^void ok() { std::cout << colours::green << "OK ✓ " << colours::reset; }$/;"	f
 operator !	spike/code/aek.cpp	/^    v operator!() { return *this * (1 \/ sqrt(*this % *this)); }$/;"	f	struct:v
 operator %	spike/code/aek.cpp	/^    f operator%(v r) { return x * r.x + y * r.y + z * r.z; }$/;"	f	struct:v
+operator ()	include/rasteriser_alpha.hpp	/^    RGB operator()(float b0, float b1, float b2, float z, math::Vec3f v0_cam,$/;"	f	struct:alpha::shaders::do_nothing
 operator ()	include/shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
 operator ()	spike/bench/shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
 operator ()	spike/code/ray_trace.cpp	/^    bool operator()(const Ray &cam_ray) {$/;"	f	struct:Circle
@@ -695,6 +712,7 @@ print_container_helper	thirdparty/prettyprint.hpp	/^    print_container_helper(c
 print_container_helper	thirdparty/prettyprint.hpp	/^struct print_container_helper {$/;"	s	namespace:pretty_print
 print_environment_estimate	thirdparty/nonius.h++	/^        void print_environment_estimate(environment_estimate<fp_seconds> e, int iterations) {$/;"	f	struct:nonius::standard_reporter
 print_help	thirdparty/nonius.h++	/^    inline int print_help(std::string const& name) {$/;"	f	namespace:nonius
+print_info	include/camera_alpha.hpp	/^    void print_info() {$/;"	f	class:alpha::Camera
 print_outlier_count	thirdparty/nonius.h++	/^        void print_outlier_count(const char* description, int count, int total) {$/;"	f	struct:nonius::standard_reporter
 print_outliers	thirdparty/nonius.h++	/^        void print_outliers(outlier_classification o) {$/;"	f	struct:nonius::standard_reporter
 print_statistic_estimate	thirdparty/nonius.h++	/^        void print_statistic_estimate(const char* name, estimate<fp_seconds> estimate) {$/;"	f	struct:nonius::standard_reporter
@@ -704,6 +722,9 @@ printer	thirdparty/prettyprint.hpp	/^    template <typename U> struct printer {$
 progress_stream	thirdparty/nonius.h++	/^        std::ostream& progress_stream() {$/;"	f	struct:nonius::reporter
 ptr	thirdparty/nonius.h++	/^        std::shared_ptr<Data> ptr;$/;"	m	class:cpptempl::data_ptr
 push_back	thirdparty/nonius.h++	/^    inline void data_ptr::push_back(const data_ptr& data) {$/;"	f	class:cpptempl::data_ptr
+put_line	spike/code/cow_pers.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
+put_line	spike/code/cube.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
+put_line	spike/code/mesh.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
 radius	spike/code/ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 rd	test/math_alpha_test.cpp	/^std::random_device rd;$/;"	v
 render_triangle	include/rasteriser_alpha.hpp	/^    Shader render_triangle;$/;"	m	class:alpha::Rasteriser
@@ -730,7 +751,7 @@ resamples	thirdparty/nonius.h++	/^        int resamples;$/;"	m	struct:nonius::ju
 resolution	thirdparty/nonius.h++	/^        std::vector<double> resolution(int k) {$/;"	f	namespace:nonius::detail
 result	thirdparty/nonius.h++	/^        Result result;$/;"	m	struct:nonius::timing
 result	thirdparty/nonius.h++	/^        struct result {$/;"	s	struct:nonius::junit_reporter
-right	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+right	include/camera_alpha.hpp	/^    float top, bottom, left, right, fov;$/;"	m	class:alpha::Camera
 rotation_matrix_demo	spike/code/decompose.m	/^function rotation_matrix_demo$/;"	f
 run	thirdparty/nonius.h++	/^        std::vector<FloatDuration<Clock>> run(configuration cfg, environment<FloatDuration<Clock>> env, execution_plan<FloatDuration<Clock>> plan) const {$/;"	f	struct:nonius::benchmark
 run_for_at_least	thirdparty/nonius.h++	/^        TimingOf<Clock, Fun(int)> run_for_at_least(Duration<Clock> how_long, int seed, Fun&& fun) {$/;"	f	namespace:nonius::detail
@@ -740,6 +761,7 @@ sample_analysis	thirdparty/nonius.h++	/^    struct sample_analysis {$/;"	s	names
 samples	thirdparty/nonius.h++	/^        int samples = 100;$/;"	m	struct:nonius::configuration
 samples	thirdparty/nonius.h++	/^        std::vector<Duration> samples;$/;"	m	struct:nonius::sample_analysis
 samples_seen	thirdparty/nonius.h++	/^        int samples_seen = 0;$/;"	m	struct:nonius::outlier_classification
+scene	spike/code/camera.py	/^scene = bpy.context.scene$/;"	v
 scene	spike/code/ray_trace.cpp	/^std::vector<Object<Circle>> scene;$/;"	v
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, float z) {$/;"	f	class:Zbuffer
 set	include/buffers_alpha.hpp	/^    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {$/;"	f	class:Imagebuffer
@@ -748,6 +770,7 @@ set_children	thirdparty/nonius.h++	/^    inline void Token::set_children( token_
 set_children	thirdparty/nonius.h++	/^    inline void TokenFor::set_children( token_vector &children )$/;"	f	class:cpptempl::TokenFor
 set_children	thirdparty/nonius.h++	/^    inline void TokenIf::set_children( token_vector &children )$/;"	f	class:cpptempl::TokenIf
 sfinae_base	thirdparty/prettyprint.hpp	/^struct sfinae_base {$/;"	s	namespace:pretty_print::detail
+shaders	include/rasteriser_alpha.hpp	/^namespace shaders {$/;"	n	namespace:alpha
 short_form	thirdparty/nonius.h++	/^            std::string short_form;$/;"	m	struct:nonius::detail::option
 size_type	thirdparty/prettyprint.hpp	/^    typedef typename T::size_type size_type;$/;"	t	struct:pretty_print::bucket_print_wrapper
 sse	spike/bench/sse.cpp	/^void sse(float *a, int N) {$/;"	f
@@ -783,7 +806,7 @@ title	thirdparty/nonius.h++	/^        std::string title;$/;"	m	struct:nonius::ju
 token_ptr	thirdparty/nonius.h++	/^    typedef std::shared_ptr<Token> token_ptr ;$/;"	t	namespace:cpptempl
 token_vector	thirdparty/nonius.h++	/^    typedef std::vector<token_ptr> token_vector ;$/;"	t	namespace:cpptempl
 tokenize	thirdparty/nonius.h++	/^    inline token_vector & tokenize(std::string text, token_vector &tokens)$/;"	f	namespace:cpptempl
-top	include/camera_alpha.hpp	/^    float top, bottom, left, right;$/;"	m	class:alpha::Camera
+top	include/camera_alpha.hpp	/^    float top, bottom, left, right, fov;$/;"	m	class:alpha::Camera
 total	thirdparty/nonius.h++	/^        int total() const {$/;"	f	struct:nonius::outlier_classification
 transpose	include/math_alpha.hpp	/^    Matrix44 &transpose() {$/;"	f	class:alpha::math::Matrix44
 transpose	spike/code/geometry.h	/^    Matrix44& transpose ()$/;"	f	class:Matrix44
@@ -828,6 +851,9 @@ verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::junit
 vertices	spike/bench/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.h	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
+vertices	spike/code/cow_vert.hpp	/^alpha::math::Vec3f vertices[9468] = {$/;"	v
+vertices	spike/code/cube_vert.hpp	/^alpha::math::Vec3f vertices[36] = {$/;"	v
+vertices	spike/code/mod_cube.hpp	/^alpha::math::Vec3f vertices[36] = {$/;"	v
 vertices	spike/code/vertexdata.h	/^const Vec3f vertices[numVertices] = {$/;"	v
 verts	spike/code/perspproj.cpp	/^const Vec3f verts[146] = {{0, 39.034, 0},$/;"	v
 warmup	thirdparty/nonius.h++	/^        int warmup() {$/;"	f	namespace:nonius::detail
@@ -842,6 +868,7 @@ width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffe
 width	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
 width	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
 width	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+width	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 width	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 width	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 worldToCamera	spike/code/raster3d.cpp	/^const Matrix44f worldToCamera = {$/;"	v
@@ -864,9 +891,11 @@ z	include/math_alpha.hpp	/^    T x, y, z;$/;"	m	class:alpha::math::Vec3
 z	spike/code/aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 z	spike/code/geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 z_far	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+z_far	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_far	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_far	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+z_near	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 ~custom_delims_base	thirdparty/prettyprint.hpp	/^    virtual ~custom_delims_base() {}$/;"	f	struct:pretty_print::custom_delims_base

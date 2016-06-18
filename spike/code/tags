@@ -4,13 +4,16 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Circle	ray_trace.cpp	/^struct Circle {$/;"	s	file:
 FitResolutionGate	raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	g	file:
 G	aek.cpp	/^i G[] = {247570, 280596, 280600, 249748, 18578, 18577, 231184, 16, 16};$/;"	v
 Matrix44	geometry.h	/^    Matrix44 (T a, T b, T c, T d, T e, T f, T g, T h,$/;"	f	class:Matrix44
 Matrix44	geometry.h	/^    Matrix44() {}$/;"	f	class:Matrix44
 Matrix44	geometry.h	/^class Matrix44$/;"	c
 Matrix44f	geometry.h	/^typedef Matrix44<float> Matrix44f;$/;"	t
+Object	ray_trace.cpp	/^template <typename intsersect_test> struct Object {$/;"	s	file:
 R	aek.cpp	/^f R() { return (f)rand() \/ RAND_MAX; }$/;"	f
+Ray	ray_trace.cpp	/^struct Ray {$/;"	s	file:
 S	aek.cpp	/^v S(v o, v d) {$/;"	f
 T	aek.cpp	/^i T(v o, v d, f &t, v &n) {$/;"	f
 Vec2	geometry.h	/^    Vec2() : x(0), y(0) {}$/;"	f	class:Vec2
@@ -26,20 +29,25 @@ Vec3	geometry.h	/^class Vec3$/;"	c
 Vec3f	geometry.h	/^typedef Vec3<float> Vec3f;$/;"	t
 Vec3i	geometry.h	/^typedef Vec3<int> Vec3i;$/;"	t
 aperture_height	antialiasing.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
+aperture_height	mesh.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_height	rasterisation.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_height	zbuf_dump.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_width	antialiasing.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
+aperture_width	mesh.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_width	rasterisation.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 aperture_width	zbuf_dump.cpp	/^const float aperture_width = 0.980, aperture_height = 0.735;$/;"	v
 cam_inst	antialiasing.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
+cam_inst	mesh.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	rasterisation.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
 cam_inst	zbuf_dump.cpp	/^auto cam_inst = std::make_shared<alpha::Camera>($/;"	v
+cameras	camera.py	/^cameras = {}$/;"	v
 compose_rotation	decompose.m	/^function R = compose_rotation(x, y, z)$/;"	f
 computePixelCoordinates	perspproj.cpp	/^void computePixelCoordinates(const Vec3f &p_world, Vec2i &p_raster,$/;"	f
 computeScreenCoordinates	raster3d.cpp	/^void computeScreenCoordinates(const float &filmApertureWidth,$/;"	f
 convertToRaster	raster3d.cpp	/^void convertToRaster(const Vec3f &vertexWorld, const Matrix44f &worldToCamera,$/;"	f
 crossProduct	geometry.h	/^    Vec3 crossProduct(const Vec3<T> &v) const$/;"	f	class:Vec3
 decompose_rotation	decompose.m	/^function [x,y,z] = decompose_rotation(R)$/;"	f
+dir	ray_trace.cpp	/^    alpha::math::Vec3f dir;$/;"	m	struct:Ray	file:
 dotProduct	geometry.h	/^    T dotProduct(const Vec3<T> &v) const$/;"	f	class:Vec3
 edgeFunction	raster3d.cpp	/^float edgeFunction(const Vec3f &a, const Vec3f &b, const Vec3f &c) {$/;"	f
 f	aek.cpp	/^typedef float f;$/;"	t	file:
@@ -48,12 +56,15 @@ filmApertureHeight	raster3d.cpp	/^float filmApertureHeight = 0.735;$/;"	v
 filmApertureWidth	raster3d.cpp	/^float filmApertureWidth = 0.980;$/;"	v
 focalLength	raster3d.cpp	/^float focalLength = 20; \/\/ in mm$/;"	v
 focal_length	antialiasing.cpp	/^          focal_length = 20;$/;"	v
+focal_length	mesh.cpp	/^          focal_length = 20;$/;"	v
 focal_length	rasterisation.cpp	/^          focal_length = 20;$/;"	v
 focal_length	zbuf_dump.cpp	/^          focal_length = 20;$/;"	v
+frame	camera.py	/^frame = scene.frame_current - 1$/;"	v
 glFrustum	glprojmatrix.cpp	/^void glFrustum($/;"	f
 glOrtho	glorthoprojmatrix.cpp	/^void glOrtho($/;"	f
 gluPerspective	glprojmatrix.cpp	/^void gluPerspective($/;"	f
 height	antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+height	mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 i	aek.cpp	/^typedef int i;$/;"	t	file:
@@ -64,6 +75,7 @@ id	zbuf_dump.cpp	/^int render_triangle::id = 0;$/;"	m	class:render_triangle	file
 imageHeight	raster3d.cpp	/^const uint32_t imageHeight = 480;$/;"	v
 imageWidth	raster3d.cpp	/^const uint32_t imageWidth = 640;$/;"	v
 inchToMm	raster3d.cpp	/^static const float inchToMm = 25.4;$/;"	v	file:
+intsersect	ray_trace.cpp	/^    bool intsersect(const Ray &cam_ray) { return tester(cam_ray); }$/;"	f	struct:Object
 inverse	geometry.h	/^    Matrix44 inverse() const$/;"	f	class:Matrix44
 invert	geometry.h	/^    const Matrix44<T>& invert()$/;"	f	class:Matrix44
 kFill	raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	e	enum:FitResolutionGate	file:
@@ -71,15 +83,18 @@ kOverscan	raster3d.cpp	/^enum FitResolutionGate { kFill = 0, kOverscan };$/;"	e	
 length	geometry.h	/^    T length() const$/;"	f	class:Vec3
 main	aek.cpp	/^i main() {$/;"	f
 main	antialiasing.cpp	/^int main() {$/;"	f
+main	cow_pers.cpp	/^int main() {$/;"	f
 main	cube.cpp	/^int main() {$/;"	f
 main	glorthoprojmatrix.cpp	/^int main(int argc, char **argv)$/;"	f
 main	glprojmatrix.cpp	/^int main(int argc, char **argv)$/;"	f
 main	local_world.cpp	/^int main() {$/;"	f
+main	mesh.cpp	/^int main() {$/;"	f
 main	perspproj.cpp	/^int main() {$/;"	f
 main	projection.cpp	/^int main() {$/;"	f
 main	projmatrix.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	raster3d.cpp	/^int main() {$/;"	f
 main	rasterisation.cpp	/^int main() {$/;"	f
+main	ray_trace.cpp	/^int main() {$/;"	f
 main	sphere.cpp	/^int main() {$/;"	f
 main	zbuf_dump.cpp	/^int main() {$/;"	f
 max3	raster3d.cpp	/^float max3(const float &a, const float &b, const float &c) {$/;"	f
@@ -99,9 +114,13 @@ numVertices	vertexdata.h	/^const uint32_t numVertices = 2630;$/;"	v
 num_tris	antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	rasterisation.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	zbuf_dump.cpp	/^const int num_tris = 3156;$/;"	v
+numtris	cow_pers.cpp	/^int numtris = 3156;$/;"	v
+numtris	cube.cpp	/^int numtris = 12;$/;"	v
+numtris	mod_cube.hpp	/^int numtris = 12;$/;"	v
 nvertices	cow.h	/^uint32_t nvertices[9468] = {$/;"	v
 operator !	aek.cpp	/^    v operator!() { return *this * (1 \/ sqrt(*this % *this)); }$/;"	f	struct:v
 operator %	aek.cpp	/^    f operator%(v r) { return x * r.x + y * r.y + z * r.z; }$/;"	f	struct:v
+operator ()	ray_trace.cpp	/^    bool operator()(const Ray &cam_ray) {$/;"	f	struct:Circle
 operator ()	shader.hpp	/^    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,$/;"	f	struct:render_triangle
 operator *	aek.cpp	/^    v operator*(f r) { return v(x * r, y * r, z * r); }$/;"	f	struct:v
 operator *	geometry.h	/^    Matrix44 operator * (const Matrix44& v) const$/;"	f	class:Matrix44
@@ -129,17 +148,24 @@ operator []	geometry.h	/^    T* operator [] (uint8_t i) { return x[i]; }$/;"	f	c
 operator []	geometry.h	/^    const T& operator [] (uint8_t i) const { return (&x)[i]; }$/;"	f	class:Vec3
 operator []	geometry.h	/^    const T* operator [] (uint8_t i) const { return x[i]; }$/;"	f	class:Matrix44
 operator ^	aek.cpp	/^    v operator^(v r) {$/;"	f	struct:v
+put_line	cow_pers.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
+put_line	cube.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
+put_line	mesh.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
+radius	ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 render_triangle	shader.hpp	/^typedef struct render_triangle {$/;"	s
 render_triangle	shader.hpp	/^} render_triangle;$/;"	t	typeref:struct:render_triangle
 renderer	antialiasing.cpp	/^render_triangle renderer;$/;"	v
 renderer	rasterisation.cpp	/^render_triangle renderer;$/;"	v
 renderer	zbuf_dump.cpp	/^render_triangle renderer;$/;"	v
 rotation_matrix_demo	decompose.m	/^function rotation_matrix_demo$/;"	f
+scene	camera.py	/^scene = bpy.context.scene$/;"	v
+scene	ray_trace.cpp	/^std::vector<Object<Circle>> scene;$/;"	v
 setProjectionMatrix	projmatrix.cpp	/^void setProjectionMatrix(const float &angleOfView, const float &near,$/;"	f
 st	cow.h	/^Vec2f st[3056] = {$/;"	v
 st	cow.hpp	/^Vec2f st[3056] = {$/;"	v
 stindices	cow.h	/^uint32_t stindices[9468] = {$/;"	v
 stindices	cow.hpp	/^uint32_t stindices[9468] = {$/;"	v
+tester	ray_trace.cpp	/^    intsersect_test tester;$/;"	m	struct:Object	file:
 transpose	geometry.h	/^    Matrix44& transpose ()$/;"	f	class:Matrix44
 transposed	geometry.h	/^    Matrix44 transposed() const$/;"	f	class:Matrix44
 tris	perspproj.cpp	/^const uint32_t tris[numTris * 3] = {$/;"	v
@@ -148,9 +174,13 @@ v	aek.cpp	/^    } v(f a, f b, f c) {$/;"	f	struct:v
 v	aek.cpp	/^struct v {$/;"	s	file:
 vertices	cow.h	/^Vec3f vertices[1732] = {$/;"	v
 vertices	cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
+vertices	cow_vert.hpp	/^alpha::math::Vec3f vertices[9468] = {$/;"	v
+vertices	cube_vert.hpp	/^alpha::math::Vec3f vertices[36] = {$/;"	v
+vertices	mod_cube.hpp	/^alpha::math::Vec3f vertices[36] = {$/;"	v
 vertices	vertexdata.h	/^const Vec3f vertices[numVertices] = {$/;"	v
 verts	perspproj.cpp	/^const Vec3f verts[146] = {{0, 39.034, 0},$/;"	v
 width	antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+width	mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 width	rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 width	zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 worldToCamera	raster3d.cpp	/^const Matrix44f worldToCamera = {$/;"	v
@@ -158,14 +188,18 @@ x	aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 x	geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 x	geometry.h	/^    T x, y;$/;"	m	class:Vec2
 x	geometry.h	/^    T x[4][4] = {{1,0,0,0},{0,1,0,0},{0,0,1,0},{0,0,0,1}};$/;"	m	class:Matrix44
+x	ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 y	aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 y	geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 y	geometry.h	/^    T x, y;$/;"	m	class:Vec2
+y	ray_trace.cpp	/^    float x, y, radius;$/;"	m	struct:Circle	file:
 z	aek.cpp	/^    f x, y, z;$/;"	m	struct:v	file:
 z	geometry.h	/^    T x, y, z;$/;"	m	class:Vec3
 z_far	antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+z_far	mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_far	rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_far	zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
+z_near	mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v

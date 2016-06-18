@@ -14,26 +14,54 @@
 #ifndef CAMERA_ALPHA_HPP
 #define CAMERA_ALPHA_HPP
 #include <cassert>
+#include <fstream>
 #include <iostream>
 #include <math_alpha.hpp>
 namespace alpha {
 enum class fit_resolution_gate { Fill = 0, Overscan };
 class Camera {
 
-    // TODO: Use projection matrices
   private:
     float inch_to_mm = 25.4f;
     float film_aperture_width, film_aperture_height;
     fit_resolution_gate fit_setting;
     float near_clipping_plain, far_clipping_plain;
     float focal_length;
-    float top, bottom, left, right;
+    float top, bottom, left, right, fov;
     math::Matrix44f world_to_cam;
     math::Matrix44f M_proj;
 
   public:
     uint32_t img_width, img_height;
     Camera() = delete;
+    Camera(const std::string &file_name, bool column_major = false) {
+        // Import settings from a file
+        std::ifstream handle(file_name);
+        handle >> img_width >> img_height >> film_aperture_width >>
+            film_aperture_height >> near_clipping_plain >> far_clipping_plain >>
+            focal_length;
+        if (column_major) {
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    handle >> world_to_cam[j][i];
+                }
+            }
+        } else {
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    handle >> world_to_cam[i][j];
+                }
+            }
+        }
+        int i;
+        handle >> i;
+        if (i == 0) {
+            fit_setting = fit_resolution_gate::Overscan;
+        } else {
+            fit_setting = fit_resolution_gate::Fill;
+        }
+        compute_screen_coordinates();
+    }
     Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,
            float z_near, float z_far, float f_length, math::Matrix44f w2cam,
            fit_resolution_gate setting = fit_resolution_gate::Overscan)
@@ -74,15 +102,25 @@ class Camera {
         bottom = -top;
         left = -right;
 
-        float fov = 2.f * 180.f / M_PI * atan((right / near_clipping_plain));
-        compute_projection_matrix(fov, film_aspect_ratio);
+        fov = 2.f * 180.f / M_PI * atan((right / near_clipping_plain));
+        compute_projection_matrix(film_aspect_ratio);
 #ifdef ALPHA_DEBUG
+        print_info();
+#endif
+    }
+    void print_info() {
         std::cout << "Field of view : " << fov << std::endl;
         std::cout << "Screen co-ords : " << top << "x" << right << std::endl;
         std::cout << "Img_dims" << img_width << "x" << img_height << std::endl;
-#endif
+        std::cout << "Matrix : " << std::endl;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                std::cout << world_to_cam[i][j] << "  ";
+            }
+            std::cout << std::endl;
+        }
     }
-    void compute_projection_matrix(float fov, float aspect) {
+    void compute_projection_matrix(float aspect) {
         float far = far_clipping_plain;
         float near = near_clipping_plain;
         if (fov <= 0 || aspect == 0) {
