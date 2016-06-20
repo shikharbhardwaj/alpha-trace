@@ -4,6 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALPHA_SVG	include/svg_alpha.hpp	14;"	d
+ALPHA_VERTEX	include/vertex_import.hpp	14;"	d
 BASE_FLAGS	cfg/ycm_extra_conf.py	/^BASE_FLAGS = [$/;"	v
 BM_draw_triangle	spike/bench/rasteriser.cpp	/^BENCHMARK(BM_draw_triangle);$/;"	v
 BM_draw_triangle	spike/bench/rasteriser.cpp	/^static void BM_draw_triangle(benchmark::State &state) {$/;"	f	file:
@@ -13,7 +15,7 @@ BUFFERS_ALPHA_HPP	include/buffers_alpha.hpp	14;"	d
 CAMERA_ALPHA_HPP	include/camera_alpha.hpp	15;"	d
 COLOURS	include/colours.hpp	2;"	d
 CPPTEMPL_H	thirdparty/nonius.h++	2174;"	d
-Camera	include/camera_alpha.hpp	/^    Camera(const std::string &file_name) {$/;"	f	class:alpha::Camera
+Camera	include/camera_alpha.hpp	/^    Camera(const std::string &file_name, bool column_major = false) {$/;"	f	class:alpha::Camera
 Camera	include/camera_alpha.hpp	/^    Camera(uint32_t width, uint32_t height, float fa_w, float fa_h,$/;"	f	class:alpha::Camera
 Camera	include/camera_alpha.hpp	/^class Camera {$/;"	c	namespace:alpha
 Circle	spike/code/ray_trace.cpp	/^struct Circle {$/;"	s	file:
@@ -104,6 +106,8 @@ Rasteriser	include/rasteriser_alpha.hpp	/^template <typename Shader = shaders::d
 Ray	spike/code/ray_trace.cpp	/^struct Ray {$/;"	s	file:
 S	spike/code/aek.cpp	/^v S(v o, v d) {$/;"	f
 SOURCE_EXTENSIONS	cfg/ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [$/;"	v
+SVG_export	include/svg_alpha.hpp	/^    SVG_export(uint32_t w, uint32_t h, const std::string &name)$/;"	f	class:alpha::SVG_export
+SVG_export	include/svg_alpha.hpp	/^class SVG_export {$/;"	c	namespace:alpha
 T	spike/code/aek.cpp	/^i T(v o, v d, f &t, v &n) {$/;"	f
 TOKEN_TYPE_ENDFOR	thirdparty/nonius.h++	/^        TOKEN_TYPE_ENDFOR,$/;"	e	enum:cpptempl::__anon1
 TOKEN_TYPE_ENDIF	thirdparty/nonius.h++	/^        TOKEN_TYPE_ENDIF,$/;"	e	enum:cpptempl::__anon1
@@ -159,6 +163,8 @@ _n	thirdparty/prettyprint.hpp	/^    size_t _n;$/;"	m	struct:pretty_print::array_
 alpha	include/camera_alpha.hpp	/^namespace alpha {$/;"	n
 alpha	include/math_alpha.hpp	/^namespace alpha {$/;"	n
 alpha	include/rasteriser_alpha.hpp	/^namespace alpha {$/;"	n
+alpha	include/svg_alpha.hpp	/^namespace alpha {$/;"	n
+alpha	include/vertex_import.hpp	/^namespace alpha {$/;"	n
 always_true	thirdparty/nonius.h++	/^        template <typename> struct always_true : std::true_type {};$/;"	s	namespace:nonius::detail
 analyse	thirdparty/nonius.h++	/^        sample_analysis<Duration> analyse(configuration cfg, environment<Duration>, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
 analyse_samples	thirdparty/nonius.h++	/^        bootstrap_analysis analyse_samples(double confidence_level, int n_resamples, Iterator first, Iterator last) {$/;"	f	namespace:nonius::detail
@@ -194,6 +200,7 @@ benchmark_registrar	thirdparty/nonius.h++	/^        benchmark_registrar(benchmar
 benchmark_registrar	thirdparty/nonius.h++	/^    struct benchmark_registrar {$/;"	s	namespace:nonius
 benchmark_start	thirdparty/nonius.h++	/^        void benchmark_start(std::string const& name) {$/;"	f	struct:nonius::reporter
 benchmark_user_error	thirdparty/nonius.h++	/^    struct benchmark_user_error : virtual std::exception {$/;"	s	namespace:nonius
+blender	src/render_mesh.cpp	/^bool blender = false;$/;"	v
 bootstrap	thirdparty/nonius.h++	/^        estimate<double> bootstrap(double confidence_level, Iterator first, Iterator last, sample const& resample, Estimator&& estimator) {$/;"	f	namespace:nonius::detail
 bootstrap_analysis	thirdparty/nonius.h++	/^        struct bootstrap_analysis {$/;"	s	namespace:nonius::detail
 bottom	include/camera_alpha.hpp	/^    float top, bottom, left, right, fov;$/;"	m	class:alpha::Camera
@@ -360,6 +367,7 @@ fail	test/math_alpha_test.cpp	/^bool fail = false;$/;"	v
 failure	thirdparty/nonius.h++	/^            std::exception_ptr failure;$/;"	m	struct:nonius::junit_reporter::result
 farClippingPLane	spike/code/raster3d.cpp	/^const float farClippingPLane = 1000;$/;"	v
 far_clipping_plain	include/camera_alpha.hpp	/^    float near_clipping_plain, far_clipping_plain;$/;"	m	class:alpha::Camera
+file_name	include/svg_alpha.hpp	/^    std::string file_name;$/;"	m	class:alpha::SVG_export
 filmApertureHeight	spike/code/raster3d.cpp	/^float filmApertureHeight = 0.735;$/;"	v
 filmApertureWidth	spike/code/raster3d.cpp	/^float filmApertureWidth = 0.980;$/;"	v
 film_aperture_height	include/camera_alpha.hpp	/^    float film_aperture_width, film_aperture_height;$/;"	m	class:alpha::Camera
@@ -386,6 +394,7 @@ get_children	thirdparty/nonius.h++	/^    inline token_vector & TokenIf::get_chil
 get_far_clipping_plain	include/camera_alpha.hpp	/^    float get_far_clipping_plain() { return far_clipping_plain; }$/;"	f	class:alpha::Camera
 get_magnitude	thirdparty/nonius.h++	/^        inline double get_magnitude(fp_seconds secs) {$/;"	f	namespace:nonius::detail
 get_max_width	thirdparty/nonius.h++	/^        int get_max_width(Iterator first, Iterator last, Projection proj) {$/;"	f	namespace:nonius::detail
+get_name	src/render_mesh.cpp	/^std::string get_name(const std::string &switch_val,$/;"	f
 getlist	thirdparty/nonius.h++	/^    inline data_list& Data::getlist()$/;"	f	class:cpptempl::Data
 getlist	thirdparty/nonius.h++	/^    inline data_list& DataList::getlist()$/;"	f	class:cpptempl::DataList
 getmap	thirdparty/nonius.h++	/^    inline data_map& Data::getmap()$/;"	f	class:cpptempl::Data
@@ -411,18 +420,21 @@ gluPerspective	spike/code/glprojmatrix.cpp	/^void gluPerspective($/;"	f
 go	thirdparty/nonius.h++	/^    void go(configuration cfg, Iterator first, Iterator last, reporter& rep) {$/;"	f	namespace:nonius
 go	thirdparty/nonius.h++	/^    void go(configuration cfg, Iterator first, Iterator last, reporter&& rep) {$/;"	f	namespace:nonius
 go	thirdparty/nonius.h++	/^    void go(configuration cfg, benchmark_registry& benchmarks = global_benchmark_registry(), reporter_registry& reporters = global_reporter_registry()) {$/;"	f	namespace:nonius
+handle	include/svg_alpha.hpp	/^    std::ofstream handle;$/;"	m	class:alpha::SVG_export
 has	thirdparty/nonius.h++	/^    inline bool data_map::has(const std::string& key) {$/;"	f	class:cpptempl::data_map
 has_begin_end	thirdparty/prettyprint.hpp	/^template <typename T> struct has_begin_end : private sfinae_base {$/;"	s	namespace:pretty_print::detail
 has_const_iterator	thirdparty/prettyprint.hpp	/^template <typename T> struct has_const_iterator : private sfinae_base {$/;"	s	namespace:pretty_print::detail
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
 height	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
 height	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
+height	include/svg_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:alpha::SVG_export
 height	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
 height	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 height	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
 help	src/alpha.cpp	/^void help() {$/;"	f
+help	src/render_mesh.cpp	/^void help() {$/;"	f
 help	thirdparty/nonius.h++	/^        bool help = false;$/;"	m	struct:nonius::configuration
 help_text	thirdparty/nonius.h++	/^            help_text(std::string name, option_set const& options) : name(std::move(name)), options(options) {}$/;"	f	struct:nonius::detail::help_text
 help_text	thirdparty/nonius.h++	/^        struct help_text {$/;"	s	namespace:nonius::detail
@@ -515,6 +527,7 @@ main	spike/code/ray_trace.cpp	/^int main() {$/;"	f
 main	spike/code/sphere.cpp	/^int main() {$/;"	f
 main	spike/code/zbuf_dump.cpp	/^int main() {$/;"	f
 main	src/alpha.cpp	/^int main(int argc, char **argv) {$/;"	f
+main	src/render_mesh.cpp	/^int main(int argc, char **argv) {$/;"	f
 main	test/math_alpha_test.cpp	/^int main() {$/;"	f
 main	thirdparty/nonius.h++	/^    inline int main(int argc, char** argv) {$/;"	f	namespace:nonius
 main	thirdparty/nonius.h++	/^    int main(std::string const& name, Iterator first, Iterator last) {$/;"	f	namespace:nonius
@@ -539,6 +552,9 @@ measure	thirdparty/nonius.h++	/^        void measure(Fun&& fun, std::true_type) 
 measure_environment	thirdparty/nonius.h++	/^        environment<FloatDuration<Clock>> measure_environment(reporter& rep) {$/;"	f	namespace:nonius::detail
 measurement_complete	thirdparty/nonius.h++	/^        void measurement_complete(std::vector<fp_seconds> const& samples) {$/;"	f	struct:nonius::reporter
 measurement_start	thirdparty/nonius.h++	/^        void measurement_start(execution_plan<fp_seconds> plan) {$/;"	f	struct:nonius::reporter
+mesh_data	include/vertex_import.hpp	/^    mesh_data(const std::string &src_name, bool y_up = false,$/;"	f	struct:alpha::mesh_data
+mesh_data	include/vertex_import.hpp	/^typedef struct mesh_data {$/;"	s	namespace:alpha
+mesh_data	include/vertex_import.hpp	/^} mesh_data;$/;"	t	namespace:alpha	typeref:struct:alpha::mesh_data
 message	thirdparty/nonius.h++	/^        std::string message;$/;"	m	struct:nonius::timeout_error
 min3	spike/code/raster3d.cpp	/^float min3(const float &a, const float &b, const float &c) {$/;"	f
 min_3	include/math_alpha.hpp	/^inline float min_3(float a, float b, float c) {$/;"	f	namespace:alpha::math
@@ -582,6 +598,7 @@ now	thirdparty/nonius.h++	/^    struct now {$/;"	s	namespace:nonius
 ntris	spike/code/raster3d.cpp	/^const uint32_t ntris = 3156;$/;"	v
 numTris	spike/code/perspproj.cpp	/^const uint32_t numTris = 128;$/;"	v
 numVertices	spike/code/vertexdata.h	/^const uint32_t numVertices = 2630;$/;"	v
+num_triangles	include/vertex_import.hpp	/^    uint32_t num_triangles;$/;"	m	struct:alpha::mesh_data
 num_tris	spike/bench/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/antialiasing.cpp	/^const int num_tris = 3156;$/;"	v
 num_tris	spike/code/rasterisation.cpp	/^const int num_tris = 3156;$/;"	v
@@ -713,6 +730,7 @@ print_container_helper	thirdparty/prettyprint.hpp	/^struct print_container_helpe
 print_environment_estimate	thirdparty/nonius.h++	/^        void print_environment_estimate(environment_estimate<fp_seconds> e, int iterations) {$/;"	f	struct:nonius::standard_reporter
 print_help	thirdparty/nonius.h++	/^    inline int print_help(std::string const& name) {$/;"	f	namespace:nonius
 print_info	include/camera_alpha.hpp	/^    void print_info() {$/;"	f	class:alpha::Camera
+print_info	src/render_mesh.cpp	/^void print_info(const std::string &msg) {$/;"	f
 print_outlier_count	thirdparty/nonius.h++	/^        void print_outlier_count(const char* description, int count, int total) {$/;"	f	struct:nonius::standard_reporter
 print_outliers	thirdparty/nonius.h++	/^        void print_outliers(outlier_classification o) {$/;"	f	struct:nonius::standard_reporter
 print_statistic_estimate	thirdparty/nonius.h++	/^        void print_statistic_estimate(const char* name, estimate<fp_seconds> estimate) {$/;"	f	struct:nonius::standard_reporter
@@ -722,6 +740,7 @@ printer	thirdparty/prettyprint.hpp	/^    template <typename U> struct printer {$
 progress_stream	thirdparty/nonius.h++	/^        std::ostream& progress_stream() {$/;"	f	struct:nonius::reporter
 ptr	thirdparty/nonius.h++	/^        std::shared_ptr<Data> ptr;$/;"	m	class:cpptempl::data_ptr
 push_back	thirdparty/nonius.h++	/^    inline void data_ptr::push_back(const data_ptr& data) {$/;"	f	class:cpptempl::data_ptr
+put_line	include/svg_alpha.hpp	/^    void put_line(const alpha::math::Vec3f &first,$/;"	f	class:alpha::SVG_export
 put_line	spike/code/cow_pers.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
 put_line	spike/code/cube.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
 put_line	spike/code/mesh.cpp	/^void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,$/;"	f
@@ -843,11 +862,13 @@ values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<T, 
 values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<std::pair<T1, T2>, char>::values = {$/;"	m	class:pretty_print::delimiters
 values	thirdparty/prettyprint.hpp	/^const delimiters_values<char> delimiters<std::tuple<Args...>, char>::values = {$/;"	m	class:pretty_print::delimiters
 values	thirdparty/prettyprint.hpp	/^const delimiters_values<wchar_t> delimiters<T, wchar_t>::values = {L"[", L", ",$/;"	m	class:pretty_print::delimiters
+verbose	src/render_mesh.cpp	/^bool verbose = false;$/;"	v
 verbose	thirdparty/nonius.h++	/^        bool verbose = false;$/;"	m	struct:nonius::configuration
 verbose	thirdparty/nonius.h++	/^        bool verbose = false;$/;"	m	struct:nonius::standard_reporter
 verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::csv_reporter
 verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::html_reporter
 verbose	thirdparty/nonius.h++	/^        bool verbose;$/;"	m	struct:nonius::junit_reporter
+vertices	include/vertex_import.hpp	/^    std::vector<alpha::math::Vec3f> vertices;$/;"	m	struct:alpha::mesh_data
 vertices	spike/bench/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.h	/^Vec3f vertices[1732] = {$/;"	v
 vertices	spike/code/cow.hpp	/^Vec3f vertices[1732] = {$/;"	v
@@ -866,6 +887,7 @@ weighted_average_quantile	thirdparty/nonius.h++	/^        double weighted_averag
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Imagebuffer
 width	include/buffers_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:Zbuffer
 width	include/rasteriser_alpha.hpp	/^    int width, height;$/;"	m	class:alpha::Rasteriser
+width	include/svg_alpha.hpp	/^    uint32_t width, height;$/;"	m	class:alpha::SVG_export
 width	spike/bench/antialiasing.cpp	/^const int width = 640, height = 480;$/;"	v
 width	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 width	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
@@ -898,6 +920,7 @@ z_near	spike/code/antialiasing.cpp	/^const int width = 4 * 640, height = 4 * 480
 z_near	spike/code/mesh.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/rasterisation.cpp	/^const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,$/;"	v
 z_near	spike/code/zbuf_dump.cpp	/^const int width = 640, height = 480, z_near = 1, z_far = 1000,$/;"	v
+~SVG_export	include/svg_alpha.hpp	/^    ~SVG_export() {$/;"	f	class:alpha::SVG_export
 ~custom_delims_base	thirdparty/prettyprint.hpp	/^    virtual ~custom_delims_base() {}$/;"	f	struct:pretty_print::custom_delims_base
 ~data_ptr	thirdparty/nonius.h++	/^        virtual ~data_ptr() {}$/;"	f	class:cpptempl::data_ptr
 ~object_storage	thirdparty/nonius.h++	/^            ~object_storage() { destruct_on_exit<T>(); }$/;"	f	struct:nonius::detail::object_storage

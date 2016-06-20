@@ -31,6 +31,10 @@ std::string get_name(const std::string &switch_val,
                      const std::vector<std::string> &args) {
     // Get file name from the switch
     auto it = std::find(args.begin(), args.end(), switch_val);
+    if (it == args.end()) {
+        std::cerr << "Required parameter : " << switch_val << std::endl;
+        std::exit(1);
+    }
     if (it + 1 == args.end()) {
         std::cerr << switch_val << " requires a file name" << std::endl;
         std::exit(1);
