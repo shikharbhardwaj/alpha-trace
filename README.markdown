@@ -1,4 +1,4 @@
-##Alpha trace
+## Alpha trace
 ![Software emulation of vision](https://raw.githubusercontent.com/shikharbhardwaj/alpha-trace/master/spike/art/logo.png)
 <br>
 A raytracer written in C++ 
@@ -6,7 +6,7 @@ A raytracer written in C++
 I am following the excellent tutorial and introduction to computer graphics by
 Scratchapixel, [here](http://www.scratchapixel.com/).
 
-##Directory structure
+## Directory structure
 
  - *build*: This folder contains all build files, and is removed on a clean. See
    **building** section for build instructions.
@@ -18,9 +18,9 @@ Scratchapixel, [here](http://www.scratchapixel.com/).
  - *cfg*: Custom config for the project.
  - *test*: All test code files.
 
-##Building
+## Building
 
-####Requirements
+### Requirements
  * CMake (version 2.6 or greater)
  * `make`
  * `C++11` compliant compiler set up with appropriate standard headers and
@@ -28,7 +28,7 @@ Scratchapixel, [here](http://www.scratchapixel.com/).
  * [Google benchmark](https://github.com/google/benchmark) for compiling
    benchmarks
 
-####Steps
+#### Steps
 From the project root... you know the deal.
 <br>
 1. `cd ./build`
@@ -36,7 +36,7 @@ From the project root... you know the deal.
 3. `make`
 
 All files resulting from the build are placed in `build` directory.
-##Dev environment
+## Dev environment
 
 The `ycm_extra_conf.py` is placed in the cfg folder. To automatically source this
 file when in the project directory, add the following to your `vimrc`
@@ -50,7 +50,7 @@ file when in the project directory, add the following to your `vimrc`
 This has one limitation, `vim` needs to be started from a directory one level
 deeper than the `cfg` directory, ie. any subdirectory of the project root, for
 proper YCM config.
-##License
+## License
 This project is distributed under the GNU GPL version 3.
 
 This is free software; see the source for copying conditions.  There is NO
