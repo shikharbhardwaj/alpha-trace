@@ -86,13 +86,11 @@ public:
         swap(first.z, second.z);
     }
 
-    Vec3& operator=(const Vec3& other) {
-        Vec3 temp(other);
+    Vec3& operator=(Vec3 other) {
         swap(*this, other);
 
-        return &this;
+        return *this;
     }
-
 
     // Vector operations.
     Vec3& operator+=(const Vec3& v) {
@@ -151,27 +149,9 @@ public:
 
     T length() const { return sqrt(norm()); }
 
-    const T &operator[](uint8_t i) const {
-        switch(i){
-            case 0:
-                return x;
-            case 1:
-                return y;
-            case 2:
-                return z;
-        }
-    }
+    const T &operator[](uint8_t i) const { return (&x)[i]; }
 
-    T &operator[](uint8_t i) {
-        switch(i){
-            case 0:
-                return x;
-            case 1:
-                return y;
-            case 2:
-                return z;
-        }
-    }
+    T &operator[](uint8_t i) { return (&x)[i]; }
 
     Vec3 &normalize() {
         T n = norm();
@@ -206,39 +186,75 @@ inline Vec3<T> operator*(Vec3<T> lhs, const Vec3<T>& rhs) {
     return lhs *= rhs;
 }
 
+/**
+ * A 2 component vector.
+ * @tparam T The type of the compoenents.
+ */
 template<typename T>
 class Vec2 {
 public:
     template<typename U>
-    friend void swap(Vec2 &, Vec2 &);
-
-    Vec2() : x(0), y(0) {}
+    friend void swap(Vec2&, Vec2&);
 
     Vec2(T xx) : x(xx), y(xx) {}
 
     Vec2(T xx, T yy) : x(xx), y(yy) {}
 
-    Vec2 &operator=(Vec2 other) {
+    Vec2(const Vec2& other) : x(other.x), y(other.y) {}
+
+    friend void swap(Vec2 &first, Vec2 &second) {
+        using std::swap;
+
+        swap(first.x, second.x);
+        swap(first.y, second.y);
+    }
+
+    Vec2& operator=(Vec2 other) {
         swap(*this, other);
+
         return *this;
     }
 
-    Vec2 operator+(const Vec2 &v) const { return Vec2(x + v.x, y + v.y); }
-
-    Vec2 operator-(const Vec2 &v) const { return Vec2(x - v.x, y - v.y); }
-
-    Vec2 operator*(const T &r) const { return Vec2(x * r, y * r); }
-
-    friend void swap(Vec2 &first, Vec2 &second) {
-        std::swap(first.x, second.x);
-        std::swap(first.y, second.y);
+    // Vector operations.
+    Vec2& operator+=(const Vec2& v) {
+        x += v.x;
+        y += v.y;
+        return *this;
     }
 
-    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }
-
-    Vec2 cross_product(const Vec2<T> &v) const {
-        return Vec2<T>(x * v.y - y * v.x);
+    Vec2& operator-=(const Vec2& v) {
+        x -= v.x;
+        y -= v.y;
+        return *this;
     }
+
+    // Schur product, not dot product.
+    Vec2& operator*=(const Vec2& v) {
+        x *= v.x;
+        y *= v.y;
+        return *this;
+    }
+
+    // Scalar operations.
+    Vec2& operator+=(T r) {
+        x += r;
+        y += r;
+        return *this;
+    }
+
+    Vec2& operator-=(T r) {
+        x -= r;
+        y -= r;
+        return *this;
+    }
+
+    Vec2& operator*=(T r) {
+        x *= r;
+        y *= r;
+        return *this;
+    }
+
+    T dot(const Vec2<T> &v) const { return x * v.x + y * v.y; }
 
     T norm() const { return x * x + y * y; }
 
@@ -265,25 +281,41 @@ public:
     T x, y;
 };
 
+// Operator overloads for Vec2.
+template <typename T>
+inline Vec2<T> operator+(Vec2<T> lhs, const Vec2<T>& rhs) {
+    return lhs += rhs;
+}
+
+template <typename T>
+inline Vec2<T> operator-(Vec2<T> lhs, const Vec2<T>& rhs) {
+    return lhs -= rhs;
+}
+
+template <typename T>
+inline Vec2<T> operator*(Vec2<T> lhs, const Vec2<T>& rhs) {
+    return lhs *= rhs;
+}
+
+// Some convenience typedefs.
 typedef Vec3<float> Vec3f;
 typedef Vec2<float> Vec2f;
 typedef Vec3<int> Vec3i;
 typedef Vec2<int> Vec2i;
 
+/**
+ * A 4x4 matrix.
+ * @tparam T The type of the matrix elements.
+ */
 template<typename T>
 class Matrix44 {
 public:
-    T x[4][4] = {{1, 0, 0, 0},
-                 {0, 1, 0, 0},
-                 {0, 0, 1, 0},
-                 {0, 0, 0, 1}};
+    T x[4][4];
 
     Matrix44() {}
 
+    // Initialize with braces
     Matrix44(std::initializer_list<std::initializer_list<T>> xs) {
-        // Initialize with braces
-        //
-        // Caution : Overflow
         size_t r = 0, c = 0;
         for (auto row : xs) {
             for (auto elem : row) {
@@ -291,6 +323,24 @@ public:
             }
             r++, c = 0;
         }
+    }
+
+    // Initialize with identity matrix.
+    void eye() {
+        memset(x, sizeof(x), 0);
+        x[0][0] = x[1][1] = x[2][2] = x[3][3] = 0;
+    }
+
+    friend void swap(Matrix44 &first, Matrix44 &second) {
+        using std::swap;
+
+        swap(first.x, second.x);
+    }
+
+    Matrix44& operator=(Matrix44 other) {
+        swap(*this, other);
+
+        return *this;
     }
 
     const T *operator[](uint8_t i) const { return x[i]; }
@@ -307,10 +357,10 @@ public:
 
     bool operator==(const Matrix44 &lhs) {
         bool equal = true;
+
         for (uint8_t i = 0; i < 4 && equal; i++) {
-            for (uint8_t j = 0; j < 4 && equal; j++) {
-                if (!is_equal(lhs[i][j], (*this)[i][j])) {
-                    printf("%d, %d", i, j);
+            for (uint8_t j = 0; j < 4; j++) {
+                if (!is_equal(lhs.x[i][j], x[i][j])) {
                     equal = false;
                     break;
                 }
@@ -561,6 +611,8 @@ typedef Matrix44<float> Matrix44f;
 inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {
     return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]);
 }
-}
-}
+
+} // namespace math
+} // namespace alpha
+
 #endif
