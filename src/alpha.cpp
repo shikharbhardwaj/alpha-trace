@@ -2,8 +2,9 @@
 #include <algorithm>
 #include <cstring>
 #include <iostream>
-#include <math_alpha.hpp>
-#include <rasteriser_alpha.hpp>
+#include <alpha/math.hpp>
+#include <alpha/rasteriser.hpp>
+
 void help() {
     std::cout << "\t\tAlpha-trace command line utility";
     std::cout << "\nSwitches : ";

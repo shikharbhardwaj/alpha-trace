@@ -137,11 +137,11 @@ public:
         return *this;
     }
 
-    T dot(const Vec3& v) const {
+    T dot_product(const Vec3& v) const {
         return x * v.x + y * v.y + z * v.z;
     }
 
-    Vec3 cross(const Vec3& v) const {
+    Vec3 cross_product(const Vec3& v) const {
         return Vec3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x);
     }
 
@@ -183,6 +183,11 @@ inline Vec3<T> operator-(Vec3<T> lhs, const Vec3<T>& rhs) {
 
 template <typename T>
 inline Vec3<T> operator*(Vec3<T> lhs, const Vec3<T>& rhs) {
+    return lhs *= rhs;
+}
+
+template <typename T>
+inline Vec3<T> operator*(Vec3<T> lhs, T rhs) {
     return lhs *= rhs;
 }
 
@@ -254,7 +259,7 @@ public:
         return *this;
     }
 
-    T dot(const Vec2<T> &v) const { return x * v.x + y * v.y; }
+    T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }
 
     T norm() const { return x * x + y * y; }
 
@@ -297,6 +302,11 @@ inline Vec2<T> operator*(Vec2<T> lhs, const Vec2<T>& rhs) {
     return lhs *= rhs;
 }
 
+template <typename T>
+inline Vec2<T> operator*(Vec2<T> lhs, T& rhs) {
+    return lhs *= rhs;
+}
+
 // Some convenience typedefs.
 typedef Vec3<float> Vec3f;
 typedef Vec2<float> Vec2f;
@@ -327,7 +337,7 @@ public:
 
     // Initialize with identity matrix.
     void eye() {
-        memset(x, sizeof(x), 0);
+        memset(x, 0, sizeof(x));
         x[0][0] = x[1][1] = x[2][2] = x[3][3] = 0;
     }
 

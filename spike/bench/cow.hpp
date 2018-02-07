@@ -1,4 +1,4 @@
-#include <math_alpha.hpp>
+#include <alpha/math.hpp>
 using namespace alpha::math;
 uint32_t nvertices[9468] = {
     2,    0,    3,    1,    3,    0,    4,    2,    5,    3,    5,    2,

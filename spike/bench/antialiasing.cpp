@@ -2,7 +2,7 @@
 #define NONIUS_RUNNER
 #include "shader.hpp"
 #include <nonius.h++>
-#include <rasteriser_alpha.hpp>
+#include <alpha/rasteriser.hpp>
 int render_triangle::id = 0; // The triangle to start from
 const int width = 640, height = 480;
 auto cam_inst = std::make_shared<alpha::Camera>(

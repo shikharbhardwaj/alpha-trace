@@ -1,12 +1,13 @@
 // Implement the simplest form of the rasterisation algorithm
 #include "shader.hpp"
-#include <camera_alpha.hpp>
 #include <chrono>
-#include <math_alpha.hpp>
 #include <memory>
-#include <rasteriser_alpha.hpp>
+
+#include <alpha/rasteriser.hpp>
+#include <alpha/camera.hpp>
+#include <alpha/math.hpp>
 int render_triangle::id = 0;
-const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,
+const int width = 2 * 640, height = 2 * 480, z_near = 1, z_far = 1000,
           focal_length = 20;
 const float aperture_width = 0.980, aperture_height = 0.735;
 auto cam_inst = std::make_shared<alpha::Camera>(
@@ -28,7 +29,7 @@ int main() {
         const alpha::math::Vec3f &v0 = vertices[nvertices[i * 3]];
         const alpha::math::Vec3f &v1 = vertices[nvertices[i * 3 + 1]];
         const alpha::math::Vec3f &v2 = vertices[nvertices[i * 3 + 2]];
-        rast.draw_triangle_16xAA(v0, v1, v2);
+        rast.draw_triangle(v0, v1, v2);
         renderer.id++;
     }
     auto t2 = high_resolution_clock::now();

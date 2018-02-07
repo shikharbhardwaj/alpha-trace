@@ -18,7 +18,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <alpha/math_alpha.hpp>
+#include "math.hpp"
 
 namespace alpha {
 enum class fit_resolution_gate {

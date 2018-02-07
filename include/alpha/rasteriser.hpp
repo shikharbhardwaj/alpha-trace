@@ -14,12 +14,11 @@
 #define RASTERISER_ALPHA_HPP
 
 #include <fstream>
-#include <math_alpha.hpp>
 #include <memory>
-#include <prettyprint.hpp>
 
-#include <alpha/buffers_alpha.hpp>
-#include <alpha/camera_alpha.hpp>
+#include "math.hpp"
+#include "buffers.hpp"
+#include "camera.hpp"
 
 namespace alpha {
 namespace shaders {

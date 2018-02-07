@@ -87,17 +87,17 @@ TEST_CASE("Testing Vec3", "[Vec3]") {
         REQUIRE(test_vec[2] == 1.f);
     }
 
-    SECTION("Test dot product") {
-        REQUIRE(test_vec.dot(another_test_vec) == 1.f);
+    SECTION("Test dot_product product") {
+        REQUIRE(test_vec.dot_product(another_test_vec) == 1.f);
     }
 
 
-    SECTION("Test cross product") {
-        alpha::math::Vec3f cross_result = test_vec.cross(another_test_vec);
+    SECTION("Test cross_product product") {
+        alpha::math::Vec3f cross_product_result = test_vec.cross_product(another_test_vec);
 
-        REQUIRE(cross_result.x == -1.f);
-        REQUIRE(cross_result.y == -1.f);
-        REQUIRE(cross_result.z ==  1.f);
+        REQUIRE(cross_product_result.x == -1.f);
+        REQUIRE(cross_product_result.y == -1.f);
+        REQUIRE(cross_product_result.z ==  1.f);
     }
 
     SECTION("Test stream output operator") {
@@ -177,8 +177,8 @@ TEST_CASE("Testing Vec2", "[Vec2]") {
         REQUIRE(test_vec[1] == 0.f);
     }
 
-    SECTION("Test dot product") {
-        REQUIRE(test_vec.dot(another_test_vec) == 0.f);
+    SECTION("Test dot_product product") {
+        REQUIRE(test_vec.dot_product(another_test_vec) == 0.f);
     }
 
     SECTION("Test stream output operator") {
