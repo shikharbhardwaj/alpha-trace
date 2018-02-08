@@ -80,14 +80,14 @@ public:
                   << " | " << v2_rast;
 #endif
         // Precompute multiplicative inverse of the z co ordinate
-        v0_rast.z = 1 / v0_rast.z;
-        v1_rast.z = 1 / v1_rast.z;
-        v2_rast.z = 1 / v2_rast.z;
+        v0_rast[2] = 1 / v0_rast[2];
+        v1_rast[2] = 1 / v1_rast[2];
+        v2_rast[2] = 1 / v2_rast[2];
         // Compute bounding box
-        float xmin = math::min_3(v0_rast.x, v1_rast.x, v2_rast.x);
-        float ymin = math::min_3(v0_rast.y, v1_rast.y, v2_rast.y);
-        float xmax = math::max_3(v0_rast.x, v1_rast.x, v2_rast.x);
-        float ymax = math::max_3(v0_rast.y, v1_rast.y, v2_rast.y);
+        float xmin = math::min_3(v0_rast[0], v1_rast[0], v2_rast[0]);
+        float ymin = math::min_3(v0_rast[1], v1_rast[1], v2_rast[1]);
+        float xmax = math::max_3(v0_rast[0], v1_rast[0], v2_rast[0]);
+        float ymax = math::max_3(v0_rast[1], v1_rast[1], v2_rast[1]);
         if (xmin > width - 1 || xmax < 0 || ymax > height - 1 || ymin < 0) {
 #ifdef ALPHA_DEBUG
             std::cout << "\nTriangle not present";
@@ -100,7 +100,7 @@ public:
         uint32_t x1 = std::min(i32t(width) - 1, (i32t) (std::floor(xmax)));
         uint32_t y1 = std::min(i32t(height) - 1, (i32t) (std::floor(ymax)));
 
-        float total_area_inv = 1 / edge_function(v0_rast, v1_rast, v2_rast);
+        float total_area_inv = 1 / math::edge_function(v0_rast, v1_rast, v2_rast);
 #ifdef ALPHA_DEBUG
         std::cout << "Total area : " << 1 / total_area_inv;
 #endif
@@ -109,14 +109,14 @@ public:
             return false;
         }
         // Triangle setup
-        float a01 = v0_rast.y - v1_rast.y, b01 = v1_rast.x - v0_rast.x;
-        float a12 = v1_rast.y - v2_rast.y, b12 = v2_rast.x - v1_rast.x;
-        float a20 = v2_rast.y - v0_rast.y, b20 = v0_rast.x - v2_rast.x;
+        float a01 = v0_rast[1] - v1_rast[1], b01 = v1_rast[0] - v0_rast[0];
+        float a12 = v1_rast[1] - v2_rast[1], b12 = v2_rast[0] - v1_rast[0];
+        float a20 = v2_rast[1] - v0_rast[1], b20 = v0_rast[0] - v2_rast[0];
         // Computing the Barycentric co-ords at minX, minY
         Point p = {float(x0) + 0.5f, float(y0) + 0.5f, 0.f};
-        float w0_row = edge_function(v1_rast, v2_rast, p);
-        float w1_row = edge_function(v2_rast, v0_rast, p);
-        float w2_row = edge_function(v0_rast, v1_rast, p);
+        float w0_row = math::edge_function(v1_rast, v2_rast, p);
+        float w1_row = math::edge_function(v2_rast, v0_rast, p);
+        float w2_row = math::edge_function(v0_rast, v1_rast, p);
         // The inner loop
         for (uint32_t y = y0; y <= y1; y++) {
             float w0 = w0_row;
@@ -134,14 +134,14 @@ public:
                     float b2 = w2 * total_area_inv;
                     // Compute correct interpolation
                     float z_inv =
-                            v0_rast.z * b0 + v1_rast.z * b1 + v2_rast.z * b2;
+                            v0_rast[2] * b0 + v1_rast[2] * b1 + v2_rast[2] * b2;
                     float z = 1 / z_inv;
                     if (z < Zbuf->get(x, y)) {
                         // Yay! Render
                         Zbuf->set(x, y, z);
                         auto col = render_triangle(b0, b1, b2, z, v0_cam,
                                                    v1_cam, v2_cam);
-                        Fbuf->set(x, y, col.x, col.y, col.z);
+                        Fbuf->set(x, y, col[0], col[1], col[2]);
                     }
                 }
                 w0 -= a12;
@@ -167,14 +167,14 @@ public:
                   << " | " << v2_rast;
 #endif
         // Precompute multiplicative inverse of the z co ordinate
-        v0_rast.z = 1 / v0_rast.z;
-        v1_rast.z = 1 / v1_rast.z;
-        v2_rast.z = 1 / v2_rast.z;
+        v0_rast[2] = 1 / v0_rast[2];
+        v1_rast[2] = 1 / v1_rast[2];
+        v2_rast[2] = 1 / v2_rast[2];
         // Compute bounding box
-        float xmin = math::min_3(v0_rast.x, v1_rast.x, v2_rast.x);
-        float ymin = math::min_3(v0_rast.y, v1_rast.y, v2_rast.y);
-        float xmax = math::max_3(v0_rast.x, v1_rast.x, v2_rast.x);
-        float ymax = math::max_3(v0_rast.y, v1_rast.y, v2_rast.y);
+        float xmin = math::min_3(v0_rast[0], v1_rast[0], v2_rast[0]);
+        float ymin = math::min_3(v0_rast[1], v1_rast[1], v2_rast[1]);
+        float xmax = math::max_3(v0_rast[0], v1_rast[0], v2_rast[0]);
+        float ymax = math::max_3(v0_rast[1], v1_rast[1], v2_rast[1]);
         if (xmin > width - 1 || xmax < 0 || ymax > height - 1 || ymin < 0) {
 #ifdef ALPHA_DEBUG
             std::cout << "\nTriangle not present";
@@ -187,19 +187,19 @@ public:
         uint32_t x1 = std::min(i32t(width) - 1, (i32t) (std::floor(xmax)));
         uint32_t y1 = std::min(i32t(height) - 1, (i32t) (std::floor(ymax)));
 
-        float total_area_inv = 1 / edge_function(v0_rast, v1_rast, v2_rast);
+        float total_area_inv = 1 / math::edge_function(v0_rast, v1_rast, v2_rast);
 #ifdef ALPHA_DEBUG
         std::cout << "Total area : " << 1 / total_area_inv;
 #endif
         // Triangle setup
-        float a01 = v0_rast.y - v1_rast.y, b01 = v1_rast.x - v0_rast.x;
-        float a12 = v1_rast.y - v2_rast.y, b12 = v2_rast.x - v1_rast.x;
-        float a20 = v2_rast.y - v0_rast.y, b20 = v0_rast.x - v2_rast.x;
+        float a01 = v0_rast[1] - v1_rast[1], b01 = v1_rast[0] - v0_rast[0];
+        float a12 = v1_rast[1] - v2_rast[1], b12 = v2_rast[0] - v1_rast[0];
+        float a20 = v2_rast[1] - v0_rast[1], b20 = v0_rast[0] - v2_rast[0];
         // Computing the Barycentric co-ords at minX, minY
         Point p = {float(x0) + 0.5f, float(y0) + 0.5f, 0.f};
-        float w0_row = edge_function(v1_rast, v2_rast, p);
-        float w1_row = edge_function(v2_rast, v0_rast, p);
-        float w2_row = edge_function(v0_rast, v1_rast, p);
+        float w0_row = math::edge_function(v1_rast, v2_rast, p);
+        float w1_row = math::edge_function(v2_rast, v0_rast, p);
+        float w2_row = math::edge_function(v0_rast, v1_rast, p);
         // The inner loop
         for (uint32_t y = y0; y <= y1; y++) {
             float w0 = w0_row;
@@ -213,39 +213,39 @@ public:
 #endif
                 if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
 
-                    float z_inv = v0_rast.z * w0 * total_area_inv +
-                                  v1_rast.z * w1 * total_area_inv +
-                                  v2_rast.z * w2 * total_area_inv;
+                    float z_inv = v0_rast[2] * w0 * total_area_inv +
+                                  v1_rast[2] * w1 * total_area_inv +
+                                  v2_rast[2] * w2 * total_area_inv;
                     float z = 1 / z_inv;
                     if (z < Zbuf->get(x, y)) {
                         Zbuf->set(x, y, z);
                         std::vector<Point> pixel_samples(16);
                         // Use 16 samples per pixel
-                        pixel_samples[0].x = w0 + 3.0 / 8 * a12 + 3.0 / 8 * b12;
-                        pixel_samples[0].y = w1 + 3.0 / 8 * a20 + 3.0 / 8 * b20;
-                        pixel_samples[0].z = w2 + 3.0 / 8 * a01 + 3.0 / 8 * b01;
+                        pixel_samples[0][0] = w0 + 3.0 / 8 * a12 + 3.0 / 8 * b12;
+                        pixel_samples[0][1] = w1 + 3.0 / 8 * a20 + 3.0 / 8 * b20;
+                        pixel_samples[0][2] = w2 + 3.0 / 8 * a01 + 3.0 / 8 * b01;
                         for (int i = 1; i < 4; i++) {
-                            pixel_samples[4 * i].x =
-                                    pixel_samples[4 * (i - 1)].x - 0.25 * b12;
-                            pixel_samples[4 * i].y =
-                                    pixel_samples[4 * (i - 1)].y - 0.25 * b20;
-                            pixel_samples[4 * i].z =
-                                    pixel_samples[4 * (i - 1)].z - 0.25 * b01;
+                            pixel_samples[4 * i][0] =
+                                    pixel_samples[4 * (i - 1)][0] - 0.25 * b12;
+                            pixel_samples[4 * i][1] =
+                                    pixel_samples[4 * (i - 1)][1] - 0.25 * b20;
+                            pixel_samples[4 * i][2] =
+                                    pixel_samples[4 * (i - 1)][2] - 0.25 * b01;
                         }
                         for (int i = 0; i < 4; i++) {
                             for (int j = 1; j < 4; j++) {
-                                pixel_samples[4 * i + j].x =
-                                        pixel_samples[4 * i + j - 1].x - 0.25 * a12;
-                                pixel_samples[4 * i + j].y =
-                                        pixel_samples[4 * i + j - 1].y - 0.25 * a20;
-                                pixel_samples[4 * i + j].z =
-                                        pixel_samples[4 * i + j - 1].z - 0.25 * a01;
+                                pixel_samples[4 * i + j][0] =
+                                        pixel_samples[4 * i + j - 1][0] - 0.25 * a12;
+                                pixel_samples[4 * i + j][1] =
+                                        pixel_samples[4 * i + j - 1][1] - 0.25 * a20;
+                                pixel_samples[4 * i + j][2] =
+                                        pixel_samples[4 * i + j - 1][2] - 0.25 * a01;
                             }
                         }
                         float b0 = w0, b1 = w1, b2 = w2;
                         RGB total_color = {0, 0, 0};
                         for (auto elem : pixel_samples) {
-                            b0 = elem.x, b1 = elem.y, b2 = elem.z;
+                            b0 = elem[0], b1 = elem[1], b2 = elem[2];
                             b0 *= total_area_inv;
                             b1 *= total_area_inv;
                             b2 *= total_area_inv;
@@ -253,8 +253,8 @@ public:
                                                        v1_cam, v2_cam);
                             total_color = total_color + col;
                         }
-                        Fbuf->set(x, y, total_color.x / 16, total_color.y / 16,
-                                  total_color.z / 16);
+                        Fbuf->set(x, y, total_color[0] / 16, total_color[1] / 16,
+                                  total_color[2] / 16);
                     }
                 }
                 w0 -= a12;

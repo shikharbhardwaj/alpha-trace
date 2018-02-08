@@ -11,14 +11,17 @@ static void BM_draw_triangle(benchmark::State &state) {
     while (state.KeepRunning()) {
         render_triangle::id = 0;
         const int width = 640, height = 480;
+
+        alpha::math::Matrix44f world2cam;
+
+        world2cam.set(
+                0.707107, -0.331295, 0.624695, 0,
+                0, 0.883452, 0.468521, 0,
+                -0.707107, -0.331295, 0.624695, 0,
+                -1.63871, -5.747777, -40.400412, 1);
         auto cam_inst = std::make_shared<alpha::Camera>(
             width, height, 0.980, 0.735, 1, 1000, 20,
-            std::initializer_list<std::initializer_list<float>>{
-                {0.707107, -0.331295, 0.624695, 0},
-                {0, 0.883452, 0.468521, 0},
-                {-0.707107, -0.331295, 0.624695, 0},
-                {-1.63871, -5.747777, -40.400412, 1},
-            });
+            world2cam);
         render_triangle renderer;
         alpha::Rasteriser<render_triangle> rast(cam_inst, renderer, 255);
         // Render the cow for me
@@ -37,14 +40,18 @@ static void BM_draw_triangle_setup(benchmark::State &state) {
     while (state.KeepRunning()) {
         render_triangle::id = 0;
         const int width = 640, height = 480;
+
+        alpha::math::Matrix44f world2cam;
+
+        world2cam.set(
+                0.707107, -0.331295, 0.624695, 0,
+                0, 0.883452, 0.468521, 0,
+                -0.707107, -0.331295, 0.624695, 0,
+                -1.63871, -5.747777, -40.400412, 1);
+
         auto cam_inst = std::make_shared<alpha::Camera>(
             width, height, 0.980, 0.735, 1, 1000, 20,
-            std::initializer_list<std::initializer_list<float>>{
-                {0.707107, -0.331295, 0.624695, 0},
-                {0, 0.883452, 0.468521, 0},
-                {-0.707107, -0.331295, 0.624695, 0},
-                {-1.63871, -5.747777, -40.400412, 1},
-            });
+            world2cam);
         render_triangle renderer;
         alpha::Rasteriser<render_triangle> rast(cam_inst, renderer, 255);
         // Render the cow for me

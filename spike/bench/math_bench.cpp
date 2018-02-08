@@ -18,7 +18,7 @@ static void xmm_create(benchmark::State& state) {
   std::uniform_real_distribution<float> dist;
   float mult = dist(gen);
 
-  while(state.KeepRunning()) {
+  for(auto _ : state) {
     Vec4f test;
     benchmark::DoNotOptimize(test * mult);
     benchmark::DoNotOptimize(test * mult);
@@ -30,7 +30,7 @@ static void crude_create(benchmark::State& state) {
   std::uniform_real_distribution<float> dist;
   float mult = dist(gen);
 
-  while(state.KeepRunning()) {
+  for(auto _ : state) {
     alpha::math::Vec3f test;
     benchmark::DoNotOptimize(test * mult);
     benchmark::DoNotOptimize(test * mult);
@@ -42,4 +42,3 @@ BENCHMARK(xmm_create);
 BENCHMARK(crude_create);
 
 BENCHMARK_MAIN();
-

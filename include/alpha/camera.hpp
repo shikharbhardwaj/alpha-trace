@@ -157,18 +157,18 @@ public:
 #ifdef ALPHA_DEBUG
         std::cout << "\nWorld co-ords" << v_world;
 #endif
-        world_to_cam.mult_vec_matrix(v_world, v_cam);
+        v_cam = world_to_cam * v_world;
 #ifdef ALPHA_DEBUG
         std::cout << "\nCam co-ords" << v_cam;
 #endif
         // Convert to clip space
         math::Vec3f v_clip;
-        M_proj.mult_vec_matrix(v_cam, v_clip);
+        v_clip = M_proj * v_cam;
         // Convert to raster space
         //
-        raster.x = (v_clip.x + 1) / 2 * img_width;
-        raster.y = (1 - v_clip.y) / 2 * img_height;
-        raster.z = -v_cam.z;
+        raster[0] = (v_clip[0] + 1) / 2 * img_width;
+        raster[1] = (1 - v_clip[1]) / 2 * img_height;
+        raster[2] = -v_cam[2];
     }
 
     void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster) {
