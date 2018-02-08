@@ -1,10 +1,12 @@
 // Implement the simplest form of the rasterisation algorithm
 #include "shader.hpp"
-#include <camera_alpha.hpp>
 #include <chrono>
-#include <math_alpha.hpp>
 #include <memory>
-#include <rasteriser_alpha.hpp>
+
+#include <alpha/math.hpp>
+#include <alpha/camera.hpp>
+#include <alpha/rasteriser.hpp>
+
 int render_triangle::id = 0;
 const int width = 640, height = 480, z_near = 1, z_far = 1000,
           focal_length = 20;

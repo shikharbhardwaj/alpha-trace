@@ -1,6 +1,8 @@
 #include "cow_vert.hpp"
-#include <math_alpha.hpp>
-#include <rasteriser_alpha.hpp>
+
+#include <alpha/math.hpp>
+#include <alpha/rasteriser.hpp>
+
 int numtris = 3156;
 void put_line(const alpha::math::Vec3f &first, const alpha::math::Vec3f &sec,
               std::ofstream &ofs) {

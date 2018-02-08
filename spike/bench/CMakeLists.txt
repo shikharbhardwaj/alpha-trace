@@ -5,6 +5,9 @@ set(LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 add_executable(rasteriser_bench rasteriser.cpp)
 add_executable(antialiasing_bench antialiasing.cpp)
 add_executable(vector_gmtl vector_gmtl.cpp)
+add_executable(math_bench math_bench.cpp)
+
 # Target specific stuff here
 target_link_libraries(rasteriser_bench benchmark)
+target_link_libraries(math_bench benchmark)
 target_link_libraries(vector_gmtl benchmark armadillo)

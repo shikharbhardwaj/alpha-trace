@@ -4,8 +4,9 @@
 #include "cow.hpp"
 #include <fstream>
 #include <iostream>
-#include <rasteriser_alpha.hpp>
-#include <svg_alpha.hpp>
+
+#include <alpha/rasteriser.hpp>
+#include <alpha/svg.hpp>
 
 // Setup view
 const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,

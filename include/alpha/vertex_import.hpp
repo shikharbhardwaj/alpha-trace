@@ -16,7 +16,7 @@
 #include <fstream>
 #include <vector>
 
-#include <alpha/math_alpha.hpp>
+#include <alpha/math.hpp>
 
 namespace alpha {
 typedef struct mesh_data {

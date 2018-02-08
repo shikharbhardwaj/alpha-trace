@@ -15,7 +15,7 @@
 
 #include <fstream>
 
-#include <alpha/math_alpha.hpp>
+#include <alpha/math.hpp>
 
 namespace alpha {
 class SVG_export {

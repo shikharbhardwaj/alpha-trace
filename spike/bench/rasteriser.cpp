@@ -1,7 +1,8 @@
 // A simple benchmark to test rasteriser performance
 #include "shader.hpp"
+
 #include <benchmark/benchmark.h>
-#include <rasteriser_alpha.hpp>
+#include <alpha/rasteriser.hpp>
 //
 // Use google/benchmark to benchmark rasteriser performance
 //

@@ -2,11 +2,14 @@
 //
 // Takes in camera parameters from the command line
 //
-#include <camera_alpha.hpp>
-#include <rasteriser_alpha.hpp>
-#include <svg_alpha.hpp>
 #include <vector>
-#include <vertex_import.hpp>
+#include <algorithm>
+
+#include <alpha/camera.hpp>
+#include <alpha/rasteriser.hpp>
+#include <alpha/svg.hpp>
+#include <alpha/vertex_import.hpp>
+
 bool verbose = false;
 bool blender = false;
 void help() {

@@ -1,5 +1,7 @@
 #include "cow.hpp"
-#include <math_alpha.hpp>
+
+#include <alpha/math.hpp>
+
 typedef struct render_triangle {
     using Vec3f = alpha::math::Vec3f;
     using Vec2f = alpha::math::Vec2f;
@@ -10,9 +12,9 @@ typedef struct render_triangle {
         alpha::math::Vec2f st0 = st[stindices[id * 3]];
         alpha::math::Vec2f st1 = st[stindices[id * 3 + 1]];
         alpha::math::Vec2f st2 = st[stindices[id * 3 + 2]];
-        st0 = st0 * (-1.f / v0_cam.z);
-        st1 = st1 * (-1.f / v1_cam.z);
-        st2 = st2 * (-1.f / v2_cam.z);
+        st0 *= (-1.f / v0_cam.z);
+        st1 *= (-1.f / v1_cam.z);
+        st2 *= (-1.f / v2_cam.z);
         Vec2f st = st0 * b0 + st1 * b1 + st2 * b2;
         st = st * z;
         float px = (v0_cam.x / -v0_cam.z) * b0 + (v1_cam.x / -v1_cam.z) * b1 +

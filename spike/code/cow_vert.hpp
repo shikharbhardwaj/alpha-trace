@@ -1,4 +1,5 @@
-#include <math_alpha.hpp>
+#include <alpha/math.hpp>
+
 alpha::math::Vec3f vertices[9468] = {
 {0.431656, 1.157671, -0.10192},
 {0.353996, 0.953647, -0.094847},
