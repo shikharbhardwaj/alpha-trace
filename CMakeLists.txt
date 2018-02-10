@@ -47,3 +47,9 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/code)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/bench)
+
+# Configure Catch.
+set(CATCH_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/thirdparty/include/catch)
+add_library(Catch INTERFACE)
+
+target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})

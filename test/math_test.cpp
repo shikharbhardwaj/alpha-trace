@@ -14,7 +14,7 @@
 #include <iostream>
 #include <sstream>
 
-#include <catch.hpp>
+#include <catch/catch.hpp>
 
 #include <alpha/math.hpp>
 

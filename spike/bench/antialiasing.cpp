@@ -1,8 +1,12 @@
 // A simple benchmark to test rasteriser performance with antialiasing enabled
+
 #define NONIUS_RUNNER
+#include <nonius/nonius.h++>
+#include <nonius/main.h++>
+
 #include "shader.hpp"
-#include <nonius.h++>
 #include <alpha/rasteriser.hpp>
+
 int render_triangle::id = 0; // The triangle to start from
 const int width = 640, height = 480;
 auto cam_inst = std::make_shared<alpha::Camera>(
@@ -17,9 +21,10 @@ render_triangle renderer;
 alpha::Rasteriser<render_triangle> rast(cam_inst, renderer, 255);
 // Render the cow for me
 const int num_tris = 3156;
+
 NONIUS_BENCHMARK("Rasteriser", [](nonius::chronometer meter) {
     meter.measure([] {
-        for (volatile int i = 0; i < num_tris; i++) {
+        for (int i = 0; i < num_tris; i++) {
             const alpha::math::Vec3f &v0 = vertices[nvertices[i * 3]];
             const alpha::math::Vec3f &v1 = vertices[nvertices[i * 3 + 1]];
             const alpha::math::Vec3f &v2 = vertices[nvertices[i * 3 + 2]];
@@ -27,5 +32,7 @@ NONIUS_BENCHMARK("Rasteriser", [](nonius::chronometer meter) {
             renderer.id++;
         }
     });
-
 });
+
+
+
