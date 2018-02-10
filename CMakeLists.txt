@@ -1,10 +1,18 @@
 cmake_minimum_required(VERSION 2.6)
 cmake_policy(SET CMP0011 NEW)
-set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cfg")
+
+# For cotire
+set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
 include(cotire)
+
+
 project("alpha-trace")
 
+# We need to test things.
+include(CTest)
+enable_testing()
 
+# Set flags according to the toolchain.
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     set(warnings "-Wall -Werror -Wextra -std=c++14 -pthread")
@@ -12,18 +20,26 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(warnings "/W4 /WX /EHsc")
 endif()
 
-set(bench_flags "-O3 -fno-rtti -fno-omit-frame-pointer -g")
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
+    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    set(bench_flags "-O3 -fno-rtti -fno-omit-frame-pointer -g")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+    set(bench_flags "/Oy- -DEBUG")
+endif()
 
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${warnings}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${bench_flags}")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+
+
 # Configure sources, includes and libs
 # Add the include directory
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/thirdparty/include)
+
 # Add the link directory
-link_directories(${PROJECT_SOURCE_DIR}/lib)
+link_directories(${PROJECT_SOURCE_DIR}/ib)
 link_directories(${PROJECT_SOURCE_DIR}/thirdparty/lib)
 
 # Add the source directory
