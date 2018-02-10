@@ -23,7 +23,7 @@
 namespace alpha {
 namespace shaders {
 struct do_nothing {
-    using RGB = math::Vec3f;
+    using RGB = alpha::buffers::RGB;
 
     RGB operator()(float b0, float b1, float b2, float z, math::Vec3f v0_cam,
                    math::Vec3f v1_cam, math::Vec3f v2_cam) {
@@ -41,11 +41,11 @@ struct do_nothing {
 template<typename Shader = shaders::do_nothing>
 class Rasteriser {
     using Point = math::Vec3f;
-    using RGB = math::Vec3f;
+    using RGB = alpha::buffers::RGB;
 
 private:
-    std::unique_ptr<Imagebuffer> Fbuf;
-    std::unique_ptr<Zbuffer> Zbuf;
+    std::unique_ptr<buffers::Imagebuffer> Fbuf;
+    std::unique_ptr<buffers::Zbuffer> Zbuf;
     std::shared_ptr<Camera> cam;
     Shader render_triangle;
     int width, height;
@@ -58,10 +58,10 @@ public:
         render_triangle = std::move(f);
         width = cam->img_width;
         height = cam->img_height;
-        Fbuf = std::unique_ptr<Imagebuffer>(
-                new Imagebuffer(width, height));
-        Zbuf = std::unique_ptr<Zbuffer>(
-                new Zbuffer(width, height, cam->get_far_clipping_plain()));
+        Fbuf = std::unique_ptr<buffers::Imagebuffer>(
+                new buffers::Imagebuffer(width, height));
+        Zbuf = std::unique_ptr<buffers::Zbuffer>(
+                new buffers::Zbuffer(width, height, cam->get_far_clipping_plain()));
     }
 
     void dump_as_ppm(const std::string &name) { Fbuf->dump_as_ppm(name); }
@@ -242,7 +242,7 @@ public:
                             }
                         }
                         float b0 = w0, b1 = w1, b2 = w2;
-                        RGB total_color = {0, 0, 0};
+                        math::Vec3f total_color = {0, 0, 0};
                         for (auto elem : pixel_samples) {
                             b0 = elem.x, b1 = elem.y, b2 = elem.z;
                             b0 *= total_area_inv;

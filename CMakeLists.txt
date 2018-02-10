@@ -36,7 +36,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${bench_flags}")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
 if ("${CMAKE_RELEASE_TYPE}" STREQUAL "DEBUG")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${bench_flags}")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${bench_flags} -DALPHA_DEBUG")
 endif()
 
 
@@ -54,6 +54,7 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/code)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/bench)
+add_subdirectory(${PROJECT_SOURCE_DIR}/spike/test)
 
 # Configure Catch.
 set(CATCH_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/thirdparty/include/catch)

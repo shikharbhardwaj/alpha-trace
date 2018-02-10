@@ -6,6 +6,9 @@
 #include <alpha/rasteriser.hpp>
 #include <alpha/camera.hpp>
 #include <alpha/math.hpp>
+
+using namespace alpha;
+
 int render_triangle::id = 0;
 const int width = 2 * 640, height = 2 * 480, z_near = 1, z_far = 1000,
           focal_length = 20;

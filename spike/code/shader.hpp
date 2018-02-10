@@ -1,12 +1,14 @@
 #include "cow.hpp"
+#include <alpha/buffers.hpp>
 #include <alpha/math.hpp>
+
 typedef struct render_triangle {
     using Vec3f = alpha::math::Vec3f;
     using Vec2f = alpha::math::Vec2f;
     static int id;
 
-    Vec3f operator()(float b0, float b1, float b2, float z, Vec3f v0_cam,
-                     Vec3f v1_cam, Vec3f v2_cam) {
+    alpha::buffers::RGB operator()(float b0, float b1, float b2, float z,
+        Vec3f v0_cam, Vec3f v1_cam, Vec3f v2_cam) {
         alpha::math::Vec2f st0 = st[stindices[id * 3]];
         alpha::math::Vec2f st1 = st[stindices[id * 3 + 1]];
         alpha::math::Vec2f st2 = st[stindices[id * 3 + 2]];
@@ -26,13 +28,13 @@ typedef struct render_triangle {
         view_dir.normalize();
         float n_dot_alpha = normal.dot_product(view_dir);
         if (n_dot_alpha < 0.f) {
-            return Vec3f(0, 0, 0);
+            return alpha::buffers::RGB(0, 0, 0);
         }
         // Culling threshold = 0.5deg
         const float back_face_culling_threshold = 0.99996192306;
         if (n_dot_alpha / (normal.length() * view_dir.length()) >
             back_face_culling_threshold) {
-            return Vec3f(0, 0, 0);
+            return alpha::buffers::RGB(0, 0, 0);
         }
         // This is the value of "intensity" ratio, which is to
         // be multiplied with the original color at the point to
@@ -40,11 +42,11 @@ typedef struct render_triangle {
         // perspective
 
         // Generate the checkerboard pattern
-        const int M = 100;
+        const int M = 10;
         float checker =
             (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
         float c = 0.3 * (1 - checker) + 0.7 * checker;
-        return Vec3f(255 * c * n_dot_alpha, 255 * c * n_dot_alpha,
+        return alpha::buffers::RGB(255 * c * n_dot_alpha, 255 * c * n_dot_alpha,
                      255 * c * n_dot_alpha);
     }
 } render_triangle;

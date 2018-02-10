@@ -21,72 +21,79 @@
 #include <memory>
 #include <vector>
 
+#include <alpha/math.hpp>
+
+namespace alpha {
+namespace buffers {
+
+using RGB = alpha::math::Vec3<uint8_t>;
+
 class Zbuffer {
-    std::vector<float> depth_buffer;
-    uint32_t width, height;
+  std::vector<float> depth_buffer;
+  uint32_t width, height;
 
-public:
-    Zbuffer() = delete;
+  public:
+  Zbuffer() = delete;
 
-    Zbuffer(uint32_t w, uint32_t h, float far) : width(w), height(h) {
-        depth_buffer.assign(w * h, far);
+  Zbuffer(uint32_t w, uint32_t h, float far) : width(w), height(h) {
+    depth_buffer.assign(w * h, far);
+  }
+
+  void set(uint32_t x, uint32_t y, float z) {
+    depth_buffer[y * width + x] = z;
+  }
+
+  float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }
+
+  void dump_as_ppm(const std::string &name) {
+    std::ofstream file_h(name, std::fstream::binary);
+    file_h << "P6 " << width << " " << height << " " << 255 << " ";
+    for (auto elem : depth_buffer) {
+      // Map range [1, 1000] to [0, 255]
+      elem = (elem - 1) * 0.255f;
+      uint8_t print = std::round(elem);
+      file_h << print << print << print;
     }
-
-    void set(uint32_t x, uint32_t y, float z) {
-        depth_buffer[y * width + x] = z;
-    }
-
-    float get(uint32_t x, uint32_t y) { return depth_buffer[y * width + x]; }
-
-    void dump_as_ppm(const std::string &name) {
-        std::ofstream file_h(name, std::fstream::binary);
-        file_h << "P6 " << width << " " << height << " " << 255 << " ";
-        for (auto elem : depth_buffer) {
-            // Map range [1, 1000] to [0, 255]
-            elem = (elem - 1) * 0.255f;
-            uint8_t print = std::round(elem);
-            file_h << print << print << print;
-        }
-        file_h.close();
-    }
+    file_h.close();
+  }
 };
 
 class Imagebuffer {
-    std::unique_ptr<uint8_t> buffer;
-    uint32_t width, height;
+  std::unique_ptr<RGB> buffer;
+  uint32_t width, height;
 
-public:
-    int col_space;
+  public:
+  int col_space;
 
-    Imagebuffer() = delete;
+  Imagebuffer() = delete;
 
-    Imagebuffer(uint32_t w, uint32_t h, int space = 255)
-            : width(w), height(h), col_space(space) {
-        buffer = std::unique_ptr<uint8_t>(new uint8_t[width * height * 3]);
+  Imagebuffer(uint32_t w, uint32_t h, int space = 255)
+    : width(w), height(h), col_space(space) {
+      buffer = std::unique_ptr<RGB>(new RGB[width * height]);
     }
 
-    void clear() {
-      memset(buffer.get(), 0, width * height * 3);
-    }
+  void clear() {
+    memset(buffer.get(), 0, width * height * sizeof(RGB));
+  }
 
-    void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {
-        buffer.get()[y * width + 3 * x] = r;
-        buffer.get()[y * width + 3 * (x + 1)] = g;
-        buffer.get()[y * width + 3 * (x + 2)] = b;
-    }
+  void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {
+    buffer.get()[y * width + x][0] = r;
+    buffer.get()[y * width + x][1] = g;
+    buffer.get()[y * width + x][2] = b;
+  }
 
-    void dump_as_ppm(const std::string &name) {
-        std::ofstream file_h(name, std::fstream::binary);
-        file_h << "P6 " << width << " " << height << " " << col_space << " ";
-        for(uint32_t i = 0; i < height; ++i) {
-          for(uint32_t j = 0; j < width; ++j) {
-            file_h << buffer.get()[i * width + 3 * j];
-            file_h << buffer.get()[i * width + 3 * (j + 1)];
-            file_h << buffer.get()[i * width + 3 * (j + 2)];
-          }
-        }
-        file_h.close();
+  void dump_as_ppm(const std::string &name) {
+    std::ofstream file_h(name, std::fstream::binary);
+    file_h << "P6 " << width << " " << height << " " << col_space << " ";
+    for(auto *i = buffer.get(); i != buffer.get() + width * height;
+        ++i) {
+      file_h << (*i)[0] << (*i)[1] << (*i)[2];
     }
+    file_h.close();
+  }
 };
+
+} // namespace buffers
+} // namespace alpha
 
 #endif
