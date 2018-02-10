@@ -19,7 +19,7 @@ auto cam_inst = std::make_shared<alpha::Camera>(
         {-1.63871, -5.747777, -40.400412, 1},
     });
 render_triangle renderer;
-alpha::Rasteriser<render_triangle> rast(cam_inst, renderer, 255);
+alpha::Rasteriser<render_triangle> rast(cam_inst, renderer);
 // Render the cow for me
 const int num_tris = 3156;
 int main() {

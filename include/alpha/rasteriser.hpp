@@ -53,14 +53,13 @@ private:
 public:
     Rasteriser() = delete;
 
-    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f = Shader(),
-               int col_space = 255) {
+    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f = Shader()) {
         cam = std::move(cam_inst);
         render_triangle = std::move(f);
         width = cam->img_width;
         height = cam->img_height;
         Fbuf = std::unique_ptr<Imagebuffer>(
-                new Imagebuffer(width, height, col_space));
+                new Imagebuffer(width, height));
         Zbuf = std::unique_ptr<Zbuffer>(
                 new Zbuffer(width, height, cam->get_far_clipping_plain()));
     }

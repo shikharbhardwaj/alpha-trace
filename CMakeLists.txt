@@ -27,10 +27,17 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(bench_flags "/Oy- -DEBUG")
 endif()
 
+set(bench_flags "-O3 -fno-rtti -fno-omit-frame-pointer -g")
+
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${warnings}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
+
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${bench_flags}")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+
+if ("${CMAKE_RELEASE_TYPE}" STREQUAL "DEBUG")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${bench_flags}")
+endif()
 
 
 # Configure sources, includes and libs
