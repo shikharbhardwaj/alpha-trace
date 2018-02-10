@@ -36,7 +36,6 @@ int main() {
         renderer.id++;
     }
     auto t2 = high_resolution_clock::now();
-    std::cout << "Total wall time : "
-              << duration_cast<milliseconds>(t2 - t1).count() << "ms\n";
-    rast.dump_as_ppm("test.ppm");
+    std::cout << duration_cast<milliseconds>(t2 - t1).count() << "\n";
+    //rast.dump_as_ppm("test.ppm");
 }

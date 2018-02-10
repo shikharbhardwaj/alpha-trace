@@ -60,9 +60,10 @@ class Zbuffer {
 
 class Imagebuffer {
   std::unique_ptr<RGB> buffer;
+  RGB* bptr;
   uint32_t width, height;
 
-  public:
+ public:
   int col_space;
 
   Imagebuffer() = delete;
@@ -70,23 +71,23 @@ class Imagebuffer {
   Imagebuffer(uint32_t w, uint32_t h, int space = 255)
     : width(w), height(h), col_space(space) {
       buffer = std::unique_ptr<RGB>(new RGB[width * height]);
+      bptr = buffer.get();
     }
 
   void clear() {
-    memset(buffer.get(), 0, width * height * sizeof(RGB));
+    memset(bptr, 0, width * height * sizeof(RGB));
   }
 
   void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {
-    buffer.get()[y * width + x][0] = r;
-    buffer.get()[y * width + x][1] = g;
-    buffer.get()[y * width + x][2] = b;
+    bptr[y * width + x][0] = r;
+    bptr[y * width + x][1] = g;
+    bptr[y * width + x][2] = b;
   }
 
   void dump_as_ppm(const std::string &name) {
     std::ofstream file_h(name, std::fstream::binary);
     file_h << "P6 " << width << " " << height << " " << col_space << " ";
-    for(auto *i = buffer.get(); i != buffer.get() + width * height;
-        ++i) {
+    for(auto *i = bptr; i != bptr + width * height; ++i) {
       file_h << (*i)[0] << (*i)[1] << (*i)[2];
     }
     file_h.close();
