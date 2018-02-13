@@ -48,7 +48,7 @@ typedef struct render_triangle {
         const int M = 10;
         float checker =
             static_cast<float>((fmod(st_cam.x * M, 1.0) > 0.5) ^ (fmod(st_cam.y * M, 1.0) < 0.5));
-        uint8_t c = static_cast<uint8_t>((0.3f * (1 - checker) + 0.7f * checker) * n_dot_alpha);
-        return alpha::buffers::RGB(255 * c, 255 * c, 255 * c);
+        uint8_t c = static_cast<uint8_t>((0.3f * (1 - checker) + 0.7f * checker) * n_dot_alpha * 255);
+        return alpha::buffers::RGB(c, c, c);
     }
 } render_triangle;
