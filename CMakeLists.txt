@@ -13,32 +13,25 @@ include(CTest)
 enable_testing()
 
 # Set flags according to the toolchain.
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
-    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(warnings "-Wall -Werror -Wextra -std=c++14 -pthread")
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    set(warnings "/W4 /WX /EHsc")
+if (WIN32)
+  # We are compling on Windows.
+  if (MSVC)
+    set(project_flags "/W4 /WX /EHs /openmp /Ox")
+    set(debug_flags "/Oy-")
+  endif()
+elseif(UNIX)
+  # Yay! Everything is sane.
+  set(project_flags "-Wall -Werror -Wextra -std=c++14 -pthread -fopenmp -O3")
+  set(debug_flags "-fno-rtti -fno-omit-frame-pointer -g")
 endif()
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
-    "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-    set(bench_flags "-O3 -fno-rtti -fno-omit-frame-pointer -g")
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    set(bench_flags "/Oy- -DEBUG")
+set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${project_flags}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${project_flags}")
+
+if (${CMAKE_RELEASE_TYPE} STREQUAL "DEBUG")
+  set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${debug_flags}")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${debug_flags}")
 endif()
-
-set(bench_flags "-O3 -fno-rtti -fno-omit-frame-pointer -g")
-
-set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${warnings}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${warnings}")
-
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${bench_flags}")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-
-if ("${CMAKE_RELEASE_TYPE}" STREQUAL "DEBUG")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${bench_flags} -DALPHA_DEBUG")
-endif()
-
 
 # Configure sources, includes and libs
 # Add the include directory
