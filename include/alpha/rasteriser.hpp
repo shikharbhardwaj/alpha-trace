@@ -15,6 +15,7 @@
 
 #include <fstream>
 #include <memory>
+#include <algorithm>
 
 #include "math.hpp"
 #include "buffers.hpp"
@@ -53,8 +54,8 @@ private:
 public:
     Rasteriser() = delete;
 
-    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f = Shader()) {
-        cam = std::move(cam_inst);
+    Rasteriser(std::shared_ptr<Camera> _cam_inst, Shader f = Shader()) {
+        cam = _cam_inst;
         render_triangle = std::move(f);
         width = cam->img_width;
         height = cam->img_height;

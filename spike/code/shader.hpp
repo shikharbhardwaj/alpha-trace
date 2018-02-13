@@ -17,12 +17,13 @@ typedef struct render_triangle {
         float z1 = -z / v1_cam.z;
         float z2 = -z / v2_cam.z;
 
-        Vec2f st = st0 * b0 * z0 + st1 * b1 * z1 + st2 * b2 * z2;
+        Vec2f st_cam = st0 * b0 * z0 + st1 * b1 * z1 + st2 * b2 * z2;
 
         float px = (v0_cam.x / -v0_cam.z) * b0 + (v1_cam.x / -v1_cam.z) * b1 +
                    (v2_cam.x / -v2_cam.z) * b2;
         float py = (v0_cam.y / -v0_cam.z) * b0 + (v1_cam.y / -v1_cam.z) * b1 +
                    (v2_cam.y / -v2_cam.z) * b2;
+
         auto normal = (v1_cam - v0_cam).cross_product(v2_cam - v0_cam);
         normal.normalize();
 
@@ -46,9 +47,8 @@ typedef struct render_triangle {
         // Generate the checkerboard pattern
         const int M = 10;
         float checker =
-            (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
-        float c = 0.3 * (1 - checker) + 0.7 * checker;
-        return alpha::buffers::RGB(255 * c * n_dot_alpha, 255 * c * n_dot_alpha,
-                     255 * c * n_dot_alpha);
+            static_cast<float>((fmod(st_cam.x * M, 1.0) > 0.5) ^ (fmod(st_cam.y * M, 1.0) < 0.5));
+        uint8_t c = static_cast<uint8_t>((0.3f * (1 - checker) + 0.7f * checker) * n_dot_alpha);
+        return alpha::buffers::RGB(255 * c, 255 * c, 255 * c);
     }
 } render_triangle;

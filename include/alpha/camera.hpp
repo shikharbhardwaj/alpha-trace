@@ -49,14 +49,14 @@ public:
                film_aperture_height >> near_clipping_plain >> far_clipping_plain >>
                focal_length;
         if (column_major) {
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (uint8_t i = 0; i < 4; i++) {
+                for (uint8_t j = 0; j < 4; j++) {
                     handle >> world_to_cam[j][i];
                 }
             }
         } else {
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (uint8_t i = 0; i < 4; i++) {
+                for (uint8_t j = 0; j < 4; j++) {
                     handle >> world_to_cam[i][j];
                 }
             }
@@ -113,7 +113,8 @@ public:
         bottom = -top;
         left = -right;
 
-        fov = 2.f * 180.f / M_PI * atan((right / near_clipping_plain));
+        fov = static_cast<float>(2.f * 180.f / M_PI * atan((right / near_clipping_plain)));
+
         compute_projection_matrix(film_aspect_ratio);
 #ifdef ALPHA_DEBUG
         print_info();
@@ -125,8 +126,8 @@ public:
         std::cout << "Screen co-ords : " << top << "x" << right << std::endl;
         std::cout << "Img_dims" << img_width << "x" << img_height << std::endl;
         std::cout << "Matrix : " << std::endl;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (uint8_t i = 0; i < 4; i++) {
+            for (uint8_t j = 0; j < 4; j++) {
                 std::cout << world_to_cam[i][j] << "  ";
             }
             std::cout << std::endl;
