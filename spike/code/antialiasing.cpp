@@ -28,6 +28,7 @@ const int num_tris = 3156;
 int main() {
     using namespace std::chrono;
     auto t1 = high_resolution_clock::now();
+
     for (int i = 0; i < num_tris; i++) {
         const alpha::math::Vec3f &v0 = vertices[nvertices[i * 3]];
         const alpha::math::Vec3f &v1 = vertices[nvertices[i * 3 + 1]];
@@ -35,7 +36,8 @@ int main() {
         rast.draw_triangle(v0, v1, v2);
         renderer.id++;
     }
+
     auto t2 = high_resolution_clock::now();
     std::cout << duration_cast<milliseconds>(t2 - t1).count() << "\n";
-    //rast.dump_as_ppm("test.ppm");
+    rast.dump_as_ppm("test.ppm");
 }

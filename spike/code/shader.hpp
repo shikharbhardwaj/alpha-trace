@@ -34,10 +34,10 @@ typedef struct render_triangle {
             return alpha::buffers::RGB(0, 0, 0);
         }
         // Culling threshold = 0.5deg
-        //const float back_face_culling_threshold = 0.99996192306;
-        //if (n_dot_alpha > back_face_culling_threshold) {
-            //return alpha::buffers::RGB(0, 0, 0);
-        //}
+        const float back_face_culling_threshold = 0.99996192306;
+        if (n_dot_alpha > back_face_culling_threshold) {
+            return alpha::buffers::RGB(0, 0, 0);
+        }
         // This is the value of "intensity" ratio, which is to
         // be multiplied with the original color at the point to
         // obtain the final shade, when viewed at the current
