@@ -33,7 +33,7 @@ int main() {
         const alpha::math::Vec3f &v0 = vertices[nvertices[i * 3]];
         const alpha::math::Vec3f &v1 = vertices[nvertices[i * 3 + 1]];
         const alpha::math::Vec3f &v2 = vertices[nvertices[i * 3 + 2]];
-        rast.draw_triangle(v0, v1, v2);
+		rast.draw_triangle_16xAA(v0, v1, v2);
         renderer.id++;
     }
 

@@ -30,17 +30,11 @@ typedef struct render_triangle {
         Vec3f view_dir(-px * z, -py * z, z);
         view_dir.normalize();
 
-        float n_dot_alpha = std::max(normal.dot_product(view_dir), 0.f);
-		// Simpler code paths are better.
-		/*
-        if (n_dot_alpha < 0.f) {
-            return alpha::buffers::RGB(0, 0, 0);
-        }
-		*/
         // This is the value of "intensity" ratio, which is to
         // be multiplied with the original color at the point to
         // obtain the final shade, when viewed at the current
         // perspective
+        float n_dot_alpha = std::max(normal.dot_product(view_dir), 0.f);
 
         // Culling threshold = 0.5deg
         const float back_face_culling_threshold = 0.99996192306f;

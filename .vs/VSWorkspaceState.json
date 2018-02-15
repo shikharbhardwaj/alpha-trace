@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\include",
     "\\include\\alpha",
-    "\\spike",
     "\\spike\\code"
   ],
-  "SelectedNode": "\\spike\\code\\antialiasing.cpp",
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }
