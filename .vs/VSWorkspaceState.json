@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\include",
-    "\\include\\alpha"
+    "\\include\\alpha",
+    "\\spike",
+    "\\spike\\code"
   ],
+  "SelectedNode": "\\spike\\code\\antialiasing.cpp",
   "PreviewInSolutionExplorer": false
 }
