@@ -13,7 +13,9 @@
 #ifndef MATH_ALPHA_HPP
 #define MATH_ALPHA_HPP
 
+#include <cassert>
 #include <cmath>
+#include <cstring>
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -135,6 +137,10 @@ public:
         y *= r;
         z *= r;
         return *this;
+    }
+
+    bool operator==(const Vec3& rhs) const {
+        return x == rhs.x && y == rhs.y &&  z == rhs.z;
     }
 
     T dot_product(const Vec3& v) const {
@@ -325,20 +331,20 @@ public:
     Matrix44() {}
 
     // Initialize with braces
-    Matrix44(std::initializer_list<std::initializer_list<T>> xs) {
-        size_t r = 0, c = 0;
-        for (auto row : xs) {
-            for (auto elem : row) {
-                x[r][c++] = elem;
+    Matrix44(std::initializer_list<T> xs) {
+        auto it = xs.begin();
+        for(size_t r = 0; r < 4; ++r) {
+            for (size_t c = 0; c < 4; ++c) {
+                x[r][c] = *it;
+                ++it;
             }
-            r++, c = 0;
         }
     }
 
     // Initialize with identity matrix.
     void eye() {
         memset(x, 0, sizeof(x));
-        x[0][0] = x[1][1] = x[2][2] = x[3][3] = 0;
+        x[0][0] = x[1][1] = x[2][2] = x[3][3] = 1;
     }
 
     friend void swap(Matrix44 &first, Matrix44 &second) {
@@ -365,7 +371,7 @@ public:
         return tmp;
     }
 
-    bool operator==(const Matrix44 &lhs) {
+    bool operator==(const Matrix44 &lhs) const {
         bool equal = true;
 
         for (uint8_t i = 0; i < 4 && equal; i++) {
@@ -461,10 +467,10 @@ public:
 
     // \brief transpose itself
     Matrix44 &transpose() {
-        Matrix44 tmp{{x[0][0], x[1][0], x[2][0], x[3][0]},
-                     {x[0][1], x[1][1], x[2][1], x[3][1]},
-                     {x[0][2], x[1][2], x[2][2], x[3][2]},
-                     {x[0][3], x[1][3], x[2][3], x[3][3]}};
+        Matrix44 tmp{x[0][0], x[1][0], x[2][0], x[3][0],
+                     x[0][1], x[1][1], x[2][1], x[3][1],
+                     x[0][2], x[1][2], x[2][2], x[3][2],
+                     x[0][3], x[1][3], x[2][3], x[3][3]};
         *this = tmp;
 
         return *this;
