@@ -56,7 +56,7 @@ class Zbuffer {
       // Map range [1, 1000] to [0, 255]
       float elem = depth_buffer.get()[i];
       elem = (elem - 1) * 0.255f;
-      uint8_t print = std::round(elem);
+      uint8_t print = static_cast<uint8_t>(std::round(elem));
       file_h << print << print << print;
     }
     file_h.close();

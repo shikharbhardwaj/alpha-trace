@@ -15,6 +15,7 @@
 
 #include <fstream>
 #include <memory>
+#include <algorithm>
 
 #include "math.hpp"
 #include "buffers.hpp"
@@ -53,8 +54,8 @@ private:
 public:
     Rasteriser() = delete;
 
-    Rasteriser(std::shared_ptr<Camera> cam_inst, Shader f = Shader()) {
-        cam = std::move(cam_inst);
+    Rasteriser(std::shared_ptr<Camera> _cam_inst, Shader f = Shader()) {
+        cam = _cam_inst;
         render_triangle = std::move(f);
         width = cam->img_width;
         height = cam->img_height;
@@ -220,40 +221,41 @@ public:
                         Zbuf->set(x, y, z);
                         std::vector<Point> pixel_samples(16);
                         // Use 16 samples per pixel
-                        pixel_samples[0].x = w0 + 3.0 / 8 * a12 + 3.0 / 8 * b12;
-                        pixel_samples[0].y = w1 + 3.0 / 8 * a20 + 3.0 / 8 * b20;
-                        pixel_samples[0].z = w2 + 3.0 / 8 * a01 + 3.0 / 8 * b01;
+                        pixel_samples[0].x = w0 + 3.f / 8 * a12 + 3.f / 8 * b12;
+                        pixel_samples[0].y = w1 + 3.f / 8 * a20 + 3.f / 8 * b20;
+                        pixel_samples[0].z = w2 + 3.f / 8 * a01 + 3.f / 8 * b01;
                         for (int i = 1; i < 4; i++) {
                             pixel_samples[4 * i].x =
-                                    pixel_samples[4 * (i - 1)].x - 0.25 * b12;
+                                    pixel_samples[4 * (i - 1)].x - 0.25f * b12;
                             pixel_samples[4 * i].y =
-                                    pixel_samples[4 * (i - 1)].y - 0.25 * b20;
+                                    pixel_samples[4 * (i - 1)].y - 0.25f * b20;
                             pixel_samples[4 * i].z =
-                                    pixel_samples[4 * (i - 1)].z - 0.25 * b01;
+                                    pixel_samples[4 * (i - 1)].z - 0.25f * b01;
                         }
                         for (int i = 0; i < 4; i++) {
                             for (int j = 1; j < 4; j++) {
                                 pixel_samples[4 * i + j].x =
-                                        pixel_samples[4 * i + j - 1].x - 0.25 * a12;
+                                        pixel_samples[4 * i + j - 1].x - 0.25f * a12;
                                 pixel_samples[4 * i + j].y =
-                                        pixel_samples[4 * i + j - 1].y - 0.25 * a20;
+                                        pixel_samples[4 * i + j - 1].y - 0.25f * a20;
                                 pixel_samples[4 * i + j].z =
-                                        pixel_samples[4 * i + j - 1].z - 0.25 * a01;
+                                        pixel_samples[4 * i + j - 1].z - 0.25f * a01;
                             }
                         }
                         float b0 = w0, b1 = w1, b2 = w2;
-                        math::Vec3f total_color = {0, 0, 0};
+                        alpha::math::Vec3f total_color  = {0, 0, 0};
                         for (auto elem : pixel_samples) {
                             b0 = elem.x, b1 = elem.y, b2 = elem.z;
                             b0 *= total_area_inv;
                             b1 *= total_area_inv;
                             b2 *= total_area_inv;
-                            auto col = render_triangle(b0, b1, b2, z, v0_cam,
-                                                       v1_cam, v2_cam);
-                            total_color = total_color + col;
+							auto col = render_triangle(b0, b1, b2, z, v0_cam, v1_cam, v2_cam);
+							alpha::math::Vec3f sample_col = { col.x / 16.f, col.y / 16.f, col.z / 16.f };
+                            total_color = total_color + sample_col;
                         }
-                        Fbuf->set(x, y, total_color.x / 16, total_color.y / 16,
-                                  total_color.z / 16);
+						Fbuf->set(x, y, static_cast<uint8_t>(total_color.x),
+							static_cast<uint8_t>(total_color.y),
+							static_cast<uint8_t>(total_color.z));
                     }
                 }
                 w0 -= a12;
