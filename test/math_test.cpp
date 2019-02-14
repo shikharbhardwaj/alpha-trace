@@ -197,4 +197,67 @@ TEST_CASE("Testing Vec2", "[Vec2]") {
 }
 
 TEST_CASE("Testing Mat44", "[Mat44]") {
+    const alpha::math::Matrix44f magic({2, 7, 6, 0, 9, 5, 1, 0, 4, 3, 8, 0, 0,
+                                  0, 0, 0});
+    const alpha::math::Matrix44f idx({0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                                 13, 14, 15});
+    const alpha::math::Matrix44f I({1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                                 0, 0, 1});
+
+    SECTION("Test sequence init") {
+        alpha::math::Matrix44f test({1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                0, 0, 1});
+
+        REQUIRE(test == I);
+    }
+
+    SECTION("Test eye()") {
+        alpha::math::Matrix44f test;
+
+        REQUIRE(test == I);
+    }
+
+    SECTION("Test operator==") {
+        alpha::math::Matrix44f test;
+
+        REQUIRE(test == test);
+    }
+
+    SECTION("Test matrix multiplication") {
+        alpha::math::Matrix44f res;
+        alpha::math::Matrix44f::multiply(magic, I, res);
+
+        REQUIRE(magic == res);
+    }
+
+    SECTION("Test matrix transpose") {
+        auto test = idx;
+        test.transpose();
+
+        for(int i = 0; i < 4; ++i) {
+            for(int j = 0; j < 4; ++j) {
+                REQUIRE(test[i][j] == j * 4 + i);
+            }
+        }
+    }
+
+    SECTION("Test matrix-point affine transformation") {
+        // TODO: Better understand these transformations to
+        // create a more meaningful test.
+        alpha::math::Vec3f vec(1, 2, 3);
+        alpha::math::Vec3f ans;
+
+        I.mult_vec_matrix(vec, ans);
+
+        REQUIRE(ans == vec);
+    }
+
+    SECTION("Test matrix-direction transformation") {
+        alpha::math::Vec3f vec(1, 2, 3);
+        alpha::math::Vec3f ans;
+
+        I.mult_vec_matrix(vec, ans);
+
+        REQUIRE(ans == vec);
+    }
 }
