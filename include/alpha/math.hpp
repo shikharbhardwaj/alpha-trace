@@ -14,6 +14,7 @@
 #define MATH_ALPHA_HPP
 
 #include <cmath>
+#include <cstring>
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -343,7 +344,7 @@ public:
     // Initialize with identity matrix.
     void eye() {
         memset(x, 0, sizeof(x));
-        x[0][0] = x[1][1] = x[2][2] = x[3][3] = 0;
+        x[0][0] = x[1][1] = x[2][2] = x[3][3] = 1;
     }
 
     friend void swap(Matrix44 &first, Matrix44 &second) {
