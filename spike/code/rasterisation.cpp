@@ -11,13 +11,15 @@ int render_triangle::id = 0;
 const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,
           focal_length = 20;
 const float aperture_width = 0.980, aperture_height = 0.735;
+alpha::math::Matrix44f world2cam(
+    {0.707107, -0.331295, 0.624695, 0,
+    -0.707107, -0.331295, 0.624695, 0,
+    -1.63871, -5.747777, -40.400412, 1,
+    0, 0, 0, 1});
+
 auto cam_inst = std::make_shared<alpha::Camera>(
     width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
-    std::initializer_list<std::initializer_list<float>>{
-        {0.707107, -0.331295, 0.624695, 0},
-        {-0.707107, -0.331295, 0.624695, 0},
-        {-1.63871, -5.747777, -40.400412, 1},
-        {0, 0, 0, 1}});
+    world2cam);
 render_triangle renderer;
 alpha::Rasteriser<render_triangle> rast(cam_inst);
 // Render the cow for me
