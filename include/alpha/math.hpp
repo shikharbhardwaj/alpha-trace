@@ -144,6 +144,10 @@ public:
         return *this;
     }
 
+    bool operator==(const Vec3& rhs) const {
+        return x == rhs.x && y == rhs.y &&  z == rhs.z;
+    }
+
     T dot_product(const Vec3& v) const {
         return x * v.x + y * v.y + z * v.z;
     }
@@ -334,6 +338,7 @@ public:
     // Initialize with braces
     Matrix44(std::initializer_list<T> xs) {
         assert(xs.size() == 16);
+
         auto it = xs.begin();
         for(size_t r = 0; r < 4; ++r) {
             for (size_t c = 0; c < 4; ++c) {
@@ -373,7 +378,7 @@ public:
         return tmp;
     }
 
-    bool operator==(const Matrix44 &lhs) {
+    bool operator==(const Matrix44 &lhs) const {
         bool equal = true;
 
         for (uint8_t i = 0; i < 4 && equal; i++) {
