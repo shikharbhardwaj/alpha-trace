@@ -213,6 +213,7 @@ TEST_CASE("Testing Mat44", "[Mat44]") {
 
     SECTION("Test eye()") {
         alpha::math::Matrix44f test;
+        test.eye();
 
         REQUIRE(test == I);
     }
