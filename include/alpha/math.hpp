@@ -337,6 +337,8 @@ public:
 
     // Initialize with braces
     Matrix44(std::initializer_list<T> xs) {
+        assert(xs.size() == 16);
+
         auto it = xs.begin();
         for(size_t r = 0; r < 4; ++r) {
             for (size_t c = 0; c < 4; ++c) {
