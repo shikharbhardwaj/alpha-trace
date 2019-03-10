@@ -1,5 +1,5 @@
 ## Alpha trace
-![Software emulation of vision](http://shikharbhardwaj.me/img/alpha-trace.png)
+![Software emulation of vision](https://raw.githubusercontent.com/shikharbhardwaj/alpha-trace/master/spike/art/logo.png)
 <br>
 A raytracer written in C++ 
 
