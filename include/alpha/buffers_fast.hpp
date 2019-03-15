@@ -21,6 +21,9 @@
 #include <memory>
 #include <vector>
 
+namespace alpha {
+namespace buffers {
+
 class Zbuffer {
 private:
     std::vector<float> depth_buffer;
@@ -64,7 +67,7 @@ public:
 
     Imagebuffer(uint32_t w, uint32_t h)
             : width(w), height(h) {
-      buffer = std::unique_ptr<uint8_t>(new uint8_t[w * h * 3]);
+      buffer = std::unique_ptr<uint8_t>(new uint8_t[width * height * 3]);
       clear();
     }
 
@@ -74,11 +77,23 @@ public:
 
     void set(uint32_t x, uint32_t y, uint8_t r, uint8_t g, uint8_t b) {
         uint8_t* bptr = buffer.get();
-        bptr[y * width + 3 * x] = r;
-        bptr[y * width + 3 * x + 1] = g;
-        bptr[y * width + 3 * x + 2] = b;
+        bptr[3 * (y * width + x)] = r;
+        bptr[3 * (y * width + x) + 1] = g;
+        bptr[3 * (y * width + x) + 2] = b;
     }
 
+    uint8_t* get(uint32_t x, uint32_t y) {
+        uint8_t* bptr = buffer.get();
+        return &bptr[3 * (y * width + x)];
+    }
+
+    void dump_to_stream(std::ostream& ss) {
+        ss << "P6 " << width << " " << height << " " << col_space << "\n";
+        for (uint8_t *i = buffer.get(); i != buffer.get() + width * height * 3;
+             ++i) {
+            ss << *i;
+        }
+    }
     void dump_as_ppm(const std::string &name) {
         std::ofstream file_h(name, std::fstream::binary);
         file_h << "P6 " << width << " " << height << " " << col_space << "\n";
@@ -89,5 +104,8 @@ public:
         file_h.close();
     }
 };
+
+} // namespace buffers
+} // namespace alpha
 
 #endif

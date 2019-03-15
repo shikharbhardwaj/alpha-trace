@@ -87,6 +87,18 @@ class Imagebuffer {
     buffer.get()[y * width + x][2] = b;
   }
 
+  RGB& get(int x, int y) {
+    return buffer.get()[y * width + x];
+  }
+
+  void dump_to_stream(std::ostream& ss) {
+    // std::ofstream file_h(name, std::fstream::binary);
+    ss << "P6 " << width << " " << height << " " << col_space << " ";
+    for(auto *i = buffer.get(); i != buffer.get() + width * height; ++i) {
+      ss << (*i)[0] << (*i)[1] << (*i)[2];
+    }
+  }
+
   void dump_as_ppm(const std::string &name) {
     std::ofstream file_h(name, std::fstream::binary);
     file_h << "P6 " << width << " " << height << " " << col_space << " ";

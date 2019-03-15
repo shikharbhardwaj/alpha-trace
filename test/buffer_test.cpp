@@ -72,7 +72,7 @@ TEST_CASE("Testing Imagebuffer", "[Imgbuffer]") {
         REQUIRE(w == 1920);
         REQUIRE(h == 1080);
         REQUIRE(color == 255);
-        
+
         out.ignore();
 
         for(int y = 0; y < 1080; ++y) {
