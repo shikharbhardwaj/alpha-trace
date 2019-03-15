@@ -512,13 +512,13 @@ public:
     }
 
     Matrix44 inverse() {
-        int i, j, k;
+        uint8_t i, j, k;
         Matrix44 s;
         Matrix44 t(*this);
 
         // Forward elimination
         for (i = 0; i < 3; i++) {
-            int pivot = i;
+            uint8_t pivot = i;
 
             T pivotsize = t[i][i];
 

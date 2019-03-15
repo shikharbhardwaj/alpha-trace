@@ -235,9 +235,9 @@ TEST_CASE("Testing Mat44", "[Mat44]") {
         auto test = idx;
         test.transpose();
 
-        for(int i = 0; i < 4; ++i) {
-            for(int j = 0; j < 4; ++j) {
-                REQUIRE(test[i][j] == j * 4 + i);
+        for(uint8_t i = 0; i < 4; ++i) {
+            for(uint8_t j = 0; j < 4; ++j) {
+                REQUIRE(test[i][j] == j * 4.f + i);
             }
         }
     }

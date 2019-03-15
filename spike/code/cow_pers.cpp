@@ -27,8 +27,8 @@ int main() {
         0.0, 0.0, 0.0, 1.0});
     world_to_cam.invert();
     world_to_cam.transpose();
-    float aperture_width = 0.980, aperture_height = 0.735;
-    float z_near = 0.1, z_far = 100, focal_length = 35.f;
+    float aperture_width = 0.980f, aperture_height = 0.735f;
+    float z_near = 0.1f, z_far = 100, focal_length = 35.f;
     auto cam_inst = std::make_shared<alpha::Camera>(
         width, height, aperture_width, aperture_height, z_near, z_far,
         focal_length, world_to_cam);

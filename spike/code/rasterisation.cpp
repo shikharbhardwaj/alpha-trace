@@ -8,14 +8,14 @@
 #include <alpha/rasteriser.hpp>
 
 int render_triangle::id = 0;
-const int width = 4 * 640, height = 4 * 480, z_near = 1, z_far = 1000,
-          focal_length = 20;
-const float aperture_width = 0.980, aperture_height = 0.735;
+const int width = 4 * 640, height = 4 * 480;
+const float z_near = 1.f, z_far = 1000.f, focal_length = 20.f;
+const float aperture_width = 0.980f, aperture_height = 0.735f;
 alpha::math::Matrix44f world2cam(
-    {0.707107, -0.331295, 0.624695, 0,
-    -0.707107, -0.331295, 0.624695, 0,
-    -1.63871, -5.747777, -40.400412, 1,
-    0, 0, 0, 1});
+    {0.707107f, -0.331295f, 0.624695f, 0.f,
+    -0.707107f, -0.331295f, 0.624695f, 0.f,
+    -1.63871f, -5.747777f, -40.400412f, 1.f,
+    0.f, 0.f, 0.f, 1.f});
 
 auto cam_inst = std::make_shared<alpha::Camera>(
     width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
