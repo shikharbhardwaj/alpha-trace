@@ -4,6 +4,7 @@
 //
 #include <vector>
 #include <algorithm>
+#include <string>
 
 #include <alpha/camera.hpp>
 #include <alpha/rasteriser.hpp>

@@ -14,10 +14,10 @@ const int width = 2 * 640, height = 2 * 480;
 
 const float aperture_width = 0.980f, aperture_height = 0.735f, focal_length = 20, z_near = 1, z_far = 1000;
 alpha::math::Matrix44f world2cam(
-    {0.707107f, -0.331295f, 0.624695f, 0.f,
-    -0.707107f, -0.331295f, 0.624695f, 0.f,
-    -1.63871f, -5.747777f, -40.400412f, 1.f,
-    0.f, 0.f, 0.f, 1.f});
+	{ 0.707107f, -0.331295f, 0.624695f, 0.f,
+			0.f,  0.883452f, 0.468521f, 0.f,
+	 -0.707107f, -0.331295f, 0.624695f, 0.f,
+	  -1.53871f, -5.747777f, -40.400412f, 1.f });
 auto cam_inst = std::make_shared<alpha::Camera>(
     width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
     world2cam);
@@ -38,6 +38,6 @@ int main() {
     }
 
     auto t2 = high_resolution_clock::now();
-    std::cout << duration_cast<milliseconds>(t2 - t1).count() << "\n";
+    std::cout << "Time taken: " << duration_cast<milliseconds>(t2 - t1).count() << "\n";
 	  rast.dump_as_ppm("test.ppm");
 }

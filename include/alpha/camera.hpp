@@ -125,26 +125,31 @@ public:
         std::cout << "Field of view : " << fov << std::endl;
         std::cout << "Screen co-ords : " << top << "x" << right << std::endl;
         std::cout << "Img_dims" << img_width << "x" << img_height << std::endl;
-        std::cout << "Matrix : " << std::endl;
+        std::cout << "World2cam Matrix : " << std::endl;
         for (uint8_t i = 0; i < 4; i++) {
             for (uint8_t j = 0; j < 4; j++) {
                 std::cout << world_to_cam[i][j] << "  ";
             }
             std::cout << std::endl;
         }
+		std::cout << "Projection Matrix : " << std::endl;
+		for (uint8_t i = 0; i < 4; i++) {
+			for (uint8_t j = 0; j < 4; j++) {
+				std::cout << M_proj[i][j] << "  ";
+			}
+			std::cout << std::endl;
+		}
     }
 
     void compute_projection_matrix(float aspect) {
         float far = far_clipping_plain;
         float near = near_clipping_plain;
-        if (fov <= 0 || aspect == 0) {
-            assert(fov > 0 && aspect != 0);
-            return;
-        }
+
+        assert(fov > 0 && aspect != 0);
 
         float frustum_depth = far - near;
         float inv_depth = 1.f / frustum_depth;
-
+		M_proj.eye();
         M_proj[1][1] = 1.f / tan(0.5f * fov);
         M_proj[0][0] = M_proj[1][1] / aspect;
         M_proj[2][2] = far * inv_depth;
