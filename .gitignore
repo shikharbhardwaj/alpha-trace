@@ -3,3 +3,5 @@
 *.swo
 build*
 cmake-build*
+thirdparty*
+.vs/
