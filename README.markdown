@@ -1,4 +1,6 @@
 ## Alpha trace
+[![Build Status](https://travis-ci.org/shikharbhardwaj/alpha-trace.svg?branch=master)](https://travis-ci.org/shikharbhardwaj/alpha-trace)
+
 ![Software emulation of vision](https://raw.githubusercontent.com/shikharbhardwaj/alpha-trace/master/spike/art/logo.png)
 <br>
 A raytracer written in C++ 
