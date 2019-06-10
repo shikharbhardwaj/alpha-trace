@@ -44,14 +44,13 @@ class Rasteriser {
     using Point = math::Vec3f;
     using RGB = alpha::buffers::RGB;
 
-private:
+public:
     std::unique_ptr<buffers::Imagebuffer> Fbuf;
     std::unique_ptr<buffers::Zbuffer> Zbuf;
     std::shared_ptr<Camera> cam;
     Shader render_triangle;
     int width, height;
 
-public:
     Rasteriser() = delete;
 
     Rasteriser(std::shared_ptr<Camera> _cam_inst, Shader f = Shader()) {

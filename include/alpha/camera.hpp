@@ -34,10 +34,10 @@ private:
     float near_clipping_plain, far_clipping_plain;
     float focal_length;
     float top, bottom, left, right, fov;
-    math::Matrix44f world_to_cam;
     math::Matrix44f M_proj;
 
 public:
+    math::Matrix44f world_to_cam;
     uint32_t img_width, img_height;
 
     Camera() = delete;
@@ -122,23 +122,13 @@ public:
     }
 
     void print_info() {
-        std::cout << "Field of view : " << fov << std::endl;
-        std::cout << "Screen co-ords : " << top << "x" << right << std::endl;
-        std::cout << "Img_dims" << img_width << "x" << img_height << std::endl;
-        std::cout << "World2cam Matrix : " << std::endl;
-        for (uint8_t i = 0; i < 4; i++) {
-            for (uint8_t j = 0; j < 4; j++) {
-                std::cout << world_to_cam[i][j] << "  ";
-            }
-            std::cout << std::endl;
-        }
+        std::cout << "Field of view: " << fov << std::endl;
+        std::cout << "Screen co-ords: " << top << "x" << right << std::endl;
+        std::cout << "Image dimensions: " << img_width << "x" << img_height << std::endl;
+        std::cout << "World2cam Matrix: " << std::endl;
+		std::cout << world_to_cam << std::endl;
 		std::cout << "Projection Matrix : " << std::endl;
-		for (uint8_t i = 0; i < 4; i++) {
-			for (uint8_t j = 0; j < 4; j++) {
-				std::cout << M_proj[i][j] << "  ";
-			}
-			std::cout << std::endl;
-		}
+		std::cout << M_proj << std::endl;
     }
 
     void compute_projection_matrix(float aspect) {
@@ -180,6 +170,10 @@ public:
     void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster) {
         math::Vec3f v_cam;
         convert_to_raster(v_world, raster, v_cam);
+    }
+
+    void update_world2cam(const math::Matrix44f& new_world2cam) {
+        world_to_cam = new_world2cam;
     }
 };
 }

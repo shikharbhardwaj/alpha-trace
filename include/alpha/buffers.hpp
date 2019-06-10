@@ -31,14 +31,19 @@ using RGB = alpha::math::Vec3<uint8_t>;
 class Zbuffer {
   std::unique_ptr<float> depth_buffer;
   uint32_t width, height;
+  float far;
 
   public:
   Zbuffer() = delete;
 
-  Zbuffer(uint32_t w, uint32_t h, float far) : width(w), height(h) {
+  Zbuffer(uint32_t w, uint32_t h, float far) : width(w), height(h), far(far) {
     depth_buffer = std::unique_ptr<float>(new float[w * h]);
     for(uint32_t i = 0; i < width * height; ++i)
       depth_buffer.get()[i] = far;
+  }
+
+  void clear() {
+      std::fill(depth_buffer.get(), depth_buffer.get() + width * height, far);
   }
 
   void set(uint32_t x, uint32_t y, float z) {
