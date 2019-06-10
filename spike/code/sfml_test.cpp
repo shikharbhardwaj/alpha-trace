@@ -66,7 +66,8 @@ int main() {
         texture.update(pbuf);
     };
 
-    float delta = 0.5f;
+    float delta = 0.05f;
+    std::cout << cam_inst->M_proj << endl;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -87,35 +88,99 @@ int main() {
                     0.0000f, 0.0000f, 0.5000f, 0.0000f,
                     0.0000f, 0.0000f, 0.0000f, 1.0000f,
                 });
+                
+                alpha::math::Matrix44f rotatex_p({
+                    1.0000f,  0.0000f,  0.0000f,  0.0000f,
+                    0.0000f,  0.8660f,  0.5000f,  0.0000f,
+                    0.0000f, -0.5000f,  0.8660f,  0.0000f,
+                    0.0000f,  0.0000f,  0.0000f,  1.0000f,
+                });
+
+                alpha::math::Matrix44f rotatex_n({
+                    1.0000f,  0.0000f,  0.0000f,  0.0000f,
+                    0.0000f,  0.8660f, -0.5000f,  0.0000f,
+                    0.0000f,  0.5000f,  0.8660f,  0.0000f,
+                    0.0000f,  0.0000f,  0.0000f,  1.0000f,
+                });
+
+                alpha::math::Matrix44f rotatey_p({
+                    0.8660f,  0.0000f, -0.5000f,  0.0000f,
+                    0.0000f,  1.0000f,  0.0000f,  0.0000f,
+                    0.5000f,  0.0000f,  0.8660f,  0.0000f,
+                    0.0000f,  0.0000f,  0.0000f,  1.0000f,
+                });
+
+                alpha::math::Matrix44f rotatey_n({
+                    0.8660f,  0.0000f,  0.5000f,  0.0000f,
+                    0.0000f,  1.0000f,  0.0000f,  0.0000f,
+                   -0.5000f,  0.0000f,  0.8660f,  0.0000f,
+                    0.0000f,  0.0000f,  0.0000f,  1.0000f,
+                });
+
+                alpha::math::Matrix44f rotatez_p({
+                    0.8660f, -0.5000f, 0.0000f, 0.0000f,
+                    0.5000f, 0.8660f, 0.0000f, 0.0000f,
+                    0.0000f, 0.0000f, 1.0000f, 0.0000f,
+                    0.0000f, 0.0000f, 0.0000f, 1.0000f,
+                });
+
+                alpha::math::Matrix44f rotatez_n({
+                    0.8660f, 0.5000f, 0.0000f, 0.0000f,
+                    -0.5000f, 0.8660f, 0.0000f, 0.0000f,
+                    0.0000f, 0.0000f, 1.0000f, 0.0000f,
+                    0.0000f, 0.0000f, 0.0000f, 1.0000f,
+                });
+
+                alpha::math::Matrix44f rotate, scale;
+                rotate.eye();
+                scale.eye();
+
                 float dx = 0.f, dy = 0.f, dz = 0.f;
+                (void)dz;
                 if (event.key.code == sf::Keyboard::Escape) {
                     window.close();
                     break;
                 } else if (event.key.code == sf::Keyboard::W) {
-                    std::cout << "Move up!" << endl;
-                    dz = delta;
+                    std::cout << "Scale up!" << endl;
+                    scale = scale_up;
                 } else if (event.key.code == sf::Keyboard::A) {
                     std::cout << "Move left!" << endl;
-                    dx = -delta;
+                    dy = -delta;
                 } else if (event.key.code == sf::Keyboard::S) {
-                    std::cout << "Move down!" << endl;
-                    dz = -delta;
+                    std::cout << "Scale down!" << endl;
+                    scale = scale_down;
                 } else if (event.key.code == sf::Keyboard::D) {
                     std::cout << "Move right!" << endl;
-                    dx = delta;
+                    dy = delta;
+                } else if (event.key.code == sf::Keyboard::Up) {
+                    std::cout << "Rotate z+!" << endl;
+                    rotate = rotatez_p;
+                }else if (event.key.code == sf::Keyboard::Down) {
+                    std::cout << "Rotate z-!" << endl;
+                    rotate = rotatez_n;
+                }else if (event.key.code == sf::Keyboard::Right) {
+                    std::cout << "Rotate y+!" << endl;
+                    rotate = rotatey_p;
+                }else if (event.key.code == sf::Keyboard::Left) {
+                    std::cout << "Rotate y-!" << endl;
+                    rotate = rotatey_n;
+                } else if (event.key.code == sf::Keyboard::Num0) {
+                    std::wcout << "Reset view" << endl;
+                    cam_inst->world_to_cam = world2cam;
+                    cam_inst->compute_screen_coordinates();
                 }
-                (void)dy;
-                (void)dx;
-                auto scale = (dz > 0) ? scale_up: scale_down;
 
-                cam_inst->world_to_cam = cam_inst->world_to_cam * scale;
+                cam_inst->M_proj[0][3] += dx;
+                cam_inst->M_proj[1][3] += dy;
+                cam_inst->world_to_cam = cam_inst->world_to_cam * scale * rotate;
+
+                std::cout << cam_inst->world_to_cam << endl;
 
                 auto t0 = chrono::steady_clock::now();
                 update_texture();
                 auto t1 = chrono::steady_clock::now();
 
                 std::cout << "Last frame rendered in: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() << "ms\n";
-                rast.dump_as_ppm("new.ppm");
             }
         }
         sf::Sprite sprite(texture);

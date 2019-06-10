@@ -28,6 +28,7 @@ enum class fit_resolution_gate {
 class Camera {
 
 private:
+public:
     float inch_to_mm = 25.4f;
     float film_aperture_width, film_aperture_height;
     fit_resolution_gate fit_setting;
@@ -35,9 +36,8 @@ private:
     float focal_length;
     float top, bottom, left, right, fov;
     math::Matrix44f M_proj;
-
-public:
     math::Matrix44f world_to_cam;
+
     uint32_t img_width, img_height;
 
     Camera() = delete;
