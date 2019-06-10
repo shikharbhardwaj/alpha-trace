@@ -104,8 +104,8 @@ int main() {
                     std::cout << "Move right!" << endl;
                     dx = delta;
                 }
-
                 (void)dy;
+                (void)dx;
                 auto scale = (dz > 0) ? scale_up: scale_down;
 
                 cam_inst->world_to_cam = cam_inst->world_to_cam * scale;
