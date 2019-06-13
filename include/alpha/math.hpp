@@ -514,6 +514,7 @@ public:
     Matrix44 inverse() const {
         uint8_t i, j, k;
         Matrix44 s;
+        s.eye();
         Matrix44 t(*this);
 
         // Forward elimination

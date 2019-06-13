@@ -25,10 +25,17 @@ enum class fit_resolution_gate {
     Fill = 0, Overscan
 };
 
+struct Ray {
+    math::Vec3f origin;
+    math::Vec3f dir;
+    float tmin = 0.1f, tmax = 1000.f;
+
+    Ray(const math::Vec3f& o, const math::Vec3f& d) : origin(o), dir(d) {}
+};
+
 class Camera {
 
 private:
-public:
     float inch_to_mm = 25.4f;
     float film_aperture_width, film_aperture_height;
     fit_resolution_gate fit_setting;
@@ -37,7 +44,10 @@ public:
     float top, bottom, left, right, fov;
     math::Matrix44f M_proj;
     math::Matrix44f world_to_cam;
+    math::Matrix44f cam_to_world;
+    math::Vec3f origin;
 
+public:
     uint32_t img_width, img_height;
 
     Camera() = delete;
@@ -48,19 +58,21 @@ public:
         handle >> img_width >> img_height >> film_aperture_width >>
                film_aperture_height >> near_clipping_plain >> far_clipping_plain >>
                focal_length;
+        math::Matrix44f w2cam;
         if (column_major) {
             for (uint8_t i = 0; i < 4; i++) {
                 for (uint8_t j = 0; j < 4; j++) {
-                    handle >> world_to_cam[j][i];
+                    handle >> w2cam[j][i];
                 }
             }
         } else {
             for (uint8_t i = 0; i < 4; i++) {
                 for (uint8_t j = 0; j < 4; j++) {
-                    handle >> world_to_cam[i][j];
+                    handle >> w2cam[i][j];
                 }
             }
         }
+        set_world_to_cam(w2cam);
         int i;
         handle >> i;
         if (i == 0) {
@@ -76,9 +88,10 @@ public:
            fit_resolution_gate setting = fit_resolution_gate::Overscan)
             : film_aperture_width(fa_w), film_aperture_height(fa_h),
               near_clipping_plain(z_near), far_clipping_plain(z_far),
-              focal_length(f_length), world_to_cam(w2cam), img_width(width),
+              focal_length(f_length), img_width(width),
               img_height(height) {
         fit_setting = setting;
+        set_world_to_cam(w2cam);
         compute_screen_coordinates();
     }
 
@@ -172,8 +185,31 @@ public:
         convert_to_raster(v_world, raster, v_cam);
     }
 
-    void update_world2cam(const math::Matrix44f& new_world2cam) {
-        world_to_cam = new_world2cam;
+    math::Matrix44f get_world_to_cam() {
+        return world_to_cam;
+    }
+
+    void set_world_to_cam(const math::Matrix44f& w2cam) {
+        world_to_cam = w2cam;
+        cam_to_world = w2cam.inverse();
+        cam_to_world.mult_dir_matrix(math::Vec3f(0), origin);
+    }
+
+    Ray get_camera_ray(uint32_t i, uint32_t j) {
+        assert(i >= 0 && i < img_width);
+        assert(j >= 0 && j < img_height);
+
+        float aspect = img_width / (float)img_height;
+        float scale = (float)tan(fov * M_PI / 360.f);
+
+        float x = (2 * ((i + 0.5f) / img_width) - 1) * scale * aspect;
+        float y = (1 - 2 * ((j + 0.5f) / img_height)) * scale;
+
+        math::Vec3f dir;
+        cam_to_world.mult_dir_matrix(math::Vec3f(x, y, -1), dir);
+
+        dir.normalize();
+        return Ray(origin, dir);
     }
 };
 }
