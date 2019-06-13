@@ -511,7 +511,7 @@ public:
         dst.z = c;
     }
 
-    Matrix44 inverse() {
+    Matrix44 inverse() const {
         uint8_t i, j, k;
         Matrix44 s;
         Matrix44 t(*this);
@@ -567,10 +567,10 @@ public:
         }
 
         // Backward substitution
-        for (i = 3; i >= 0; --i) {
-            T f;
+        for (i = 4; i-- > 0;) {
+            T f = t[i][i];
 
-            if ((f = t[i][i]) == 0) {
+            if (f == 0) {
                 // Cannot invert singular matrix
                 return Matrix44();
             }
