@@ -261,4 +261,8 @@ TEST_CASE("Testing Mat44", "[Mat44]") {
 
         REQUIRE(ans == vec);
     }
+
+    SECTION("Test matrix-inverse") {
+        REQUIRE(I.inverse() == I);
+    }
 }
