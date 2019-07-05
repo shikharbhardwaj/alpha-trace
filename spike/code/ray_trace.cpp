@@ -35,7 +35,7 @@ Camera cam(width, height, aperture_width, aperture_height, z_near, z_far, focal_
 std::vector<Object<Circle>> scene;
 
 int main() {
-    Circle center_circle({0.f, 0.f}, 0.5);
+    Circle center_circle({0.f, 0.f}, 0.25);
 
     Object<Circle> obj;
 
@@ -45,17 +45,6 @@ int main() {
 
     alpha::buffers::RGB background_color(0, 0, 0);
     Imagebuffer frame(width, height, 255);
-
-    // Center ray.
-    auto c_ray = cam.get_camera_ray(width - 1, height - 1);
-    cout << c_ray.origin << endl;
-    cout << c_ray.dir << endl;
-    cin.get();
-
-    auto o_ray = cam.get_camera_ray(0, 0);
-    cout << o_ray.origin << endl;
-    cout << o_ray.dir << endl;
-    cin.get();
 
     for (int j = 0; j < height; j++) {
         for (int i = 0; i < width; i++) {

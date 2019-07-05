@@ -50,6 +50,35 @@ struct Circle {
     }
 };
 
+struct Sphere {
+	using Vec3f = alpha::math::Vec3f;
+
+	Vec3f center;
+	float radius;
+
+	Sphere() : center(0.f, 0.f, 0.f), radius(1.f) {}
+	Sphere(Vec3f c, float r) : center(c), radius(r) {}
+
+	bool operator() (const Ray& cam_ray, float& t) {
+		const auto& o = cam_ray.origin;
+		const auto& d = cam_ray.dir;
+
+		auto p = o - center;
+
+		float a = d.norm();
+		float b = 2 * p.dot_product(d);
+		float c = p.norm() - radius * radius;
+
+		// Solve quadratic equation.
+		float D = b * b - 4 * a * c;
+
+		if (D < 0.f) return false;
+
+		t = (-b + sqrt(D)) / (2.f * a);
+		return true;
+	}
+};
+
 };
 }
 

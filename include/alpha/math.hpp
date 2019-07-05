@@ -632,8 +632,22 @@ public:
 
 typedef Matrix44<float> Matrix44f;
 
+// Compute the magnitude of (b - a) x (c - a)
 inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {
     return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]);
+}
+
+template <typename T>
+std::pair<bool, math::Vec2<T>> solve_quadratic(T a, T b, T c) {
+	T disc = b * b - 4 * a * c;
+
+	if (disc < 0) return make_pair(false, Vec2());
+
+	Vec2 roots;
+	roots.x = (-b + sqrt(disc)) / 2 * a;
+	roots.y = (-b - sqrt(disc)) / 2 * a;
+
+	return make_pair(true, roots);
 }
 
 } // namespace math

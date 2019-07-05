@@ -266,3 +266,13 @@ TEST_CASE("Testing Mat44", "[Mat44]") {
         REQUIRE(I.inverse() == I);
     }
 }
+
+TEST_CASE("Testing utility functions", "[Utility]") {
+	alpha::math::Vec3f a(0, 0, 0);
+	alpha::math::Vec3f b(0, 1, 0);
+	alpha::math::Vec3f c(1, 1, 0);
+
+	SECTION("Test edge function") {
+		REQUIRE(alpha::math::edge_function(a, b, c) == 1);
+	}
+}
