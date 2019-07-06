@@ -272,6 +272,10 @@ public:
         return *this;
     }
 
+    bool operator==(const Vec2& rhs) const {
+        return x == rhs.x && y == rhs.y;
+    }
+
     T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }
 
     T norm() const { return x * x + y * y; }
@@ -644,12 +648,12 @@ std::pair<bool, math::Vec2<T>> solve_quadratic(T a, T b, T c) {
 	T disc = b * b - 4 * a * c;
 	Vec2<T> roots;
 
-	if (disc < 0) return make_pair(false, roots);
+	if (disc < 0) return std::make_pair(false, roots);
 
 	roots.x = (-b + sqrt(disc)) / 2 * a;
 	roots.y = (-b - sqrt(disc)) / 2 * a;
 
-	return make_pair(true, roots);
+	return std::make_pair(true, roots);
 }
 
 } // namespace math
