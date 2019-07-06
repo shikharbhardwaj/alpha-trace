@@ -18,29 +18,29 @@
 #include "math.hpp"
 
 namespace alpha {
-namespace object {
+namespace objects {
 
-template <typename intersect_test>
 struct Object {
     using RGB = alpha::buffers::RGB;
     RGB color;
-    intersect_test tester;
 
-    Object() : tester(intersect_test()) {}
+    Object() {}
 
-    bool intersect(const Ray &cam_ray, float& t) { return tester(cam_ray, t); }
+	virtual bool intersect(const Ray&, float&) { return false;  }
 };
 
-struct Circle {
+
+struct Circle : public Object {
     using Vec2f = alpha::math::Vec2f;
 
     Vec2f center;
     float radius;
 
     Circle() : center(0.f, 0.f), radius(1.f) {}
+	Circle(float cx, float cy, float r) : center(cx, cy), radius(r) {}
     Circle(Vec2f c, float r) : center(c), radius(r) {}
 
-    bool operator()(const Ray &cam_ray, float& t) {
+    bool intersect(const Ray &cam_ray, float& t) {
         // Ray-circle intersection.
         float dx = cam_ray.dir.x - center.x;
         float dy = cam_ray.dir.y - center.y;
@@ -50,7 +50,7 @@ struct Circle {
     }
 };
 
-struct Sphere {
+struct Sphere : public Object {
 	using Vec3f = alpha::math::Vec3f;
 
 	Vec3f center;

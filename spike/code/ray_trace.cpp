@@ -1,3 +1,4 @@
+#include <chrono>
 #include <iostream>
 #include <vector>
 
@@ -5,10 +6,11 @@
 #include <alpha/camera.hpp>
 #include <alpha/math.hpp>
 #include <alpha/objects.hpp>
+#include <alpha/trace.hpp>
 
 using namespace alpha::buffers;
 using namespace alpha::math;
-using namespace alpha::object;
+using namespace alpha::objects;
 using namespace alpha;
 using namespace std;
 
@@ -29,39 +31,23 @@ alpha::math::Matrix44f world2cam(
 );
 
 
-Camera cam(width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
+auto cam = make_shared<Camera>(width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
         world2cam);
 
-std::vector<Object<Circle>> scene;
 
 int main() {
-    Circle center_circle({0.f, 0.f}, 0.25);
+	alpha::Scene scene;
+	auto obptr = make_shared<Circle>(0.f, 0.f, 0.25f);
+	obptr->color = { 255, 140, 71};
 
-    Object<Circle> obj;
+	scene.emplace_back(obptr);
 
-    obj.tester = center_circle;
-    obj.color = { 255, 0, 0 };
-    scene.push_back(obj);
+	alpha::Tracer raytracer(cam);
+	auto t0 = chrono::steady_clock::now();
+	raytracer.trace(scene);
+	auto t1 = chrono::steady_clock::now();
 
-    alpha::buffers::RGB background_color(0, 0, 0);
-    Imagebuffer frame(width, height, 255);
-
-    for (int j = 0; j < height; j++) {
-        for (int i = 0; i < width; i++) {
-            auto ray = cam.get_camera_ray(i, j);
-            for (auto &object : scene) {
-                float t;
-
-                // Check for intersection.
-                if (object.intersect(ray, t) == true) {
-                    frame.set(i, j, object.color.x, object.color.y,
-                              object.color.z);
-                } else {
-                    frame.set(i, j, background_color.x, background_color.y,
-                              background_color.z);
-                }
-            }
-        }
-    }
-    frame.dump_as_ppm("trace.ppm");
+	cout << "Time taken: " << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count()
+		<< "ms" << endl;
+    raytracer.dump_as_ppm("trace.ppm");
 }
