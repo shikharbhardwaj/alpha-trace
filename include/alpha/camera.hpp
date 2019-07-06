@@ -196,8 +196,8 @@ public:
     }
 
     Ray get_camera_ray(uint32_t i, uint32_t j) {
-        assert(i >= 0 && i < img_width);
-        assert(j >= 0 && j < img_height);
+        assert(i < img_width);
+        assert(j < img_height);
 
         float aspect = img_width / (float)img_height;
         float scale = (float)tan(fov * M_PI / 360.f);
