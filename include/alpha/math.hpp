@@ -212,6 +212,8 @@ public:
     template<typename U>
     friend void swap(Vec2&, Vec2&);
 
+	Vec2() = default;
+
     Vec2(T xx) : x(xx), y(xx) {}
 
     Vec2(T xx, T yy) : x(xx), y(yy) {}
@@ -640,10 +642,10 @@ inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {
 template <typename T>
 std::pair<bool, math::Vec2<T>> solve_quadratic(T a, T b, T c) {
 	T disc = b * b - 4 * a * c;
+	Vec2<T> roots;
 
-	if (disc < 0) return make_pair(false, Vec2());
+	if (disc < 0) return make_pair(false, roots);
 
-	Vec2 roots;
 	roots.x = (-b + sqrt(disc)) / 2 * a;
 	roots.y = (-b - sqrt(disc)) / 2 * a;
 
