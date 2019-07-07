@@ -9,7 +9,6 @@
 #include <alpha/camera.hpp>
 #include <alpha/math.hpp>
 
-
 using namespace std;
 using namespace alpha;
 
@@ -67,7 +66,6 @@ int main() {
     };
 
     float delta = 0.05f;
-    std::cout << cam_inst->M_proj << endl;
 
     while (window.isOpen()) {
         sf::Event event;
@@ -137,6 +135,8 @@ int main() {
 
                 float dx = 0.f, dy = 0.f, dz = 0.f;
                 (void)dz;
+                (void)dy;
+                (void)dx;
                 if (event.key.code == sf::Keyboard::Escape) {
                     window.close();
                     break;
@@ -166,15 +166,13 @@ int main() {
                     rotate = rotatey_n;
                 } else if (event.key.code == sf::Keyboard::Num0) {
                     std::wcout << "Reset view" << endl;
-                    cam_inst->world_to_cam = world2cam;
+                    cam_inst->set_world_to_cam(world2cam);
                     cam_inst->compute_screen_coordinates();
                 }
+                (void)dx;
 
-                cam_inst->M_proj[0][3] += dx;
-                cam_inst->M_proj[1][3] += dy;
-                cam_inst->world_to_cam = cam_inst->world_to_cam * scale * rotate;
-
-                std::cout << cam_inst->world_to_cam << endl;
+                auto w2cam = cam_inst->get_world_to_cam();
+                cam_inst->set_world_to_cam(w2cam * scale * rotate);
 
                 auto t0 = chrono::steady_clock::now();
                 update_texture();

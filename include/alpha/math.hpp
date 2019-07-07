@@ -123,24 +123,24 @@ public:
     }
 
     // Scalar operations.
-    Vec3& operator+=(T r) {
-        x += r;
-        y += r;
-        z += r;
+    Vec3& operator+=(T rhs) {
+        x += rhs;
+        y += rhs;
+        z += rhs;
         return *this;
     }
 
-    Vec3& operator-=(T r) {
-        x -= r;
-        y -= r;
-        z -= r;
+    Vec3& operator-=(T rhs) {
+        x -= rhs;
+        y -= rhs;
+        z -= rhs;
         return *this;
     }
 
-    Vec3& operator*=(T r) {
-        x *= r;
-        y *= r;
-        z *= r;
+    Vec3& operator*=(T rhs) {
+        x *= rhs;
+        y *= rhs;
+        z *= rhs;
         return *this;
     }
 
@@ -179,6 +179,7 @@ public:
     }
 
     T x, y, z;
+	T& r = x, & g = y, & b = z;
 };
 
 // Operator overloads for Vec3.
@@ -211,6 +212,8 @@ class Vec2 {
 public:
     template<typename U>
     friend void swap(Vec2&, Vec2&);
+
+	Vec2() = default;
 
     Vec2(T xx) : x(xx), y(xx) {}
 
@@ -268,6 +271,10 @@ public:
         x *= r;
         y *= r;
         return *this;
+    }
+
+    bool operator==(const Vec2& rhs) const {
+        return x == rhs.x && y == rhs.y;
     }
 
     T dot_product(const Vec2<T> &v) const { return x * v.x + y * v.y; }
@@ -511,9 +518,10 @@ public:
         dst.z = c;
     }
 
-    Matrix44 inverse() {
+    Matrix44 inverse() const {
         uint8_t i, j, k;
         Matrix44 s;
+        s.eye();
         Matrix44 t(*this);
 
         // Forward elimination
@@ -567,10 +575,10 @@ public:
         }
 
         // Backward substitution
-        for (i = 3; i >= 0; --i) {
-            T f;
+        for (i = 4; i-- > 0;) {
+            T f = t[i][i];
 
-            if ((f = t[i][i]) == 0) {
+            if (f == 0) {
                 // Cannot invert singular matrix
                 return Matrix44();
             }
@@ -631,9 +639,31 @@ public:
 
 typedef Matrix44<float> Matrix44f;
 
+// Compute the magnitude of (b - a) x (c - a)
 inline float edge_function(const Vec3f &a, const Vec3f &b, const Vec3f &c) {
     return (c[0] - a[0]) * (b[1] - a[1]) - (c[1] - a[1]) * (b[0] - a[0]);
 }
+
+template <typename T>
+std::pair<bool, math::Vec2<T>> solve_quadratic(T a, T b, T c) {
+	T disc = b * b - 4 * a * c;
+	Vec2<T> roots;
+
+	if (disc < 0) return std::make_pair(false, roots);
+
+	roots.x = (-b + sqrt(disc)) / 2 * a;
+	roots.y = (-b - sqrt(disc)) / 2 * a;
+
+	return std::make_pair(true, roots);
+}
+
+struct Ray {
+    math::Vec3f origin;
+    math::Vec3f dir;
+    float tmin = 0.1f, tmax = 1000.f;
+
+    Ray(const math::Vec3f& o, const math::Vec3f& d) : origin(o), dir(d) {}
+};
 
 } // namespace math
 } // namespace alpha
