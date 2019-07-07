@@ -135,6 +135,8 @@ int main() {
 
                 float dx = 0.f, dy = 0.f, dz = 0.f;
                 (void)dz;
+                (void)dy;
+                (void)dx;
                 if (event.key.code == sf::Keyboard::Escape) {
                     window.close();
                     break;
