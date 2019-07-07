@@ -123,24 +123,24 @@ public:
     }
 
     // Scalar operations.
-    Vec3& operator+=(T r) {
-        x += r;
-        y += r;
-        z += r;
+    Vec3& operator+=(T rhs) {
+        x += rhs;
+        y += rhs;
+        z += rhs;
         return *this;
     }
 
-    Vec3& operator-=(T r) {
-        x -= r;
-        y -= r;
-        z -= r;
+    Vec3& operator-=(T rhs) {
+        x -= rhs;
+        y -= rhs;
+        z -= rhs;
         return *this;
     }
 
-    Vec3& operator*=(T r) {
-        x *= r;
-        y *= r;
-        z *= r;
+    Vec3& operator*=(T rhs) {
+        x *= rhs;
+        y *= rhs;
+        z *= rhs;
         return *this;
     }
 
@@ -179,6 +179,7 @@ public:
     }
 
     T x, y, z;
+	T& r = x, & g = y, & b = z;
 };
 
 // Operator overloads for Vec3.
@@ -655,6 +656,14 @@ std::pair<bool, math::Vec2<T>> solve_quadratic(T a, T b, T c) {
 
 	return std::make_pair(true, roots);
 }
+
+struct Ray {
+    math::Vec3f origin;
+    math::Vec3f dir;
+    float tmin = 0.1f, tmax = 1000.f;
+
+    Ray(const math::Vec3f& o, const math::Vec3f& d) : origin(o), dir(d) {}
+};
 
 } // namespace math
 } // namespace alpha
