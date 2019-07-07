@@ -114,6 +114,24 @@ class Imagebuffer {
   }
 };
 
+// Color conversion function (int -> float).
+math::Vec3f fp_color(const RGB& a) {
+	return {(float) a.r, (float) a.g, (float) a.b};
+}
+
+// Color conversion function (float -> int).
+RGB int_color(const math::Vec3f& a) {
+	auto r = (uint8_t) std::min(255.f, a.r);
+	auto g = (uint8_t) std::min(255.f, a.g);
+	auto b = (uint8_t) std::min(255.f, a.b);
+	return {r, g, b};
+}
+
+// Color mixing function.
+math::Vec3f mix(const math::Vec3f& a, const math::Vec3f& b, float t) {
+	return a * t + b * (1.f - t);
+}
+
 } // namespace buffers
 } // namespace alpha
 
