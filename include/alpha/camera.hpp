@@ -25,15 +25,8 @@ enum class fit_resolution_gate {
     Fill = 0, Overscan
 };
 
-struct Ray {
-    math::Vec3f origin;
-    math::Vec3f dir;
-    float tmin = 0.1f, tmax = 1000.f;
-
-    Ray(const math::Vec3f& o, const math::Vec3f& d) : origin(o), dir(d) {}
-};
-
 class Camera {
+	using Ray = math::Ray;
 
 private:
     float inch_to_mm = 25.4f;
