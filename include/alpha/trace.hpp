@@ -76,13 +76,13 @@ public:
 					math::Vec2f tex;
 
 					hit_obj->get_surface_data(hit_point, hit_normal, tex);
-					float scale = 4.f;
-					float pattern = (float) ((fmodf(tex.x * scale, 1.f) > 0.5f) ^ (fmodf(tex.y * scale, 1.f) > 0.5f));
+					 float scale = 4.f;
+					 float pattern = (float) ((fmodf(tex.x * scale, 1.f) > 0.5f) ^ (fmodf(tex.y * scale, 1.f) > 0.5f));
 
 					// Color mixing
 					Vec3f colorf = buffers::fp_color(hit_obj->color);
-					colorf = buffers::mix(colorf, colorf * 0.8f, pattern) * std::max(0.f,
-						hit_normal.dot_product(ray.dir * -1.f));
+					float intensity = std::max(0.f, hit_normal.dot_product(ray.dir * -1.f));
+					colorf = buffers::mix(colorf, colorf * 0.75f, pattern) * intensity;
 					RGB final_color = buffers::int_color(colorf);
 					Fbuf->set(i, j, final_color.r, final_color.g, final_color.b);
 				} else {
