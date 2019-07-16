@@ -203,6 +203,12 @@ inline Vec3<T> operator*(Vec3<T> lhs, T rhs) {
     return lhs *= rhs;
 }
 
+template <typename T>
+inline Vec3<T> operator/(T lhs, Vec3<T> rhs) {
+	Vec3<T> res = { T(1) / rhs.x, T(1) / rhs.y, T(1) / rhs.z };
+	return res * lhs;
+}
+
 /**
  * A 2 component vector.
  * @tparam T The type of the compoenents.

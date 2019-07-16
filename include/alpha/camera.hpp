@@ -27,6 +27,8 @@ enum class fit_resolution_gate {
 
 class Camera {
 	using Ray = math::Ray;
+	using Vec3f = math::Vec3f;
+	using Matrix44f = math::Matrix44f;
 
 private:
     float inch_to_mm = 25.4f;
@@ -188,6 +190,12 @@ public:
         cam_to_world.mult_dir_matrix(math::Vec3f(0), origin);
     }
 
+	void set_cam_to_world(const math::Matrix44f& cam2world) {
+		cam_to_world = cam2world;
+		world_to_cam = cam2world.inverse();
+		cam_to_world.mult_dir_matrix(math::Vec3f(0), origin);
+	}
+
     Ray get_camera_ray(uint32_t i, uint32_t j) {
         assert(i < img_width);
         assert(j < img_height);
@@ -204,6 +212,40 @@ public:
         dir.normalize();
         return Ray(origin, dir);
     }
-};
-}
+
+	void look_at(const Vec3f& from, const Vec3f& to) {
+		Vec3f forward = (from - to).normalize();
+		Vec3f temp = { 0.f, 1.f, 0.f };
+		temp.normalize();
+		Vec3f rt = temp.cross_product(forward).normalize();
+
+		Vec3f up = forward.cross_product(rt).normalize();
+
+		Matrix44f cam2world;
+
+		cam2world[0][0] = rt.x;
+		cam2world[0][1] = rt.y;
+		cam2world[0][2] = rt.z;
+		cam2world[0][3] = 0.f;
+
+		cam2world[1][0] = up.x;
+		cam2world[1][1] = up.y;
+		cam2world[1][2] = up.z;
+		cam2world[1][3] = 0.f;
+
+		cam2world[2][0] = forward.x;
+		cam2world[2][1] = forward.y;
+		cam2world[2][2] = forward.z;
+		cam2world[2][3] = 0.f;
+
+		cam2world[3][0] = from.x;
+		cam2world[3][1] = from.y;
+		cam2world[3][2] = from.z;
+		cam2world[3][3] = 1.f;
+
+		set_cam_to_world(cam2world);
+	}
+}; // namespace camera
+} // namespace alpha
+
 #endif
