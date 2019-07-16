@@ -32,12 +32,27 @@ const float aperture_width = 0.980f, aperture_height = 0.735f, focal_length = 20
 //      -1.53871f, -5.747777f, -40.400412f, 1.f });
 
 alpha::math::Matrix44f world2cam(
-    { 1.0000f, 0.0000f, 0.0000f, 0.0000f,
+    {
+	1.0000f, 0.0000f, 0.0000f, 0.0000f,
     0.0000f, 1.0000f, 0.0000f, 0.0000f,
     0.0000f, 0.0000f, 1.0000f, 0.0000f,
     0.0000f, 0.0000f, 0.0000f, 1.0000f, }
 );
 
+//alpha::math::Matrix44f world2cam(
+//	{
+//	0.7071f,  0.0000f, -0.7071f,  0.0000f,
+//	0.0000f,  1.0000f,  0.0000f,  0.0000f,
+//	0.7071f,  0.0000f,  0.7071f,  0.0000f,
+//	0.0000f,  0.0000f,  0.0000f,  1.0000f,
+//});
+//alpha::math::Matrix44f world2cam(
+//	{
+//		0.7071f,  0.3536f, -0.6123f, 0.0000f,
+//		0.0000f,  0.8660f,  0.5000f, 0.0000f,
+//		0.7071f, -0.3536f,  0.6123f, 0.0000f,
+//		0.0000f,  0.0000f,  0.0000f, 1.0000f
+//	});
 
 auto cam = make_shared<Camera>(width, height, aperture_width, aperture_height, z_near, z_far, focal_length,
         world2cam);
@@ -68,9 +83,13 @@ int main() {
 		scene.push_back(sp);
 	}
 
-	auto disk = make_shared<Disk>(Vec3f(0.f, 0.f, -1.f), Vec3f(0.f, 0.f, -5.f), 0.5f);
-	disk->color = { (uint8_t)cdist(gen), (uint8_t)cdist(gen), (uint8_t)cdist(gen) };
-	scene.push_back(disk);
+	//auto disk = make_shared<Disk>(Vec3f(0.f, 0.f, -1.f), Vec3f(0.f, 0.f, -5.f), 0.5f);
+	//disk->color = { (uint8_t)cdist(gen), (uint8_t)cdist(gen), (uint8_t)cdist(gen) };
+	//scene.push_back(disk);
+
+	auto box = make_shared<AABB>(Vec3f(0.f, 0.f, -7.f), Vec3f(0.5f, 0.5f, -3.f));
+	box->color = { (uint8_t)cdist(gen), (uint8_t)cdist(gen), (uint8_t)cdist(gen) };
+	scene.push_back(box);
 
 	alpha::Tracer raytracer(cam);
 	auto t0 = chrono::steady_clock::now();

@@ -39,7 +39,7 @@ typedef struct mesh_data {
             vertices.emplace_back(alpha::math::Vec3f(x, y, z));
         }
         handle.close();
-        num_triangles = vertices.size() / 3;
+        num_triangles = (uint32_t) vertices.size() / 3;
     }
 } mesh_data;
 }

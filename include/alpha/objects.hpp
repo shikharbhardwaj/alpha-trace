@@ -154,7 +154,86 @@ struct Disk : public Object {
 	}
 };
 
+struct AABB : public Object {
+	Point bounds[2];
+
+	AABB() = default;
+	AABB(const Point& min, const Point& max) {
+		bounds[0] = min;
+		bounds[1] = max;
+	}
+
+	bool intersect(const Ray& cam_ray, float& t) const {
+		const auto& o = cam_ray.origin;
+		const auto& d = cam_ray.dir;
+
+		float tmin_x = (bounds[0].x - o.x) / d.x;
+		float tmax_x = (bounds[1].x - o.x) / d.x;
+
+		if (tmin_x > tmax_x) std::swap(tmin_x, tmax_x);
+
+		float tmin_y = (bounds[0].y - o.y) / d.y;
+		float tmax_y = (bounds[1].y - o.y) / d.y;
+
+		if (tmin_y > tmax_y) std::swap(tmin_y, tmax_y);
+
+		float tmin_z = (bounds[0].z - o.z) / d.z;
+		float tmax_z = (bounds[1].z - o.z) / d.z;
+
+		if (tmin_z > tmax_z) std::swap(tmin_z, tmax_z);
+
+		// Intersect the three ranges.
+		float tmin = math::max_3(tmin_x, tmin_y, tmin_z);
+		float tmax = math::min_3(tmax_x, tmax_y, tmax_z);
+
+		t = tmin;
+
+		return tmin <= tmax;
+	}
+
+	void get_surface_data(const Point& hit_point, Point& hit_normal, Vec2f& tex) const {
+		// { 0,  0,  1} -> z = zmax
+		// { 0,  0, -1} -> z = zmin
+		// { 0,  1,  0} -> x = xmax
+		// { 0, -1,  0} -> x = xmin
+		// { 1,  0,  0} -> y = ymax
+		// {-1,  0,  0} -> y = ymin
+
+		hit_normal = { 0.f, 0.f, 0.f };
+		if (hit_point.z == bounds[0].z) {
+			hit_normal.z = -1.f;
+			tex.x = (hit_point.x - bounds[0].x) / (bounds[1].x - bounds[0].x);
+			tex.y = (hit_point.y - bounds[0].y) / (bounds[1].y - bounds[0].y);
+		}
+		else if (hit_point.z == bounds[1].z) {
+			hit_normal.z = 1.f;
+			tex.x = (hit_point.x - bounds[0].x) / (bounds[1].x - bounds[0].x);
+			tex.y = (hit_point.y - bounds[0].y) / (bounds[1].y - bounds[0].y);
+		}
+		else if (hit_point.y == bounds[0].y) {
+			hit_normal.y = -1.f;
+			tex.x = (hit_point.z - bounds[0].z) / (bounds[1].z - bounds[0].z);
+			tex.y = (hit_point.y - bounds[0].y) / (bounds[1].y - bounds[0].y);
+		}
+		else if (hit_point.y == bounds[1].y) {
+			hit_normal.y = 1.f;
+			tex.x = (hit_point.z - bounds[0].z) / (bounds[1].z - bounds[0].z);
+			tex.y = (hit_point.y - bounds[0].y) / (bounds[1].y - bounds[0].y);
+		}
+		else if (hit_point.x == bounds[0].x) {
+			hit_normal.x = -1.f;
+			tex.x = (hit_point.x - bounds[0].x) / (bounds[1].x - bounds[0].x);
+			tex.y = (hit_point.z - bounds[0].z) / (bounds[1].z - bounds[0].z);
+		}
+		else if (hit_point.x == bounds[1].x) {
+			hit_normal.x = 1.f;
+			tex.x = (hit_point.x - bounds[0].x) / (bounds[1].x - bounds[0].x);
+			tex.y = (hit_point.z - bounds[0].z) / (bounds[1].z - bounds[0].z);
+		}
+	}
 };
-}
+
+}; // namespace objects
+} // namespace alpha
 
 #endif
