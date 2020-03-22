@@ -15,6 +15,8 @@
 
 #include <fstream>
 #include <vector>
+#include <iostream>
+#include <stdexcept>
 
 #include <alpha/math.hpp>
 
@@ -29,7 +31,12 @@ typedef struct mesh_data {
               uint32_t n_tri = 0) {
         vertices.reserve(n_tri);
         std::ifstream handle(src_name);
-        while (!handle.eof()) {
+
+        if (!handle.is_open()) {
+            throw std::invalid_argument("Could not find mesh data file " + src_name);
+        }
+
+        while (handle) {
             float x, y, z;
             if (y_up) {
                 handle >> x >> z >> y;
@@ -40,6 +47,9 @@ typedef struct mesh_data {
         }
         handle.close();
         num_triangles = (uint32_t) vertices.size() / 3;
+#ifdef ALPHA_DEBUG
+        std::cout << "Read " << num_triangles << " triangles from file " << src_name << std::endl;
+#endif
     }
 } mesh_data;
 }
