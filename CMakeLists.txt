@@ -61,6 +61,7 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/test)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/code)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/bench)
 add_subdirectory(${PROJECT_SOURCE_DIR}/spike/test)
+add_subdirectory(${PROJECT_SOURCE_DIR}/spike/models)
 
 # Configure Catch.
 set(CATCH_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/thirdparty/include/catch)

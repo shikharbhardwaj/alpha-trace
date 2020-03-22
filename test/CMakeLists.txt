@@ -6,10 +6,13 @@ set(LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 # set(TEST_SOURCES test_main.cpp math_test.cpp)
 add_executable(math_test test_main.cpp math_test.cpp)
 add_executable(buffer_test test_main.cpp buffer_test.cpp)
+add_executable(mesh_renderer_test test_main.cpp mesh_renderer_test.cpp)
 
 target_link_libraries(math_test Catch)
 target_link_libraries(buffer_test Catch)
+target_link_libraries(mesh_renderer_test Catch)
 
 # Add the executable to CTest.
 add_test(NAME math_test COMMAND math_test)
 add_test(NAME buffer_test COMMAND buffer_test)
+add_test(NAME mesh_renderer_test COMMAND mesh_renderer_test WORKING_DIRECTORY ${PROJECT_BINARY_DIR})
