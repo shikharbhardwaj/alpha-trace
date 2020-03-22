@@ -23,6 +23,8 @@ include_directories("${SFML_DOWNLOAD_DIR}/include")
 include(Downloadcxxopts)
 include_directories("${cxxopts_DOWNLOAD_DIR}/include")
 
+# spdlog
+include(Downloadspdlog)
 
 # Set flags according to the toolchain.
 if (WIN32)
