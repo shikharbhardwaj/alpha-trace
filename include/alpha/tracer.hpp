@@ -80,7 +80,7 @@ public:
 					 float pattern = (float) ((fmodf(tex.x * scale, 1.f) > 0.5f) ^ (fmodf(tex.y * scale, 1.f) > 0.5f));
 
 					// Color mixing
-					Vec3f colorf = buffers::fp_color(hit_obj->color);
+					Vec3f colorf = buffers::fp_color(hit_obj->get_color());
 					float intensity = std::max(0.f, hit_normal.dot_product(ray.dir * -1.f));
 					colorf = buffers::mix(colorf, colorf * 0.75f, pattern) * intensity;
 					RGB final_color = buffers::int_color(colorf);

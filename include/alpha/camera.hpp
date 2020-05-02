@@ -18,6 +18,10 @@
 #include <fstream>
 #include <iostream>
 
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/fmt/ostr.h>
+
 #include "math.hpp"
 
 namespace alpha {
@@ -49,6 +53,8 @@ public:
 
     Camera(const std::string &file_name, bool column_major = false) {
         // Import settings from a file
+        spdlog::info("Initializing camera settings from settings file: {}",
+                file_name);
         std::ifstream handle(file_name);
         handle >> img_width >> img_height >> film_aperture_width >>
                film_aperture_height >> near_clipping_plain >> far_clipping_plain >>
@@ -124,19 +130,13 @@ public:
         fov = static_cast<float>(2.f * 180.f / M_PI * atan((right / near_clipping_plain)));
 
         compute_projection_matrix(film_aspect_ratio);
-#ifdef ALPHA_DEBUG
-        print_info();
-#endif
-    }
 
-    void print_info() {
-        std::cout << "Field of view: " << fov << std::endl;
-        std::cout << "Screen co-ords: " << top << "x" << right << std::endl;
-        std::cout << "Image dimensions: " << img_width << "x" << img_height << std::endl;
-        std::cout << "World2cam Matrix: " << std::endl;
-		std::cout << world_to_cam << std::endl;
-		std::cout << "Projection Matrix : " << std::endl;
-		std::cout << M_proj << std::endl;
+        spdlog::info("Field of view: {}", fov);
+        spdlog::info("Screen co-ords: {}, {}", top, right);
+        spdlog::info("Image dimensions: {}, {}", img_width, img_height);
+        spdlog::info("World_to_cam matrix:");
+        spdlog::info("{}", world_to_cam);
+        spdlog::info("{}", M_proj);
     }
 
     void compute_projection_matrix(float aspect) {
