@@ -55,7 +55,14 @@ public:
         // Import settings from a file
         spdlog::info("Initializing camera settings from settings file: {}",
                 file_name);
+
         std::ifstream handle(file_name);
+
+        if (!handle.is_open()) {
+            throw std::invalid_argument(
+                    "Could not find camera settings file " + file_name);
+        }
+
         handle >> img_width >> img_height >> film_aperture_width >>
                film_aperture_height >> near_clipping_plain >> far_clipping_plain >>
                focal_length;
