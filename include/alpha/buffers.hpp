@@ -29,7 +29,7 @@ namespace buffers {
 using RGB = alpha::math::Vec3<uint8_t>;
 
 class Zbuffer {
-  std::unique_ptr<float> depth_buffer;
+  std::unique_ptr<float[]> depth_buffer;
   uint32_t width, height;
   float far;
 
@@ -37,7 +37,7 @@ class Zbuffer {
   Zbuffer() = delete;
 
   Zbuffer(uint32_t w, uint32_t h, float far) : width(w), height(h), far(far) {
-    depth_buffer = std::unique_ptr<float>(new float[w * h]);
+    depth_buffer = std::unique_ptr<float[]>(new float[w * h]);
     for(uint32_t i = 0; i < width * height; ++i)
       depth_buffer.get()[i] = far;
   }
@@ -69,7 +69,7 @@ class Zbuffer {
 };
 
 class Imagebuffer {
-  std::unique_ptr<RGB> buffer;
+  std::unique_ptr<RGB[]> buffer;
   uint32_t width, height;
 
  public:
@@ -79,7 +79,7 @@ class Imagebuffer {
 
   Imagebuffer(uint32_t w, uint32_t h, int space = 255)
     : width(w), height(h), col_space(space) {
-      buffer = std::unique_ptr<RGB>(new RGB[width * height]);
+      buffer = std::unique_ptr<RGB[]>(new RGB[width * height]);
     }
 
   void clear() {

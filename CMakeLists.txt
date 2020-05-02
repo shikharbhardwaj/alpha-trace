@@ -38,7 +38,7 @@ if (WIN32)
 elseif(UNIX)
   # Yay! Everything is sane.
   set(base_flags "-Wall -Werror -Wextra -std=c++14 -pthread -fopenmp \
--fno-rtti -fno-omit-frame-pointer")
+-fno-omit-frame-pointer -fsanitize=address")
   set(optimization_flags "-O3")
 
   set(release_flags "${base_flags} ${optimization_flags}")
