@@ -7,7 +7,7 @@
 #include <alpha/camera.hpp>
 #include <alpha/math.hpp>
 #include <alpha/objects.hpp>
-#include <alpha/trace.hpp>
+#include <alpha/tracer.hpp>
 
 using namespace alpha::buffers;
 using namespace alpha::math;
