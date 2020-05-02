@@ -43,6 +43,10 @@ public:
 
 	void dump_as_ppm(const std::string& name) { Fbuf->dump_as_ppm(name); }
 
+	RGB get(int x, int y) const {
+	    return Fbuf->get(x, y);
+	}
+
 	void trace(const Scene &scene) {
 		for (uint32_t j = 0; j < height; ++j) {
 			for (uint32_t i = 0; i < width; ++i) {
