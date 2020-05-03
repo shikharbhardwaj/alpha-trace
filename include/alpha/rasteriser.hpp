@@ -17,6 +17,7 @@
 #include <memory>
 #include <algorithm>
 
+#include "logging.hpp"
 #include "math.hpp"
 #include "buffers.hpp"
 #include "camera.hpp"
@@ -74,10 +75,9 @@ public:
         cam->convert_to_raster(v0, v0_rast, v0_cam);
         cam->convert_to_raster(v1, v1_rast, v1_cam);
         cam->convert_to_raster(v2, v2_rast, v2_cam);
-#ifdef ALPHA_DEBUG
-        std::cout << "\nThe raster coords : " << v0_rast << " | " << v1_rast
-                  << " | " << v2_rast;
-#endif
+
+        spdlog::trace("Raster co-ords {} | {} | {}", v0_rast, v1_rast, v2_rast);
+
         // Precompute multiplicative inverse of the z co ordinate
         v0_rast.z = 1 / v0_rast.z;
         v1_rast.z = 1 / v1_rast.z;
@@ -88,9 +88,7 @@ public:
         float xmax = math::max_3(v0_rast.x, v1_rast.x, v2_rast.x);
         float ymax = math::max_3(v0_rast.y, v1_rast.y, v2_rast.y);
         if (xmin > width - 1 || xmax < 0 || ymax > height - 1 || ymin < 0) {
-#ifdef ALPHA_DEBUG
-            std::cout << "\nTriangle not present";
-#endif
+            spdlog::trace("Triangle clipped.");
             return false;
         }
         typedef int32_t i32t;
@@ -100,9 +98,9 @@ public:
         uint32_t y1 = std::min(i32t(height) - 1, (i32t) (std::floor(ymax)));
 
         float total_area_inv = 1 / edge_function(v0_rast, v1_rast, v2_rast);
-#ifdef ALPHA_DEBUG
-        std::cout << "Total area : " << 1 / total_area_inv;
-#endif
+
+        spdlog::trace("Triangle area: {}", 1 / total_area_inv);
+
         if (total_area_inv < 0.f) {
             // We do not render negative area triangles
             return false;
@@ -122,11 +120,6 @@ public:
             float w1 = w1_row;
             float w2 = w2_row;
             for (uint32_t x = x0; x <= x1; x++) {
-#ifdef ALPHA_DEBUG
-                std::cout << Point(w0, w1, w2) << " : " << math::Vec2i(x, y)
-                          << std::endl;
-                std::cin.get();
-#endif
                 if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
                     float b0 = w0 * total_area_inv;
                     float b1 = w1 * total_area_inv;
@@ -161,10 +154,9 @@ public:
         cam->convert_to_raster(v0, v0_rast, v0_cam);
         cam->convert_to_raster(v1, v1_rast, v1_cam);
         cam->convert_to_raster(v2, v2_rast, v2_cam);
-#ifdef ALPHA_DEBUG
-        std::cout << "\nThe raster coords : " << v0_rast << " | " << v1_rast
-                  << " | " << v2_rast;
-#endif
+
+        spdlog::trace("Raster co-ords {} | {} | {}", v0_rast, v1_rast, v2_rast);
+
         // Precompute multiplicative inverse of the z co ordinate
         v0_rast.z = 1 / v0_rast.z;
         v1_rast.z = 1 / v1_rast.z;
@@ -175,9 +167,7 @@ public:
         float xmax = math::max_3(v0_rast.x, v1_rast.x, v2_rast.x);
         float ymax = math::max_3(v0_rast.y, v1_rast.y, v2_rast.y);
         if (xmin > width - 1 || xmax < 0 || ymax > height - 1 || ymin < 0) {
-#ifdef ALPHA_DEBUG
-            std::cout << "\nTriangle not present";
-#endif
+            spdlog::trace("Triangle clipped.");
             return;
         }
         typedef int32_t i32t;
@@ -187,9 +177,9 @@ public:
         uint32_t y1 = std::min(i32t(height) - 1, (i32t) (std::floor(ymax)));
 
         float total_area_inv = 1 / edge_function(v0_rast, v1_rast, v2_rast);
-#ifdef ALPHA_DEBUG
-        std::cout << "Total area : " << 1 / total_area_inv;
-#endif
+
+        spdlog::trace("Triangle area: {}", 1 / total_area_inv);
+
         // Triangle setup
         float a01 = v0_rast.y - v1_rast.y, b01 = v1_rast.x - v0_rast.x;
         float a12 = v1_rast.y - v2_rast.y, b12 = v2_rast.x - v1_rast.x;
@@ -205,11 +195,6 @@ public:
             float w1 = w1_row;
             float w2 = w2_row;
             for (uint32_t x = x0; x <= x1; x++) {
-#ifdef ALPHA_DEBUG
-                std::cout << Point(w0, w1, w2) << " : " << math::Vec2i(x, y)
-                          << std::endl;
-                std::cin.get();
-#endif
                 if (w0 >= 0 && w1 >= 0 && w2 >= 0) {
 
                     float z_inv = v0_rast.z * w0 * total_area_inv +

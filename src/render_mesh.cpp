@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
         auto cull_back_faces = result["cull_back_faces"].as<bool>();
         auto y_up = result["y_up"].as<bool>();
 
-        (void) verbose;
+        spdlog::set_level(verbose ? spdlog::level::debug : spdlog::level::info);
 
         // Run the projection
         alpha::MeshRenderer(mesh_data_file, camera_config_file, output_file,

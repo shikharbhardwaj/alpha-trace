@@ -18,10 +18,7 @@
 #include <fstream>
 #include <iostream>
 
-#include <spdlog/spdlog.h>
-#include <spdlog/sinks/basic_file_sink.h>
-#include <spdlog/fmt/ostr.h>
-
+#include "logging.hpp"
 #include "math.hpp"
 
 namespace alpha {
@@ -138,12 +135,13 @@ public:
 
         compute_projection_matrix(film_aspect_ratio);
 
-        spdlog::info("Field of view: {}", fov);
-        spdlog::info("Screen co-ords: {}, {}", top, right);
-        spdlog::info("Image dimensions: {}, {}", img_width, img_height);
-        spdlog::info("World_to_cam matrix:");
-        spdlog::info("{}", world_to_cam);
-        spdlog::info("{}", M_proj);
+        spdlog::debug("Field of view: {}", fov);
+        spdlog::debug("Screen co-ords: {}, {}", top, right);
+        spdlog::debug("Image dimensions: {}, {}", img_width, img_height);
+        spdlog::debug("World_to_cam matrix:");
+        spdlog::debug("{}", world_to_cam);
+        spdlog::debug("Projection matrix:");
+        spdlog::debug("{}", M_proj);
     }
 
     void compute_projection_matrix(float aspect) {
@@ -165,13 +163,8 @@ public:
 
     void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,
                            math::Vec3f &v_cam) {
-#ifdef ALPHA_DEBUG
-        std::cout << "\nWorld co-ords" << v_world;
-#endif
         world_to_cam.mult_vec_matrix(v_world, v_cam);
-#ifdef ALPHA_DEBUG
-        std::cout << "\nCam co-ords" << v_cam;
-#endif
+
         // Convert to clip space
         math::Vec3f v_clip;
         M_proj.mult_vec_matrix(v_cam, v_clip);
