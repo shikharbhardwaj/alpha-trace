@@ -43,6 +43,10 @@ public:
 
 	void dump_as_ppm(const std::string& name) { Fbuf->dump_as_ppm(name); }
 
+	RGB get(int x, int y) const {
+	    return Fbuf->get(x, y);
+	}
+
 	void trace(const Scene &scene) {
 		for (uint32_t j = 0; j < height; ++j) {
 			for (uint32_t i = 0; i < width; ++i) {
@@ -80,7 +84,7 @@ public:
 					 float pattern = (float) ((fmodf(tex.x * scale, 1.f) > 0.5f) ^ (fmodf(tex.y * scale, 1.f) > 0.5f));
 
 					// Color mixing
-					Vec3f colorf = buffers::fp_color(hit_obj->color);
+					Vec3f colorf = buffers::fp_color(hit_obj->get_color());
 					float intensity = std::max(0.f, hit_normal.dot_product(ray.dir * -1.f));
 					colorf = buffers::mix(colorf, colorf * 0.75f, pattern) * intensity;
 					RGB final_color = buffers::int_color(colorf);

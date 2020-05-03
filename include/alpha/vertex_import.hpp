@@ -18,7 +18,8 @@
 #include <iostream>
 #include <stdexcept>
 
-#include <alpha/math.hpp>
+#include "logging.hpp"
+#include "math.hpp"
 
 namespace alpha {
 typedef struct mesh_data {
@@ -36,20 +37,33 @@ typedef struct mesh_data {
             throw std::invalid_argument("Could not find mesh data file " + src_name);
         }
 
-        while (handle) {
-            float x, y, z;
-            if (y_up) {
-                handle >> x >> z >> y;
-            } else {
-                handle >> x >> y >> z;
-            }
-            vertices.emplace_back(alpha::math::Vec3f(x, y, z));
+        std::istream_iterator<float> it(handle);
+        std::istream_iterator<float> end;
+
+        auto get_next = [&]() {
+            return *(it++);
+        };
+
+        while (it != end) {
+            float x = get_next(), y = get_next(), z = get_next();
+
+            if(y_up) std::swap(y, z);
+
+            vertices.emplace_back(x, y, z);
         }
         handle.close();
+
+        spdlog::debug("First vertex: {}", vertices.front());
+        spdlog::debug("Last vertex: {}", vertices.back());
+
+        if(vertices.size() % 3) {
+            spdlog::warn("Triangle vertex count {} is not a multiple of 3",
+                    vertices.size());
+        }
+
         num_triangles = (uint32_t) vertices.size() / 3;
-#ifdef ALPHA_DEBUG
-        std::cout << "Read " << num_triangles << " triangles from file " << src_name << std::endl;
-#endif
+
+        spdlog::info("Read {} triangles from file {}", num_triangles, src_name);
     }
 } mesh_data;
 }

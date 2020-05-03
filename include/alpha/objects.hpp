@@ -27,12 +27,20 @@ struct Object {
 	using Point = math::Vec3f;
 	using Vec2f = math::Vec2f;
 
-    RGB color;
+    RGB _color;
 
     Object() {}
 
 	virtual bool intersect(const Ray&, float&) const { return false;  }
 	virtual void get_surface_data(const Point&, Point&, Vec2f&) const {}
+
+	void set_color(RGB color) {
+        _color = color;
+    }
+
+    RGB get_color() const {
+        return _color;
+    }
 };
 
 struct Sphere : public Object {

@@ -24,6 +24,7 @@ namespace alpha {
         std::string _camera_file;
         std::string _output_file;
         bool _cull_back_faces;
+        bool _y_up;
 
         // Camera
         std::shared_ptr<alpha::Camera> _cam_inst = std::make_shared<alpha::Camera>(_camera_file);
@@ -36,14 +37,15 @@ namespace alpha {
             _cam_inst->img_width, _cam_inst->img_height, _output_file);
 
         // Mesh data
-        alpha::mesh_data _data = alpha::mesh_data(_mesh_data_file, true);
+        alpha::mesh_data _data = alpha::mesh_data(_mesh_data_file, _y_up);
 
         MeshRenderer() = delete;
 
         MeshRenderer(std::string mesh_data_file, std::string camera_file,
-            std::string output_file, bool cull_back_faces) :
+            std::string output_file, bool cull_back_faces, bool y_up) :
             _mesh_data_file(mesh_data_file), _camera_file(camera_file),
-            _output_file(output_file), _cull_back_faces(cull_back_faces) {}
+            _output_file(output_file), _cull_back_faces(cull_back_faces),
+            _y_up(y_up) {}
 
         void render() {
             for (uint32_t i = 0; i < _data.num_triangles; ++i) {

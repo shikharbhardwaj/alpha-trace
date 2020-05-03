@@ -25,8 +25,10 @@ include_directories("${cxxopts_DOWNLOAD_DIR}/include")
 
 # spdlog
 include(Downloadspdlog)
+include_directories("${spdlog_DOWNLOAD_DIR}/include")
 
 # Set flags according to the toolchain.
+
 if (WIN32)
   # We are compling on Windows.
   if (MSVC)
@@ -35,18 +37,27 @@ if (WIN32)
   endif()
 elseif(UNIX)
   # Yay! Everything is sane.
-  set(project_flags "-Wall -Werror -Wextra -std=c++14 -pthread -fopenmp -O3")
-  set(debug_flags "-fno-rtti -fno-omit-frame-pointer -g")
+  set(base_flags "-Wall -Werror -Wextra -std=c++14 -pthread -fopenmp \
+-fno-omit-frame-pointer -fsanitize=address")
+  set(optimization_flags "-O3")
+
+  set(release_flags "${base_flags} ${optimization_flags}")
+  set(debug_flags "${base_flags} -g")
 endif()
 
-set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${project_flags}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${project_flags}")
+# Coerce to lower for comparision.
+string(TOLOWER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE)
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "debug")
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${debug_flags}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${debug_flags}")
+else()
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${release_flags}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${release_flags}")
+endif()
 
-# if (${CMAKE_RELEASE_TYPE} STREQUAL "DEBUG")
-# set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} ${debug_flags}")
-#  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${debug_flags}")
-# endif()
+message("Set C flags to ${CMAKE_C_FLAGS}")
+message("Set CXX flags to ${CMAKE_CXX_FLAGS}")
 
 # Configure sources, includes and libs
 # Add the include directory

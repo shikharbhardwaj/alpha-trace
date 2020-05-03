@@ -166,7 +166,7 @@ public:
 
     Vec3 &normalize() {
         T n = norm();
-        if (n > 0) {
+        if (n > std::numeric_limits<T>::epsilon()) {
             T factor = 1 / sqrt(n);
             x *= factor, y *= factor, z *= factor;
         }
@@ -295,7 +295,7 @@ public:
 
     Vec2 &normalize() {
         T n = norm();
-        if (n > 0) {
+        if (n > std::numeric_limits<T>::epsilon()) {
             T factor = 1 / sqrt(n);
             x *= factor, y *= factor;
         }

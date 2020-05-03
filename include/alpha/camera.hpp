@@ -18,6 +18,7 @@
 #include <fstream>
 #include <iostream>
 
+#include "logging.hpp"
 #include "math.hpp"
 
 namespace alpha {
@@ -26,9 +27,9 @@ enum class fit_resolution_gate {
 };
 
 class Camera {
-	using Ray = math::Ray;
-	using Vec3f = math::Vec3f;
-	using Matrix44f = math::Matrix44f;
+    using Ray = math::Ray;
+    using Vec3f = math::Vec3f;
+    using Matrix44f = math::Matrix44f;
 
 private:
     float inch_to_mm = 25.4f;
@@ -49,7 +50,16 @@ public:
 
     Camera(const std::string &file_name, bool column_major = false) {
         // Import settings from a file
+        spdlog::info("Initializing camera settings from settings file: {}",
+                file_name);
+
         std::ifstream handle(file_name);
+
+        if (!handle.is_open()) {
+            throw std::invalid_argument(
+                    "Could not find camera settings file " + file_name);
+        }
+
         handle >> img_width >> img_height >> film_aperture_width >>
                film_aperture_height >> near_clipping_plain >> far_clipping_plain >>
                focal_length;
@@ -124,19 +134,14 @@ public:
         fov = static_cast<float>(2.f * 180.f / M_PI * atan((right / near_clipping_plain)));
 
         compute_projection_matrix(film_aspect_ratio);
-#ifdef ALPHA_DEBUG
-        print_info();
-#endif
-    }
 
-    void print_info() {
-        std::cout << "Field of view: " << fov << std::endl;
-        std::cout << "Screen co-ords: " << top << "x" << right << std::endl;
-        std::cout << "Image dimensions: " << img_width << "x" << img_height << std::endl;
-        std::cout << "World2cam Matrix: " << std::endl;
-		std::cout << world_to_cam << std::endl;
-		std::cout << "Projection Matrix : " << std::endl;
-		std::cout << M_proj << std::endl;
+        spdlog::debug("Field of view: {}", fov);
+        spdlog::debug("Screen co-ords: {}, {}", top, right);
+        spdlog::debug("Image dimensions: {}, {}", img_width, img_height);
+        spdlog::debug("World_to_cam matrix:");
+        spdlog::debug("{}", world_to_cam);
+        spdlog::debug("Projection matrix:");
+        spdlog::debug("{}", M_proj);
     }
 
     void compute_projection_matrix(float aspect) {
@@ -147,7 +152,7 @@ public:
 
         float frustum_depth = far - near;
         float inv_depth = 1.f / frustum_depth;
-		M_proj.eye();
+        M_proj.eye();
         M_proj[1][1] = 1.f / tan(0.5f * fov);
         M_proj[0][0] = M_proj[1][1] / aspect;
         M_proj[2][2] = far * inv_depth;
@@ -158,13 +163,8 @@ public:
 
     void convert_to_raster(const math::Vec3f &v_world, math::Vec3f &raster,
                            math::Vec3f &v_cam) {
-#ifdef ALPHA_DEBUG
-        std::cout << "\nWorld co-ords" << v_world;
-#endif
         world_to_cam.mult_vec_matrix(v_world, v_cam);
-#ifdef ALPHA_DEBUG
-        std::cout << "\nCam co-ords" << v_cam;
-#endif
+
         // Convert to clip space
         math::Vec3f v_clip;
         M_proj.mult_vec_matrix(v_cam, v_clip);
@@ -187,14 +187,14 @@ public:
     void set_world_to_cam(const math::Matrix44f& w2cam) {
         world_to_cam = w2cam;
         cam_to_world = w2cam.inverse();
-        cam_to_world.mult_dir_matrix(math::Vec3f(0), origin);
+        cam_to_world.mult_vec_matrix(math::Vec3f(0), origin);
     }
 
-	void set_cam_to_world(const math::Matrix44f& cam2world) {
-		cam_to_world = cam2world;
-		world_to_cam = cam2world.inverse();
-		cam_to_world.mult_dir_matrix(math::Vec3f(0), origin);
-	}
+    void set_cam_to_world(const math::Matrix44f& cam2world) {
+        cam_to_world = cam2world;
+        world_to_cam = cam2world.inverse();
+        cam_to_world.mult_vec_matrix(math::Vec3f(0), origin);
+    }
 
     Ray get_camera_ray(uint32_t i, uint32_t j) {
         assert(i < img_width);
@@ -213,38 +213,38 @@ public:
         return Ray(origin, dir);
     }
 
-	void look_at(const Vec3f& from, const Vec3f& to) {
-		Vec3f forward = (from - to).normalize();
-		Vec3f temp = { 0.f, 1.f, 0.f };
-		temp.normalize();
-		Vec3f rt = temp.cross_product(forward).normalize();
+    void look_at(const Vec3f& from, const Vec3f& to) {
+        Vec3f forward = (from - to).normalize();
+        Vec3f temp = { 0.f, 1.f, 0.f };
+        temp.normalize();
+        Vec3f rt = temp.cross_product(forward).normalize();
 
-		Vec3f up = forward.cross_product(rt).normalize();
+        Vec3f up = forward.cross_product(rt).normalize();
 
-		Matrix44f cam2world;
+        Matrix44f cam2world;
 
-		cam2world[0][0] = rt.x;
-		cam2world[0][1] = rt.y;
-		cam2world[0][2] = rt.z;
-		cam2world[0][3] = 0.f;
+        cam2world[0][0] = rt.x;
+        cam2world[0][1] = rt.y;
+        cam2world[0][2] = rt.z;
+        cam2world[0][3] = 0.f;
 
-		cam2world[1][0] = up.x;
-		cam2world[1][1] = up.y;
-		cam2world[1][2] = up.z;
-		cam2world[1][3] = 0.f;
+        cam2world[1][0] = up.x;
+        cam2world[1][1] = up.y;
+        cam2world[1][2] = up.z;
+        cam2world[1][3] = 0.f;
 
-		cam2world[2][0] = forward.x;
-		cam2world[2][1] = forward.y;
-		cam2world[2][2] = forward.z;
-		cam2world[2][3] = 0.f;
+        cam2world[2][0] = forward.x;
+        cam2world[2][1] = forward.y;
+        cam2world[2][2] = forward.z;
+        cam2world[2][3] = 0.f;
 
-		cam2world[3][0] = from.x;
-		cam2world[3][1] = from.y;
-		cam2world[3][2] = from.z;
-		cam2world[3][3] = 1.f;
+        cam2world[3][0] = from.x;
+        cam2world[3][1] = from.y;
+        cam2world[3][2] = from.z;
+        cam2world[3][3] = 1.f;
 
-		set_cam_to_world(cam2world);
-	}
+        set_cam_to_world(cam2world);
+    }
 }; // namespace camera
 } // namespace alpha
 
